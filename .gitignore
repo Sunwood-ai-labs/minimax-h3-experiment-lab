@@ -30,3 +30,4 @@ workflows/*
 *.ckpt
 *.pt
 *.pth
+hyperframes-kijai-parent-montage-2026-08-08/renders/*

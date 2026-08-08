@@ -64,3 +64,26 @@ X投稿の添付動画はXの公開メタデータ上、1344×768、6.583秒。�
 ## 結果
 
 完了。X動画の解像度・長さに寄せたローカル再現としては、Kijai LoRAをDocker ComposeのMiniMax-H3へ接続し、T2V/I2Vの両方で4-step生成できた。X投稿にないGPU、prompt、seed、sampler、schedulerを含む完全一致ではなく、出典条件に対する実験室内の部分一致である。
+
+## X親投稿用の概要動画
+
+4本の実生成MP4をHyperFramesで2×2に同期配置し、下部に共通条件・各samplerの実測時間・OOM結果を表示した比較モンタージュを作成した。親投稿にはこの概要動画を添付し、返信には各実験の元動画と詳細情報を添付する構成にしている。
+
+- Composition: [`hyperframes-kijai-parent-montage-2026-08-08/index.html`](../../../../hyperframes-kijai-parent-montage-2026-08-08/index.html)
+- Design: [`DESIGN.md`](../../../../DESIGN.md)
+- Output: [`MiniMax_H3_Kijai_LightX2V_parent_montage_1920x1080_24fps.mp4`](../../../../sunwood-x-simulator-kijai-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_parent_montage_1920x1080_24fps.mp4)
+- Format: `1920×1080 / 24fps / 158 frames / 6.583333 sec / H.264 + AAC stereo`
+- Output bytes: `14,134,491`
+- Output SHA-256: `77DD8806E45F8885F30A8C1528E40AED73DF819316C132D28DEAB60BF27F9F11`
+- Source media: 実験1〜4の4本のみ。AIによる差し替え素材は使用していない
+
+再現コマンド（Compositionディレクトリで実行）:
+
+```powershell
+npx hyperframes lint . --json
+npx hyperframes validate .
+npx hyperframes inspect . --json --samples 15
+npx hyperframes render . --output renders/MiniMax_H3_Kijai_LightX2V_parent_montage_1920x1080_24fps.mp4 --fps 24 --quality standard
+```
+
+検証結果: lint `ok`、WCAG AA `35 text elements pass`、inspect `0 issues`、render `158/158 frames`。

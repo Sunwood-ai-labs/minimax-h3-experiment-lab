@@ -6,8 +6,29 @@
   "simulatorUrl": "https://madesk.tail8be30.ts.net:8881/",
   "threadStructure": "parent overview -> four experiment replies -> two previous-experiment replies -> four reference-site replies",
   "parent": {
-    "text": "MiniMax-H3 Experiment Lab、Kijai LightX2V 4-stepをRTX 4090で検証したぞ！！！\n\nT2V / I2V × er_sde / sa_solverを同じDocker Compose環境で実行。\n各実験の動画・プロンプト・全パラメータ・処理時間・検査結果を返信に添付する🔥\n\n同条件ではsa_solverがer_sdeより速く、T2V / I2VともOOMなし。詳細はこのスレッドへ。",
-    "media": []
+    "text": "MiniMax-H3 Experiment Lab、Kijai LightX2V 4-stepをRTX 4090で検証したぞ！！！\n\nT2V / I2V × er_sde / sa_solverを同じDocker Compose環境で実行。\n親投稿には4本を同時比較した概要動画、返信には各実験の動画・プロンプト・全パラメータ・処理時間・検査結果を添付する🔥\n\n同条件ではsa_solverがer_sdeより速く、T2V / I2VともOOMなし。詳細はこのスレッドへ。",
+    "media": [
+      {
+        "path": "D:\\Prj\\minimax-h3-compose\\sunwood-x-simulator-kijai-2026-08-08\\assets\\MiniMax_H3_Kijai_LightX2V_parent_montage_1920x1080_24fps.mp4",
+        "simulatorPath": "sunwood-x-simulator-kijai-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_parent_montage_1920x1080_24fps.mp4",
+        "posterSimulatorPath": "sunwood-x-simulator-kijai-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_parent_montage_1920x1080_24fps_poster.png",
+        "provenance": "HyperFrames render from the four real generated RTX 4090 Docker Compose outputs; no replacement media",
+        "sha256": "77DD8806E45F8885F30A8C1528E40AED73DF819316C132D28DEAB60BF27F9F11",
+        "bytes": 14134491,
+        "dimensions": "1920x1080",
+        "fps": 24,
+        "frames": 158,
+        "durationSeconds": 6.583333,
+        "codec": "H.264 + AAC stereo",
+        "sourceExperiments": [
+          "t2v-er-sde",
+          "t2v-sa-solver",
+          "i2v-er-sde",
+          "i2v-sa-solver"
+        ],
+        "composition": "hyperframes-kijai-parent-montage-2026-08-08/index.html"
+      }
+    ]
   },
   "replies": [
     {

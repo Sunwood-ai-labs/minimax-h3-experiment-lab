@@ -15,7 +15,7 @@
       <div>
         <p class="eyebrow">SUNWOOD BUILD IN PUBLIC / SIMULATION ONLY</p>
         <h1>MiniMax-H3 × Kijai LightX2V</h1>
-        <p class="subtitle">概要1件＋実験返信4件＋前回実験2件＋参考サイト4件。実験返信には動画1本と、その動画のプロンプト・全パラメータ・処理時間・検査結果をまとめる。</p>
+        <p class="subtitle">概要1件＋比較モンタージュ動画1本＋実験返信4件＋前回実験2件＋参考サイト4件。実験返信には動画1本と、その動画のプロンプト・全パラメータ・処理時間・検査結果をまとめる。</p>
       </div>
       <div class="status">投稿前シミュレーション</div>
     </header>
@@ -39,14 +39,14 @@
         <h3>投稿チェック</h3>
         <ul>
           <li><span class="ok">✓</span><span>対象は <strong>@hAru_mAki_ch</strong></span></li>
-          <li><span class="ok">✓</span><span>概要1件＋実験4件＋前回2件＋参考4件</span></li>
+          <li><span class="ok">✓</span><span>概要1件＋比較動画＋実験4件＋前回2件＋参考4件</span></li>
           <li><span class="ok">✓</span><span>実験返信は各1本の動画を添付</span></li>
           <li><span class="ok">✓</span><span>動画ごとにprompt / params / resultを同じ返信へ集約</span></li>
-          <li><span class="ok">✓</span><span>親投稿にURLなし</span></li>
+          <li><span class="ok">✓</span><span>親投稿に4実験をまとめた動画を添付</span></li>
           <li><span class="ok">✓</span><span>返信ごとのURLは最大1個</span></li>
           <li><span class="ok">✓</span><span>実生成MP4・実測SHA-256・benchmark IDを照合</span></li>
         </ul>
-        <div class="note">これはシミュレーションのみ。Xへの送信はしていない。長い1スレッドの流れを、概要→実験→前回→参考サイトの順で確認できる。</div>
+        <div class="note">これはシミュレーションのみ。Xへの送信はしていない。長い1スレッドの流れを、概要動画→実験→前回→参考サイトの順で確認できる。</div>
         <div class="manifest"><p>共通環境</p><p><code>RTX 4090 · h3-4090 · Docker Compose · ComfyUI 0.30.0 · PyTorch 2.11.0+cu130 · 1344×768 · 158 frames · 24fps · 4 steps · LoRA 0.75</code></p><p>実験記録</p><p><code>experiments/2026-08-08/kijai-lightx2v-4step/README.md</code></p><p><code>runtime/4090/benchmark/h3-&lt;prompt-id&gt;.md</code></p></div>
       </aside>
     </div>
@@ -56,7 +56,7 @@
     const parentText = `MiniMax-H3 Experiment Lab、Kijai LightX2V 4-stepをRTX 4090で検証したぞ！！！
 
 T2V / I2V × er_sde / sa_solverを同じDocker Compose環境で実行。
-各実験の動画・プロンプト・全パラメータ・処理時間・検査結果を返信に添付する🔥
+親投稿には4本を同時比較した概要動画、返信には各実験の動画・プロンプト・全パラメータ・処理時間・検査結果を添付する🔥
 
 同条件ではsa_solverがer_sdeより速く、T2V / I2VともOOMなし。詳細はこのスレッドへ。`;
     const runs = [
@@ -221,7 +221,16 @@ https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo`
     ];
     const escapeHtml = (value) => value.replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const richText = (value) => escapeHtml(value).replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noreferrer">$1</a>');
-    const parent = `<article class="post main"><div class="avatar">M</div><div><div class="identity"><strong>makimaki</strong><span class="handle">@hAru_mAki_ch</span><span class="handle">· parent post</span></div><div class="post-text">${richText(parentText)}</div><div class="meta"><span>MiniMax-H3 Experiment Lab</span><span>parent 1 of 11</span></div></div></article>`;
+    const parentMontage = {
+      video: 'assets/MiniMax_H3_Kijai_LightX2V_parent_montage_1920x1080_24fps.mp4',
+      poster: 'assets/MiniMax_H3_Kijai_LightX2V_parent_montage_1920x1080_24fps_poster.png',
+      sha: '77DD8806E45F8885F30A8C1528E40AED73DF819316C132D28DEAB60BF27F9F11',
+      bytes: '14,134,491'
+    };
+    function renderParentMontage() {
+      return `<div class="media-shell parent-montage"><video controls preload="metadata" poster="${parentMontage.poster}"><source src="${parentMontage.video}" type="video/mp4"></video><div class="media-info"><div class="media-top"><strong>概要比較動画 · 4実験を同時表示</strong><span>HyperFrames · 1920×1080</span></div><div class="chips"><span class="chip">T2V × 2</span><span class="chip">I2V × 2</span><span class="chip">6.583 sec</span><span class="chip">24 fps</span><span class="chip">H.264 + AAC</span><span class="chip">OOMなし</span></div><p class="provenance">実動画4本を2×2で合成 · ${parentMontage.bytes} bytes · SHA-256: ${parentMontage.sha}</p></div></div>`;
+    }
+    const parent = `<article class="post main"><div class="avatar">M</div><div><div class="identity"><strong>makimaki</strong><span class="handle">@hAru_mAki_ch</span><span class="handle">· parent post</span></div><div class="post-text">${richText(parentText)}</div>${renderParentMontage()}<div class="meta"><span>MiniMax-H3 Experiment Lab</span><span>parent 1 of 11</span></div></div></article>`;
     function renderRun(run, index) {
       return `<article class="post reply" data-run="${run.id}"><div class="avatar small">M</div><div><div class="replying">返信先: <span>直前の投稿</span></div><div class="identity"><strong>makimaki</strong><span class="handle">@hAru_mAki_ch</span><span class="handle">· 実験返信 ${index + 1} / 4</span></div><div class="post-text">${richText(run.text)}</div><div class="media-shell"><video controls preload="metadata" poster="${run.poster}"><source src="${run.video}" type="video/mp4"></video><div class="media-info"><div class="media-top"><strong>実生成動画 · 1/1</strong><span>RTX 4090 · ${run.label}</span></div><div class="chips"><span class="chip">1344×768</span><span class="chip">24 fps</span><span class="chip">158 frames</span><span class="chip">6.583 sec</span><span class="chip">4 steps</span><span class="chip">OOMなし</span><span class="chip">blackdetect 0</span></div><p class="provenance">wall: ${run.wall} · inference: ${run.inference} · ${run.bytes} bytes · SHA-256: ${run.sha} · prompt ID: ${run.promptId}</p></div></div><div class="meta"><span>実験動画 1本</span><span>${run.mode} / ${run.sampler}</span></div></div></article>`;
     }
