@@ -1,0 +1,119 @@
+name: minimax-h3
+
+x-build: &build
+  build:
+    context: .
+    dockerfile: Dockerfile
+    args:
+      COMFYUI_REF: ${COMFYUI_REF:-v0.30.0}
+      H3_TURBO_REF: ${H3_TURBO_REF:-a7624b4c00626a8ae7e78860769389d706565190}
+  image: local/minimax-h3-comfyui:${COMFYUI_REF:-v0.30.0}
+
+x-environment: &environment
+  HF_HOME: /opt/ComfyUI/user/huggingface
+  HF_HUB_DISABLE_TELEMETRY: "1"
+  PYTHONUNBUFFERED: "1"
+  PYTORCH_CUDA_ALLOC_CONF: expandable_segments:True
+  CUDA_MODULE_LOADING: LAZY
+
+x-common: &common
+  <<: *build
+  restart: unless-stopped
+  shm_size: 16gb
+  environment:
+    <<: *environment
+  volumes:
+    - ./models:/opt/ComfyUI/models:ro
+    - ./workflows:/opt/ComfyUI/workflows:ro
+
+services:
+  h3-4090:
+    <<: *common
+    profiles: ["4090"]
+    ports:
+      - "8188:8188"
+    environment:
+      <<: *environment
+      H3_MEMORY_USAGE_FACTOR: "1.0"
+      NVIDIA_VISIBLE_DEVICES: ${GPU_4090_UUID:-GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa}
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,video
+      CUDA_VISIBLE_DEVICES: ${GPU_4090_UUID:-GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["${GPU_4090_UUID:-GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa}"]
+              capabilities: [gpu]
+    volumes:
+      - ./models:/opt/ComfyUI/models:ro
+      - ./workflows:/opt/ComfyUI/workflows:ro
+      - ./runtime/4090/input:/opt/ComfyUI/input
+      - ./runtime/4090/output:/opt/ComfyUI/output
+      - ./runtime/4090/user:/opt/ComfyUI/user
+    command:
+      - --listen
+      - 0.0.0.0
+      - --port
+      - "8188"
+      - --disable-pinned-memory
+      - --fp16-intermediates
+      - --preview-method
+      - none
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8188/system_stats > /dev/null || exit 1"]
+      interval: 30s
+      timeout: 10s
+      start_period: 30s
+      retries: 5
+
+  h3-3060:
+    <<: *common
+    profiles: ["3060"]
+    ports:
+      - "8189:8188"
+    environment:
+      <<: *environment
+      NVIDIA_VISIBLE_DEVICES: ${GPU_3060_UUID:-GPU-580ccd21-cc60-0b38-9671-7a7e8f6a9efd}
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,video
+      CUDA_VISIBLE_DEVICES: ${GPU_3060_UUID:-GPU-580ccd21-cc60-0b38-9671-7a7e8f6a9efd}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["${GPU_3060_UUID:-GPU-580ccd21-cc60-0b38-9671-7a7e8f6a9efd}"]
+              capabilities: [gpu]
+    volumes:
+      - ./models:/opt/ComfyUI/models:ro
+      - ./workflows:/opt/ComfyUI/workflows:ro
+      - ./runtime/3060/input:/opt/ComfyUI/input
+      - ./runtime/3060/output:/opt/ComfyUI/output
+      - ./runtime/3060/user:/opt/ComfyUI/user
+    command:
+      - --listen
+      - 0.0.0.0
+      - --port
+      - "8188"
+      - --use-sage-attention
+      - --preview-method
+      - none
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8188/system_stats > /dev/null || exit 1"]
+      interval: 30s
+      timeout: 10s
+      start_period: 30s
+      retries: 5
+
+  model-downloader:
+    <<: *build
+    profiles: ["download"]
+    restart: "no"
+    environment:
+      <<: *environment
+      H3_MODEL_REPO: ${H3_MODEL_REPO:-Comfy-Org/MiniMax-H3}
+      H3_VARIANT: ${H3_VARIANT:-fl2va}
+      HF_HUB_DISABLE_XET: ${HF_HUB_DISABLE_XET:-1}
+    volumes:
+      - ./models:/opt/ComfyUI/models
+    entrypoint: ["/usr/local/bin/download-h3-model"]

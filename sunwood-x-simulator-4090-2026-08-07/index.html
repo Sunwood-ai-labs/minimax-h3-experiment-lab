@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MiniMax-H3 RTX 4090 T2V / I2V X投稿シミュレーター">
+  <title>Sunwood X Post Simulator — MiniMax-H3 RTX 4090</title>
+  <style>
+    :root { color-scheme: dark; --bg:#080b11; --panel:#131a25e8; --line:#ffffff1f; --muted:#9aa7ba; --text:#f5f7fb; --orange:#ff8a5c; --yellow:#ffd166; --green:#7be3ac; --blue:#85caff; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; color:var(--text); background:radial-gradient(circle at 5% 0%,#ff8a5c2c,transparent 30rem),radial-gradient(circle at 95% 8%,#4285f42a,transparent 32rem),var(--bg); font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.55; }
+    a { color:var(--blue); }
+    .wrap { width:min(1180px,calc(100% - 34px)); margin:0 auto; }
+    header { display:flex; justify-content:space-between; gap:24px; align-items:end; padding:34px 0 22px; }
+    .eyebrow,.label { margin:0; color:var(--yellow); letter-spacing:.15em; text-transform:uppercase; font-size:11px; font-weight:800; }
+    h1 { margin:5px 0 0; font-size:clamp(29px,4vw,48px); line-height:1.03; letter-spacing:-.045em; }
+    .subtitle { max-width:750px; margin:11px 0 0; color:var(--muted); }
+    .status { padding:7px 12px; color:var(--yellow); border:1px solid #ffd16666; border-radius:999px; white-space:nowrap; font-size:12px; }
+    .status::before { content:""; display:inline-block; width:7px; height:7px; margin-right:8px; border-radius:50%; background:var(--yellow); box-shadow:0 0 12px var(--yellow); }
+    .toolbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; padding:15px; border:1px solid var(--line); border-radius:16px; background:#111722b8; }
+    .toolbar-label { margin-right:auto; color:var(--muted); font-size:13px; }
+    button { font:inherit; }
+    .tab { cursor:pointer; padding:9px 14px; color:var(--muted); background:#10151e; border:1px solid var(--line); border-radius:999px; transition:.18s ease; }
+    .tab:hover,.tab.active { color:#11151d; background:var(--yellow); border-color:var(--yellow); }
+    .layout { display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:22px; align-items:start; margin:22px 0 54px; }
+    .thread { display:none; }
+    .thread.active { display:block; }
+    .thread-heading { display:flex; justify-content:space-between; gap:16px; align-items:start; margin:0 0 12px; }
+    h2 { margin:0; font-size:21px; }
+    .thread-heading p { margin:4px 0 0; color:var(--muted); font-size:13px; }
+    .badge { padding:4px 9px; color:var(--blue); border:1px solid #85caff66; border-radius:999px; white-space:nowrap; font-size:11px; }
+    .thread-flow { position:relative; padding-left:24px; }
+    .thread-flow::before { content:""; position:absolute; left:7px; top:24px; bottom:24px; width:2px; background:linear-gradient(var(--orange),#85caff66); }
+    .post { position:relative; display:grid; grid-template-columns:46px minmax(0,1fr); gap:13px; padding:18px; margin-bottom:12px; border:1px solid var(--line); border-radius:18px; background:var(--panel); box-shadow:0 18px 55px #0000002b; }
+    .post::before { content:""; position:absolute; left:-21px; top:28px; width:12px; height:12px; border:3px solid var(--bg); border-radius:50%; background:var(--orange); box-shadow:0 0 0 1px var(--orange); }
+    .post.reply::before { background:var(--blue); box-shadow:0 0 0 1px var(--blue); }
+    .avatar { display:grid; place-items:center; width:42px; height:42px; color:#131923; background:linear-gradient(135deg,var(--yellow),var(--orange)); border-radius:50%; font-weight:900; }
+    .avatar.small { width:34px; height:34px; font-size:13px; }
+    .identity { display:flex; flex-wrap:wrap; gap:7px; align-items:baseline; font-size:13px; }
+    .identity strong { font-size:14px; }
+    .handle,.replying,.meta { color:var(--muted); font-size:12px; }
+    .replying { margin-bottom:5px; }
+    .replying span { color:var(--blue); }
+    .post-text { margin:12px 0 15px; white-space:pre-line; font-size:16px; line-height:1.58; }
+    .main .post-text { font-size:17px; }
+    .media-shell { overflow:hidden; border:1px solid #ffffff24; border-radius:14px; background:#05070a; }
+    video { display:block; width:100%; aspect-ratio:1280/704; background:#05070a; }
+    .media-info { padding:11px 12px 12px; background:#ffffff0b; }
+    .media-top { display:flex; justify-content:space-between; gap:10px; font-size:12px; }
+    .media-top strong { color:var(--green); }
+    .chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+    .chip { padding:3px 7px; color:var(--muted); border:1px solid var(--line); border-radius:999px; font-size:11px; }
+    code.path { display:block; overflow-wrap:anywhere; margin-top:9px; color:#d8dfeb; font-size:10px; line-height:1.45; }
+    .provenance { margin:8px 0 0; color:var(--muted); font-size:11px; }
+    .reply-link { overflow-wrap:anywhere; margin-top:10px; padding:11px 12px; border:1px solid #85caff40; border-radius:12px; background:#85caff0f; font-size:13px; }
+    .reply-link a { display:block; margin-top:5px; }
+    .meta { display:flex; justify-content:space-between; gap:8px; margin-top:12px; padding-top:10px; border-top:1px solid var(--line); }
+    .review { position:sticky; top:18px; padding:18px; border:1px solid var(--line); border-radius:18px; background:var(--panel); }
+    .review h3 { margin:4px 0 14px; font-size:18px; }
+    .review ul { display:grid; gap:10px; margin:0; padding:0; list-style:none; }
+    .review li { display:grid; grid-template-columns:22px 1fr; gap:8px; color:#dbe2ed; font-size:13px; }
+    .ok { color:var(--green); font-weight:900; }
+    .note { margin-top:18px; padding:12px; border-left:3px solid var(--orange); background:#ff8a5c12; color:#e4e9f2; font-size:12px; }
+    .manifest { margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
+    .manifest p { margin:6px 0; color:var(--muted); font-size:12px; }
+    .manifest code { overflow-wrap:anywhere; color:#e7edf8; font-size:10px; }
+    .start-frame { display:grid; grid-template-columns:108px 1fr; gap:10px; align-items:center; margin-top:12px; padding:9px; border:1px solid var(--line); border-radius:12px; background:#ffffff08; }
+    .start-frame img { width:108px; aspect-ratio:1280/704; object-fit:cover; border-radius:8px; }
+    footer { padding:0 0 36px; color:var(--muted); font-size:12px; }
+    @media (max-width:850px) { header { display:block; } .status { display:inline-block; margin-top:16px; } .layout { grid-template-columns:1fr; } .review { position:static; } }
+    @media (max-width:560px) { .wrap { width:min(100% - 22px,1180px); } .post { grid-template-columns:36px minmax(0,1fr); gap:10px; padding:14px; } .avatar { width:34px; height:34px; font-size:12px; } .thread-heading { display:block; } .badge { display:inline-block; margin-top:8px; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <p class="eyebrow">SUNWOOD BUILD IN PUBLIC / 4090 FOLLOW-UP</p>
+        <h1>MiniMax-H3 × RTX 4090</h1>
+        <p class="subtitle">前回のRTX 3060 約720p実験から続けて、T2VとI2Vを別スレッドで確認。各メイン投稿には実生成動画を1本だけ添付。</p>
+      </div>
+      <div class="status">投稿済み — 6件検証済み</div>
+    </header>
+
+    <nav class="toolbar" aria-label="スレッド切り替え">
+      <span class="toolbar-label">対象: <strong>@hAru_mAki_ch</strong> / 2 threads / X書き込み済み</span>
+      <button class="tab active" data-thread="t2v">Thread A · T2V</button>
+      <button class="tab" data-thread="i2v">Thread B · I2V</button>
+    </nav>
+
+    <div class="layout">
+      <main>
+        <section class="thread active" id="t2v">
+          <div class="thread-heading"><div><h2>Thread A — RTX 4090 T2V</h2><p>1280×704 · 25 steps · 124 frames · wall 290.337 sec</p></div><span class="badge">main: 1 video</span></div>
+          <div class="thread-flow">
+            <article class="post main">
+              <div class="avatar">M</div>
+              <div>
+                <div class="identity"><strong>makimaki</strong><span class="handle">@hAru_mAki_ch</span><span class="handle">· main post</span></div>
+                <div class="post-text">MiniMax-H3 × Docker Compose、RTX 4090で約720p T2Vやってみた！！！
+
+3060編と同じ1280×704・25 steps・124 framesで生成。
+実測wall 4分50秒、OOMなし、blackdetectも0。
+
+4090、約720pでも4分台。これは速い🔥</div>
+                <div class="media-shell">
+                  <video controls preload="metadata" poster="./assets/MiniMax_H3_T2V_4090_1280x704_poster.png"><source src="./assets/MiniMax_H3_T2V_4090_1280x704.mp4" type="video/mp4"></video>
+                  <div class="media-info"><div class="media-top"><strong>実生成動画 · 1/1</strong><span>RTX 4090 · T2V</span></div><div class="chips"><span class="chip">1280×704</span><span class="chip">24 fps</span><span class="chip">124 frames</span><span class="chip">5.167 sec</span><span class="chip">OOMなし</span><span class="chip">blackdetect 0</span></div><code class="path">D:\Prj\minimax-h3-compose\runtime\4090\output\video\MiniMax_H3_T2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4</code><p class="provenance">SHA-256: 368E54C5FFD22EBD6DD901BC1C3800AA1470AA83EBC43EDBAA529C3B4C223D90 · 746,645 bytes</p></div>
+                </div>
+                <div class="meta"><span>ComfyUI / Docker Compose</span><span>post 1 of 3</span></div>
+              </div>
+            </article>
+            <article class="post reply"><div class="avatar small">M</div><div><div class="replying">返信先: <span>直前の投稿</span></div><div class="identity"><strong>makimaki</strong><span class="handle">@hAru_mAki_ch</span></div><div class="post-text">3060の約720p T2Vから続けて、4090でも同じ解像度・フレーム数を確認したぞ。
+<a href="https://x.com/hAru_mAki_ch/status/2085730512677855266" target="_blank" rel="noreferrer">https://x.com/hAru_mAki_ch/status/2085730512677855266</a></div><div class="reply-link">継続元の3060投稿<a href="https://x.com/hAru_mAki_ch/status/2085730512677855266" target="_blank" rel="noreferrer">Xで開く ↗</a></div><div class="meta"><span>linear reply</span><span>post 2 of 3</span></div></div></article>
+            <article class="post reply"><div class="avatar small">M</div><div><div class="replying">返信先: <span>直前の投稿</span></div><div class="identity"><strong>makimaki</strong><span class="handle">@hAru_mAki_ch</span></div><div class="post-text">4090のComfyUI実験ログ。workflow、Compose環境、処理時間、出力SHA-256まで記録しているぞ。
+<a href="https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo" target="_blank" rel="noreferrer">https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo</a></div><div class="reply-link">使用ノード／成果物<a href="https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo" target="_blank" rel="noreferrer">GitHubで開く ↗</a></div><div class="meta"><span>artifact reply</span><span>post 3 of 3</span></div></div></article>
+          </div>
+        </section>
+
+        <section class="thread" id="i2v">
+          <div class="thread-heading"><div><h2>Thread B — RTX 4090 I2V</h2><p>1280×704 · 25 steps · 124 frames · wall 275.309 sec</p></div><span class="badge">main: 1 video</span></div>
+          <div class="thread-flow">
+            <article class="post main">
+              <div class="avatar">M</div>
+              <div>
+                <div class="identity"><strong>makimaki</strong><span class="handle">@hAru_mAki_ch</span><span class="handle">· main post</span></div>
+                <div class="post-text">MiniMax-H3 × imagegen、RTX 4090で約720p I2Vやってみた！！！
+
+3060編と同じ開始フレームで、1280×704・25 steps・124 framesを生成。
+実測wall 4分35秒、OOMなし、blackdetectも0。
+
+I2Vも4分台。4090強い🔥</div>
+                <div class="media-shell">
+                  <video controls preload="metadata" poster="./assets/MiniMax_H3_I2V_4090_1280x704_poster.png"><source src="./assets/MiniMax_H3_I2V_4090_1280x704.mp4" type="video/mp4"></video>
+                  <div class="media-info"><div class="media-top"><strong>実生成動画 · 1/1</strong><span>RTX 4090 · I2V</span></div><div class="chips"><span class="chip">1280×704</span><span class="chip">24 fps</span><span class="chip">124 frames</span><span class="chip">5.167 sec</span><span class="chip">OOMなし</span><span class="chip">blackdetect 0</span></div><code class="path">D:\Prj\minimax-h3-compose\runtime\4090\output\video\MiniMax_H3_I2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4</code><p class="provenance">SHA-256: 8D99CA9A3ABD3B836AED8E694DA0D7B885C1770BC208241CD33B13637E60A39B · 1,098,548 bytes</p><div class="start-frame"><img src="./assets/MiniMax_H3_I2V_1280x704_start.png" alt="I2V start frame"><span>開始フレームは3060編と同じimagegen生成画像。SHA-256: BE63F90186D46A2860A463C70E4E3E76FDF95A19E98F9DB9E696CD7610D96CD8</span></div></div>
+                </div>
+                <div class="meta"><span>ComfyUI / Docker Compose</span><span>post 1 of 3</span></div>
+              </div>
+            </article>
+            <article class="post reply"><div class="avatar small">M</div><div><div class="replying">返信先: <span>直前の投稿</span></div><div class="identity"><strong>makimaki</strong><span class="handle">@hAru_mAki_ch</span></div><div class="post-text">3060の約720p I2Vから続けて、同じ開始フレームで4090も確認したぞ。
+<a href="https://x.com/hAru_mAki_ch/status/2085731260169953315" target="_blank" rel="noreferrer">https://x.com/hAru_mAki_ch/status/2085731260169953315</a></div><div class="reply-link">継続元の3060投稿<a href="https://x.com/hAru_mAki_ch/status/2085731260169953315" target="_blank" rel="noreferrer">Xで開く ↗</a></div><div class="meta"><span>linear reply</span><span>post 2 of 3</span></div></div></article>
+            <article class="post reply"><div class="avatar small">M</div><div><div class="replying">返信先: <span>直前の投稿</span></div><div class="identity"><strong>makimaki</strong><span class="handle">@hAru_mAki_ch</span></div><div class="post-text">4090のI2V実験ログ。workflow、Compose環境、処理時間、出力SHA-256まで記録しているぞ。
+<a href="https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo" target="_blank" rel="noreferrer">https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo</a></div><div class="reply-link">使用ノード／成果物<a href="https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo" target="_blank" rel="noreferrer">GitHubで開く ↗</a></div><div class="meta"><span>artifact reply</span><span>post 3 of 3</span></div></div></article>
+          </div>
+        </section>
+      </main>
+
+      <aside class="review">
+        <p class="label">PRE-PUBLISH REVIEW</p>
+        <h3>投稿チェック</h3>
+        <ul>
+          <li><span class="ok">✓</span><span>対象は <strong>@hAru_mAki_ch</strong></span></li>
+          <li><span class="ok">✓</span><span>2スレッド、各メインは動画1本</span></li>
+          <li><span class="ok">✓</span><span>メイン投稿にURLなし</span></li>
+          <li><span class="ok">✓</span><span>返信は直前投稿へ線形接続</span></li>
+          <li><span class="ok">✓</span><span>各返信はURLを1個だけ</span></li>
+          <li><span class="ok">✓</span><span>4090の実験レポート照合済み</span></li>
+          <li><span class="ok">✓</span><span>3060編の投稿履歴照合済み</span></li>
+        </ul>
+        <div class="note">この確認画面の内容でXへ投稿済みです。各メイン動画1本、返信の線形接続、URL展開先を実投稿で検証しています。</div>
+        <div class="manifest"><p>実験環境</p><p><code>Windows 11 Pro · Docker 29.4.3 · Compose 5.1.3 · ComfyUI 0.30.0 · PyTorch 2.11.0+cu130</code></p><p>ログ</p><p><code>D:\Prj\minimax-h3-compose\runtime\4090\benchmark\h3-061443d7-6d6f-43b3-8a5c-16e65c25c655.md</code></p><p><code>D:\Prj\minimax-h3-compose\runtime\4090\benchmark\h3-f26da7d6-5f00-4cd0-bd18-b384e5ffa4e1.md</code></p></div>
+      </aside>
+    </div>
+    <footer>MiniMax-H3 Docker Compose · RTX 4090 continuation · posted_after_approval · X API write: completed and verified</footer>
+  </div>
+  <script>
+    const tabs = [...document.querySelectorAll('.tab')];
+    const threads = [...document.querySelectorAll('.thread')];
+    tabs.forEach((tab) => tab.addEventListener('click', () => {
+      tabs.forEach((item) => item.classList.toggle('active', item === tab));
+      threads.forEach((thread) => thread.classList.toggle('active', thread.id === tab.dataset.thread));
+    }));
+  </script>
+</body>
+</html>

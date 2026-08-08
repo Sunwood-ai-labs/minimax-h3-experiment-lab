@@ -1,0 +1,12 @@
+{
+  "id": "YYYY-MM-DD-slug",
+  "date": "YYYY-MM-DD",
+  "status": "planned",
+  "hypothesis": "",
+  "sources": [],
+  "conditions": {},
+  "runs": [],
+  "artifacts": [],
+  "conclusion": "",
+  "limitations": []
+}

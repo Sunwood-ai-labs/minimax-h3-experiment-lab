@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MiniMax-H3 3060 T2V / I2V X投稿シミュレーター">
+  <title>Sunwood X Post Simulator — MiniMax-H3 3060</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090b10;
+      --panel: rgba(19, 23, 32, .88);
+      --panel-strong: #151b27;
+      --line: rgba(255, 255, 255, .12);
+      --muted: #98a3b5;
+      --text: #f4f7fb;
+      --accent: #ff7b4d;
+      --accent-2: #ffd166;
+      --ok: #79e2a8;
+      --blue: #7fc8ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(255, 123, 77, .17), transparent 29rem),
+        radial-gradient(circle at 92% 12%, rgba(71, 140, 255, .15), transparent 33rem),
+        var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+    a { color: var(--blue); }
+    .wrap { width: min(1180px, calc(100% - 36px)); margin: 0 auto; }
+    header { padding: 34px 0 22px; display: flex; justify-content: space-between; gap: 24px; align-items: end; }
+    .eyebrow, .kicker, .rail-label { margin: 0; color: var(--accent-2); letter-spacing: .14em; text-transform: uppercase; font-size: 11px; font-weight: 800; }
+    h1 { margin: 5px 0 0; font-size: clamp(28px, 4vw, 46px); line-height: 1.05; letter-spacing: -.04em; }
+    .subtitle { margin: 10px 0 0; color: var(--muted); max-width: 740px; }
+    .status { border: 1px solid rgba(121, 226, 168, .4); border-radius: 999px; padding: 7px 12px; color: var(--ok); white-space: nowrap; font-size: 12px; }
+    .status::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); margin-right: 8px; box-shadow: 0 0 12px var(--ok); }
+    .toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 15px; border: 1px solid var(--line); background: rgba(17, 21, 29, .7); border-radius: 16px; }
+    .toolbar-label { color: var(--muted); font-size: 13px; margin-right: auto; }
+    button { font: inherit; }
+    .tab { cursor: pointer; color: var(--muted); background: #10151e; border: 1px solid var(--line); padding: 9px 13px; border-radius: 999px; transition: .18s ease; }
+    .tab:hover, .tab.active { color: #11151d; background: var(--accent-2); border-color: var(--accent-2); }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 22px; align-items: start; margin: 22px 0 52px; }
+    .thread { display: none; }
+    .thread.active { display: block; }
+    .thread-heading { display: flex; justify-content: space-between; gap: 16px; align-items: start; margin: 0 0 12px; }
+    .thread-heading h2 { margin: 0; font-size: 20px; }
+    .thread-heading p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+    .badge { color: var(--blue); border: 1px solid rgba(127, 200, 255, .35); border-radius: 999px; padding: 4px 9px; font-size: 11px; white-space: nowrap; }
+    .thread-flow { position: relative; padding-left: 24px; }
+    .thread-flow::before { content: ""; position: absolute; left: 7px; top: 24px; bottom: 24px; width: 2px; background: linear-gradient(var(--accent), rgba(127, 200, 255, .35)); }
+    .post { position: relative; display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 13px; padding: 18px; margin-bottom: 12px; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); box-shadow: 0 18px 55px rgba(0,0,0,.17); }
+    .post::before { content: ""; position: absolute; left: -21px; top: 28px; width: 12px; height: 12px; border-radius: 50%; border: 3px solid var(--bg); background: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .post.reply::before { background: var(--blue); box-shadow: 0 0 0 1px var(--blue); }
+    .avatar { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; color: #141922; background: linear-gradient(135deg, var(--accent-2), var(--accent)); font-weight: 900; }
+    .avatar.small { width: 34px; height: 34px; font-size: 13px; }
+    .identity { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px; font-size: 13px; }
+    .identity strong { font-size: 14px; }
+    .handle, .replying, .meta { color: var(--muted); font-size: 12px; }
+    .replying { margin-bottom: 5px; }
+    .replying span { color: var(--blue); }
+    .post-text { margin: 12px 0 15px; white-space: pre-line; font-size: 16px; line-height: 1.58; }
+    .main .post-text { font-size: 17px; }
+    .media-shell { overflow: hidden; border: 1px solid rgba(255,255,255,.14); border-radius: 14px; background: #05070a; }
+    video { display: block; width: 100%; aspect-ratio: 1280 / 704; background: #05070a; }
+    .media-info { padding: 11px 12px 12px; background: rgba(255,255,255,.045); }
+    .media-top { display: flex; justify-content: space-between; gap: 10px; font-size: 12px; }
+    .media-top strong { color: var(--ok); }
+    .chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+    .chip { color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 3px 7px; font-size: 11px; }
+    code.path { display: block; overflow-wrap: anywhere; margin-top: 9px; color: #d5dbe7; font-size: 10px; line-height: 1.45; }
+    .provenance { margin: 8px 0 0; color: var(--muted); font-size: 11px; }
+    .reply-link { margin-top: 10px; padding: 11px 12px; border-radius: 12px; border: 1px solid rgba(127, 200, 255, .25); background: rgba(127, 200, 255, .06); font-size: 13px; overflow-wrap: anywhere; }
+    .reply-link a { display: block; margin-top: 5px; }
+    .meta { display: flex; justify-content: space-between; gap: 8px; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+    .review { position: sticky; top: 18px; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); padding: 18px; }
+    .review h3 { margin: 4px 0 14px; font-size: 18px; }
+    .review ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .review li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; color: #dbe2ed; font-size: 13px; }
+    .ok { color: var(--ok); font-weight: 900; }
+    .warn { color: var(--accent-2); font-weight: 900; }
+    .manifest { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+    .manifest p { margin: 6px 0; color: var(--muted); font-size: 12px; }
+    .manifest code { color: #e7edf8; overflow-wrap: anywhere; font-size: 10px; }
+    .note { margin-top: 18px; padding: 12px; border-left: 3px solid var(--accent); background: rgba(255, 123, 77, .07); color: #e4e9f2; font-size: 12px; }
+    footer { padding: 0 0 36px; color: var(--muted); font-size: 12px; }
+    @media (max-width: 850px) { .layout { grid-template-columns: 1fr; } .review { position: static; } header { align-items: start; flex-direction: column; } }
+    @media (max-width: 560px) { .wrap { width: min(100% - 20px, 1180px); } .thread-flow { padding-left: 16px; } .post { grid-template-columns: 34px minmax(0, 1fr); padding: 13px; gap: 9px; } .post::before { left: -14px; } .post-text, .main .post-text { font-size: 15px; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <p class="eyebrow">SUNWOOD POST LAB · PAYLOAD REVIEW</p>
+        <h1>MiniMax-H3 3060実験</h1>
+        <p class="subtitle">T2VとI2Vを、動画1本ずつの別スレッドに分けたX投稿シミュレーター。承認前に順序・本文・実ファイルを確認し、現在は投稿結果も読み戻し済みです。</p>
+      </div>
+      <div class="status">Tailscale preview · 投稿済み</div>
+    </header>
+
+    <div class="toolbar" aria-label="スレッド切替">
+      <span class="toolbar-label">Target: <strong>@hAru_mAki_ch</strong> · 2 threads · each main post has exactly 1 video</span>
+      <button class="tab active" data-thread="t2v">3060 T2V · 1280×704</button>
+      <button class="tab" data-thread="i2v">3060 I2V · 1280×704</button>
+    </div>
+
+    <div class="layout">
+      <main>
+        <section class="thread active" id="t2v" aria-labelledby="t2v-title">
+          <div class="thread-heading"><div><h2 id="t2v-title">スレッドA · 3060 T2V</h2><p>main → 調査元 reply → artifact reply</p></div><span class="badge">1 video / thread</span></div>
+          <div class="thread-flow">
+            <article class="post main">
+              <div class="avatar" aria-hidden="true">M</div>
+              <div>
+                <div class="identity"><strong>Maki / Sunwood AI Labs</strong><span class="handle">@hAru_mAki_ch · いま</span></div>
+                <p class="post-text">MiniMax-H3 × Docker Compose、RTX 3060で約720p T2Vやってみた！！！
+
+WSL再起動後に、1280×704、25 steps、124 framesを生成。
+実測wall 16分01秒、OOMなし、blackdetectも0。
+
+3060でも約720p、できたぞ🔥</p>
+                <div class="media-shell">
+                  <video controls playsinline preload="metadata" poster="./assets/h3_t2v_1280x704_wsl_restart_frame_0.1.png">
+                    <source src="./assets/MiniMax_H3_T2V_3060_1280x704_preview.mp4" type="video/mp4">
+                  </video>
+                  <div class="media-info">
+                    <div class="media-top"><strong>実生成動画 · attachment 1/1</strong><span>real evidence</span></div>
+                    <div class="chips"><span class="chip">1280×704</span><span class="chip">24 fps</span><span class="chip">124 frames</span><span class="chip">5.166667 s</span><span class="chip">25 steps</span><span class="chip">OOMなし</span><span class="chip">blackdetect 0</span></div>
+                    <code class="path">D:\Prj\minimax-h3-compose\runtime\3060\output\video\MiniMax_H3_T2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4</code>
+                    <p class="provenance">Provenance: real generated output from the verified 3060 Docker Compose run. No crop, edit, or redaction.</p>
+                  </div>
+                </div>
+                <div class="meta"><span>メイン投稿 · URLなし</span><span class="count" data-count-for="t2v-main">0 / 25,000</span></div>
+              </div>
+            </article>
+
+            <article class="post reply">
+              <div class="avatar small" aria-hidden="true">M</div>
+              <div>
+                <div class="replying">直前の投稿への返信 · <span>@hAru_mAki_ch</span></div>
+                <div class="identity"><strong>Maki / Sunwood AI Labs</strong><span class="handle">@hAru_mAki_ch · いま</span></div>
+                <p class="post-text">元にした3060条件の投稿はこちら。
+今回のDocker Compose検証では、WSL再起動後の1280×704まで追加で試したぞ。
+https://x.com/TlanoAI/status/2084940455809286397</p>
+                <div class="reply-link"><span>調査元 · 1 URL</span><a href="https://x.com/TlanoAI/status/2084940455809286397" target="_blank" rel="noopener">https://x.com/TlanoAI/status/2084940455809286397</a></div>
+                <div class="meta"><span>直前の投稿への返信</span><span class="count">0 / 25,000</span></div>
+              </div>
+            </article>
+
+            <article class="post reply">
+              <div class="avatar small" aria-hidden="true">M</div>
+              <div>
+                <div class="replying">直前の投稿への返信 · <span>@hAru_mAki_ch</span></div>
+                <div class="identity"><strong>Maki / Sunwood AI Labs</strong><span class="handle">@hAru_mAki_ch · いま</span></div>
+                <p class="post-text">使ったComfyUIノードと、今回の実験ログ。
+workflow／処理時間／出力SHA-256まで記録しているぞ。
+https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo</p>
+                <div class="reply-link"><span>artifact · 1 URL</span><a href="https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo" target="_blank" rel="noopener">https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo</a></div>
+                <div class="meta"><span>直前の返信への返信 · URLは1件</span><span class="count">0 / 25,000</span></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="thread" id="i2v" aria-labelledby="i2v-title">
+          <div class="thread-heading"><div><h2 id="i2v-title">スレッドB · 3060 I2V</h2><p>main → 調査元 reply → artifact reply</p></div><span class="badge">1 video / thread</span></div>
+          <div class="thread-flow">
+            <article class="post main">
+              <div class="avatar" aria-hidden="true">M</div>
+              <div>
+                <div class="identity"><strong>Maki / Sunwood AI Labs</strong><span class="handle">@hAru_mAki_ch · いま</span></div>
+                <p class="post-text">MiniMax-H3 × imagegen、RTX 3060で約720p I2Vやってみた！！！
+
+imagegenで作った開始フレームを接続して、1280×704、25 steps、124 framesを生成。
+実測wall 13分21秒、OOMなし、blackdetectも0。
+
+開始画像の構図を保ったまま霧が動いた。これは熱い🔥</p>
+                <div class="media-shell">
+                  <video controls playsinline preload="metadata" poster="./assets/h3_i2v_1280x704_wsl_restart_frame_0.1.png">
+                    <source src="./assets/MiniMax_H3_I2V_3060_1280x704_preview.mp4" type="video/mp4">
+                  </video>
+                  <div class="media-info">
+                    <div class="media-top"><strong>実生成動画 · attachment 1/1</strong><span>real evidence</span></div>
+                    <div class="chips"><span class="chip">1280×704</span><span class="chip">24 fps</span><span class="chip">124 frames</span><span class="chip">5.166667 s</span><span class="chip">25 steps</span><span class="chip">OOMなし</span><span class="chip">blackdetect 0</span></div>
+                    <code class="path">D:\Prj\minimax-h3-compose\runtime\3060\output\video\MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4</code>
+                    <p class="provenance">Provenance: real generated output from the verified 3060 Docker Compose run; the start frame was made with imagegen. No crop, edit, or redaction.</p>
+                  </div>
+                </div>
+                <div class="meta"><span>メイン投稿 · URLなし</span><span class="count" data-count-for="i2v-main">0 / 25,000</span></div>
+              </div>
+            </article>
+
+            <article class="post reply">
+              <div class="avatar small" aria-hidden="true">M</div>
+              <div>
+                <div class="replying">直前の投稿への返信 · <span>@hAru_mAki_ch</span></div>
+                <div class="identity"><strong>Maki / Sunwood AI Labs</strong><span class="handle">@hAru_mAki_ch · いま</span></div>
+                <p class="post-text">比較の起点にした3060条件の投稿。
+T2Vだけでなく、同じCompose環境でI2Vも確認したぞ。
+https://x.com/TlanoAI/status/2084940455809286397</p>
+                <div class="reply-link"><span>調査元 · 1 URL</span><a href="https://x.com/TlanoAI/status/2084940455809286397" target="_blank" rel="noopener">https://x.com/TlanoAI/status/2084940455809286397</a></div>
+                <div class="meta"><span>直前の投稿への返信</span><span class="count">0 / 25,000</span></div>
+              </div>
+            </article>
+
+            <article class="post reply">
+              <div class="avatar small" aria-hidden="true">M</div>
+              <div>
+                <div class="replying">直前の投稿への返信 · <span>@hAru_mAki_ch</span></div>
+                <div class="identity"><strong>Maki / Sunwood AI Labs</strong><span class="handle">@hAru_mAki_ch · いま</span></div>
+                <p class="post-text">I2Vの開始フレームはimagegenで作成。生成記録と処理時間を残しているぞ。
+使ったComfyUIノードはこちら。
+https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo</p>
+                <div class="reply-link"><span>artifact · 1 URL</span><a href="https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo" target="_blank" rel="noopener">https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo</a></div>
+                <div class="meta"><span>直前の返信への返信 · URLは1件</span><span class="count">0 / 25,000</span></div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <aside class="review" aria-label="公開前チェック">
+        <p class="kicker">PRE-FLIGHT</p>
+        <h3>Exact payload review</h3>
+        <ul>
+          <li><span class="ok">✓</span><span>対象は <strong>@hAru_mAki_ch</strong></span></li>
+          <li><span class="ok">✓</span><span>メイン本文はURLなし</span></li>
+          <li><span class="ok">✓</span><span>T2V / I2Vを別スレッド化</span></li>
+          <li><span class="ok">✓</span><span>各メイン投稿の動画は1本だけ</span></li>
+          <li><span class="ok">✓</span><span>返信は直前投稿へ線形接続</span></li>
+          <li><span class="ok">✓</span><span>返信ごとにURLは1件</span></li>
+          <li><span class="ok">✓</span><span>実生成MP4をインライン表示</span></li>
+          <li><span class="ok">✓</span><span>OOMなし / blackdetect 0を実験記録と照合</span></li>
+          <li><span class="ok">✓</span><span>Xへ投稿済み。6投稿を読み戻し検証済み</span></li>
+        </ul>
+        <div class="manifest">
+          <p><strong>検証済みartifact URL</strong></p>
+          <p><a href="https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo" target="_blank" rel="noopener">ComfyUI-MiniMax-H3-Turbo</a></p>
+          <p><strong>ローカル payload</strong></p>
+          <p><code>sunwood-x-thread-payload-2026-08-07.json</code></p>
+          <p><strong>Experiment reports</strong></p>
+          <p><code>runtime/3060/benchmark/h3-291fee87-c0b1-4cf3-a63c-df62f5ee6262.md</code></p>
+          <p><code>runtime/3060/benchmark/h3-b6ab37fa-1af5-4f45-b7e3-7d92d34056a9.md</code></p>
+        </div>
+        <div class="note">この画面で承認された2スレッドは投稿済みです。今後、本文・返信順・動画ファイルを変更する場合は再シミュレーションします。</div>
+      </aside>
+    </div>
+    <footer>Simulation only · no X API call · generated 2026-08-07 JST · exact media paths are shown for reproducibility.</footer>
+  </div>
+  <script>
+    const tabs = [...document.querySelectorAll('.tab')];
+    const threads = [...document.querySelectorAll('.thread')];
+    const normalize = (text) => text.replace(/\r/g, '').trim();
+    const count = (text) => [...text].length;
+
+    const mainTexts = {
+      't2v-main': `MiniMax-H3 × Docker Compose、RTX 3060で約720p T2Vやってみた！！！
+
+WSL再起動後に、1280×704、25 steps、124 framesを生成。
+実測wall 16分01秒、OOMなし、blackdetectも0。
+
+3060でも約720p、できたぞ🔥`,
+      'i2v-main': `MiniMax-H3 × imagegen、RTX 3060で約720p I2Vやってみた！！！
+
+imagegenで作った開始フレームを接続して、1280×704、25 steps、124 framesを生成。
+実測wall 13分21秒、OOMなし、blackdetectも0。
+
+開始画像の構図を保ったまま霧が動いた。これは熱い🔥`
+    };
+
+    document.querySelectorAll('.count').forEach((node) => {
+      const key = node.dataset.countFor;
+      const text = key ? mainTexts[key] : normalize(node.closest('.post').querySelector('.post-text').textContent);
+      node.textContent = `${count(text)} / 25,000`;
+    });
+
+    tabs.forEach((tab) => tab.addEventListener('click', () => {
+      tabs.forEach((item) => item.classList.toggle('active', item === tab));
+      threads.forEach((thread) => thread.classList.toggle('active', thread.id === tab.dataset.thread));
+    }));
+  </script>
+</body>
+</html>

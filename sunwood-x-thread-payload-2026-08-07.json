@@ -1,0 +1,101 @@
+{
+  "targetAccount": "@hAru_mAki_ch",
+  "status": "posted_after_approval",
+  "publishedAt": "2026-08-07T23:15:10+09:00",
+  "publishedPosts": {
+    "3060-t2v-1280x704": [
+      "https://x.com/hAru_mAki_ch/status/2085730512677855266",
+      "https://x.com/hAru_mAki_ch/status/2085730980636316050",
+      "https://x.com/hAru_mAki_ch/status/2085731132197527934"
+    ],
+    "3060-i2v-1280x704": [
+      "https://x.com/hAru_mAki_ch/status/2085731260169953315",
+      "https://x.com/hAru_mAki_ch/status/2085731363010093554",
+      "https://x.com/hAru_mAki_ch/status/2085731439577034821"
+    ]
+  },
+  "project": "MiniMax-H3 Docker Compose",
+  "sourceRepository": null,
+  "verifiedArtifactUrl": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo",
+  "researchSourceUrls": [
+    "https://x.com/TlanoAI/status/2084940455809286397"
+  ],
+  "threads": [
+    {
+      "id": "3060-t2v-1280x704",
+      "postMode": "progress",
+      "posts": [
+        {
+          "role": "main",
+          "text": "MiniMax-H3 × Docker Compose、RTX 3060で約720p T2Vやってみた！！！\n\nWSL再起動後に、1280×704、25 steps、124 framesを生成。\n実測wall 16分01秒、OOMなし、blackdetectも0。\n\n3060でも約720p、できたぞ🔥",
+          "media": [
+            {
+              "path": "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\output\\video\\MiniMax_H3_T2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
+              "relativeUrl": "./assets/MiniMax_H3_T2V_3060_1280x704_preview.mp4",
+              "poster": "./assets/h3_t2v_1280x704_wsl_restart_frame_0.1.png",
+              "provenance": "real generated output from the verified 3060 Docker Compose run",
+              "sha256": "BB7BC89D6279FA639165D80F1E894B43DCA3907AC2AF84BCCA3F52DA85222BB4",
+              "dimensions": "1280x704",
+              "fps": 24,
+              "frames": 124,
+              "durationSeconds": 5.166667,
+              "runnerWallSeconds": 961.655,
+              "blackdetectIntervalCount": 0
+            }
+          ]
+        },
+        {
+          "role": "reply",
+          "text": "元にした3060条件の投稿はこちら。\n今回のDocker Compose検証では、WSL再起動後の1280×704まで追加で試したぞ。\nhttps://x.com/TlanoAI/status/2084940455809286397",
+          "media": [],
+          "replyTarget": "immediately preceding post"
+        },
+        {
+          "role": "reply",
+          "text": "使ったComfyUIノードと、今回の実験ログ。\nworkflow／処理時間／出力SHA-256まで記録しているぞ。\nhttps://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo",
+          "media": [],
+          "replyTarget": "immediately preceding post"
+        }
+      ]
+    },
+    {
+      "id": "3060-i2v-1280x704",
+      "postMode": "progress",
+      "posts": [
+        {
+          "role": "main",
+          "text": "MiniMax-H3 × imagegen、RTX 3060で約720p I2Vやってみた！！！\n\nimagegenで作った開始フレームを接続して、1280×704、25 steps、124 framesを生成。\n実測wall 13分21秒、OOMなし、blackdetectも0。\n\n開始画像の構図を保ったまま霧が動いた。これは熱い🔥",
+          "media": [
+            {
+              "path": "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\output\\video\\MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
+              "relativeUrl": "./assets/MiniMax_H3_I2V_3060_1280x704_preview.mp4",
+              "poster": "./assets/h3_i2v_1280x704_wsl_restart_frame_0.1.png",
+              "provenance": "real generated output from the verified 3060 Docker Compose run; the start frame was made with imagegen",
+              "sha256": "5437ADD0A093793E72DE178F0F8744A4D0539805319A8C4797E831B0C7011BC4",
+              "dimensions": "1280x704",
+              "fps": 24,
+              "frames": 124,
+              "durationSeconds": 5.166667,
+              "runnerWallSeconds": 800.840,
+              "blackdetectIntervalCount": 0,
+              "startFramePath": "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\input\\MiniMax_H3_I2V_1280x704_start.png",
+              "startFrameSha256": "BE63F90186D46A2860A463C70E4E3E76FDF95A19E98F9DB9E696CD7610D96CD8"
+            }
+          ]
+        },
+        {
+          "role": "reply",
+          "text": "比較の起点にした3060条件の投稿。\nT2Vだけでなく、同じCompose環境でI2Vも確認したぞ。\nhttps://x.com/TlanoAI/status/2084940455809286397",
+          "media": [],
+          "replyTarget": "immediately preceding post"
+        },
+        {
+          "role": "reply",
+          "text": "I2Vの開始フレームはimagegenで作成。生成記録と処理時間を残しているぞ。\n使ったComfyUIノードはこちら。\nhttps://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo",
+          "media": [],
+          "replyTarget": "immediately preceding post"
+        }
+      ]
+    }
+  ]
+}
