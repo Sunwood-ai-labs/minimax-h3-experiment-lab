@@ -1,0 +1,90 @@
+﻿{
+    "gpu":  "3060",
+    "port":  8189,
+    "prompt_id":  "6983bd5f-e393-4bd7-b5e5-8a4eabdf779e",
+    "started_local":  "2026-08-07T18:04:04.9450969+09:00",
+    "ended_local":  "2026-08-07T18:08:35.2341018+09:00",
+    "wall_seconds":  270.289,
+    "status":  "success",
+    "low_vram":  true,
+    "conditions":  {
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\tlanoai_3060_api.json",
+                       "low_vram_requested":  true,
+                       "runtime":  {
+                                       "compose_service":  "h3-3060",
+                                       "dynamic_vram":  true,
+                                       "sage_attention_requested":  true,
+                                       "cuda_module_loading":  "LAZY"
+                                   },
+                       "width":  864,
+                       "height":  480,
+                       "frames":  124,
+                       "steps":  25,
+                       "scheduler":  "simple",
+                       "sampler":  "res_multistep",
+                       "base":  "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+                       "vae":  [
+                                   {
+                                       "node_id":  "4",
+                                       "vae_name":  "minimax_h3_video_vae_fp16.safetensors"
+                                   },
+                                   {
+                                       "node_id":  "5",
+                                       "vae_name":  "minimax_h3_audio_vae_fp32.safetensors"
+                                   }
+                               ],
+                       "easycache":  {
+                                         "reuse_threshold":  0.3,
+                                         "start_percent":  0.2,
+                                         "end_percent":  0.9,
+                                         "verbose":  false
+                                     },
+                       "seed":  2026080702
+                   },
+    "comfyui_log":  "h3-3060-1  | 2026-08-07T09:08:32.935916241Z \u001b[32m[INFO]\u001b[0m \u001b[32mPrompt executed in 267.98 seconds\u001b[0m",
+    "history_status":  {
+                           "status_str":  "success",
+                           "completed":  true,
+                           "messages":  [
+                                            [
+                                                "execution_start",
+                                                {
+                                                    "prompt_id":  "6983bd5f-e393-4bd7-b5e5-8a4eabdf779e",
+                                                    "timestamp":  1786093444972
+                                                }
+                                            ],
+                                            [
+                                                "execution_cached",
+                                                {
+                                                    "nodes":  [
+                                                                  "1",
+                                                                  "2",
+                                                                  "3",
+                                                                  "4",
+                                                                  "5",
+                                                                  "6",
+                                                                  "7",
+                                                                  "8",
+                                                                  "9"
+                                                              ],
+                                                    "prompt_id":  "6983bd5f-e393-4bd7-b5e5-8a4eabdf779e",
+                                                    "timestamp":  1786093444973
+                                                }
+                                            ],
+                                            [
+                                                "execution_success",
+                                                {
+                                                    "prompt_id":  "6983bd5f-e393-4bd7-b5e5-8a4eabdf779e",
+                                                    "timestamp":  1786093712935
+                                                }
+                                            ]
+                                        ]
+                       },
+    "output_files":  [
+                         {
+                             "FullName":  "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\output\\video\\MiniMax_H3_TlanoAI_3060_864x480_25step_easycache_sage_warm_inference_cu130_00001_.mp4",
+                             "Length":  463849,
+                             "LastWriteTime":  "\/Date(1786093712925)\/"
+                         }
+                     ]
+}

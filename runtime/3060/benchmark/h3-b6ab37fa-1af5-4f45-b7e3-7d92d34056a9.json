@@ -1,0 +1,585 @@
+﻿{
+    "gpu":  "3060",
+    "port":  8189,
+    "prompt_id":  "b6ab37fa-1af5-4f45-b7e3-7d92d34056a9",
+    "started_local":  "2026-08-07T22:11:51.8544805+09:00",
+    "ended_local":  "2026-08-07T22:25:12.6947561+09:00",
+    "wall_seconds":  800.84,
+    "status":  "success",
+    "low_vram":  true,
+    "low_vram_applied":  false,
+    "invocation":  {
+                       "gpu":  "3060",
+                       "port":  8189,
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\tlanoai_i2v_1280x704_api.json",
+                       "output_prefix":  "video/MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart",
+                       "low_vram":  true,
+                       "seed":  2026080708,
+                       "timeout_seconds":  14400,
+                       "skip_model_hashes":  false
+                   },
+    "conditions":  {
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\tlanoai_i2v_1280x704_api.json",
+                       "low_vram_requested":  true,
+                       "low_vram_applied":  false,
+                       "runtime":  {
+                                       "compose_service":  "h3-3060",
+                                       "dynamic_vram":  true,
+                                       "sage_attention_requested":  true,
+                                       "cuda_module_loading":  "LAZY"
+                                   },
+                       "width":  1280,
+                       "height":  704,
+                       "frames":  124,
+                       "steps":  25,
+                       "scheduler":  "simple",
+                       "sampler":  "res_multistep",
+                       "base":  "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+                       "text_encoder":  "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+                       "vae":  [
+                                   {
+                                       "node_id":  "4",
+                                       "vae_name":  "minimax_h3_video_vae_fp16.safetensors"
+                                   },
+                                   {
+                                       "node_id":  "5",
+                                       "vae_name":  "minimax_h3_audio_vae_fp32.safetensors"
+                                   }
+                               ],
+                       "easycache":  {
+                                         "reuse_threshold":  0.3,
+                                         "start_percent":  0.2,
+                                         "end_percent":  0.9,
+                                         "verbose":  false
+                                     },
+                       "input_images":  [
+                                            "MiniMax_H3_I2V_1280x704_start.png"
+                                        ],
+                       "seed":  2026080708
+                   },
+    "environment":  {
+                        "captured_local":  "2026-08-07T22:25:49.4573131+09:00",
+                        "host":  {
+                                     "os":  {
+                                                "Caption":  "Microsoft Windows 11 Pro",
+                                                "Version":  "10.0.26200",
+                                                "BuildNumber":  "26200",
+                                                "OSArchitecture":  "64-bit",
+                                                "LastBootUpTime":  "\/Date(1785270124500)\/"
+                                            },
+                                     "computer":  {
+                                                      "Manufacturer":  "Micro-Star International Co., Ltd.",
+                                                      "Model":  "MS-7D88",
+                                                      "TotalPhysicalMemory":  137270165504
+                                                  },
+                                     "powershell":  "5.1.26100.8875",
+                                     "culture":  "ja-JP",
+                                     "timezone":  "Tokyo Standard Time"
+                                 },
+                        "docker":  {
+                                       "server":  {
+                                                      "available":  true,
+                                                      "path":  "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe",
+                                                      "exit_code":  0,
+                                                      "output":  [
+                                                                     "29.4.3"
+                                                                 ]
+                                                  },
+                                       "compose":  {
+                                                       "available":  true,
+                                                       "path":  "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe",
+                                                       "exit_code":  0,
+                                                       "output":  [
+                                                                      "5.1.3"
+                                                                  ]
+                                                   },
+                                       "container_id":  "7a9093ad2b3f2a7603b661393be5f5dab29fedec61b99534d25842cdb832f0d8",
+                                       "image_id":  "sha256:38005038907d58cec68c163448251a5578328a57bae6bde589db306bf2ed4736",
+                                       "image":  {
+                                                     "id":  "sha256:38005038907d58cec68c163448251a5578328a57bae6bde589db306bf2ed4736",
+                                                     "repo_tags":  [
+                                                                       "local/minimax-h3-comfyui:v0.30.0"
+                                                                   ],
+                                                     "repo_digests":  [
+                                                                          "local/minimax-h3-comfyui@sha256:38005038907d58cec68c163448251a5578328a57bae6bde589db306bf2ed4736"
+                                                                      ],
+                                                     "created":  "2026-08-07T09:28:06.507868622Z",
+                                                     "size":  3934734741
+                                                 }
+                                   },
+                        "container_system_stats":  {
+                                                       "system":  {
+                                                                      "os":  "linux",
+                                                                      "ram_total":  116045905920,
+                                                                      "ram_free":  60824133632,
+                                                                      "comfyui_version":  "0.30.0",
+                                                                      "required_frontend_version":  "1.47.11",
+                                                                      "installed_templates_version":  "0.11.27",
+                                                                      "required_templates_version":  "0.11.27",
+                                                                      "comfy_package_versions":  [
+                                                                                                     {
+                                                                                                         "name":  "comfyui-frontend-package",
+                                                                                                         "installed":  "1.47.11",
+                                                                                                         "required":  "1.47.11"
+                                                                                                     },
+                                                                                                     {
+                                                                                                         "name":  "comfyui-workflow-templates",
+                                                                                                         "installed":  "0.11.27",
+                                                                                                         "required":  "0.11.27"
+                                                                                                     },
+                                                                                                     {
+                                                                                                         "name":  "comfyui-embedded-docs",
+                                                                                                         "installed":  "0.5.9",
+                                                                                                         "required":  "0.5.9"
+                                                                                                     },
+                                                                                                     {
+                                                                                                         "name":  "comfy-kitchen",
+                                                                                                         "installed":  "0.2.26",
+                                                                                                         "required":  "0.2.26"
+                                                                                                     },
+                                                                                                     {
+                                                                                                         "name":  "comfy-aimdo",
+                                                                                                         "installed":  "0.4.11",
+                                                                                                         "required":  "0.4.11"
+                                                                                                     }
+                                                                                                 ],
+                                                                      "python_version":  "3.12.3 (main, Mar  3 2026, 12:15:18) [GCC 13.3.0]",
+                                                                      "pytorch_version":  "2.11.0+cu130",
+                                                                      "embedded_python":  false,
+                                                                      "deploy_environment":  "local-git",
+                                                                      "argv":  [
+                                                                                   "/opt/ComfyUI/main.py",
+                                                                                   "--listen",
+                                                                                   "0.0.0.0",
+                                                                                   "--port",
+                                                                                   "8188",
+                                                                                   "--use-sage-attention",
+                                                                                   "--preview-method",
+                                                                                   "none"
+                                                                               ]
+                                                                  },
+                                                       "devices":  [
+                                                                       {
+                                                                           "name":  "cuda:0 NVIDIA GeForce RTX 3060 : native",
+                                                                           "type":  "cuda",
+                                                                           "index":  0,
+                                                                           "vram_total":  12884377600,
+                                                                           "vram_free":  3741866496,
+                                                                           "torch_vram_total":  8006926336,
+                                                                           "torch_vram_free":  24664576
+                                                                       }
+                                                                   ]
+                                                   },
+                        "nvidia_smi":  {
+                                           "available":  true,
+                                           "path":  "C:\\WINDOWS\\system32\\nvidia-smi.exe",
+                                           "exit_code":  0,
+                                           "output":  [
+                                                          "NVIDIA GeForce RTX 3060, GPU-580ccd21-cc60-0b38-9671-7a7e8f6a9efd, 591.86, 12288 MiB, 8470 MiB, 50",
+                                                          "NVIDIA GeForce RTX 4090, GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa, 591.86, 24564 MiB, 636 MiB, 39"
+                                                      ]
+                                       },
+                        "project_files":  [
+                                              {
+                                                  "path":  "workflows\\tlanoai_i2v_1280x704_api.json",
+                                                  "bytes":  3201,
+                                                  "sha256":  "F15500F64C8413F791796E58A5F683A8E288E4F7FBCE1C28D6ECD4CFFE35FC7E"
+                                              },
+                                              {
+                                                  "path":  "compose.yaml",
+                                                  "bytes":  3446,
+                                                  "sha256":  "B8721BE65DBA2F1CE76A8734426CC4725BC066CB08035265CC97D795895EFDAF"
+                                              },
+                                              {
+                                                  "path":  "Dockerfile",
+                                                  "bytes":  2059,
+                                                  "sha256":  "D882758EE1C0342787156578637046508FC68A0D76495990B6BFBFFF0C7C982F"
+                                              },
+                                              {
+                                                  "path":  "scripts\\run-h3-post-condition.ps1",
+                                                  "bytes":  20128,
+                                                  "sha256":  "BB31E2ADAD448B6A9FF1383E2853B5EBA4B85B568D020B21C8BFDF4021AED597"
+                                              },
+                                              {
+                                                  "path":  "docker\\entrypoint.sh",
+                                                  "bytes":  1385,
+                                                  "sha256":  "FD0698DFA84F57E64A76A0A7A7B8B40FBCF01742FC0BE310CC2B6E678B852B82"
+                                              },
+                                              {
+                                                  "path":  "docker\\h3-runtime-patch.py",
+                                                  "bytes":  4134,
+                                                  "sha256":  "A97F430882B25B113A407B2EC68C205FF87DA444C87611FD490C664158796C9A"
+                                              },
+                                              {
+                                                  "path":  "docker\\download-h3-model.sh",
+                                                  "bytes":  2262,
+                                                  "sha256":  "A0B90B4536E0853A114D0F8B2E7E544F1339A2364EA468D5A333D4D7D64EA6AC"
+                                              },
+                                              {
+                                                  "path":  "assets\\i2v_start_frame_generation.md",
+                                                  "bytes":  2211,
+                                                  "sha256":  "AF42EF84D4E0D68B549D34F07662D46C4B586F1BC90B2D785177D8282C142F76"
+                                              },
+                                              {
+                                                  "path":  "assets\\i2v_start_frame_1280x704.png",
+                                                  "bytes":  1081736,
+                                                  "sha256":  "BE63F90186D46A2860A463C70E4E3E76FDF95A19E98F9DB9E696CD7610D96CD8"
+                                              },
+                                              {
+                                                  "path":  "assets\\i2v_start_frame_864x480.png",
+                                                  "bytes":  515647,
+                                                  "sha256":  "6E075DDA3C2E5D1F7B0A9E2C1422504A11CFF353947BB10C348628F5237B7F58"
+                                              }
+                                          ],
+                        "model_files":  [
+                                            {
+                                                "file_name":  "minimax_h3_audio_vae_fp32.safetensors",
+                                                "found":  true,
+                                                "path":  "models\\vae\\minimax_h3_audio_vae_fp32.safetensors",
+                                                "bytes":  605254808,
+                                                "sha256":  "8E505D95DD1561D47ABD43D4238FD40D9BB1AE9E147ED0A4CBA778D76AE4DB48",
+                                                "hash_status":  "sha256"
+                                            },
+                                            {
+                                                "file_name":  "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+                                                "found":  true,
+                                                "path":  "models\\diffusion_models\\minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+                                                "bytes":  20970379616,
+                                                "sha256":  "E889202C41DAFB67B10D67B97F0D8541508036A6090AF23425A5C2615D03C47A",
+                                                "hash_status":  "sha256"
+                                            },
+                                            {
+                                                "file_name":  "minimax_h3_video_vae_fp16.safetensors",
+                                                "found":  true,
+                                                "path":  "models\\vae\\minimax_h3_video_vae_fp16.safetensors",
+                                                "bytes":  5207808496,
+                                                "sha256":  "7C1F131492E7EDDACAAC9069A61B81BDD39DE5CC96561E677C5EAB1CDCE5E522",
+                                                "hash_status":  "sha256"
+                                            },
+                                            {
+                                                "file_name":  "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+                                                "found":  true,
+                                                "path":  "models\\text_encoders\\qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+                                                "bytes":  15687142551,
+                                                "sha256":  "35A88D51044231FE332301D7A62AA81E3F2CBA62FEBEB446E2C1E3E0EF76F2C6",
+                                                "hash_status":  "sha256"
+                                            }
+                                        ],
+                        "input_assets":  [
+                                             {
+                                                 "file_name":  "MiniMax_H3_I2V_1280x704_start.png",
+                                                 "found":  true,
+                                                 "path":  "runtime\\3060\\input\\MiniMax_H3_I2V_1280x704_start.png",
+                                                 "bytes":  1081736,
+                                                 "sha256":  "BE63F90186D46A2860A463C70E4E3E76FDF95A19E98F9DB9E696CD7610D96CD8",
+                                                 "ffprobe":  {
+                                                                 "streams":  [
+                                                                                 {
+                                                                                     "index":  0,
+                                                                                     "codec_name":  "png",
+                                                                                     "codec_long_name":  "PNG (Portable Network Graphics) image",
+                                                                                     "codec_type":  "video",
+                                                                                     "codec_tag_string":  "[0][0][0][0]",
+                                                                                     "codec_tag":  "0x0000",
+                                                                                     "width":  1280,
+                                                                                     "height":  704,
+                                                                                     "coded_width":  1280,
+                                                                                     "coded_height":  704,
+                                                                                     "has_b_frames":  0,
+                                                                                     "pix_fmt":  "rgb24",
+                                                                                     "level":  -99,
+                                                                                     "color_range":  "pc",
+                                                                                     "color_space":  "gbr",
+                                                                                     "r_frame_rate":  "25/1",
+                                                                                     "avg_frame_rate":  "25/1",
+                                                                                     "time_base":  "1/25",
+                                                                                     "disposition":  {
+                                                                                                         "default":  0,
+                                                                                                         "dub":  0,
+                                                                                                         "original":  0,
+                                                                                                         "comment":  0,
+                                                                                                         "lyrics":  0,
+                                                                                                         "karaoke":  0,
+                                                                                                         "forced":  0,
+                                                                                                         "hearing_impaired":  0,
+                                                                                                         "visual_impaired":  0,
+                                                                                                         "clean_effects":  0,
+                                                                                                         "attached_pic":  0,
+                                                                                                         "timed_thumbnails":  0,
+                                                                                                         "non_diegetic":  0,
+                                                                                                         "captions":  0,
+                                                                                                         "descriptions":  0,
+                                                                                                         "metadata":  0,
+                                                                                                         "dependent":  0,
+                                                                                                         "still_image":  0,
+                                                                                                         "multilayer":  0
+                                                                                                     }
+                                                                                 }
+                                                                             ],
+                                                                 "format":  {
+                                                                                "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\input\\MiniMax_H3_I2V_1280x704_start.png",
+                                                                                "nb_streams":  1,
+                                                                                "nb_programs":  0,
+                                                                                "nb_stream_groups":  0,
+                                                                                "format_name":  "png_pipe",
+                                                                                "format_long_name":  "piped png sequence",
+                                                                                "size":  "1081736",
+                                                                                "probe_score":  99
+                                                                            }
+                                                             }
+                                             }
+                                         ],
+                        "model_hashes_skipped":  false
+                    },
+    "comfyui_log":  "h3-3060-1  | 2026-08-07T13:25:08.023159671Z \u001b[32m[INFO]\u001b[0m \u001b[32mPrompt executed in 00:13:16\u001b[0m",
+    "history_status":  {
+                           "status_str":  "success",
+                           "completed":  true,
+                           "messages":  [
+                                            [
+                                                "execution_start",
+                                                {
+                                                    "prompt_id":  "b6ab37fa-1af5-4f45-b7e3-7d92d34056a9",
+                                                    "timestamp":  1786108311906
+                                                }
+                                            ],
+                                            [
+                                                "execution_cached",
+                                                {
+                                                    "nodes":  [
+                                                                  "1",
+                                                                  "2",
+                                                                  "3",
+                                                                  "4",
+                                                                  "5",
+                                                                  "8",
+                                                                  "9"
+                                                              ],
+                                                    "prompt_id":  "b6ab37fa-1af5-4f45-b7e3-7d92d34056a9",
+                                                    "timestamp":  1786108311921
+                                                }
+                                            ],
+                                            [
+                                                "execution_success",
+                                                {
+                                                    "prompt_id":  "b6ab37fa-1af5-4f45-b7e3-7d92d34056a9",
+                                                    "timestamp":  1786109108022
+                                                }
+                                            ]
+                                        ]
+                       },
+    "output_files":  [
+                         {
+                             "FullName":  "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\output\\video\\MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
+                             "Length":  1569004,
+                             "LastWriteTime":  "\/Date(1786109108020)\/"
+                         }
+                     ],
+    "media_evidence":  [
+                           {
+                               "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\output\\video\\MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
+                               "bytes":  1569004,
+                               "last_write_time":  "\/Date(1786109108020)\/",
+                               "ffprobe":  {
+                                               "streams":  [
+                                                               {
+                                                                   "index":  0,
+                                                                   "codec_name":  "h264",
+                                                                   "codec_long_name":  "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+                                                                   "profile":  "High",
+                                                                   "codec_type":  "video",
+                                                                   "codec_tag_string":  "avc1",
+                                                                   "codec_tag":  "0x31637661",
+                                                                   "mime_codec_string":  "avc1.64001f",
+                                                                   "width":  1280,
+                                                                   "height":  704,
+                                                                   "coded_width":  1280,
+                                                                   "coded_height":  704,
+                                                                   "has_b_frames":  2,
+                                                                   "pix_fmt":  "yuv420p",
+                                                                   "level":  31,
+                                                                   "chroma_location":  "left",
+                                                                   "field_order":  "progressive",
+                                                                   "is_avc":  "true",
+                                                                   "nal_length_size":  "4",
+                                                                   "id":  "0x1",
+                                                                   "r_frame_rate":  "24/1",
+                                                                   "avg_frame_rate":  "24/1",
+                                                                   "time_base":  "1/12288",
+                                                                   "start_pts":  0,
+                                                                   "start_time":  "0.000000",
+                                                                   "duration_ts":  63488,
+                                                                   "duration":  "5.166667",
+                                                                   "bit_rate":  "2288034",
+                                                                   "bits_per_raw_sample":  "8",
+                                                                   "nb_frames":  "124",
+                                                                   "extradata_size":  46,
+                                                                   "disposition":  {
+                                                                                       "default":  1,
+                                                                                       "dub":  0,
+                                                                                       "original":  0,
+                                                                                       "comment":  0,
+                                                                                       "lyrics":  0,
+                                                                                       "karaoke":  0,
+                                                                                       "forced":  0,
+                                                                                       "hearing_impaired":  0,
+                                                                                       "visual_impaired":  0,
+                                                                                       "clean_effects":  0,
+                                                                                       "attached_pic":  0,
+                                                                                       "timed_thumbnails":  0,
+                                                                                       "non_diegetic":  0,
+                                                                                       "captions":  0,
+                                                                                       "descriptions":  0,
+                                                                                       "metadata":  0,
+                                                                                       "dependent":  0,
+                                                                                       "still_image":  0,
+                                                                                       "multilayer":  0
+                                                                                   },
+                                                                   "tags":  {
+                                                                                "language":  "und",
+                                                                                "handler_name":  "VideoHandler"
+                                                                            }
+                                                               },
+                                                               {
+                                                                   "index":  1,
+                                                                   "codec_name":  "aac",
+                                                                   "codec_long_name":  "AAC (Advanced Audio Coding)",
+                                                                   "profile":  "LC",
+                                                                   "codec_type":  "audio",
+                                                                   "codec_tag_string":  "mp4a",
+                                                                   "codec_tag":  "0x6134706d",
+                                                                   "mime_codec_string":  "mp4a.40.2",
+                                                                   "sample_fmt":  "fltp",
+                                                                   "sample_rate":  "32000",
+                                                                   "channels":  2,
+                                                                   "channel_layout":  "stereo",
+                                                                   "bits_per_sample":  0,
+                                                                   "initial_padding":  0,
+                                                                   "id":  "0x2",
+                                                                   "r_frame_rate":  "0/0",
+                                                                   "avg_frame_rate":  "0/0",
+                                                                   "time_base":  "1/32000",
+                                                                   "start_pts":  0,
+                                                                   "start_time":  "0.000000",
+                                                                   "duration_ts":  165344,
+                                                                   "duration":  "5.167000",
+                                                                   "bit_rate":  "128544",
+                                                                   "nb_frames":  "163",
+                                                                   "extradata_size":  5,
+                                                                   "disposition":  {
+                                                                                       "default":  1,
+                                                                                       "dub":  0,
+                                                                                       "original":  0,
+                                                                                       "comment":  0,
+                                                                                       "lyrics":  0,
+                                                                                       "karaoke":  0,
+                                                                                       "forced":  0,
+                                                                                       "hearing_impaired":  0,
+                                                                                       "visual_impaired":  0,
+                                                                                       "clean_effects":  0,
+                                                                                       "attached_pic":  0,
+                                                                                       "timed_thumbnails":  0,
+                                                                                       "non_diegetic":  0,
+                                                                                       "captions":  0,
+                                                                                       "descriptions":  0,
+                                                                                       "metadata":  0,
+                                                                                       "dependent":  0,
+                                                                                       "still_image":  0,
+                                                                                       "multilayer":  0
+                                                                                   },
+                                                                   "tags":  {
+                                                                                "language":  "und",
+                                                                                "handler_name":  "SoundHandler"
+                                                                            }
+                                                               }
+                                                           ],
+                                               "format":  {
+                                                              "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\output\\video\\MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
+                                                              "nb_streams":  2,
+                                                              "nb_programs":  0,
+                                                              "nb_stream_groups":  0,
+                                                              "format_name":  "mov,mp4,m4a,3gp,3g2,mj2",
+                                                              "format_long_name":  "QuickTime / MOV",
+                                                              "start_time":  "0.000000",
+                                                              "duration":  "5.167000",
+                                                              "size":  "1569004",
+                                                              "bit_rate":  "2429268",
+                                                              "probe_score":  100,
+                                                              "tags":  {
+                                                                           "major_brand":  "isom",
+                                                                           "minor_version":  "512",
+                                                                           "compatible_brands":  "isomiso2avc1mp41",
+                                                                           "prompt":  "{\"1\": {\"class_type\": \"UNETLoader\", \"inputs\": {\"unet_name\": \"minimax_h3_fl2va_pruned_int8_convrot.safetensors\", \"weight_dtype\": \"default\"}}, \"2\": {\"class_type\": \"EasyCache\", \"inputs\": {\"model\": [\"1\", 0], \"reuse_threshold\": 0.3, \"start_percent\": 0.2, \"end_percent\": 0.9, \"verbose\": false}}, \"3\": {\"class_type\": \"CLIPLoader\", \"inputs\": {\"clip_name\": \"qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\", \"type\": \"minimax\", \"device\": \"default\"}}, \"4\": {\"class_type\": \"VAELoader\", \"inputs\": {\"vae_name\": \"minimax_h3_video_vae_fp16.safetensors\"}}, \"5\": {\"class_type\": \"VAELoader\", \"inputs\": {\"vae_name\": \"minimax_h3_audio_vae_fp32.safetensors\"}}, \"6\": {\"class_type\": \"MiniMaxH3ImageToVideo\", \"inputs\": {\"clip\": [\"3\", 0], \"vae\": [\"4\", 0], \"width\": 1280, \"height\": 704, \"length\": 124, \"prompt\": \"Animate the supplied sunrise lake start frame into a calm cinematic five-second shot. Preserve the mountain silhouette and composition, add gentle camera movement, natural mist drifting over the water, subtle ripples and ambient birds and soft wind, no text.\", \"first_frame\": [\"16\", 0]}}, \"7\": {\"class_type\": \"BasicGuider\", \"inputs\": {\"model\": [\"2\", 0], \"conditioning\": [\"6\", 0]}}, \"8\": {\"class_type\": \"KSamplerSelect\", \"inputs\": {\"sampler_name\": \"res_multistep\"}}, \"9\": {\"class_type\": \"BasicScheduler\", \"inputs\": {\"model\": [\"2\", 0], \"scheduler\": \"simple\", \"steps\": 25, \"denoise\": 1.0}}, \"10\": {\"class_type\": \"RandomNoise\", \"inputs\": {\"noise_seed\": 2026080708}}, \"11\": {\"class_type\": \"SamplerCustomAdvanced\", \"inputs\": {\"noise\": [\"10\", 0], \"guider\": [\"7\", 0], \"sampler\": [\"8\", 0], \"sigmas\": [\"9\", 0], \"latent_image\": [\"6\", 1]}}, \"12\": {\"class_type\": \"VAEDecode\", \"inputs\": {\"samples\": [\"11\", 0], \"vae\": [\"4\", 0]}}, \"13\": {\"class_type\": \"VAEDecodeAudio\", \"inputs\": {\"samples\": [\"11\", 1], \"vae\": [\"5\", 0]}}, \"14\": {\"class_type\": \"CreateVideo\", \"inputs\": {\"images\": [\"12\", 0], \"audio\": [\"13\", 0], \"fps\": 24.0}}, \"15\": {\"class_type\": \"SaveVideo\", \"inputs\": {\"video\": [\"14\", 0], \"filename_prefix\": \"video/MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart\", \"format\": \"mp4\", \"codec\": \"auto\"}}, \"16\": {\"class_type\": \"LoadImage\", \"inputs\": {\"image\": \"MiniMax_H3_I2V_1280x704_start.png\"}, \"is_changed\": [\"be63f90186d46a2860a463c70e4e3e76fdf95a19e98f9db9e696cd7610d96cd8\"]}}",
+                                                                           "encoder":  "Lavf62.12.102"
+                                                                       }
+                                                          }
+                                           },
+                               "ffprobe_error":  null,
+                               "blackdetect":  {
+                                                   "interval_count":  0,
+                                                   "events":  [
+
+                                                              ]
+                                               },
+                               "signalstats_first_frame":  [
+                                                               "lavfi.signalstats.YMIN=13",
+                                                               "lavfi.signalstats.YLOW=64",
+                                                               "lavfi.signalstats.YAVG=127.447",
+                                                               "lavfi.signalstats.YHIGH=185",
+                                                               "lavfi.signalstats.YMAX=237",
+                                                               "lavfi.signalstats.UMIN=53",
+                                                               "lavfi.signalstats.ULOW=91",
+                                                               "lavfi.signalstats.UAVG=113.425",
+                                                               "lavfi.signalstats.UHIGH=134",
+                                                               "lavfi.signalstats.UMAX=153",
+                                                               "lavfi.signalstats.VMIN=103",
+                                                               "lavfi.signalstats.VLOW=122",
+                                                               "lavfi.signalstats.VAVG=140.226",
+                                                               "lavfi.signalstats.VHIGH=159",
+                                                               "lavfi.signalstats.VMAX=182",
+                                                               "lavfi.signalstats.SATMIN=0",
+                                                               "lavfi.signalstats.SATLOW=4",
+                                                               "lavfi.signalstats.SATAVG=22.8895",
+                                                               "lavfi.signalstats.SATHIGH=48",
+                                                               "lavfi.signalstats.SATMAX=89",
+                                                               "lavfi.signalstats.HUEMED=132",
+                                                               "lavfi.signalstats.HUEAVG=160.403",
+                                                               "lavfi.signalstats.YDIF=0",
+                                                               "lavfi.signalstats.UDIF=0",
+                                                               "lavfi.signalstats.VDIF=0",
+                                                               "lavfi.signalstats.YBITDEPTH=8",
+                                                               "lavfi.signalstats.UBITDEPTH=8",
+                                                               "lavfi.signalstats.VBITDEPTH=8",
+                                                               "lavfi.signalstats.YMIN=12",
+                                                               "lavfi.signalstats.YLOW=64",
+                                                               "lavfi.signalstats.YAVG=127.597",
+                                                               "lavfi.signalstats.YHIGH=185",
+                                                               "lavfi.signalstats.YMAX=236",
+                                                               "lavfi.signalstats.UMIN=55",
+                                                               "lavfi.signalstats.ULOW=91",
+                                                               "lavfi.signalstats.UAVG=113.401",
+                                                               "lavfi.signalstats.UHIGH=134",
+                                                               "lavfi.signalstats.UMAX=153",
+                                                               "lavfi.signalstats.VMIN=103",
+                                                               "lavfi.signalstats.VLOW=122",
+                                                               "lavfi.signalstats.VAVG=140.23",
+                                                               "lavfi.signalstats.VHIGH=159",
+                                                               "lavfi.signalstats.VMAX=181",
+                                                               "lavfi.signalstats.SATMIN=0",
+                                                               "lavfi.signalstats.SATLOW=4",
+                                                               "lavfi.signalstats.SATAVG=22.9069",
+                                                               "lavfi.signalstats.SATHIGH=48",
+                                                               "lavfi.signalstats.SATMAX=87",
+                                                               "lavfi.signalstats.HUEMED=132",
+                                                               "lavfi.signalstats.HUEAVG=159.97",
+                                                               "lavfi.signalstats.YDIF=0.472937",
+                                                               "lavfi.signalstats.UDIF=0.19794",
+                                                               "lavfi.signalstats.VDIF=0.173331",
+                                                               "lavfi.signalstats.YBITDEPTH=8",
+                                                               "lavfi.signalstats.UBITDEPTH=8",
+                                                               "lavfi.signalstats.VBITDEPTH=8"
+                                                           ],
+                               "media_check_error":  null
+                           }
+                       ]
+}

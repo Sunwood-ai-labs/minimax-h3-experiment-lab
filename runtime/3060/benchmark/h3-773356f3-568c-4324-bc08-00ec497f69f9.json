@@ -1,0 +1,61 @@
+﻿{
+    "gpu":  "3060",
+    "port":  8189,
+    "prompt_id":  "773356f3-568c-4324-bc08-00ec497f69f9",
+    "started_local":  "2026-08-07T17:09:59.9273785+09:00",
+    "ended_local":  "2026-08-07T17:15:25.3928060+09:00",
+    "wall_seconds":  325.465,
+    "status":  "success",
+    "low_vram":  true,
+    "conditions":  {
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\diag_gpu_vae_5f_api.json",
+                       "low_vram_requested":  true,
+                       "width":  864,
+                       "height":  480,
+                       "frames":  5,
+                       "steps":  8,
+                       "scheduler":  "simple",
+                       "base":  "minimax_h3_fl2va_int8_convrot.safetensors",
+                       "lora":  "minimax_h3_turbo_4step_ema_ckpt850.safetensors",
+                       "lora_low_vram":  true,
+                       "seed":  2026080701
+                   },
+    "comfyui_log":  "h3-3060-1  | 2026-08-07T08:15:20.843931779Z \u001b[32m[INFO]\u001b[0m \u001b[32mPrompt executed in 320.89 seconds\u001b[0m",
+    "history_status":  {
+                           "status_str":  "success",
+                           "completed":  true,
+                           "messages":  [
+                                            [
+                                                "execution_start",
+                                                {
+                                                    "prompt_id":  "773356f3-568c-4324-bc08-00ec497f69f9",
+                                                    "timestamp":  1786090199967
+                                                }
+                                            ],
+                                            [
+                                                "execution_cached",
+                                                {
+                                                    "nodes":  [
+
+                                                              ],
+                                                    "prompt_id":  "773356f3-568c-4324-bc08-00ec497f69f9",
+                                                    "timestamp":  1786090199972
+                                                }
+                                            ],
+                                            [
+                                                "execution_success",
+                                                {
+                                                    "prompt_id":  "773356f3-568c-4324-bc08-00ec497f69f9",
+                                                    "timestamp":  1786090520843
+                                                }
+                                            ]
+                                        ]
+                       },
+    "output_files":  [
+                         {
+                             "FullName":  "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\output\\video\\diag_3060_official_fp16_gpu_vae_5f_00001_.mp4",
+                             "Length":  34510,
+                             "LastWriteTime":  "\/Date(1786090520835)\/"
+                         }
+                     ]
+}

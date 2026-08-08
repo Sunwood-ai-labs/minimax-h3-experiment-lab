@@ -1,0 +1,127 @@
+﻿{
+    "gpu":  "3060",
+    "port":  8189,
+    "prompt_id":  "465a3729-bf84-4f9f-9dd9-4380faa4451b",
+    "started_local":  "2026-08-07T16:48:01.5129754+09:00",
+    "ended_local":  "2026-08-07T16:53:12.6374626+09:00",
+    "wall_seconds":  311.124,
+    "status":  "error",
+    "low_vram":  true,
+    "conditions":  {
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\diag_gpu_vae_5f_api.json",
+                       "low_vram_requested":  true,
+                       "width":  864,
+                       "height":  480,
+                       "frames":  5,
+                       "steps":  8,
+                       "scheduler":  "simple",
+                       "base":  "minimax_h3_fl2va_int8_convrot.safetensors",
+                       "lora":  "minimax_h3_turbo_4step_ema_ckpt850.safetensors",
+                       "lora_low_vram":  true,
+                       "seed":  2026080701
+                   },
+    "comfyui_log":  "h3-3060-1  | 2026-08-07T07:53:11.534982704Z \u001b[32m[INFO]\u001b[0m \u001b[32mPrompt executed in 309.99 seconds\u001b[0m",
+    "history_status":  {
+                           "status_str":  "error",
+                           "completed":  false,
+                           "messages":  [
+                                            [
+                                                "execution_start",
+                                                {
+                                                    "prompt_id":  "465a3729-bf84-4f9f-9dd9-4380faa4451b",
+                                                    "timestamp":  1786088881562
+                                                }
+                                            ],
+                                            [
+                                                "execution_cached",
+                                                {
+                                                    "nodes":  [
+
+                                                              ],
+                                                    "prompt_id":  "465a3729-bf84-4f9f-9dd9-4380faa4451b",
+                                                    "timestamp":  1786088881568
+                                                }
+                                            ],
+                                            [
+                                                "execution_error",
+                                                {
+                                                    "prompt_id":  "465a3729-bf84-4f9f-9dd9-4380faa4451b",
+                                                    "node_id":  "13",
+                                                    "node_type":  "VAEDecodeAudio",
+                                                    "executed":  [
+                                                                     "11",
+                                                                     "16",
+                                                                     "2",
+                                                                     "10",
+                                                                     "5",
+                                                                     "1",
+                                                                     "7",
+                                                                     "4",
+                                                                     "3",
+                                                                     "6",
+                                                                     "9",
+                                                                     "8"
+                                                                 ],
+                                                    "exception_message":  "Input type (torch.cuda.FloatTensor) and weight type (torch.FloatTensor) should be the same\n",
+                                                    "exception_type":  "RuntimeError",
+                                                    "traceback":  [
+                                                                      "  File \"/opt/ComfyUI/execution.py\", line 545, in execute\n    output_data, output_ui, has_subgraph, has_pending_tasks = await get_output_data(prompt_id, unique_id, obj, input_data_all, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)\n                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/execution.py\", line 344, in get_output_data\n    return_values = await _async_map_node_over_list(prompt_id, unique_id, obj, input_data_all, obj.FUNCTION, allow_interrupt=True, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/execution.py\", line 318, in _async_map_node_over_list\n    await process_inputs(input_dict, i)\n",
+                                                                      "  File \"/opt/ComfyUI/execution.py\", line 306, in process_inputs\n    result = f(**inputs)\n             ^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_api/internal/__init__.py\", line 149, in wrapped_func\n    return method(locked_class, **inputs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_api/latest/_io.py\", line 1935, in EXECUTE_NORMALIZED\n    to_return = cls.execute(*args, **kwargs)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_extras/nodes_audio.py\", line 132, in execute\n    return IO.NodeOutput(vae_decode_audio(vae, samples))\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_extras/nodes_audio.py\", line 106, in vae_decode_audio\n    audio = vae.decode(latent).movedim(-1, 1)\n            ^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/sd.py\", line 1188, in decode\n    model_management.raise_non_oom(e)\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/model_management.py\", line 395, in raise_non_oom\n    raise e\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/sd.py\", line 1181, in decode\n    out = self.first_stage_model.decode(samples, **vae_options).to(device=self.output_device, dtype=self.vae_output_dtype(), copy=True)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ldm/minimax/audio_vae.py\", line 423, in decode\n    x = self.decoder(x)  # [b * s, 1, L], already clamped to [-1, 1]\n        ^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ldm/minimax/audio_vae.py\", line 362, in forward\n    xs = self.resblocks[i * self.num_kernels + j](x)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ldm/minimax/audio_vae.py\", line 299, in forward\n    xt = a1(x)\n         ^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ldm/minimax/audio_vae.py\", line 146, in forward\n    x = self.upsample(x)\n        ^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ldm/minimax/audio_vae.py\", line 101, in forward\n    x = F.conv_transpose1d(x, self.filter.expand(C, -1, -1).to(x.dtype), stride=self.stride, groups=C).mul_(self.ratio)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"
+                                                                  ],
+                                                    "current_inputs":  {
+                                                                           "samples":  [
+                                                                                           "{\u0027samples\u0027: \u003ccomfy.nested_tensor.NestedTensor object at 0x73d288e4b890\u003e}"
+                                                                                       ],
+                                                                           "vae":  [
+                                                                                       "\u003ccomfy.sd.VAE object at 0x73d2e1839a50\u003e"
+                                                                                   ]
+                                                                       },
+                                                    "current_outputs":  [
+                                                                            "11",
+                                                                            "15",
+                                                                            "2",
+                                                                            "16",
+                                                                            "8",
+                                                                            "5",
+                                                                            "10",
+                                                                            "1",
+                                                                            "12",
+                                                                            "13",
+                                                                            "4",
+                                                                            "3",
+                                                                            "6",
+                                                                            "9",
+                                                                            "14",
+                                                                            "7"
+                                                                        ],
+                                                    "timestamp":  1786089191533
+                                                }
+                                            ]
+                                        ]
+                       },
+    "output_files":  [
+
+                     ]
+}

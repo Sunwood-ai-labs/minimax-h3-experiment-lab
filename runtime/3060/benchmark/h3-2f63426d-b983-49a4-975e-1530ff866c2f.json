@@ -1,0 +1,194 @@
+﻿{
+    "gpu":  "3060",
+    "port":  8189,
+    "prompt_id":  "2f63426d-b983-49a4-975e-1530ff866c2f",
+    "started_local":  "2026-08-07T17:31:57.8064475+09:00",
+    "ended_local":  "2026-08-07T17:35:33.0765304+09:00",
+    "wall_seconds":  215.27,
+    "status":  "error",
+    "low_vram":  true,
+    "conditions":  {
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\tlanoai_3060_api.json",
+                       "low_vram_requested":  true,
+                       "runtime":  {
+                                       "compose_service":  "h3-3060",
+                                       "dynamic_vram":  true,
+                                       "sage_attention_requested":  true,
+                                       "cuda_module_loading":  "LAZY"
+                                   },
+                       "width":  864,
+                       "height":  480,
+                       "frames":  124,
+                       "steps":  25,
+                       "scheduler":  "simple",
+                       "sampler":  "res_multistep",
+                       "base":  "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+                       "vae":  [
+                                   {
+                                       "node_id":  "4",
+                                       "vae_name":  "minimax_h3_video_vae_fp16.safetensors"
+                                   },
+                                   {
+                                       "node_id":  "5",
+                                       "vae_name":  "minimax_h3_audio_vae_fp32.safetensors"
+                                   }
+                               ],
+                       "easycache":  {
+                                         "reuse_threshold":  0.3,
+                                         "start_percent":  0.2,
+                                         "end_percent":  0.9,
+                                         "verbose":  false
+                                     },
+                       "seed":  2026080701
+                   },
+    "comfyui_log":  "h3-3060-1  | 2026-08-07T08:35:29.632554599Z \u001b[32m[INFO]\u001b[0m \u001b[32mPrompt executed in 211.64 seconds\u001b[0m",
+    "history_status":  {
+                           "status_str":  "error",
+                           "completed":  false,
+                           "messages":  [
+                                            [
+                                                "execution_start",
+                                                {
+                                                    "prompt_id":  "2f63426d-b983-49a4-975e-1530ff866c2f",
+                                                    "timestamp":  1786091517840
+                                                }
+                                            ],
+                                            [
+                                                "execution_cached",
+                                                {
+                                                    "nodes":  [
+
+                                                              ],
+                                                    "prompt_id":  "2f63426d-b983-49a4-975e-1530ff866c2f",
+                                                    "timestamp":  1786091517843
+                                                }
+                                            ],
+                                            [
+                                                "execution_error",
+                                                {
+                                                    "prompt_id":  "2f63426d-b983-49a4-975e-1530ff866c2f",
+                                                    "node_id":  "11",
+                                                    "node_type":  "SamplerCustomAdvanced",
+                                                    "executed":  [
+                                                                     "4",
+                                                                     "2",
+                                                                     "7",
+                                                                     "5",
+                                                                     "6",
+                                                                     "3",
+                                                                     "9",
+                                                                     "10",
+                                                                     "1",
+                                                                     "8"
+                                                                 ],
+                                                    "exception_message":  "CUDA driver error: out of memory\nThis error means you ran out of memory on your GPU.\n\nTIPS: If the workflow worked before you might have accidentally set the batch_size to a large number.",
+                                                    "exception_type":  "RuntimeError",
+                                                    "traceback":  [
+                                                                      "  File \"/opt/ComfyUI/execution.py\", line 545, in execute\n    output_data, output_ui, has_subgraph, has_pending_tasks = await get_output_data(prompt_id, unique_id, obj, input_data_all, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)\n                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/execution.py\", line 344, in get_output_data\n    return_values = await _async_map_node_over_list(prompt_id, unique_id, obj, input_data_all, obj.FUNCTION, allow_interrupt=True, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/execution.py\", line 318, in _async_map_node_over_list\n    await process_inputs(input_dict, i)\n",
+                                                                      "  File \"/opt/ComfyUI/execution.py\", line 306, in process_inputs\n    result = f(**inputs)\n             ^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_api/internal/__init__.py\", line 149, in wrapped_func\n    return method(locked_class, **inputs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_api/latest/_io.py\", line 1935, in EXECUTE_NORMALIZED\n    to_return = cls.execute(*args, **kwargs)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_extras/nodes_custom_sampler.py\", line 1049, in execute\n    samples = guider.sample(noise.generate_noise(latent), latent_image, sampler, sigmas, denoise_mask=noise_mask, callback=callback, disable_pbar=disable_pbar, seed=noise.seed)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1333, in sample\n    output = executor.execute(noise, latent_image, sampler, sigmas, denoise_mask, callback, disable_pbar, seed, latent_shapes=latent_shapes)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 114, in execute\n    return self.wrappers[self.idx](self, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_extras/nodes_easycache.py\", line 177, in easycache_sample_wrapper\n    return executor(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 106, in __call__\n    return new_executor.execute(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1260, in outer_sample\n    output = self.inner_sample(noise, latent_image, device, sampler, sigmas, denoise_mask, callback, disable_pbar, seed, latent_shapes=latent_shapes)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1235, in inner_sample\n    samples = executor.execute(self, sigmas, extra_args, callback, noise, latent_image, denoise_mask, disable_pbar)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1005, in sample\n    samples = self.sampler_function(model_k, noise, sigmas, extra_args=extra_args, callback=k_callback, disable=disable_pbar, **self.extra_options)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/utils/_contextlib.py\", line 116, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/k_diffusion/sampling.py\", line 1460, in sample_res_multistep\n    return res_multistep(model, x, sigmas, extra_args=extra_args, callback=callback, disable=disable, s_noise=s_noise, noise_sampler=noise_sampler, eta=0., cfg_pp=False)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/utils/_contextlib.py\", line 116, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/k_diffusion/sampling.py\", line 1418, in res_multistep\n    denoised = model(x, sigmas[i] * s_in, **extra_args)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 640, in __call__\n    out = self.inner_model(x, sigma, model_options=model_options, seed=seed)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1208, in __call__\n    return self.outer_predict_noise(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1215, in outer_predict_noise\n    ).execute(x, timestep, model_options, seed)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1218, in predict_noise\n    return sampling_function(self.inner_model, x, timestep, self.conds.get(\"negative\", None), self.conds.get(\"positive\", None), self.cfg, model_options=model_options, seed=seed)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 620, in sampling_function\n    out = calc_cond_batch(model, conds, x, timestep, model_options)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 211, in calc_cond_batch\n    return _calc_cond_batch_outer(model, conds, x_in, timestep, model_options)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 219, in _calc_cond_batch_outer\n    return executor.execute(model, conds, x_in, timestep, model_options)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 114, in execute\n    return self.wrappers[self.idx](self, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_extras/nodes_easycache.py\", line 163, in easycache_calc_cond_batch_wrapper\n    return executor(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 106, in __call__\n    return new_executor.execute(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 335, in _calc_cond_batch\n    output = model.apply_model(input_x, timestep_, **c).chunk(batch_chunks)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/model_base.py\", line 196, in apply_model\n    return comfy.patcher_extension.WrapperExecutor.new_class_executor(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/model_base.py\", line 240, in _apply_model\n    model_output = self.diffusion_model(xc, t, context=context, control=control, transformer_options=transformer_options, **extra_conds)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ldm/minimax/model.py\", line 499, in forward\n    return comfy.patcher_extension.WrapperExecutor.new_class_executor(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 114, in execute\n    return self.wrappers[self.idx](self, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_extras/nodes_easycache.py\", line 76, in easycache_forward_wrapper\n    full_output: torch.Tensor = executor(*args, **kwargs)\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 106, in __call__\n    return new_executor.execute(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ldm/minimax/model.py\", line 629, in _forward\n    h = block(h, t_emb, mod_segments, rope_freqs, transformer_options=transformer_options)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ldm/minimax/model.py\", line 272, in forward\n    return _mod_gate(x, gate_mlp, self.mlp(h), mod_segments)\n                                  ^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ldm/minimax/model.py\", line 192, in forward\n    return comfy.ops.linear_input_act(self.fc2, self.fc1(x), \"swiglu\")\n                                                ^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ops.py\", line 1405, in forward\n    output = self.forward_comfy_cast_weights(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ops.py\", line 1342, in forward_comfy_cast_weights\n    x = self._forward(input, weight, bias)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ops.py\", line 1313, in _forward\n    return torch.nn.functional.linear(input, weight, bias)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/comfy_kitchen/tensor/base.py\", line 362, in __torch_dispatch__\n    return op_handlers[parent_cls](qt, args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/comfy_kitchen/tensor/int8.py\", line 287, in _handle_int8_linear_tensorwise\n    return torch.ops.comfy_kitchen.int8_linear(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/_ops.py\", line 1158, in __call__\n    return self._op(*args, **(kwargs or {}))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/_library/custom_ops.py\", line 335, in backend_impl\n    result = self._backend_fns[device_type](*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/_compile.py\", line 51, in inner\n    return disable_fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py\", line 838, in _fn\n    return fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/torch/_library/custom_ops.py\", line 367, in wrapped_fn\n    return fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/comfy_kitchen/backends/eager/quantization.py\", line 1222, in _op_int8_linear\n    return impl(**kwargs)\n           ^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/conda/lib/python3.11/site-packages/comfy_kitchen/backends/eager/quantization.py\", line 1045, in int8_linear\n    result = torch.cat(scaled_parts, dim=0)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"
+                                                                  ],
+                                                    "current_inputs":  {
+                                                                           "noise":  [
+                                                                                         "\u003c/opt/ComfyUI/comfy_extras/nodes_custom_sampler.Noise_RandomNoise object at 0x7d33305fcbd0\u003e"
+                                                                                     ],
+                                                                           "guider":  [
+                                                                                          "\u003c/opt/ComfyUI/comfy_extras/nodes_custom_sampler.Guider_Basic object at 0x7d3388bb6a90\u003e"
+                                                                                      ],
+                                                                           "sampler":  [
+                                                                                           "\u003ccomfy.samplers.KSAMPLER object at 0x7d333062de90\u003e"
+                                                                                       ],
+                                                                           "sigmas":  [
+                                                                                          "tensor([1.0000, 0.9965, 0.9928, 0.9888, 0.9844, 0.9796, 0.9744, 0.9686, 0.9623,\n        0.9552, 0.9474, 0.9385, 0.9286, 0.9172, 0.9041, 0.8889, 0.8710, 0.8496,\n        0.8235, 0.7912, 0.7500, 0.6957, 0.6207, 0.5106, 0.3333, 0.0000])"
+                                                                                      ],
+                                                                           "latent_image":  [
+                                                                                                "{\u0027samples\u0027: \u003ccomfy.nested_tensor.NestedTensor object at 0x7d338a078990\u003e}"
+                                                                                            ]
+                                                                       },
+                                                    "current_outputs":  [
+                                                                            "4",
+                                                                            "13",
+                                                                            "11",
+                                                                            "15",
+                                                                            "2",
+                                                                            "7",
+                                                                            "3",
+                                                                            "5",
+                                                                            "6",
+                                                                            "9",
+                                                                            "12",
+                                                                            "14",
+                                                                            "10",
+                                                                            "1",
+                                                                            "8"
+                                                                        ],
+                                                    "timestamp":  1786091729466
+                                                }
+                                            ]
+                                        ]
+                       },
+    "output_files":  [
+
+                     ]
+}
