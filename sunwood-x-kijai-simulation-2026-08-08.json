@@ -1,0 +1,148 @@
+{
+  "targetAccount": "@hAru_mAki_ch",
+  "status": "simulation_only",
+  "project": "MiniMax-H3 Experiment Lab",
+  "series": "MiniMax-H3 Kijai LightX2V 4-step",
+  "simulatorUrl": "https://madesk.tail8be30.ts.net:8881/",
+  "threadStructure": "parent overview -> four experiment replies -> two previous-experiment replies -> four reference-site replies",
+  "parent": {
+    "text": "MiniMax-H3 Experiment Lab、Kijai LightX2V 4-stepをRTX 4090で検証したぞ！！！\n\nT2V / I2V × er_sde / sa_solverを同じDocker Compose環境で実行。\n各実験の動画・プロンプト・全パラメータ・処理時間・検査結果を返信に添付する🔥\n\n同条件ではsa_solverがer_sdeより速く、T2V / I2VともOOMなし。詳細はこのスレッドへ。",
+    "media": []
+  },
+  "replies": [
+    {
+      "id": "t2v-er-sde",
+      "kind": "experiment",
+      "text": "【実験1｜T2V / er_sde】\n\nPrompt:\nA calm cinematic sunrise over a quiet Japanese mountain lake, gentle mist drifting across the water, slow camera movement, natural ambient birds and soft wind, no text, five seconds.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nResolution: 1344×768, 158 frames, 24fps\nBase: minimax_h3_fl2va_pruned_int8_convrot.safetensors\nText encoder: qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\nVAE: official FP16 video + FP32 audio\nKijai full LoRA: strength 0.75\nSteps: 4 / Sampler: er_sde / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080801\n\nResult:\nInference 362.48 sec / runner wall 365.71 sec\nOutput 6.583333 sec / H.264 + AAC stereo\nOOMなし / blackdetect 0\nOutput SHA-256: B0540FE30DC549ABA6E14B3A36270BFE7068CC76F81B2763C0949CEDD92E233E\nBenchmark: h3-b87755af-c053-42c3-8c49-6c628013b124.md",
+      "media": [
+        {
+          "path": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_T2V_1344x768_4step_er_sde_00001_.mp4",
+          "simulatorPath": "sunwood-x-simulator-kijai-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_T2V_1344x768_4step_er_sde_00001_.mp4",
+          "provenance": "real generated output from the verified RTX 4090 Docker Compose run",
+          "sha256": "B0540FE30DC549ABA6E14B3A36270BFE7068CC76F81B2763C0949CEDD92E233E",
+          "bytes": 4604012,
+          "dimensions": "1344x768",
+          "fps": 24,
+          "frames": 158,
+          "durationSeconds": 6.583333,
+          "inferenceSeconds": 362.48,
+          "runnerWallSeconds": 365.71,
+          "blackdetectIntervalCount": 0,
+          "promptId": "b87755af-c053-42c3-8c49-6c628013b124",
+          "report": "runtime/4090/benchmark/h3-b87755af-c053-42c3-8c49-6c628013b124.md"
+        }
+      ]
+    },
+    {
+      "id": "t2v-sa-solver",
+      "kind": "experiment",
+      "text": "【実験2｜T2V / sa_solver】\n\nPrompt:\nA calm cinematic sunrise over a quiet Japanese mountain lake, gentle mist drifting across the water, slow camera movement, natural ambient birds and soft wind, no text, five seconds.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nResolution: 1344×768, 158 frames, 24fps\nBase: minimax_h3_fl2va_pruned_int8_convrot.safetensors\nText encoder: qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\nVAE: official FP16 video + FP32 audio\nKijai full LoRA: strength 0.75\nSteps: 4 / Sampler: sa_solver / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080801\n\nResult:\nInference 196.25 sec / runner wall 200.39 sec\nOutput 6.583333 sec / H.264 + AAC stereo\nOOMなし / blackdetect 0\nOutput SHA-256: DFB59D2BF85A1AFDAEB4C8B3EFABDD2909E91EBD46991F2DB7933F8B96C2C682\nBenchmark: h3-405a78d2-9999-42b7-ab3b-759771760416.md",
+      "media": [
+        {
+          "path": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_T2V_1344x768_4step_sa_solver_00001_.mp4",
+          "simulatorPath": "sunwood-x-simulator-kijai-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_T2V_1344x768_4step_sa_solver_00001_.mp4",
+          "provenance": "real generated output from the verified RTX 4090 Docker Compose run",
+          "sha256": "DFB59D2BF85A1AFDAEB4C8B3EFABDD2909E91EBD46991F2DB7933F8B96C2C682",
+          "bytes": 4823136,
+          "dimensions": "1344x768",
+          "fps": 24,
+          "frames": 158,
+          "durationSeconds": 6.583333,
+          "inferenceSeconds": 196.25,
+          "runnerWallSeconds": 200.39,
+          "blackdetectIntervalCount": 0,
+          "promptId": "405a78d2-9999-42b7-ab3b-759771760416",
+          "report": "runtime/4090/benchmark/h3-405a78d2-9999-42b7-ab3b-759771760416.md"
+        }
+      ]
+    },
+    {
+      "id": "i2v-er-sde",
+      "kind": "experiment",
+      "text": "【実験3｜I2V / er_sde】\n\nPrompt:\nAnimate the supplied sunrise lake start frame into a calm cinematic shot. Preserve the mountain silhouette and composition, add gentle camera movement, natural mist drifting over the water, subtle ripples and ambient birds and soft wind, no text.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nResolution: 1344×768, 158 frames, 24fps\nInput: existing imagegen start frame 1280×704 → center crop + Lanczos to 1344×768\nInput SHA-256: 9E5893D7C5A9919726E7E60FF2BF4F19E77F746342D38E5FE3217FD2288A3D0F\nKijai full LoRA: strength 0.75\nSteps: 4 / Sampler: er_sde / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080802\n\nResult:\nInference 210.05 sec / runner wall 210.457 sec\nOutput 6.583333 sec / H.264 + AAC stereo\nOOMなし / blackdetect 0\nOutput SHA-256: CB7A683AF4A9864CA6A1EDAB1C3F350019FF88E9329E12823601772E03791787\nBenchmark: h3-0734b9d9-105b-47b3-a562-ba4bb8e2f3b5.md",
+      "media": [
+        {
+          "path": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_er_sde_00001_.mp4",
+          "simulatorPath": "sunwood-x-simulator-kijai-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_er_sde_00001_.mp4",
+          "provenance": "real generated output from the verified RTX 4090 Docker Compose run",
+          "sha256": "CB7A683AF4A9864CA6A1EDAB1C3F350019FF88E9329E12823601772E03791787",
+          "bytes": 1817050,
+          "dimensions": "1344x768",
+          "fps": 24,
+          "frames": 158,
+          "durationSeconds": 6.583333,
+          "inferenceSeconds": 210.05,
+          "runnerWallSeconds": 210.457,
+          "blackdetectIntervalCount": 0,
+          "promptId": "0734b9d9-105b-47b3-a562-ba4bb8e2f3b5",
+          "report": "runtime/4090/benchmark/h3-0734b9d9-105b-47b3-a562-ba4bb8e2f3b5.md"
+        }
+      ]
+    },
+    {
+      "id": "i2v-sa-solver",
+      "kind": "experiment",
+      "text": "【実験4｜I2V / sa_solver】\n\nPrompt:\nAnimate the supplied sunrise lake start frame into a calm cinematic shot. Preserve the mountain silhouette and composition, add gentle camera movement, natural mist drifting over the water, subtle ripples and ambient birds and soft wind, no text.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nResolution: 1344×768, 158 frames, 24fps\nInput: existing imagegen start frame 1280×704 → center crop + Lanczos to 1344×768\nInput SHA-256: 9E5893D7C5A9919726E7E60FF2BF4F19E77F746342D38E5FE3217FD2288A3D0F\nKijai full LoRA: strength 0.75\nSteps: 4 / Sampler: sa_solver / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080802\n\nResult:\nInference 193.72 sec / runner wall 195.417 sec\nOutput 6.583333 sec / H.264 + AAC stereo\nOOMなし / blackdetect 0\nOutput SHA-256: EB6487E54E1C8412A8BAAD2628CB25D24238E901B8939C8BF502B95C4E5F17B6\nBenchmark: h3-c56359c6-d7ca-4a64-bc30-b8add8ce5c7d.md",
+      "media": [
+        {
+          "path": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_00001_.mp4",
+          "simulatorPath": "sunwood-x-simulator-kijai-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_00001_.mp4",
+          "provenance": "real generated output from the verified RTX 4090 Docker Compose run",
+          "sha256": "EB6487E54E1C8412A8BAAD2628CB25D24238E901B8939C8BF502B95C4E5F17B6",
+          "bytes": 1834299,
+          "dimensions": "1344x768",
+          "fps": 24,
+          "frames": 158,
+          "durationSeconds": 6.583333,
+          "inferenceSeconds": 193.72,
+          "runnerWallSeconds": 195.417,
+          "blackdetectIntervalCount": 0,
+          "promptId": "c56359c6-d7ca-4a64-bc30-b8add8ce5c7d",
+          "report": "runtime/4090/benchmark/h3-c56359c6-d7ca-4a64-bc30-b8add8ce5c7d.md"
+        }
+      ]
+    },
+    {
+      "id": "previous-4090-t2v",
+      "kind": "previous",
+      "text": "【前回の実験｜RTX 4090 約720p T2V】\n\n今回の比較対象にした前段の実験。MiniMax-H3をRTX 4090で動かしたT2Vの連投はこちら。\nhttps://x.com/hAru_mAki_ch/status/2085738947553185852",
+      "media": []
+    },
+    {
+      "id": "previous-4090-i2v",
+      "kind": "previous",
+      "text": "【前回の実験｜RTX 4090 約720p I2V】\n\n今回の比較対象にした前段の実験。開始フレームを使ったI2Vの連投はこちら。\nhttps://x.com/hAru_mAki_ch/status/2085738981866811714",
+      "media": []
+    },
+    {
+      "id": "reference-kijai",
+      "kind": "reference",
+      "text": "【参考サイト｜Kijai MiniMax-H3_comfy】\n\n今回使った4-step LightX2V LoRAとワークフローの出典。\nhttps://huggingface.co/Kijai/MiniMax-H3_comfy",
+      "media": []
+    },
+    {
+      "id": "reference-x-post",
+      "kind": "reference",
+      "text": "【参考サイト｜実験対象のX投稿】\n\n今回の公開メディア条件と投稿内容を確認した元ポスト。\nhttps://x.com/sd_tutorial/status/2085760369612783646?s=46",
+      "media": []
+    },
+    {
+      "id": "reference-lightx2v",
+      "kind": "reference",
+      "text": "【参考サイト｜LightX2V公式配布】\n\nMiniMax-H3 Turboモデルの公開ファイル。\nhttps://huggingface.co/lightx2v/Minimax-h3-Turbo/tree/main",
+      "media": []
+    },
+    {
+      "id": "reference-repo",
+      "kind": "reference",
+      "text": "【参考サイト｜関連公開リポジトリ】\n\nDocker / ComfyUI実装を比較するときの関連リポジトリ。\nhttps://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo",
+      "media": []
+    }
+  ],
+  "evidence": {
+    "experimentReadme": "experiments/2026-08-08/kijai-lightx2v-4step/README.md",
+    "experimentJson": "experiments/2026-08-08/kijai-lightx2v-4step/experiment.json",
+    "commit": "7fb3037",
+    "mediaProvenance": "real generated output; no generated replacement media"
+  }
+}
