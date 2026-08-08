@@ -38,8 +38,17 @@
     "resolution": "1344x768",
     "frames": 158,
     "fps": 24,
+    "t2vPrompt": "A calm cinematic sunrise over a quiet Japanese mountain lake, gentle mist drifting across the water, slow camera movement, natural ambient birds and soft wind, no text, five seconds.",
+    "i2vPrompt": "Animate the supplied sunrise lake start frame into a calm cinematic shot. Preserve the mountain silhouette and composition, add gentle camera movement, natural mist drifting over the water, subtle ripples and ambient birds and soft wind, no text.",
     "sampler": ["er_sde", "sa_solver"],
     "scheduler": "simple",
+    "easyCache": {
+      "reuseThreshold": 0.3,
+      "startPercent": 0.2,
+      "endPercent": 0.9,
+      "verbose": false
+    },
+    "lowVram": false,
     "sourceVideoDurationSeconds": 6.583,
     "sourceVideoFfprobeFrames": 158,
     "sourceVideoFfprobeDurationSeconds": 6.656,
