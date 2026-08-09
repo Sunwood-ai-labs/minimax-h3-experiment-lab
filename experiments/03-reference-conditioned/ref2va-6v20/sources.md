@@ -1,5 +1,7 @@
 # Sources and evidence
 
+English source note: [sources.en.md](./sources.en.md)
+
 ## Direct references
 
 1. [Kijai/MiniMax-H3_comfy](https://huggingface.co/Kijai/MiniMax-H3_comfy) — KijaiのComfyUI向けMiniMax-H3配布物。今回のLoRAファイルは `minimax_h3_fl2v_lightx2v_turbo_4step_v0.1_comfy.safetensors`。

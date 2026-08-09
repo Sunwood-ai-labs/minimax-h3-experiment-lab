@@ -1,5 +1,7 @@
 # MiniMax-H3 ref2va + Kijai LightX2V — 6 vs 20 steps
 
+[English version](./README.en.md)
+
 - 実験ID: `2026-08-08-reference-ref2va-6v20`
 - 実施日: `2026-08-08 JST`
 - GPU: `RTX 4090`

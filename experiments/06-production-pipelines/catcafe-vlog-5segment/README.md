@@ -1,5 +1,7 @@
 # MiniMax-H3 日本語猫カフェVlog — 5セグメント Motion Context実験
 
+English counterpart: [README.en.md](./README.en.md)
+
 実施日: 2026-08-09 JST
 Experiment ID: `h3-japanese-catcafe-vlog-5segment`
 状態: `verified`

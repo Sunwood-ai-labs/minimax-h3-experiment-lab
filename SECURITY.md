@@ -1,5 +1,7 @@
 # Security Policy
 
+> 日本語版: [SECURITY.ja.md](./SECURITY.ja.md)
+
 ## Scope
 
 This repository contains Docker configuration, ComfyUI workflows, experiment records, and documentation. It does not contain model credentials or model weights by design.

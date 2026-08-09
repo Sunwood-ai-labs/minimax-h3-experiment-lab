@@ -1,5 +1,7 @@
 # MiniMax-H3 Kijai LightX2V 4-step LoRA
 
+English: [README.en.md](./README.en.md)
+
 - ID: `2026-08-08-low-step-lightx2v-4step`
 - Status: `verified`
 - Purpose: KijaiのComfyUI向けLightX2V LoRAを、既存のMiniMax-H3 Docker Compose環境で検証する

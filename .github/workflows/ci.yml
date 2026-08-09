@@ -21,6 +21,10 @@ jobs:
         shell: pwsh
         run: ./scripts/validate-experiment-lab.ps1
 
+      - name: Validate English/Japanese Markdown parity
+        shell: pwsh
+        run: ./scripts/validate-documentation-parity.ps1
+
       - name: Validate reproducibility kit and workflow files
         shell: pwsh
         run: ./scripts/validate-reproducibility.ps1
@@ -28,6 +32,19 @@ jobs:
       - name: Validate public simulator media fallbacks
         shell: pwsh
         run: ./scripts/validate-public-media.ps1
+
+      - name: Set up Node.js for documentation build
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: docs/package-lock.json
+
+      - name: Build bilingual documentation site
+        working-directory: docs
+        run: |
+          npm ci
+          npm run docs:build
 
       - name: Validate Compose configuration
         run: docker compose config --quiet

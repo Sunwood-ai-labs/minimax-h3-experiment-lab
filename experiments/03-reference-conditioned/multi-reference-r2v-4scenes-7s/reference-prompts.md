@@ -1,5 +1,7 @@
 # Reference-sheet generation prompts
 
+日本語のメタデータ説明: [reference-prompts.ja.md](./reference-prompts.ja.md)
+
 These three PNG files are the authoritative inputs for the R2V run. They were generated with the built-in `image_gen` tool and then copied into `runtime/4090/input/`.
 
 ## Background sheet

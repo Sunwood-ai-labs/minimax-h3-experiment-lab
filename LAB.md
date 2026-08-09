@@ -1,5 +1,7 @@
 # MiniMax-H3 Experiment Lab — 運用ガイド
 
+> English guide: [LAB.en.md](./LAB.en.md)
+
 MiniMax-H3をDocker Compose + ComfyUIで検証し、GPU・解像度・LoRA・sampler・VAE・メモリ設定の差を再現可能な形で比較するための運用ルールです。
 
 ## ラボの原則
@@ -21,7 +23,8 @@ experiments/
   <category>/<slug>/               # 機能カテゴリ内の個別実験
     README.md                      # 仮説・条件・結果・結論・制限
     experiment.json                # 機械可読な条件・run・成果物
-    sources.md                     # 出典の要約（必要な実験）
+    sources.md                     # 出典の要約（英語・必要な実験）
+    sources.ja.md                  # 出典の要約（日本語・必要な実験）
     workflows/                     # 実験専用workflow
     previews/
       contact-sheet.jpg            # 動画の代表フレームを並べた公開用タイル

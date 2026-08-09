@@ -1,5 +1,7 @@
 # Sources — Kijai LightX2V scene generalization
 
+日本語の出典メモ: [sources.ja.md](./sources.ja.md)
+
 ## Kijai / MiniMax-H3 Comfy
 
 - URL: https://huggingface.co/Kijai/MiniMax-H3_comfy

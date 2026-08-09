@@ -1,5 +1,7 @@
 # MiniMax-H3 Experiment Lab — Montage Design
 
+> 日本語版: [DESIGN.ja.md](./DESIGN.ja.md)
+
 ## Style Prompt
 
 Dark cinematic experiment-lab editorial: real generated frames are the hero, while restrained warm measurement accents and cool data labels make the comparison legible at a glance. The composition should feel like a reproducible benchmark board rather than a flashy promo. Keep the footage dominant, use translucent surfaces for context, and preserve generous contrast for Japanese and Latin text.

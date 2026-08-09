@@ -1,5 +1,7 @@
 # External model inventory
 
+> 日本語版: [README.ja.md](./README.ja.md)
+
 The model weights are intentionally excluded from Git. `manifest.json` is the tracked lock file for the external assets: it records the Hugging Face repository, immutable revision, target path inside `models/`, byte count, and SHA-256 for every file referenced by the committed workflows.
 
 Choose a profile before downloading:

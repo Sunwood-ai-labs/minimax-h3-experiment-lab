@@ -1,5 +1,7 @@
 # MiniMax-H3 Kijai LightX2V — ImageGen start-frame scene generalization
 
+[English version](./README.en.md)
+
 - ID: `2026-08-08-reference-i2v-scenes`
 - Status: `verified`
 - GPU: RTX 4090

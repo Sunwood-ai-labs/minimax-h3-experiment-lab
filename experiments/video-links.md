@@ -1,5 +1,7 @@
 # Experiment video links (cross-index)
 
+> 日本語版: [video-links.ja.md](./video-links.ja.md)
+
 This is a cross-experiment discovery index, not the sole place where provenance is recorded. Each record README has the direct **X動画・参照URL** section with the generated-video URL, every `experiment.json` source URL, and the workflow/run mapping. The labels distinguish an X thread containing our generated result from a source post used as a condition reference. A local MP4 path is never treated as a public URL; the tracked contact sheet remains the clone-safe visual evidence.
 
 | Experiment | Record / tile | Generated-video X thread | Source / reference video |

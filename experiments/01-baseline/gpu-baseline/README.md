@@ -1,5 +1,7 @@
 # MiniMax-H3 GPU基準比較（2026-08-07）
 
+English: [README.en.md](./README.en.md)
+
 - ID: `2026-08-07-gpu-baseline`
 - Status: `verified`
 - GPU: RTX 3060 / RTX 4090

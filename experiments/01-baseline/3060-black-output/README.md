@@ -1,5 +1,7 @@
 # RTX 3060 旧経路の黒画（2026-08-07）
 
+English: [README.en.md](./README.en.md)
+
 - ID: `2026-08-07-3060-legacy-black-output`
 - Status: `failed`
 - GPU: RTX 3060 12GB

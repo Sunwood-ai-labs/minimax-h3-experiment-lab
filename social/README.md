@@ -1,5 +1,7 @@
 # X投稿・シミュレーター台帳
 
+> English version: [README.en.md](./README.en.md)
+
 このディレクトリは、MiniMax-H3実験の公開説明を再現するためのX投稿payloadと、投稿前シミュレーターへの入口です。実験条件の正本は`experiments/`、投稿順・本文・添付の正本は各payloadです。
 
 動画・音声は容量が大きいため通常のGit整理コミットには含めません。シミュレーターの動画srcはローカル検証用で、公開cloneでは追跡済みposter・フレームタイルへフォールバックします。公開配布が必要になった段階でGit LFSまたは外部artifact保存先を選びます。

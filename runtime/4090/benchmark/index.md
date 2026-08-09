@@ -1,5 +1,7 @@
 ﻿# MiniMax-H3 4090 benchmark reports
 
+Japanese index: [index.ja.md](./index.ja.md)
+
 | Prompt ID | Status | Wall seconds | Markdown | JSON |
 |---|---|---:|---|---|
 | 061443d7-6d6f-43b3-8a5c-16e65c25c655 | success | 290.337 | [Markdown](./h3-061443d7-6d6f-43b3-8a5c-16e65c25c655.md) | [JSON](./h3-061443d7-6d6f-43b3-8a5c-16e65c25c655.json) |

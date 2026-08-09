@@ -51,7 +51,7 @@ Git clone直後でも挙動を比較できるよう、Git追跡済みのcontact 
   </tr>
 </table>
 
-一覧表は[実験台帳](./experiments/index.md)、動画URLだけを確認する場合は[動画リンク台帳](./experiments/video-links.md)を開いてください。
+一覧表は[実験台帳](./experiments/index.md)、動画URLだけを確認する場合は[動画リンク台帳](./experiments/video-links.ja.md)を開いてください。英語版は[English ledger](./experiments/index.en.md)と[English video links](./experiments/video-links.md)です。
 
 ## 🚀 起動方法
 
@@ -69,7 +69,7 @@ docker compose --profile download run --rm model-downloader
 docker compose --profile 4090 up -d h3-4090
 ```
 
-取得profileは`.env`で選択します。`fl2va`（既定）、`ref2va`、`fl2va-lightx2v`、`ref2va-lightx2v`、`legacy-turbo`に対応しています。大きいprofileを選ぶ前に[`models/README.md`](./models/README.md)と、固定値を記録した[`models/manifest.json`](./models/manifest.json)を確認してください。
+取得profileは`.env`で選択します。`fl2va`（既定）、`ref2va`、`fl2va-lightx2v`、`ref2va-lightx2v`、`legacy-turbo`に対応しています。大きいprofileを選ぶ前に[`models/README.ja.md`](./models/README.ja.md)と、固定値を記録した[`models/manifest.json`](./models/manifest.json)を確認してください。
 
 - RTX 4090: <http://localhost:8188>
 - RTX 3060: <http://localhost:8189>
@@ -117,7 +117,7 @@ experiments/<category>/<slug>/
 | Image build | [`Dockerfile`](./Dockerfile) | PyTorch base digest、ComfyUI/custom nodeのrevision、SageAttention wheel hashを固定 |
 | ホスト設定 | [`.env.example`](./.env.example) | GPU UUID、モデルprofile、upstream revision、build revision |
 | モデル取得 | [`docker/download-h3-model.sh`](./docker/download-h3-model.sh) | profile別にモデルを取得し、サイズとSHA-256を検査 |
-| モデル固定表 | [`models/manifest.json`](./models/manifest.json) と [`models/README.md`](./models/README.md) | モデル名、source revision、配置先、bytes、hash |
+| モデル固定表 | [`models/manifest.json`](./models/manifest.json) と [`models/README.ja.md`](./models/README.ja.md) | モデル名、source revision、配置先、bytes、hash |
 | workflow | [`workflows/`](./workflows/) と各記録の`workflows/` | API形式のComfyUIグラフとhash |
 | 検証 | [`scripts/validate-reproducibility.ps1`](./scripts/validate-reproducibility.ps1) | Compose / Docker / workflow / 入力の実在性を確認 |
 
@@ -150,13 +150,15 @@ docker compose config --quiet
 - [公開ドキュメント](https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/)
 - [公開成果物と動画の境界](./docs/ja/guide/artifacts.md)
 - [実験ギャラリー](./experiments/README.md)
-- [実験台帳](./experiments/index.md)
-- [LAB運用ガイド](./LAB.md)
+- [実験台帳](./experiments/index.md) / [English ledger](./experiments/index.en.md)
+- [LAB運用ガイド](./LAB.md) / [English guide](./LAB.en.md)
 - [調査メモ](./research-notes.md)
+- [English research summary](./research-notes.en.md)
 - [検証ログ](./verification-log.md)
-- [X投稿・シミュレーター](./social/README.md)
+- [English verification summary](./verification-log.en.md)
+- [X投稿・シミュレーター](./social/README.md) / [English index](./social/README.en.md)
 - [Docker Compose](./compose.yaml)
-- [動画リンク台帳](./experiments/video-links.md)
+- [動画リンク台帳](./experiments/video-links.ja.md) / [English index](./experiments/video-links.md)
 
 ## ⚖️ ライセンスと範囲
 

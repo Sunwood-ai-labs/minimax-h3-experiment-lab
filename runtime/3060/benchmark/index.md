@@ -1,5 +1,7 @@
 ﻿# MiniMax-H3 3060 benchmark reports
 
+Japanese index: [index.ja.md](./index.ja.md)
+
 | Prompt ID | Status | Wall seconds | Markdown | JSON |
 |---|---|---:|---|---|
 | 9e79a075-c9cd-495a-9d8d-80c4df520a1c | success | 510.67 | [Markdown](./h3-9e79a075-c9cd-495a-9d8d-80c4df520a1c.md) | [JSON](./h3-9e79a075-c9cd-495a-9d8d-80c4df520a1c.json) |

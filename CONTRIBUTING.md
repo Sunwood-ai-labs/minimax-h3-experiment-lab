@@ -1,5 +1,7 @@
 # Contributing to MiniMax-H3 Experiment Lab
 
+> 日本語版: [CONTRIBUTING.ja.md](./CONTRIBUTING.ja.md)
+
 このラボでは、実験結果を「再実行できる記録」として追加します。成功した結果だけでなく、OOM、黒画、CUDAエラー、条件不一致も有用な証跡です。
 
 ## Add an experiment

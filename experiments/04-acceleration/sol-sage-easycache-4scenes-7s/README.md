@@ -1,5 +1,7 @@
 # MiniMax-H3 ref2va R2V — Sol-Attn + SageAttention + EasyCache
 
+[English version](./README.en.md)
+
 - Experiment ID: '2026-08-08-acceleration-sol-sage-easycache-4scenes-7s'
 - Status: verified
 - Scope: the existing 3-reference R2V experiment, four scenes, approximately seven seconds each

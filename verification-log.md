@@ -1,5 +1,7 @@
 # MiniMax-H3 検証ログ
 
+English summary: [verification-log.en.md](./verification-log.en.md)
+
 検証日: 2026-08-07 JST
 プロジェクト: <repo-root>
 

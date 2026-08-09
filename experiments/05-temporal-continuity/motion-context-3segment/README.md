@@ -1,5 +1,7 @@
 # MiniMax-H3 Motion Context 3セグメント実験
 
+English counterpart: [README.en.md](./README.en.md)
+
 実施日: 2026-08-09 JST
 Experiment ID: `niko-h3-motion-context-3segment`
 状態: `verified`

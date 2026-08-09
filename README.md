@@ -18,11 +18,11 @@ This repository is a growing experiment lab rather than a model mirror. It keeps
 
 - [Browse the visual experiment gallery](./experiments/README.md)
 - [See all ten tile previews on this page](#🖼️-experiment-tile-previews)
-- [Open the machine-readable experiment ledger](./experiments/index.md)
-- [Read the reproducibility contract](./LAB.md)
+- [Open the English machine-readable experiment ledger](./experiments/index.en.md)
+- [Read the English reproducibility contract](./LAB.en.md)
 - [Open the documentation site](https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/)
-- [Review X publishing payloads and simulators](./social/README.md)
-- [Inspect the frame-tile rules](./LAB.md#フレームタイルプレビュー)
+- [Review X publishing payloads and simulators](./social/README.en.md)
+- [Inspect the frame-tile rules](./LAB.en.md#public-evidence-and-frame-tiles)
 
 ## 🖼️ Experiment tile previews
 
@@ -51,7 +51,7 @@ These tracked contact sheets are the fastest way to compare temporal behavior fr
   </tr>
 </table>
 
-For the same list in a compact ledger, see [the experiment index](./experiments/index.md) and [the video-link index](./experiments/video-links.md).
+For the same list in a compact ledger, see [the English experiment index](./experiments/index.en.md) and [the video-link index](./experiments/video-links.md).
 
 ## 🚀 Quick start
 
@@ -151,11 +151,11 @@ The stronger verified records record wall time, ComfyUI status, workflow/model h
 
 - [Documentation site](https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/)
 - [Public artifact and media boundary](./docs/guide/artifacts.md)
-- [Experiment ledger](./experiments/index.md)
-- [Lab operations guide](./LAB.md)
-- [Research notes](./research-notes.md)
-- [Verification log](./verification-log.md)
-- [X payload and simulator index](./social/README.md)
+- [English experiment ledger](./experiments/index.en.md)
+- [English lab operations guide](./LAB.en.md)
+- [Research notes](./research-notes.en.md)
+- [Verification log](./verification-log.en.md)
+- [English X payload and simulator index](./social/README.en.md)
 - [Docker Compose definition](./compose.yaml)
 
 ## ⚖️ Scope and licensing

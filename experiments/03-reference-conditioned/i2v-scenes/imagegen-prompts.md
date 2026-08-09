@@ -1,5 +1,7 @@
 # ImageGen start-frame records
 
+日本語のメタデータ説明: [imagegen-prompts.ja.md](./imagegen-prompts.ja.md)
+
 The following four PNGs were generated with the built-in `image_gen.imagegen` tool, then copied into the repository's runtime input directory and used unchanged by the I2V workflows. The ImageGen output dimensions are `1672×941`; the MiniMax-H3 workflow target is `1344×768`.
 
 ## Car

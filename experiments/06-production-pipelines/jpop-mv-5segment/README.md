@@ -1,5 +1,7 @@
 # MiniMax-H3 日本語シンセポップMV — 音楽連動リリックモーション実験
 
+English counterpart: [README.en.md](./README.en.md)
+
 実施日: 2026-08-09 JST
 Experiment ID: `h3-mv-jpop-5segment`
 状態: `verified`

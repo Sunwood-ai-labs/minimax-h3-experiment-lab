@@ -1,5 +1,7 @@
 # Sources — Kijai LightX2V 4-step LoRA
 
+日本語の出典メモ: [sources.ja.md](./sources.ja.md)
+
 ## Hugging Face: Kijai/MiniMax-H3_comfy
 
 - URL: https://huggingface.co/Kijai/MiniMax-H3_comfy

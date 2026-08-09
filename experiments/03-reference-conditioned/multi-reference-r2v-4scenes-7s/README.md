@@ -1,5 +1,7 @@
 # MiniMax-H3 ref2va multi-reference R2V — 4 scenes × about 7 seconds
 
+[English version](./README.en.md)
+
 - Experiment ID: '2026-08-08-reference-multi-r2v-4scenes-7s'
 - Status: 'verified'
 - GPU: RTX 4090, Docker Compose service 'h3-4090'

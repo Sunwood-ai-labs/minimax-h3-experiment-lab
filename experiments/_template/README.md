@@ -1,5 +1,7 @@
 # MiniMax-H3 Experiment: <短い名前>
 
+> English template: [README.en.md](./README.en.md)
+
 - ID: `<YYYY-MM-DD-slug>`
 - Category: `<01-baseline|02-low-step-generation|03-reference-conditioned|04-acceleration|05-temporal-continuity|06-production-pipelines>`
 - Status: `planned`
@@ -22,7 +24,7 @@ Video/source X URL: `<https://x.com/...>` or `Not published / local-only`
 
 ## 出典
 
-詳細は同じディレクトリの`sources.md`へ。出典に書かれていない条件は推測で埋めない。
+詳細は同じディレクトリの`sources.md`（英語）と`sources.ja.md`（日本語）へ。出典に書かれていない条件は推測で埋めない。
 
 ## 実験条件
 
