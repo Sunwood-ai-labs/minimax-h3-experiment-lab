@@ -20,4 +20,4 @@ docker compose config --quiet
 
 6. commit済みメタデータでは相対パスを使います。credential、`.env`、モデル重み、マシン固有の秘密情報をcommitしません。
 
-実験READMEには、日本語の詳細記録と英語の`README.en.md`を用意し、両方から`experiment.json`・workflow・タイル・X動画/参照URLへ到達できるようにします。
+実験READMEは英語defaultの`README.md`と日本語の`README.ja.md`を用意し、両方から`experiment.json`・workflow・タイル・X動画/参照URLへ到達できるようにします。

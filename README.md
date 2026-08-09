@@ -21,7 +21,7 @@ This repository is a growing experiment lab rather than a model mirror. It keeps
 - [Open the English machine-readable experiment ledger](./experiments/index.en.md)
 - [Read the English reproducibility contract](./LAB.en.md)
 - [Open the documentation site](https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/)
-- [Review X publishing payloads and simulators](./social/README.en.md)
+- [Review X publishing payloads and simulators](./social/README.md)
 - [Inspect the frame-tile rules](./LAB.en.md#public-evidence-and-frame-tiles)
 
 ## 🖼️ Experiment tile previews
@@ -155,7 +155,7 @@ The stronger verified records record wall time, ComfyUI status, workflow/model h
 - [English lab operations guide](./LAB.en.md)
 - [Research notes](./research-notes.en.md)
 - [Verification log](./verification-log.en.md)
-- [English X payload and simulator index](./social/README.en.md)
+- [English X payload and simulator index](./social/README.md)
 - [Docker Compose definition](./compose.yaml)
 
 ## ⚖️ Scope and licensing

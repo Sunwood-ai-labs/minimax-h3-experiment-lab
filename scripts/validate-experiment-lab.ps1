@@ -84,6 +84,7 @@ foreach ($dir in $experimentDirs) {
 
     $jsonPath = Join-Path $dir.FullName 'experiment.json'
     $readmePath = Join-Path $dir.FullName 'README.md'
+    $readmeJaPath = Join-Path $dir.FullName 'README.ja.md'
 
     try {
         $record = Get-Content -Raw -LiteralPath $jsonPath | ConvertFrom-Json
@@ -133,8 +134,8 @@ foreach ($dir in $experimentDirs) {
         if ($readmeText -notmatch '\]\(\./experiment\.json\)') {
             $warnings.Add("$relativeDir/README.md does not link experiment.json near the top of the record.")
         }
-        if ($readmeText -notmatch '(?m)^## X動画・参照URL\s*$') {
-            $errors.Add("$relativeDir/README.md must contain a direct 'X動画・参照URL' section.")
+        if ($readmeText -notmatch '(?mi)^## X video .*reference URL') {
+            $errors.Add("$relativeDir/README.md must contain the English X video/reference URL section.")
         }
 
         if ($record.PSObject.Properties.Name -contains 'publication' -and $null -ne $record.publication -and
@@ -175,6 +176,15 @@ foreach ($dir in $experimentDirs) {
                     $errors.Add("$relativeDir/README.md must link sources.md URL '$sourceNoteUrl'.")
                 }
             }
+        }
+    }
+
+    if (-not (Test-Path -LiteralPath $readmeJaPath -PathType Leaf)) {
+        $errors.Add("$relativeDir is missing README.ja.md.")
+    } else {
+        $readmeJaText = Get-Content -Raw -LiteralPath $readmeJaPath
+        if ($readmeJaText -notmatch '(?m)^## X動画・参照URL\s*$') {
+            $errors.Add("$relativeDir/README.ja.md must contain a direct 'X動画・参照URL' section.")
         }
     }
 

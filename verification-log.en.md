@@ -43,7 +43,7 @@ All records preserve start/end timestamps, ComfyUI status, workflow and model ha
 
 - Compose definition: [`compose.yaml`](./compose.yaml)
 - English lab contract: [`LAB.en.md`](./LAB.en.md)
-- Experiment record: [`experiments/01-baseline/gpu-baseline/README.en.md`](./experiments/01-baseline/gpu-baseline/README.en.md)
+- Experiment record: [`experiments/01-baseline/gpu-baseline/README.md`](./experiments/01-baseline/gpu-baseline/README.md)
 - 3060 reports: [`runtime/3060/benchmark/index.md`](./runtime/3060/benchmark/index.md)
 - 4090 reports: [`runtime/4090/benchmark/index.md`](./runtime/4090/benchmark/index.md)
 - Validation commands: [`scripts/validate-experiment-lab.ps1`](./scripts/validate-experiment-lab.ps1), [`scripts/validate-documentation-parity.ps1`](./scripts/validate-documentation-parity.ps1)

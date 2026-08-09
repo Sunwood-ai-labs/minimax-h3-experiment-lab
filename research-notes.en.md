@@ -35,4 +35,4 @@ The post's prompt, seed, sampler, scheduler, LoRA, and some VAE/offload values a
 - RTX 4090: `memory_usage_factor=1.0`, pinned memory disabled, fp16 intermediates; 832×480 linked-recipe run and 1280×704 follow-up
 - GPU UUIDs, driver, host memory, workflow hashes, model hashes, media probes, and timing evidence are preserved in the runtime benchmark reports.
 
-See the bilingual [GPU baseline record](./experiments/01-baseline/gpu-baseline/README.en.md), [Japanese record](./experiments/01-baseline/gpu-baseline/README.md), and the [English lab guide](./LAB.en.md) for the reproducibility contract.
+See the bilingual [English/default GPU baseline record](./experiments/01-baseline/gpu-baseline/README.md), [Japanese record](./experiments/01-baseline/gpu-baseline/README.ja.md), and the [English lab guide](./LAB.en.md) for the reproducibility contract.

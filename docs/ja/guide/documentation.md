@@ -6,7 +6,7 @@
 
 - ルート入口は `README.md`（英語）と `README.ja.md`（日本語）です。
 - VitePressは `docs/guide/*.md`（英語）と `docs/ja/guide/*.md`（日本語）を対応させます。
-- 実験記録は既存の日本語リンクを壊さないため `README.md` を残し、英語版を `README.en.md` として追加します。両方から相互リンクし、`experiment.json`、追跡済みフレームタイル、X動画・参照URL、workflow導線を示します。
+- 実験記録は `README.md` を英語default、`README.ja.md` を日本語版として統一します。両方から相互リンクし、`experiment.json`、追跡済みフレームタイル、X動画・参照URL、workflow導線を示します。
 - 既存ファイル名を使っている共通ガイドは、`LAB.md` + `LAB.en.md`、`experiments/index.md` + `experiments/index.en.md`のように言語サフィックスでペアにします。
 - モデル入力が英語のプロンプトは英語のまま保持します。ただし、周辺の説明と再現メタデータには日本語版または日英併記を用意します。
 

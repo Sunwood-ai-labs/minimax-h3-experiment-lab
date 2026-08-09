@@ -21,7 +21,8 @@ experiments/
   experiment.schema.json           # 機械可読メタデータの契約
   _template/                       # 新規実験の雛形
   <category>/<slug>/               # 機能カテゴリ内の個別実験
-    README.md                      # 仮説・条件・結果・結論・制限
+    README.md                      # 英語defaultの仮説・条件・結果・結論・制限
+    README.ja.md                   # 日本語版
     experiment.json                # 機械可読な条件・run・成果物
     sources.md                     # 出典の要約（英語・必要な実験）
     sources.ja.md                  # 出典の要約（日本語・必要な実験）
@@ -57,7 +58,7 @@ social/
 cd <repo-root>
 Copy-Item experiments/_template experiments/03-reference-conditioned/my-experiment -Recurse
 # 例: 内容に合うカテゴリへ追加する
-# README.md / experiment.json / sources.mdを埋める
+# README.md / README.ja.md / experiment.json / sources.mdを埋める
 # workflowを実験ディレクトリへ保存する（共有workflowを使う場合は相対パスを記録）
 # .\scripts\run-h3-post-condition.ps1で実行する
 # runtime/<GPU>/benchmarkのJSON/Markdownを確認する
@@ -100,7 +101,7 @@ prompt、seed、scheduler、sampler、attention、EasyCache閾値など、比較
 
 既存カテゴリに収まる実験は、カテゴリを増やさず`<slug>`を追加します。新しい機能系統を追加する場合だけ、`experiment.schema.json`の`category`、検証スクリプト、`experiments/index.md`の入口を同じ変更で更新し、分類理由を記録します。これにより、実験数が増えても日付・配布元・人物名が分類軸へ逆戻りしません。
 
-投稿シミュレーターは本文・返信順・添付レイアウトを確認するための成果物です。実験記録とは分けて`social/README.md`から辿れるようにし、投稿済みか未送信か、動画本体がlocal-onlyか、公開表示がタイルかをpayload内で明示します。
+投稿シミュレーターは本文・返信順・添付レイアウトを確認するための成果物です。実験記録とは分けて`social/README.ja.md` / `social/README.md`から辿れるようにし、投稿済みか未送信か、動画本体がlocal-onlyか、公開表示がタイルかをpayload内で明示します。
 
 ## 検証コマンド
 

@@ -1,77 +1,103 @@
-# MiniMax-H3 GPU基準比較（2026-08-07）
+# MiniMax-H3 GPU Baseline Comparison (2026-08-07)
 
-English: [README.en.md](./README.en.md)
+Language navigation: [Japanese record](./README.ja.md)
 
 - ID: `2026-08-07-gpu-baseline`
 - Status: `verified`
-- GPU: RTX 3060 / RTX 4090
+- GPUs: RTX 3060 / RTX 4090
 - Owner: `MiniMax-H3 Experiment Lab`
 
-フレームタイル: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
+Frame tile: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
 
-Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/contact-sheet.jpg)
+Record: [experiment.json](./experiment.json) · [Japanese README](./README.ja.md)
 
 ![GPU baseline frame tile](./previews/contact-sheet.jpg)
 
-> This tracked tile is the public visual evidence; source MP4s under `runtime/*/output` remain local-only.
+> The tracked frame tile and manifest are the public visual evidence for this record. Source MP4s under `runtime/*/output` remain local-only.
 
-## X動画・参照URL
+## Purpose
 
-- **生成動画**: [3060 T2V](https://x.com/hAru_mAki_ch/status/2085730512677855266) / [3060 I2V](https://x.com/hAru_mAki_ch/status/2085731260169953315) / [4090 T2V](https://x.com/hAru_mAki_ch/status/2085738947553185852) / [4090 I2V](https://x.com/hAru_mAki_ch/status/2085738981866811714)
-- **参照元**: [TlanoAIの3060投稿](https://x.com/TlanoAI/status/2084940455809286397) / [yume_arasakiの4090投稿](https://x.com/yume_arasaki/status/2084766655331360999) / [4090 recipe](https://github.com/yume-arasaki/RTX-4090-3090-Minimax-H3-15s)
-- **調査候補（条件不足のため採用せず）**: [lizikk_zhu](https://x.com/lizikk_zhu/status/2084859489115648336) / [thekhoma](https://x.com/thekhoma/status/2084504336173076800) / [onigirikila](https://x.com/onigirikila/status/2084858171462754672)
-- **runと動画URLの対応**:
+Run RTX 3060 and RTX 4090 as separate Docker Compose services, then verify the reference/recipe conditions and the feasibility of approximately 720p-class text-to-video (T2V) and image-to-video (I2V) generation.
 
-  | Run | X動画 | 状態 |
-  |---|---|---|
-  | RTX 3060 T2V 1280×704（WSL再起動後） | [X動画](https://x.com/hAru_mAki_ch/status/2085730512677855266) | 投稿済み |
-  | RTX 3060 I2V 1280×704（WSL再起動後） | [X動画](https://x.com/hAru_mAki_ch/status/2085731260169953315) | 投稿済み |
-  | RTX 4090 T2V 1280×704 | [X動画](https://x.com/hAru_mAki_ch/status/2085738947553185852) | 投稿済み |
-  | RTX 4090 I2V 1280×704 | [X動画](https://x.com/hAru_mAki_ch/status/2085738981866811714) | 投稿済み |
-  | 3060/4090のその他のbaseline run | — | local-only |
+## Status and evidence boundary
 
-  この実験は個別workflow READMEではなく、run単位で記録しているため、URLは上表で実測runへ直接対応づけている。
+The experiment is `verified`. The record marks four 1280×704 video posts as posted on X. Other baseline runs remain local-only. The tracked tile and manifest are the public visual evidence; the source MP4s are not treated as public artifacts merely because they exist under a local runtime directory.
 
-## 目的
+## X video URLs and reference URLs
 
-RTX 3060とRTX 4090を別Compose serviceで動かし、投稿・linked recipeに対応する基準条件と、約720p級のT2V/I2Vを比較する。
+### Generated video posts
 
-## 出典
+- RTX 3060 T2V: [X video](https://x.com/hAru_mAki_ch/status/2085730512677855266)
+- RTX 3060 I2V: [X video](https://x.com/hAru_mAki_ch/status/2085731260169953315)
+- RTX 4090 T2V: [X video](https://x.com/hAru_mAki_ch/status/2085738947553185852)
+- RTX 4090 I2V: [X video](https://x.com/hAru_mAki_ch/status/2085738981866811714)
 
-- RTX 3060: [TlanoAIの投稿](https://x.com/TlanoAI/status/2084940455809286397)
-- RTX 4090: [yume_arasakiの投稿](https://x.com/yume_arasaki/status/2084766655331360999)
-- RTX 4090 recipe: [RTX-4090-3090-Minimax-H3-15s](https://github.com/yume-arasaki/RTX-4090-3090-Minimax-H3-15s)
-- 詳細な時系列: [verification-log.md](../../../verification-log.md)
-- X調査の根拠: [research-notes.md](../../../research-notes.md)
+### Reference and research URLs
 
-## 実験条件
+- RTX 3060 reference conditions: [TlanoAI post](https://x.com/TlanoAI/status/2084940455809286397)
+- RTX 4090 reference post: [yume_arasaki post](https://x.com/yume_arasaki/status/2084766655331360999)
+- RTX 4090 linked recipe: [RTX-4090-3090-Minimax-H3-15s](https://github.com/yume-arasaki/RTX-4090-3090-Minimax-H3-15s)
+- Researched but excluded because key sampler/offload conditions were missing: [lizikk_zhu](https://x.com/lizikk_zhu/status/2084859489115648336) and [thekhoma](https://x.com/thekhoma/status/2084504336173076800)
+- Researched but excluded because the exact base/LoRA/VAE/sampler were unknown: [onigirikila](https://x.com/onigirikila/status/2084858171462754672)
 
-- Docker Compose service: `h3-3060` / `h3-4090`
+### Workflow/run and video mapping
+
+This experiment is recorded per run rather than through an individual workflow README. The RTX 3060 runs use Compose service `h3-3060`; the RTX 4090 runs use `h3-4090`.
+
+| `experiment.json` run ID | Run | Result | X video / evidence |
+|---|---|---|---|
+| `3060-tlanoai-cold` | RTX 3060, 864×480, cold run | success | local-only |
+| `3060-tlanoai-warm` | RTX 3060, 864×480, warm inference | success | local-only |
+| `4090-yume-recipe` | RTX 4090, 832×480, linked recipe | success | local-only |
+| `4090-t2v-720p-class` | RTX 4090 T2V, 1280×704 | success | [X video](https://x.com/hAru_mAki_ch/status/2085738947553185852) |
+| `4090-i2v-720p-class` | RTX 4090 I2V, 1280×704 | success | [X video](https://x.com/hAru_mAki_ch/status/2085738981866811714) |
+| `3060-i2v-864x480` | RTX 3060 I2V, 864×480 | success | local-only |
+| `3060-t2v-720p-class-wsl-restart` | RTX 3060 T2V, 1280×704, after WSL restart | success | [X video](https://x.com/hAru_mAki_ch/status/2085730512677855266) |
+| `3060-i2v-720p-class-wsl-restart` | RTX 3060 I2V, 1280×704, after WSL restart | success | [X video](https://x.com/hAru_mAki_ch/status/2085731260169953315) |
+
+The mapping above is the run-to-post mapping used by this record; it does not claim that the local-only runs were published.
+
+## Runtime and key conditions
+
 - Host: Windows 11 + WSL2 + Docker Desktop
 - Container: PyTorch 2.11.0 + CUDA 13.0 + cuDNN 9
-- 3060投稿相当: 864×480、124 frames、24fps、25 steps
-- 4090 linked recipe: 832×480、124 frames、24fps、20 steps
-- 約720p級: 1280×704、124 frames、24fps、25 steps
-- 3060: Dynamic VRAM / CPU offload / SageAttention / EasyCache
-- 4090: `memory_usage_factor=1.0` / pinned memory無効 / fp16 intermediates
-- 3060と4090は同一時刻の速度比較ではなく、各条件の実測記録として扱う
+- Compose services: `h3-3060` and `h3-4090`
+- Shared video shape for the 720p-class runs: 1280×704, 124 frames, 24 fps, 25 steps
+- RTX 3060 reference-post condition: 864×480, 124 frames, 24 fps, 25 steps
+- RTX 4090 linked-recipe condition: 832×480, 124 frames, 24 fps, 20 steps
+- RTX 3060 settings: Dynamic VRAM, CPU offload, SageAttention, and EasyCache
+- RTX 4090 settings: `memory_usage_factor=1.0`, pinned memory disabled, and fp16 intermediates
 
-## 実行結果
+The RTX 3060 and RTX 4090 timings are measurements from different GPUs and conditions, not a controlled same-time speed comparison.
 
-| Run | Status | runner wall | 出力検査 |
+## Measured results
+
+| Run | Status | Runner wall time | Output inspection |
 |---|---|---:|---|
-| RTX 3060 TlanoAI cold 864×480 | success | 425.526 sec | blackdetectなし、正常信号 |
-| RTX 3060 TlanoAI warm inference 864×480 | success | 270.289 sec | blackdetectなし、正常信号 |
-| RTX 4090 linked recipe 832×480 | success | 255.350 sec | blackdetectなし、正常信号 |
-| RTX 4090 T2V 1280×704 | success | 290.337 sec | blackdetectなし、目視確認 |
-| RTX 4090 I2V 1280×704 | success | 275.309 sec | blackdetectなし、目視確認 |
-| RTX 3060 I2V 864×480 | success | 375.399 sec | blackdetectなし、目視確認 |
-| RTX 3060 T2V 1280×704（WSL再起動後） | success | 961.655 sec | blackdetectなし、OOMなし |
-| RTX 3060 I2V 1280×704（WSL再起動後） | success | 800.840 sec | blackdetectなし、OOMなし |
+| RTX 3060 TlanoAI cold 864×480 | success | 425.526 sec | no `blackdetect` intervals; valid signal |
+| RTX 3060 TlanoAI warm inference 864×480 | success | 270.289 sec | no `blackdetect` intervals; valid signal |
+| RTX 4090 linked recipe 832×480 | success | 255.350 sec | no `blackdetect` intervals; valid signal |
+| RTX 4090 T2V 1280×704 | success | 290.337 sec | no `blackdetect` intervals; visual inspection passed |
+| RTX 4090 I2V 1280×704 | success | 275.309 sec | no `blackdetect` intervals; visual inspection passed |
+| RTX 3060 I2V 864×480 | success | 375.399 sec | no `blackdetect` intervals; visual inspection passed |
+| RTX 3060 T2V 1280×704 after WSL restart | success | 961.655 sec | no `blackdetect` intervals; no OOM |
+| RTX 3060 I2V 1280×704 after WSL restart | success | 800.840 sec | no `blackdetect` intervals; no OOM |
 
-## 結論と制限
+## Reproduction and record links
 
-- RTX 3060は、正しいVAEとPyTorch/CUDA条件へ切り替えた後、1280×704 T2V/I2Vを完走した。
-- RTX 4090は同じ1280×704級で3060より短いが、GPU・条件が異なるため単純な倍率では結論づけない。
-- 842×480のX本文と832×480の4090 recipeは異なるため、4090はrecipe再現として記録する。
-- 旧Turbo/full-int8の黒画は別の`failed`レコードに分離した。
+- Primary record: [experiment.json](./experiment.json)
+- Public evidence tile: [contact sheet](./previews/contact-sheet.jpg) and [manifest](./previews/contact-sheet.json)
+- Detailed run log: [verification-log.en.md](../../../verification-log.en.md) / [日本語](../../../verification-log.md)
+- Research notes: [research-notes.en.md](../../../research-notes.en.md) / [日本語](../../../research-notes.md)
+- RTX 3060 benchmark index: [English](../../../runtime/3060/benchmark/index.md) / [日本語](../../../runtime/3060/benchmark/index.ja.md)
+- RTX 4090 benchmark index: [English](../../../runtime/4090/benchmark/index.md) / [日本語](../../../runtime/4090/benchmark/index.ja.md)
+- Related failed legacy route: [3060 black-output README](../3060-black-output/README.md)
+
+The source MP4s for the runs are local runtime outputs and are not linked here as public evidence.
+
+## Conclusion and limitations
+
+- After switching to the correct VAE and PyTorch/CUDA conditions, the RTX 3060 completed both 1280×704 T2V and I2V.
+- The RTX 4090 completed the same 1280×704-class modes in less wall time than the RTX 3060, but the GPU and conditions differ, so this is not a single speed multiplier.
+- The 842×480 dimensions in the 4090 X post body and the 832×480 linked recipe differ; the 4090 result is recorded as recipe reproduction rather than an exact match to both descriptions.
+- The earlier Turbo/full-int8 black-output route is kept as a separate `failed` record: [3060 legacy black-output](../3060-black-output/README.md).

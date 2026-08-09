@@ -6,7 +6,7 @@ This repository is bilingual by design. Public guidance and experiment entry poi
 
 - Root entry points use `README.md` (English) and `README.ja.md` (Japanese).
 - VitePress pages use `docs/guide/*.md` (English) and `docs/ja/guide/*.md` (Japanese).
-- Experiment records keep the existing `README.md` path for backward-compatible Japanese links and add `README.en.md` as the English counterpart. Both files must link to each other, `experiment.json`, the tracked frame tile, and the direct X/source URL section.
+- Experiment records use `README.md` as the English default and `README.ja.md` as the Japanese counterpart. Both files must link to each other, `experiment.json`, the tracked frame tile, and the direct X/source URL section.
 - Global repository guides use an explicit language suffix when the historical filename is already in use, for example `LAB.md` + `LAB.en.md` and `experiments/index.md` + `experiments/index.en.md`.
 - Prompts remain in English when English is the model input. Their surrounding explanation and reproducibility metadata still need a Japanese counterpart or a bilingual document.
 

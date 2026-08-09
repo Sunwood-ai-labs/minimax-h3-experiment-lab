@@ -6,7 +6,7 @@
 
 | 成果物 | 公開clone | 入口 |
 |---|---:|---|
-| 実験README | あり | `experiments/<category>/<slug>/README.md` |
+| 実験README | あり | `README.md`（英語default）＋`README.ja.md`（日本語） |
 | 機械可読レコード | あり | `experiment.json` |
 | フレームタイル | あり | `previews/contact-sheet.jpg` |
 | タイルmanifest | あり | `previews/contact-sheet.json` |

@@ -21,8 +21,8 @@ experiments/
   experiment.schema.json     # machine-readable metadata contract
   _template/                 # new experiment template
   <category>/<slug>/
-    README.md                # Japanese/default detailed record
-    README.en.md             # English counterpart
+    README.md                # English/default detailed record
+    README.ja.md             # Japanese counterpart
     experiment.json          # structured conditions, runs, and evidence
     sources.md               # English source notes when needed
     sources.ja.md            # Japanese source notes when needed
@@ -54,7 +54,7 @@ Model weights, runtime outputs, and dependency caches stay outside ordinary Git 
 ```powershell
 cd <repo-root>
 Copy-Item experiments/_template experiments/03-reference-conditioned/my-experiment -Recurse
-# Fill README.md, README.en.md, experiment.json, sources.md, and workflow files.
+# Fill README.md, README.ja.md, experiment.json, sources.md, and workflow files.
 # Run the API workflow and inspect runtime/<GPU>/benchmark reports.
 .\scripts\validate-experiment-lab.ps1
 .\scripts\validate-documentation-parity.ps1

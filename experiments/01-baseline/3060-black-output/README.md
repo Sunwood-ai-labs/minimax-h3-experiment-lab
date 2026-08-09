@@ -1,52 +1,73 @@
-# RTX 3060 旧経路の黒画（2026-08-07）
+# RTX 3060 Black Output on the Legacy Route (2026-08-07)
 
-English: [README.en.md](./README.en.md)
+Language navigation: [Japanese record](./README.ja.md)
 
 - ID: `2026-08-07-3060-legacy-black-output`
 - Status: `failed`
 - GPU: RTX 3060 12GB
 - Owner: `MiniMax-H3 Experiment Lab`
 
-フレームタイル: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
+Frame tile: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
 
-Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/contact-sheet.jpg)
+Record: [experiment.json](./experiment.json) · [Japanese README](./README.ja.md)
 
 ![3060 black-output frame tile](./previews/contact-sheet.jpg)
 
-> This tracked tile is the public visual evidence; the failed source MP4s remain local-only and their hashes are preserved in the manifest.
+> The tracked frame tile and manifest are the public visual evidence for this failed record. The failed source MP4s remain local-only; their hashes are preserved in the manifest.
 
-## X動画・参照URL
+## Purpose and hypothesis
 
-- **生成動画**: なし（未投稿 / `local-only`）。黒画の失敗結果を公開成功動画として扱っていない。
-- **参照元**: [RTX 3060条件のTlanoAI投稿](https://x.com/TlanoAI/status/2084940455809286397)
-- **対応する実験記録**: このREADMEと[`experiment.json`](./experiment.json)が旧Turbo/full-int8経路の失敗記録。成功した再検証動画は[GPU基準比較](../gpu-baseline/README.md)に分離している。
+Test whether the initially used Turbo/full-int8 configuration could generate a video on an RTX 3060 under its memory constraints.
 
-## 仮説
+## Status and evidence boundary
 
-最初に動かしたTurbo/full-int8構成が、RTX 3060のメモリ制約下でも動画を生成できるか確認した。
+This experiment is explicitly `failed`. The generated-result video was not posted to X and remains `local-only`. The tracked contact sheet and manifest are the public visual evidence; the failed source MP4s are not treated as public success videos.
 
-## 条件
+## X video and reference URLs
 
-- Turbo/full-int8 base
-- Kijai experimental int8 video VAE
-- Turbo sampler、8 steps
-- RTX 3060
-- Docker Compose上の旧runtime
+- Generated video: none. There is no generated-result X URL for this record, and the black-output failure was not presented as a successful public video.
+- Condition reference: [TlanoAI RTX 3060 post](https://x.com/TlanoAI/status/2084940455809286397)
+- Related successful re-verification: [GPU baseline comparison](../gpu-baseline/README.md). Its successful videos are a separate experiment and must not be attributed to this failed record.
 
-## 結果
+## Runtime and key conditions
 
-生成MP4は全フレームが黒信号だった。`blackdetect`と`signalstats`で黒画を確認し、Kijai int8 VAEだけを切り替えるA/Bも黒になった。
+- GPU: RTX 3060 12GB
+- Base: Turbo/full-int8
+- Video VAE: Kijai experimental int8 video VAE
+- Sampler: Turbo
+- Steps: 8
+- Runtime: legacy Docker Compose route
 
-この経路は成功動画として採用せず、公式FP16 video VAE / FP32 audio VAEを使う条件へ切り替えた。切り替え後の再検証は[GPU基準比較](../gpu-baseline/README.md)に記録している。
+## Workflow/run mapping and measured results
 
-## 証拠
+No public workflow file is attached to this failed record. The record maps the two tested legacy-route variants below:
 
-- [verification-log.md](../../../verification-log.md) — 黒画の検査、CUDA OOM、復旧手順
-- [research-notes.md](../../../research-notes.md) — 3060投稿の条件調査と原因切り分け
-- 旧MP4がローカルruntimeに残っている場合は、生成物を再利用せず失敗証拠として扱う
+| `experiment.json` run ID | Variant | Status | Measurement |
+|---|---|---|---|
+| `legacy-turbo-int8` | Turbo/full-int8 base with the legacy route | failed | all frames black by `blackdetect`; black signal by `signalstats`; no OOM |
+| `kijai-int8-vae-ab` | A/B switch to Kijai int8 VAE | failed | black output; no OOM |
 
-## 再発防止
+The resulting MP4s did not become valid visual results. The route was excluded from the successful baseline results, and the configuration was changed to the official FP16 video VAE / FP32 audio VAE path for re-verification.
 
-1. 投稿に記載されたVAEとPyTorch/CUDAの主要版を優先する。
-2. 出力直後にffprobe、blackdetect、signalstats、抽出フレームを確認する。
-3. 黒画やOOMを成功実験の結果表へ混ぜず、別の`failed`レコードへ分離する。
+## Reproduction and evidence links
+
+- Primary record: [experiment.json](./experiment.json)
+- Public evidence tile: [contact sheet](./previews/contact-sheet.jpg) and [manifest](./previews/contact-sheet.json)
+- Black-output inspection, CUDA OOM checks, and recovery procedure: [verification-log.en.md](../../../verification-log.en.md) / [日本語](../../../verification-log.md)
+- Condition research and root-cause isolation: [research-notes.en.md](../../../research-notes.en.md) / [日本語](../../../research-notes.md)
+- Successful follow-up under the corrected conditions: [GPU baseline README](../gpu-baseline/README.md)
+
+The old MP4s may remain under the local runtime. If present, they are failure evidence only and should not be reused as successful outputs.
+
+## Conclusion and limitations
+
+The legacy Turbo/full-int8 plus Kijai int8 VAE route produced black video and was excluded from the final configuration.
+
+- The model files needed to reproduce the old MP4s are outside Git; another PC would need to obtain them separately.
+- The black-output cause is not assigned to one node alone. This record treats it as a route-level issue involving VAE, base model, sampler, and Docker/runtime differences.
+
+## Prevention checklist
+
+1. Prefer the VAE and major PyTorch/CUDA versions specified by the reference post.
+2. Immediately inspect new output with `ffprobe`, `blackdetect`, `signalstats`, and extracted frames.
+3. Keep black output and OOM cases in a separate `failed` record rather than mixing them into the successful experiment results.

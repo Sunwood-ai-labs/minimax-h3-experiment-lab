@@ -1,260 +1,226 @@
-# MiniMax-H3 日本語猫カフェVlog — 5セグメント Motion Context実験
+# MiniMax-H3 Japanese Cat-Cafe Vlog — 5-Segment Motion Context Experiment
 
-English counterpart: [README.en.md](./README.en.md)
+日本語の詳細記録: [README.ja.md](./README.ja.md) · Machine-readable record: [experiment.json](./experiment.json)
 
-実施日: 2026-08-09 JST
-Experiment ID: `h3-japanese-catcafe-vlog-5segment`
-状態: `verified`
+Date: 2026-08-09 JST
+Experiment ID: h3-japanese-catcafe-vlog-5segment
+Status: verified
 
-フレームタイル: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
+Frame tile: [contact sheet](./previews/contact-sheet.jpg) · [manifest](./previews/contact-sheet.json)
 
-Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/contact-sheet.jpg)
+![Japanese cat-cafe Vlog frame tile](./previews/contact-sheet.jpg)
 
-![Japanese cat-café Vlog frame tile](./previews/contact-sheet.jpg)
+> The tracked frame tile lets reviewers inspect the approximately 30-second Vlog's segment transitions. The video files themselves are local-only.
 
-> この追跡済みタイルで、約30秒Vlogのセグメント間の挙動を確認できます。動画本体はローカル成果物です。
+## X video and reference URLs
 
-## X動画・参照URL
+- **Completed-video post:** [X post](https://x.com/hAru_mAki_ch/status/2086296391702438041) — status is uncertain. A publication record exists, but the identity between the public X attachment and this local completed video, including attachment mapping, has not been confirmed.
+- **References:** [Motion Context implementation](https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context) · [source three-segment post](https://x.com/photogenicweeke/status/2085848283138891926?s=46)
 
-- **完成動画投稿**: [X投稿](https://x.com/hAru_mAki_ch/status/2086296391702438041) — `uncertain`。投稿情報はあるが、公開X添付とこのローカル完成動画の同一性・添付対応は未確認。
-- **参照元**: [Motion Context実装](https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context) / [3セグメント元投稿](https://x.com/photogenicweeke/status/2085848283138891926?s=46)
-- **workflowと完成動画URLの対応**:
+The publication record labels the URL as posted, while its payload says simulationOnly=true. Verify the original X attachment before treating it as canonical evidence.
 
-  | Workflow | Segment | X動画 |
-  |---|---:|---|
-  | [`segment_01`](./segment_01_api.json) | 1 | [完成動画のX投稿](https://x.com/hAru_mAki_ch/status/2086296391702438041)（添付対応未確認） |
-  | [`segment_02`](./segment_02_api.json) | 2 | [完成動画のX投稿](https://x.com/hAru_mAki_ch/status/2086296391702438041)（添付対応未確認） |
-  | [`segment_03`](./segment_03_api.json) | 3 | [完成動画のX投稿](https://x.com/hAru_mAki_ch/status/2086296391702438041)（添付対応未確認） |
-  | [`segment_04`](./segment_04_api.json) | 4 | [完成動画のX投稿](https://x.com/hAru_mAki_ch/status/2086296391702438041)（添付対応未確認） |
-  | [`segment_05`](./segment_05_api.json) | 5 | [完成動画のX投稿](https://x.com/hAru_mAki_ch/status/2086296391702438041)（添付対応未確認） |
+### Workflow, run, and X mapping
 
-## 結論
+| Workflow | Segment | Prompt ID | Measured run | Local output | X video |
+|---|---:|---|---|---|---|
+| [segment_01_api.json](./segment_01_api.json) | 1 | 40bc8f28-fcf9-41ec-9f5c-a98f71ad7b3d | success; 158 frames; 6.583008 s; 464.903 s wall time | runtime/4090/output/video/h3_cat_cafe_vlog/segment_01_00001_.mp4 | [completed-video post](https://x.com/hAru_mAki_ch/status/2086296391702438041) (attachment mapping unconfirmed) |
+| [segment_02_api.json](./segment_02_api.json) | 2 | 9ea36b47-769b-45d1-a38b-8d412509e69b | success; 136 frames; 5.666667 s; 556.262 s wall time | runtime/4090/output/video/h3_cat_cafe_vlog/segment_02_00001_.mp4 | [completed-video post](https://x.com/hAru_mAki_ch/status/2086296391702438041) (attachment mapping unconfirmed) |
+| [segment_03_api.json](./segment_03_api.json) | 3 | 6095947a-5701-443c-9ceb-184e38a992fb | success; 136 frames; 5.666667 s; 555.960 s wall time | runtime/4090/output/video/h3_cat_cafe_vlog/segment_03_00001_.mp4 | [completed-video post](https://x.com/hAru_mAki_ch/status/2086296391702438041) (attachment mapping unconfirmed) |
+| [segment_04_api.json](./segment_04_api.json) | 4 | 28ac5017-3a0e-468f-a6b1-3b5d07d1d8b2 | success; 136 frames; 5.666667 s; 556.361 s wall time | runtime/4090/output/video/h3_cat_cafe_vlog/segment_04_00001_.mp4 | [completed-video post](https://x.com/hAru_mAki_ch/status/2086296391702438041) (attachment mapping unconfirmed) |
+| [segment_05_api.json](./segment_05_api.json) | 5 | 32ecf88e-b487-45bc-a762-aac7486ded7f | success; 136 frames; 5.666667 s; 554.413 s wall time | runtime/4090/output/video/h3_cat_cafe_vlog/segment_05_00001_.mp4 | [completed-video post](https://x.com/hAru_mAki_ch/status/2086296391702438041) (attachment mapping unconfirmed) |
 
-英語の生成プロンプトに、日本語で話すセリフを直接含めてMiniMax-H3を実行した。猫カフェを訪れる日本人インフルエンサー風のVlogを5セグメントに分け、`ComfyUI-H3-Motion-Context`で映像・音声コンテキストとlatentを引き継いで連結した。
+The generated API workflows and run metadata are also in [manifest.json](./manifest.json) and [run-progress.json](./run-progress.json).
 
-- 5/5セグメントがComfyUI history `success`
-- 連結結果: `1280×704`、`24fps`、`702 frames`、`29.256秒`
-- 各セグメントにAAC音声あり（`32kHz / stereo`）
-- `blackdetect`で黒画区間なし
-- この実行ではOOM・CUDA runtime errorなし
-- 生成処理時間合計: `2687.899秒`（44分47.899秒）
+## Purpose and result
 
-最終動画:
+The test asks whether an approximately 30-second cat-cafe Vlog with Japanese dialogue can be assembled naturally from five short generations. The prompts are written in English, while the requested spoken dialogue is Japanese. The same influencer-style woman, clothing, voice, camera style, cat, cafe, lighting, and background audio were carried through a five-segment MiniMax-H3 T2V chain using video/audio context and saved latents.
 
-- 連結動画（local-only）: `outputs/h3_cat_cafe_vlog_5segment_merged.mp4`。公開用の視覚確認は[フレームタイル](./previews/contact-sheet.jpg)を使用する。
-- SHA-256: `73200CA4577C710BCADB41FD23451EBE01BDDE3E30D8E4E3A734F5A9A88E10DC`
+Measured result:
 
-今回の要件は「セリフを日本語、プロンプトは英語」と解釈した。プロンプトのHTTP送信はUTF-8 bytesで行い、日本語文字が`?`へ置換されないことも確認した。なお、音声の日本語発音・内容をASRで文字起こしして照合する検査はまだ実施していない。目視したサンプルでは、プロンプトに「字幕なし」と書いたにもかかわらず、日本語のキャプション風テキストが一部フレームに自動生成された。この点はモデル側の副作用として記録する。
+- 5/5 ComfyUI history runs finished with success.
+- The merged output is 1280×704, 24 fps, 702 frames, and 29.256 s.
+- Every segment contains AAC audio at 32 kHz / stereo.
+- blackdetect found no black interval.
+- This run had no OOM and no CUDA runtime error.
+- Total generation wall time was 2687.899 s (44 m 47.899 s).
+- The local merged file is outputs/h3_cat_cafe_vlog_5segment_merged.mp4 with SHA-256 73200CA4577C710BCADB41FD23451EBE01BDDE3E30D8E4E3A734F5A9A88E10DC.
 
-## 実験目的と構成
+The Japanese dialogue was sent as UTF-8 request bytes; no replacement of Japanese characters with question marks was detected. Independent ASR verification of the actual generated speech was not performed. Visual samples unexpectedly contain Japanese caption-like text in some frames even though the prompts requested no subtitles or on-screen text; this is recorded as a model side effect, not an added subtitle edit.
 
-### 目的
+## Segment design
 
-日本語のセリフを含む、約30秒の猫カフェVlogを、5本の短い生成結果から自然につなげられるか確認する。人物・服装・声・猫・店内をプロンプトで固定し、2本目以降は直前セグメントの映像コンテキスト、音声コンテキスト、保存済みlatentを渡した。
+Each segment was generated at 158 frames (158 / 24 = 6.583 seconds). Segments 2–5 received the first 22 frames (22 / 24 = 0.9167 seconds) of the preceding video/audio context and were trimmed after generation:
 
-### セグメント設計
-
-各セグメントは158フレーム（`158 / 24 = 6.583秒`）で生成した。セグメント2〜5は先頭22フレーム（`22 / 24 = 0.9167秒`）をコンテキストとして重複させ、生成後にTrimした。したがって、出力の合計は次の計算になる。
-
-```text
 158 + 4 × (158 - 22) = 702 frames
-702 / 24 = 29.25 seconds（実測29.256秒）
-```
+702 / 24 = 29.25 seconds (measured: 29.256 s)
 
-| segment | 内容 | raw frames | context | 出力frames | 出力秒数 | 処理時間 |
-|---:|---|---:|---:|---:|---:|---:|
-| 1 | 入店前の導入 | 158 | 0 | 158 | 6.583 | 464.903秒 |
-| 2 | 猫が出迎える | 158 | 22 | 136 | 5.667 | 556.262秒 |
-| 3 | 猫を撫でる・ゴロゴロ音 | 158 | 22 | 136 | 5.667 | 555.960秒 |
-| 4 | おやつタイム | 158 | 22 | 136 | 5.667 | 556.361秒 |
-| 5 | 退店前の締め | 158 | 22 | 136 | 5.667 | 554.413秒 |
-| **合計** |  |  |  | **702** | **29.256** | **2687.899秒** |
+| Segment | Story beat | Raw frames | Context | Output frames / seconds | Generation time |
+|---:|---|---:|---:|---:|---:|
+| 1 | Introduction before entering the cafe | 158 | 0 | 158 / 6.583 s | 464.903 s |
+| 2 | A cat greets her | 158 | 22 | 136 / 5.667 s | 556.262 s |
+| 3 | She pets the cat; purring is requested | 158 | 22 | 136 / 5.667 s | 555.960 s |
+| 4 | Treat time | 158 | 22 | 136 / 5.667 s | 556.361 s |
+| 5 | Closing before leaving | 158 | 22 | 136 / 5.667 s | 554.413 s |
+| **Total** |  |  |  | **702 / 29.256 s** | **2687.899 s** |
 
-## 再現環境
+## Runtime and GPU
 
-### ホスト
+### Host
 
-| 項目 | 値 |
+| Item | Value |
 |---|---|
-| OS実行基盤 | Windowsホスト + WSL2 Ubuntu |
-| WSL kernel | `6.6.114.1-microsoft-standard-WSL2` |
-| Docker Engine | `29.4.3` |
-| Docker Compose | `v5.1.3` |
+| Host platform | Windows host + WSL2 Ubuntu |
+| WSL kernel | 6.6.114.1-microsoft-standard-WSL2 |
+| Docker Engine | 29.4.3 |
+| Docker Compose | v5.1.3 |
 | GPU | NVIDIA GeForce RTX 4090 |
-| GPU UUID | `GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa` |
-| NVIDIA driver | `591.86` |
-| GPUメモリ | `24564 MiB` |
+| GPU UUID | GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa |
+| NVIDIA driver | 591.86 |
+| VRAM | 24564 MiB |
 
 ### Docker / ComfyUI
 
-| 項目 | 値 |
+| Item | Value |
 |---|---|
-| Compose service | `h3-4090` |
-| endpoint | `http://127.0.0.1:8188` |
-| image | `local/minimax-h3-comfyui:v0.30.0` |
-| image digest | `sha256:8611a4bdaf00f565811cde2fd9d9e04fa0ad7648ce819111ae1d1573f55bff60` |
-| ComfyUI | `0.30.0` |
-| Python | `3.12.3` |
-| PyTorch | `2.11.0+cu130` |
-| 起動引数 | `--disable-pinned-memory --disable-async-offload --fp16-intermediates --preview-method none` |
-| input mount | `./runtime/4090/input:/opt/ComfyUI/input` |
-| output mount | `./runtime/4090/output:/opt/ComfyUI/output` |
+| Compose service | h3-4090 |
+| Endpoint | http://127.0.0.1:8188 |
+| Image | local/minimax-h3-comfyui:v0.30.0 |
+| Image digest | sha256:8611a4bdaf00f565811cde2fd9d9e04fa0ad7648ce819111ae1d1573f55bff60 |
+| ComfyUI | 0.30.0 |
+| Python | 3.12.3 |
+| PyTorch | 2.11.0+cu130 |
+| Startup arguments | --disable-pinned-memory --disable-async-offload --fp16-intermediates --preview-method none |
+| Input mount | ./runtime/4090/input:/opt/ComfyUI/input |
+| Output mount | ./runtime/4090/output:/opt/ComfyUI/output |
 
-### 使用モデル
+Models:
 
-- diffusion: `minimax_h3_fl2va_pruned_int8_convrot.safetensors`
-- text encoder: `qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors`
-- video VAE: `minimax_h3_video_vae_fp16.safetensors`
-- audio VAE: `minimax_h3_audio_vae_fp32.safetensors`
+- Diffusion: minimax_h3_fl2va_pruned_int8_convrot.safetensors
+- Text encoder: qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors
+- Video VAE: minimax_h3_video_vae_fp16.safetensors
+- Audio VAE: minimax_h3_audio_vae_fp32.safetensors
 
-### 実装revision
+Implementation revision and related experiments:
 
-- Motion Context: `15fc6a7bf7b78efb27f33d7eef3818e7ed0e118a`
-- 元実験: [`niko-h3-motion-context-3segment`](../../05-temporal-continuity/motion-context-3segment/README.md)
-- workflow生成: [`scripts/build-h3-catcafe-vlog-workflows.py`](../../../scripts/build-h3-catcafe-vlog-workflows.py)
-- 実行runner: [`scripts/run-h3-catcafe-vlog.ps1`](../../../scripts/run-h3-catcafe-vlog.ps1)
-- 連結・検査: [`scripts/merge-h3-catcafe-vlog.ps1`](../../../scripts/merge-h3-catcafe-vlog.ps1)
+- Motion Context revision: 15fc6a7bf7b78efb27f33d7eef3818e7ed0e118a
+- Base experiment: [motion-context-3segment README](../../05-temporal-continuity/motion-context-3segment/README.ja.md) · [English counterpart](../../05-temporal-continuity/motion-context-3segment/README.md)
+- Workflow builder: [scripts/build-h3-catcafe-vlog-workflows.py](../../../scripts/build-h3-catcafe-vlog-workflows.py)
+- Runner: [scripts/run-h3-catcafe-vlog.ps1](../../../scripts/run-h3-catcafe-vlog.ps1)
+- Merge and validation: [scripts/merge-h3-catcafe-vlog.ps1](../../../scripts/merge-h3-catcafe-vlog.ps1)
 
-## 固定条件
+## Fixed H3 conditions
 
-| 項目 | 設定 |
+| Item | Setting |
 |---|---|
-| mode | T2V（リファレンス画像なし） |
-| 解像度 | `1280×704`（約720p相当） |
-| FPS | `24` |
-| steps | `20` |
-| sampler | `res_multistep` |
-| scheduler | `simple` |
-| denoise | `1.0` |
-| seed | `2026080910`（全セグメント共通） |
-| Motion Context | `context_length=22` |
-| audio context | `audio_context_length=22`、`audio_mode=timeline` |
-| video encode | `encode_mode=video` |
-| anchor | `anchor_mode=head` |
-| Trim | `match_tail=true`、`fps=24` |
-| Attention | `sageattn_qk_int8_pv_fp16_cuda`、`allow_compile=false` |
-| EasyCache | 無効 |
-| Sol-Attn | 無効 |
-| Spectrum | 無効 |
+| Mode | T2V; no reference image |
+| Resolution | 1280×704, approximately 720p |
+| FPS | 24 |
+| Steps | 20 |
+| Sampler / scheduler | res_multistep / simple |
+| Denoise | 1.0 |
+| Seed | 2026080910, shared by all segments |
+| Motion Context | context_length=22 |
+| Audio context | audio_context_length=22, audio_mode=timeline |
+| Video encode | encode_mode=video |
+| Anchor | anchor_mode=head |
+| Trim | match_tail=true, fps=24 |
+| Attention | sageattn_qk_int8_pv_fp16_cuda, allow_compile=false |
+| EasyCache / Sol-Attn / Spectrum | disabled |
 
-今回はMotion Contextの連続性を単独で確認するため、EasyCache・Sol-Attn・Spectrumは有効化していない。SageAttentionも汎用FP16 CUDA設定だけに固定した。
+The optimization features were disabled to isolate Motion Context continuity. The reference baseline used only the generic FP16 CUDA SageAttention path.
 
-## プロンプト（英語）と日本語セリフ
+## Prompt and dialogue design
 
-下記がAPIへ渡した全文である。実験の再現時は、`segment_01_api.json`〜`segment_05_api.json`をそのまま使用できる。
+The API files contain the full English prompts. Their requested Japanese dialogue is:
 
-### Segment 1
+| Segment | Scene intent | Requested Japanese line | English gloss |
+|---:|---|---|---|
+| 1 | Enter a cozy Tokyo cat cafe in the late afternoon | 「今日は東京の猫カフェに来ました！たっぷり癒やされてきます」 | “I came to a Tokyo cat cafe today! I’m going to get thoroughly relaxed.” |
+| 2 | An orange tabby with white paws and a blue collar comes to greet her | 「入ってすぐ、この子が来てくれた！めちゃくちゃ人懐っこい」 | “As soon as I came in, this one came over! So friendly!” |
+| 3 | Pet the tabby on a low sofa and capture its purring | 「見て、このゴロゴロ音。かわいすぎて動けない」 | “Listen to this purring. It’s so cute I can’t move.” |
+| 4 | Feed a small treat and laugh softly | 「おやつタイムです。食べ方までかわいいんだけど！」 | “It’s treat time. Even the way it eats is adorable!” |
+| 5 | Play briefly, return to selfie view, and say goodbye | 「今日は本当に癒やされました。またこの子に会いに来ます！」 | “I’m truly refreshed today. I’ll come back to see this one again!” |
 
-```text
-A realistic handheld Japanese lifestyle vlog at a cozy Tokyo cat cafe in the late afternoon. A cheerful Japanese woman in her mid-20s is a non-specific social-media influencer, with shoulder-length warm brown hair, a cream cardigan over a pastel blue T-shirt, a small cat-shaped tote bag, and natural makeup. Keep her identity, outfit, voice, camera style and color grade consistent across every segment. She films herself at arm's length with a phone-sized vlog camera, then turns toward the cafe entrance. Warm wood, soft window light, several calm cats, realistic handheld motion, natural room tone, soft royalty-free acoustic background music. She smiles and speaks naturally in Japanese: 「今日は東京の猫カフェに来ました！たっぷり癒やされてきます」. Preserve clear Japanese speech, no subtitles, no on-screen text, no logos.
-```
+The prompts also requested no subtitles, no on-screen text, and no logos. Frames 14, 21, and 28 of the visual review nevertheless contain generated Japanese caption-like text.
 
-### Segment 2
+## Reproduction
 
-```text
-Continue directly from the previous cat-cafe vlog clip with the exact same Japanese woman, warm brown hair, cream cardigan, pastel blue T-shirt, tote bag, voice, handheld camera and late-afternoon lighting. She enters the same Tokyo cat cafe, sanitizes her hands, and a friendly orange tabby cat with white paws and a small blue collar walks up to greet her. The camera follows from selfie view to a gentle over-the-shoulder view. Keep the same room layout, acoustic music, cafe ambience and natural handheld rhythm with no visible reset. She speaks naturally in Japanese: 「入ってすぐ、この子が来てくれた！めちゃくちゃ人懐っこい」. Include soft cat meows and purring, clear Japanese speech, no subtitles, no on-screen text, no logos.
-```
+From the repository root (<repo-root>):
 
-### Segment 3
+1. Start the ComfyUI service:
 
-```text
-Continue directly from the previous clip with no reset. The same Japanese influencer, outfit, voice, orange tabby cat with white paws and blue collar, Tokyo cat cafe, warm wood interior, window light, handheld phone-vlog camera and acoustic background music remain consistent. She sits on a low sofa and slowly pets the tabby while the camera moves into a close but natural selfie-and-cat shot. The cat relaxes and purrs, its tail moving gently. Preserve continuous body motion, realistic fur, stable face and matching room tone. She whispers happily in Japanese: 「見て、このゴロゴロ音。かわいすぎて動けない」. Keep Japanese speech understandable, include purring and soft cafe ambience, no subtitles, no on-screen text, no logos.
-```
-
-### Segment 4
-
-```text
-Continue seamlessly from the previous cat-cafe vlog segment with the same Japanese woman, same clothes, same voice, same orange tabby cat with white paws and blue collar, same warm Tokyo cafe and handheld camera. A staff member offers a small cat treat. The influencer holds it carefully and the tabby eats from her hand; she laughs softly while the camera makes a small playful push-in. Keep the background music, lighting, room tone, cat behavior and vlog color grade continuous, with realistic hands and natural motion. She says in Japanese: 「おやつタイムです。食べ方までかわいいんだけど！」. Include a quiet laugh, tiny cat sounds and clear Japanese speech, no subtitles, no on-screen text, no logos.
-```
-
-### Segment 5
-
-```text
-Continue directly from the previous clip and finish the same Japanese influencer cat-cafe vlog without a visible reset. Keep the exact same woman, warm brown hair, cream cardigan, pastel blue T-shirt, tote bag, voice, orange tabby cat with white paws and blue collar, warm window light, cafe ambience and handheld phone camera. She plays briefly with a feather toy, then returns to selfie view near the entrance as the cat sits beside her. She waves to the camera, smiles with a relaxed satisfied expression, and the camera gently pulls back. Preserve continuous acoustic music and natural room tone. She gives a friendly Japanese outro: 「今日は本当に癒やされました。またこの子に会いに来ます！」. End with soft purring and a natural handheld stop, clear Japanese speech, no subtitles, no on-screen text, no logos.
-```
-
-## 実行手順
-
-リポジトリルートは `<repo-root>` とする。
-
-### 1. Docker Composeを起動
-
-```powershell
-cd <repo-root>
+~~~powershell
 docker compose --profile 4090 up -d --build h3-4090
-```
-
-ヘルスチェック確認:
-
-```powershell
 Invoke-RestMethod http://127.0.0.1:8188/system_stats
-```
+~~~
 
-### 2. API workflowを生成
+2. Build the API workflows:
 
-```powershell
-uv run python scripts/build-h3-catcafe-vlog-workflows.py `
-  --output-dir experiments/06-production-pipelines/catcafe-vlog-5segment
-```
+~~~powershell
+uv run python scripts/build-h3-catcafe-vlog-workflows.py --output-dir experiments/06-production-pipelines/catcafe-vlog-5segment
+~~~
 
-生成物は `segment_01_api.json`〜`segment_05_api.json` と `manifest.json` である。
+This creates segment_01_api.json through segment_05_api.json and manifest.json.
 
-### 3. 5セグメントを順番に実行
+3. Run the five segments in order:
 
-```powershell
-.\scripts\run-h3-catcafe-vlog.ps1 `
-  -Port 8188 `
-  -StartSegment 1 `
-  -TimeoutSeconds 7200
-```
+~~~powershell
+.\scripts\run-h3-catcafe-vlog.ps1 -Port 8188 -StartSegment 1 -TimeoutSeconds 7200
+~~~
 
-runnerは各segmentをComfyUI `/prompt`へ投入し、前segmentの出力を次segmentのinputへコピーする。HTTP bodyはUTF-8 bytesで送信するため、日本語セリフを含むプロンプトをWindows PowerShellから再現できる。途中からの再開は `-StartSegment 2`〜`-StartSegment 5` を指定する。処理時間・prompt ID・ffprobe・blackdetect・SHA-256は、実験ディレクトリの `run-progress.json` に保存される。
+The runner submits each segment to ComfyUI /prompt and copies the preceding output into the next segment's runtime/4090/input/h3_cat_cafe_vlog directory. It sends the HTTP body as UTF-8 bytes, so the Japanese dialogue can be reproduced from Windows PowerShell. Resume with StartSegment 2 through StartSegment 5 if needed. Prompt IDs, timing, ffprobe, blackdetect, and SHA-256 values are written to [run-progress.json](./run-progress.json).
 
-### 4. 連結と検査
+4. Merge and validate:
 
-```powershell
+~~~powershell
 .\scripts\merge-h3-catcafe-vlog.ps1
-```
+~~~
 
-出力先は `outputs/h3_cat_cafe_vlog_5segment_merged.mp4`、連結結果の検査記録は `merge.json` である。
+The merged file is outputs/h3_cat_cafe_vlog_5segment_merged.mp4, and the merge report is [merge.json](./merge.json).
 
-## 出力と検査結果
+## Outputs and validation
 
-### セグメント出力
+### Segment outputs
 
-| segment | ComfyUI prompt ID | 出力 | frames / duration | bytes | SHA-256 | blackdetect |
-|---:|---|---|---:|---:|---|---:|
-| 1 | `40bc8f28-fcf9-41ec-9f5c-a98f71ad7b3d` | `runtime/4090/output/video/h3_cat_cafe_vlog/segment_01_00001_.mp4` | 158 / 6.583008秒 | 1,813,877 | `3111BD6478094C1015C01691D7C485C0A59E42E1B244E838075BA0E9BB74D4F8` | 0 |
-| 2 | `9ea36b47-769b-45d1-a38b-8d412509e69b` | `runtime/4090/output/video/h3_cat_cafe_vlog/segment_02_00001_.mp4` | 136 / 5.666667秒 | 1,866,529 | `F093788DD228F68802F8AD3F86F5EF0243EC4E91B63C7514CB11F483FBDF5A24` | 0 |
-| 3 | `6095947a-5701-443c-9ceb-184e38a992fb` | `runtime/4090/output/video/h3_cat_cafe_vlog/segment_03_00001_.mp4` | 136 / 5.666667秒 | 1,413,609 | `D013D2D26EBD9AFC585139D0DB918BC42187F2F0296A5EBA391615E6D01BB97C` | 0 |
-| 4 | `28ac5017-3a0e-468f-a6b1-3b5d07d1d8b2` | `runtime/4090/output/video/h3_cat_cafe_vlog/segment_04_00001_.mp4` | 136 / 5.666667秒 | 1,282,981 | `F741DAA70C7FE69B399026EB353F8115057D30E002284C41AC9DD32AD5918761` | 0 |
-| 5 | `32ecf88e-b487-45bc-a762-aac7486ded7f` | `runtime/4090/output/video/h3_cat_cafe_vlog/segment_05_00001_.mp4` | 136 / 5.666667秒 | 1,252,937 | `E271965D47915F2868172E69AF326DCE6F497D45BB253B885A8C5983E0C7F4E9` | 0 |
+| Segment | Output | Frames / duration | Bytes | SHA-256 | blackdetect |
+|---:|---|---:|---:|---|---:|
+| 1 | runtime/4090/output/video/h3_cat_cafe_vlog/segment_01_00001_.mp4 | 158 / 6.583008 s | 1,813,877 | 3111BD6478094C1015C01691D7C485C0A59E42E1B244E838075BA0E9BB74D4F8 | 0 |
+| 2 | runtime/4090/output/video/h3_cat_cafe_vlog/segment_02_00001_.mp4 | 136 / 5.666667 s | 1,866,529 | F093788DD228F68802F8AD3F86F5EF0243EC4E91B63C7514CB11F483FBDF5A24 | 0 |
+| 3 | runtime/4090/output/video/h3_cat_cafe_vlog/segment_03_00001_.mp4 | 136 / 5.666667 s | 1,413,609 | D013D2D26EBD9AFC585139D0DB918BC42187F2F0296A5EBA391615E6D01BB97C | 0 |
+| 4 | runtime/4090/output/video/h3_cat_cafe_vlog/segment_04_00001_.mp4 | 136 / 5.666667 s | 1,282,981 | F741DAA70C7FE69B399026EB353F8115057D30E002284C41AC9DD32AD5918761 | 0 |
+| 5 | runtime/4090/output/video/h3_cat_cafe_vlog/segment_05_00001_.mp4 | 136 / 5.666667 s | 1,252,937 | E271965D47915F2868172E69AF326DCE6F497D45BB253B885A8C5983E0C7F4E9 | 0 |
 
-全セグメントが `H.264 / AAC`、`1280×704 / 24fps`、音声 `32kHz stereo` である。
+All five segment files are H.264/AAC at 1280×704 / 24 fps with 32 kHz stereo audio.
 
-### 連結出力
+### Merged output
 
-| 項目 | 値 |
+| Item | Value |
 |---|---|
-| path | `outputs/h3_cat_cafe_vlog_5segment_merged.mp4` |
-| method | ffmpeg concat filter; `libx264 -crf 18`; AAC `192k`; `+faststart` |
-| video | H.264、`1280×704`、`702 frames`、`24fps` |
-| audio | AAC、`32kHz stereo` |
-| duration | `29.256秒` |
-| bytes | `11,404,834` |
-| SHA-256 | `73200CA4577C710BCADB41FD23451EBE01BDDE3E30D8E4E3A734F5A9A88E10DC` |
+| Path | outputs/h3_cat_cafe_vlog_5segment_merged.mp4 |
+| Evidence status | local-only; the public visual check is [the frame tile](./previews/contact-sheet.jpg) |
+| Method | ffmpeg concat filter; libx264 CRF 18; AAC 192k; faststart |
+| Video | H.264, 1280×704, 702 frames, 24 fps |
+| Audio | AAC, 32 kHz stereo |
+| Duration | 29.256 s |
+| Bytes | 11,404,834 |
+| SHA-256 | 73200CA4577C710BCADB41FD23451EBE01BDDE3E30D8E4E3A734F5A9A88E10DC |
 | blackdetect | 0 interval |
 
-### 目視確認
+### Visual review
 
-抽出フレームは `frames/frame-00.png`、`frame-07.png`、`frame-14.png`、`frame-21.png`、`frame-28.png` に保存した。女性の服装・髪色・猫カフェの暖色系の雰囲気は全体を通して維持され、猫との接触、撫でる、おやつ、締めの自撮りという流れを確認した。
+Review frames are [frame-00.png](./frames/frame-00.png), [frame-07.png](./frames/frame-07.png), [frame-14.png](./frames/frame-14.png), [frame-21.png](./frames/frame-21.png), and [frame-28.png](./frames/frame-28.png). The woman's clothing and hair color, warm cat-cafe atmosphere, and narrative progression from arrival through cat contact, petting, treats, and the closing selfie remain visible across the chain. The unexpected generated caption-like text is present in frames 14, 21, and 28 despite the no-subtitles instruction.
 
-一方、`frame-14`、`frame-21`、`frame-28`では、プロンプトの「no subtitles / no on-screen text」に反して、セリフに対応する日本語キャプション風文字が生成された。これは字幕を意図した追加編集ではなく、H3生成結果に含まれたものとして記録する。
+## Limitations
 
-## 限界と次の確認
+- Independent ASR verification of whether the generated Japanese speech matches the requested dialogue and pronunciation was not run.
+- The spelling and contextual accuracy of generated Japanese text was not evaluated as subtitle quality.
+- Frame count, audio streams, and black frames were checked, but no quantitative person-identity or audio-continuity score was collected.
+- This run used an RTX 4090; it was not the same five-segment, 720p-equivalent experiment on an RTX 3060.
+- EasyCache, Sol-Attn, and Spectrum comparisons were intentionally separated; the recorded generation time is a Motion Context plus generic SageAttention baseline.
 
-- 日本語の音声が指定セリフどおり発話されたかは、ASRによる独立照合が未実施。
-- 生成モデルが出した日本語文字の誤字・文脈整合性は、字幕品質としては未評価。
-- 連結のフレーム数・音声ストリーム・黒画は検査済みだが、人物同一性や音声継続性の定量スコアは未取得。
-- 今回はRTX 4090での実験。RTX 3060で同じ5セグメント・720p相当条件を実行した結果ではない。
-- EasyCache、Sol-Attn、Spectrumの高速化比較は分離しており、今回の生成時間はMotion Context＋汎用SageAttentionの基準値。
+## Records
+
+- Japanese detailed record: [README.ja.md](./README.ja.md)
+- English counterpart: [README.md](./README.md)
+- Machine-readable record: [experiment.json](./experiment.json)
+- Public visual evidence: [previews/contact-sheet.jpg](./previews/contact-sheet.jpg) and [previews/contact-sheet.json](./previews/contact-sheet.json)

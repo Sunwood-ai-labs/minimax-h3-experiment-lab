@@ -29,9 +29,9 @@ $pairs = @(
     @{ English = 'LAB.en.md'; Japanese = 'LAB.md'; Label = 'lab guide' },
     @{ English = 'experiments/index.en.md'; Japanese = 'experiments/index.md'; Label = 'experiment ledger' },
     @{ English = 'experiments/video-links.md'; Japanese = 'experiments/video-links.ja.md'; Label = 'video link index' },
-    @{ English = 'social/README.en.md'; Japanese = 'social/README.md'; Label = 'social index' },
+    @{ English = 'social/README.md'; Japanese = 'social/README.ja.md'; Label = 'social index' },
     @{ English = 'models/README.md'; Japanese = 'models/README.ja.md'; Label = 'model guide' },
-    @{ English = 'experiments/_template/README.en.md'; Japanese = 'experiments/_template/README.md'; Label = 'experiment template' },
+    @{ English = 'experiments/_template/README.md'; Japanese = 'experiments/_template/README.ja.md'; Label = 'experiment template' },
     @{ English = 'DESIGN.md'; Japanese = 'DESIGN.ja.md'; Label = 'design guide' },
     @{ English = 'SECURITY.md'; Japanese = 'SECURITY.ja.md'; Label = 'security policy' },
     @{ English = 'CONTRIBUTING.md'; Japanese = 'CONTRIBUTING.ja.md'; Label = 'contribution guide' },
@@ -63,28 +63,28 @@ $experimentDirs = Get-ChildItem -LiteralPath (Join-Path $repo 'experiments') -Di
 
 foreach ($dir in $experimentDirs) {
     $relative = $dir.FullName.Substring($repo.Length + 1).Replace('\\', '/')
-    $readme = Join-Path $dir.FullName 'README.md'
-    $english = Join-Path $dir.FullName 'README.en.md'
-    if (-not (Test-Path -LiteralPath $readme -PathType Leaf)) {
-        $errors.Add("$relative is missing Japanese/default README.md")
+    $english = Join-Path $dir.FullName 'README.md'
+    $japanese = Join-Path $dir.FullName 'README.ja.md'
+    if (-not (Test-Path -LiteralPath $english -PathType Leaf)) {
+        $errors.Add("$relative is missing English/default README.md")
         continue
     }
-    if (-not (Test-Path -LiteralPath $english -PathType Leaf)) {
-        $errors.Add("$relative is missing English README.en.md")
+    if (-not (Test-Path -LiteralPath $japanese -PathType Leaf)) {
+        $errors.Add("$relative is missing Japanese README.ja.md")
         continue
     }
 
-    $readmeText = Get-Content -Raw -LiteralPath $readme
     $englishText = Get-Content -Raw -LiteralPath $english
-    if ($readmeText -notmatch 'README\.en\.md') {
-        $errors.Add("$relative/README.md must link README.en.md")
+    $japaneseText = Get-Content -Raw -LiteralPath $japanese
+    if ($englishText -notmatch 'README\.ja\.md') {
+        $errors.Add("$relative/README.md must link README.ja.md")
     }
-    if ($englishText -notmatch 'README\.md') {
-        $errors.Add("$relative/README.en.md must link README.md")
+    if ($japaneseText -notmatch 'README\.md') {
+        $errors.Add("$relative/README.ja.md must link README.md")
     }
     foreach ($required in @('experiment.json', 'previews/contact-sheet.jpg', 'X')) {
         if ($englishText -notmatch [regex]::Escape($required)) {
-            $errors.Add("$relative/README.en.md is missing required discoverability token '$required'")
+            $errors.Add("$relative/README.md is missing required discoverability token '$required'")
         }
     }
 }
