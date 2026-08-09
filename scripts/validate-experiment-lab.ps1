@@ -71,6 +71,25 @@ foreach ($dir in $experimentDirs) {
         $errors.Add("$relativeDir is missing README.md.")
     }
 
+    if ($record.PSObject.Properties.Name -contains 'previews' -and $null -ne $record.previews) {
+        foreach ($previewName in @('contactSheet', 'manifest')) {
+            if ($record.previews.PSObject.Properties.Name -notcontains $previewName) {
+                continue
+            }
+
+            $previewRelativePath = [string]$record.previews.$previewName
+            if ($previewRelativePath -match '(^|[\\/])\.\.([\\/]|$)') {
+                $errors.Add("$relativeDir/experiment.json preview path '$previewRelativePath' escapes the experiment directory.")
+                continue
+            }
+
+            $previewPath = Join-Path $dir.FullName $previewRelativePath.Replace('/', '\')
+            if (-not (Test-Path -LiteralPath $previewPath -PathType Leaf)) {
+                $errors.Add("$relativeDir is missing preview artifact '$previewRelativePath'.")
+            }
+        }
+    }
+
     if (@($record.sources).Count -eq 0) {
         $warnings.Add("$relativeDir has no sources; add sources or explain why the experiment is local-only.")
     }

@@ -5,6 +5,8 @@
 - GPU: RTX 3060 / RTX 4090
 - Owner: `MiniMax-H3 Experiment Lab`
 
+フレームタイル: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
+
 ## 目的
 
 RTX 3060とRTX 4090を別Compose serviceで動かし、投稿・linked recipeに対応する基準条件と、約720p級のT2V/I2Vを比較する。

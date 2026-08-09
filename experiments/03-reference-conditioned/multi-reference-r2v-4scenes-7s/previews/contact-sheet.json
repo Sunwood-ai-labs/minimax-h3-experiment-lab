@@ -1,0 +1,104 @@
+﻿{
+    "schema":  "minimax-h3-video-contact-sheet/v1",
+    "generatedAt":  "2026-08-09T16:25:49.5867832+09:00",
+    "sources":  [
+                    {
+                        "row":  1,
+                        "path":  "runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_01_sunset_meeting_00001_.mp4",
+                        "bytes":  1934071,
+                        "sha256":  "2C742EB70CB873B8D67E140AF83F781C228DADAC6B105502DB81E6899A01D898",
+                        "width":  1280,
+                        "height":  704,
+                        "durationSeconds":  7.292,
+                        "fps":  "24/1",
+                        "frames":  175,
+                        "sampleTimesSeconds":  [
+                                                   0.456,
+                                                   1.367,
+                                                   2.279,
+                                                   3.19,
+                                                   4.102,
+                                                   5.013,
+                                                   5.925,
+                                                   6.836
+                                               ]
+                    },
+                    {
+                        "row":  2,
+                        "path":  "runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_02_rainy_stairs_00001_.mp4",
+                        "bytes":  2194117,
+                        "sha256":  "096768A3CFD2C917120BCCFDC2E5B366BFD035FD5CFA80ED30F0262E9BF3474A",
+                        "width":  1280,
+                        "height":  704,
+                        "durationSeconds":  7.292,
+                        "fps":  "24/1",
+                        "frames":  175,
+                        "sampleTimesSeconds":  [
+                                                   0.456,
+                                                   1.367,
+                                                   2.279,
+                                                   3.19,
+                                                   4.102,
+                                                   5.013,
+                                                   5.925,
+                                                   6.836
+                                               ]
+                    },
+                    {
+                        "row":  3,
+                        "path":  "runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_03_glasshouse_orbit_00001_.mp4",
+                        "bytes":  2438065,
+                        "sha256":  "4E77DEDEE84278A773DAA43B7B57A5A2CED0A9DC1DBC28F369C4F729E46AA9E5",
+                        "width":  1280,
+                        "height":  704,
+                        "durationSeconds":  7.292,
+                        "fps":  "24/1",
+                        "frames":  175,
+                        "sampleTimesSeconds":  [
+                                                   0.456,
+                                                   1.367,
+                                                   2.279,
+                                                   3.19,
+                                                   4.102,
+                                                   5.013,
+                                                   5.925,
+                                                   6.836
+                                               ]
+                    },
+                    {
+                        "row":  4,
+                        "path":  "runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_04_rooftop_pullback_00001_.mp4",
+                        "bytes":  2697353,
+                        "sha256":  "F485BD71F7F2748A929F74EAF7669D25417CB0BD29A07E9B6B3F0E44F1EFBF62",
+                        "width":  1280,
+                        "height":  704,
+                        "durationSeconds":  7.292,
+                        "fps":  "24/1",
+                        "frames":  175,
+                        "sampleTimesSeconds":  [
+                                                   0.456,
+                                                   1.367,
+                                                   2.279,
+                                                   3.19,
+                                                   4.102,
+                                                   5.013,
+                                                   5.925,
+                                                   6.836
+                                               ]
+                    }
+                ],
+    "sampling":  {
+                     "frameCountPerSource":  8,
+                     "columns":  4,
+                     "rowsPerSource":  2,
+                     "tileWidth":  320,
+                     "tileHeight":  180,
+                     "order":  "Each source occupies one row block; frames advance left-to-right, then top-to-bottom."
+                 },
+    "output":  {
+                   "path":  "experiments/03-reference-conditioned/multi-reference-r2v-4scenes-7s/previews/contact-sheet.jpg",
+                   "bytes":  496204,
+                   "sha256":  "B4BCF85C86FBBFD034ECB1C2F6DEB0DA99F797DE9B03B35018A325C8035AAA3F",
+                   "format":  "jpg"
+               }
+}

@@ -1,0 +1,43 @@
+﻿{
+    "schema":  "minimax-h3-video-contact-sheet/v1",
+    "generatedAt":  "2026-08-09T16:25:50.6043354+09:00",
+    "sources":  [
+                    {
+                        "row":  1,
+                        "path":  "experiments/05-temporal-continuity/motion-context-3segment/outputs/h3_motion_context_3segment_merged.mp4",
+                        "bytes":  5349778,
+                        "sha256":  "24EAAF2B1F5F9965BD4FD887FBA1BF8CA4675A0E0EE53F6543E28996760D8598",
+                        "width":  1280,
+                        "height":  704,
+                        "durationSeconds":  14.416667,
+                        "fps":  "4140/173",
+                        "frames":  345,
+                        "sampleTimesSeconds":  [
+                                                   0.721,
+                                                   2.163,
+                                                   3.604,
+                                                   5.046,
+                                                   6.488,
+                                                   7.929,
+                                                   9.371,
+                                                   10.813,
+                                                   12.254,
+                                                   13.696
+                                               ]
+                    }
+                ],
+    "sampling":  {
+                     "frameCountPerSource":  10,
+                     "columns":  5,
+                     "rowsPerSource":  2,
+                     "tileWidth":  320,
+                     "tileHeight":  180,
+                     "order":  "Each source occupies one row block; frames advance left-to-right, then top-to-bottom."
+                 },
+    "output":  {
+                   "path":  "experiments/05-temporal-continuity/motion-context-3segment/previews/contact-sheet.jpg",
+                   "bytes":  201925,
+                   "sha256":  "7C14CB81D443D70EF365C1399C36B56CCC7F60E43D26AEF4CB40A3156A53E9DB",
+                   "format":  "jpg"
+               }
+}

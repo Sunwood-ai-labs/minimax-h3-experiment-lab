@@ -1,0 +1,104 @@
+﻿{
+    "schema":  "minimax-h3-video-contact-sheet/v1",
+    "generatedAt":  "2026-08-09T16:25:48.7415831+09:00",
+    "sources":  [
+                    {
+                        "row":  1,
+                        "path":  "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_T2V_1344x768_4step_er_sde_00001_.mp4",
+                        "bytes":  4604012,
+                        "sha256":  "B0540FE30DC549ABA6E14B3A36270BFE7068CC76F81B2763C0949CEDD92E233E",
+                        "width":  1344,
+                        "height":  768,
+                        "durationSeconds":  6.583333,
+                        "fps":  "24/1",
+                        "frames":  158,
+                        "sampleTimesSeconds":  [
+                                                   0.411,
+                                                   1.234,
+                                                   2.057,
+                                                   2.88,
+                                                   3.703,
+                                                   4.526,
+                                                   5.349,
+                                                   6.172
+                                               ]
+                    },
+                    {
+                        "row":  2,
+                        "path":  "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_T2V_1344x768_4step_sa_solver_00001_.mp4",
+                        "bytes":  4823136,
+                        "sha256":  "DFB59D2BF85A1AFDAEB4C8B3EFABDD2909E91EBD46991F2DB7933F8B96C2C682",
+                        "width":  1344,
+                        "height":  768,
+                        "durationSeconds":  6.583333,
+                        "fps":  "24/1",
+                        "frames":  158,
+                        "sampleTimesSeconds":  [
+                                                   0.411,
+                                                   1.234,
+                                                   2.057,
+                                                   2.88,
+                                                   3.703,
+                                                   4.526,
+                                                   5.349,
+                                                   6.172
+                                               ]
+                    },
+                    {
+                        "row":  3,
+                        "path":  "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_er_sde_00001_.mp4",
+                        "bytes":  1817050,
+                        "sha256":  "CB7A683AF4A9864CA6A1EDAB1C3F350019FF88E9329E12823601772E03791787",
+                        "width":  1344,
+                        "height":  768,
+                        "durationSeconds":  6.583333,
+                        "fps":  "24/1",
+                        "frames":  158,
+                        "sampleTimesSeconds":  [
+                                                   0.411,
+                                                   1.234,
+                                                   2.057,
+                                                   2.88,
+                                                   3.703,
+                                                   4.526,
+                                                   5.349,
+                                                   6.172
+                                               ]
+                    },
+                    {
+                        "row":  4,
+                        "path":  "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_00001_.mp4",
+                        "bytes":  1834299,
+                        "sha256":  "EB6487E54E1C8412A8BAAD2628CB25D24238E901B8939C8BF502B95C4E5F17B6",
+                        "width":  1344,
+                        "height":  768,
+                        "durationSeconds":  6.583333,
+                        "fps":  "24/1",
+                        "frames":  158,
+                        "sampleTimesSeconds":  [
+                                                   0.411,
+                                                   1.234,
+                                                   2.057,
+                                                   2.88,
+                                                   3.703,
+                                                   4.526,
+                                                   5.349,
+                                                   6.172
+                                               ]
+                    }
+                ],
+    "sampling":  {
+                     "frameCountPerSource":  8,
+                     "columns":  4,
+                     "rowsPerSource":  2,
+                     "tileWidth":  320,
+                     "tileHeight":  180,
+                     "order":  "Each source occupies one row block; frames advance left-to-right, then top-to-bottom."
+                 },
+    "output":  {
+                   "path":  "experiments/02-low-step-generation/lightx2v-4step/previews/contact-sheet.jpg",
+                   "bytes":  601143,
+                   "sha256":  "C3B28B55CF04B2D1CB63812798EB3E798AD508724EA1EE12D599155367FC4FD1",
+                   "format":  "jpg"
+               }
+}

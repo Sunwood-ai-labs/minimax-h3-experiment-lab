@@ -4,6 +4,8 @@
 Experiment ID: `h3-japanese-catcafe-vlog-5segment`
 状態: `verified`
 
+フレームタイル: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
+
 ## 結論
 
 英語の生成プロンプトに、日本語で話すセリフを直接含めてMiniMax-H3を実行した。猫カフェを訪れる日本人インフルエンサー風のVlogを5セグメントに分け、`ComfyUI-H3-Motion-Context`で映像・音声コンテキストとlatentを引き継いで連結した。

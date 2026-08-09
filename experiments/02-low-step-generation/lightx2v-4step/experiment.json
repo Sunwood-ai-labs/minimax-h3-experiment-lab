@@ -2,6 +2,7 @@
   "id": "2026-08-08-low-step-lightx2v-4step",
   "date": "2026-08-08",
   "category": "02-low-step-generation",
+  "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
   "status": "verified",
   "hypothesis": "KijaiのLightX2V 4-step LoRAをMiniMax-H3公式VAEとpruned int8 baseへ接続すると、4 stepsで動画生成できる。",
   "sources": [

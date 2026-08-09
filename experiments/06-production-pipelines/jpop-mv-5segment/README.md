@@ -4,6 +4,8 @@
 Experiment ID: `h3-mv-jpop-5segment`
 状態: `verified`
 
+フレームタイル: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
+
 ## 結論
 
 MiniMax-H3のMotion Context連鎖で、同じ歌い手・衣装・曲調を維持した5セグメントの日本語シンセポップMVを生成し、その生成音声を使ってHyperFramesでリリックモーションを重ねた。

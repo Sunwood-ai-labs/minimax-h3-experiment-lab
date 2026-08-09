@@ -5,6 +5,8 @@
 - GPU: RTX 3060 12GB
 - Owner: `MiniMax-H3 Experiment Lab`
 
+フレームタイル: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
+
 ## 仮説
 
 最初に動かしたTurbo/full-int8構成が、RTX 3060のメモリ制約下でも動画を生成できるか確認した。

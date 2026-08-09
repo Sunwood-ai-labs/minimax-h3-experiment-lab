@@ -6,6 +6,8 @@
 - Purpose: validate the multi-reference R2V path with one environment sheet plus two character sheets, then reuse the same three references across four different scenes.
 - Result: 4/4 successful generations, 0 OOM, 0 blackdetect intervals.
 
+Frame tile: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
+
 ## What was actually tested
 
 This is a true 'MiniMaxH3ReferenceToVideo' run using the 'ref2va' model. It is separate from the earlier I2V experiment, which used 'MiniMaxH3ImageToVideo' with one 'first_frame' input.

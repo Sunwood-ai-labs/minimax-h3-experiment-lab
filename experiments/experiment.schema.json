@@ -29,6 +29,15 @@
         {"type": "object"}
       ]
     },
+    "previews": {
+      "type": "object",
+      "properties": {
+        "contactSheet": {"type": "string"},
+        "manifest": {"type": "string"},
+        "sourceVideos": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
     "conclusion": {"type": "string"},
     "limitations": {"type": "array", "items": {"type": "string"}}
   },

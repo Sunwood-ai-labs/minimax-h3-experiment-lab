@@ -5,6 +5,8 @@
 - Scope: the existing 3-reference R2V experiment, four scenes, approximately seven seconds each
 - GPU: RTX 4090, Docker Compose service 'h3-4090', port 8188
 
+Frame tile: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
+
 ## Conclusion
 
 The working combination was integrated into the same MiniMaxH3ReferenceToVideo ref2va graph:

@@ -8,6 +8,10 @@
   "conditions": {},
   "runs": [],
   "artifacts": [],
+  "previews": {
+    "contactSheet": "previews/contact-sheet.jpg",
+    "manifest": "previews/contact-sheet.json"
+  },
   "conclusion": "",
   "limitations": []
 }

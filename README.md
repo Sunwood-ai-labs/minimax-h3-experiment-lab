@@ -9,6 +9,7 @@ MiniMax-H3をDocker Compose + ComfyUIで動かし、RTX 3060とRTX 4090の条件
 - [実験台帳](./experiments/index.md) — 2026-08-07以降の全実験への入口
 - [ラボ運用ガイド](./LAB.md) — 新しい実験を追加する手順と記録契約
 - [X投稿・シミュレーター一覧](./social/README.md) — 投稿用の動画・payload・シミュレーター
+- [フレームタイルの作成ルール](./LAB.md#フレームタイルプレビュー) — 動画の挙動を静止画で確認・共有
 - [3060 benchmark](./runtime/3060/benchmark/index.md) / [4090 benchmark](./runtime/4090/benchmark/index.md)
 - [調査メモ](./research-notes.md) / [検証ログ](./verification-log.md)
 

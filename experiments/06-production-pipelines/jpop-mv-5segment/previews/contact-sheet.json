@@ -1,0 +1,66 @@
+﻿{
+    "schema":  "minimax-h3-video-contact-sheet/v1",
+    "generatedAt":  "2026-08-09T16:25:51.5438170+09:00",
+    "sources":  [
+                    {
+                        "row":  1,
+                        "path":  "experiments/06-production-pipelines/jpop-mv-5segment/hyperframes-mv-lyrics/assets/h3_jpop_mv_5segment_merged.mp4",
+                        "bytes":  10104411,
+                        "sha256":  "28F1921260CF45A710E7C1BB8D64E72A91889379F0495C5BDB91217F2E6EF92E",
+                        "width":  1280,
+                        "height":  704,
+                        "durationSeconds":  29.256,
+                        "fps":  "24/1",
+                        "frames":  702,
+                        "sampleTimesSeconds":  [
+                                                   1.463,
+                                                   4.388,
+                                                   7.314,
+                                                   10.24,
+                                                   13.165,
+                                                   16.091,
+                                                   19.016,
+                                                   21.942,
+                                                   24.868,
+                                                   27.793
+                                               ]
+                    },
+                    {
+                        "row":  2,
+                        "path":  "experiments/06-production-pipelines/jpop-mv-5segment/hyperframes-mv-lyrics/renders/h3_jpop_mv_lyric_motion.mp4",
+                        "bytes":  19614049,
+                        "sha256":  "097EBE221189EE2726319DDC555E57B813483BCA9FD48640E18E75830B179050",
+                        "width":  1280,
+                        "height":  704,
+                        "durationSeconds":  29.266667,
+                        "fps":  "30/1",
+                        "frames":  878,
+                        "sampleTimesSeconds":  [
+                                                   1.463,
+                                                   4.39,
+                                                   7.317,
+                                                   10.243,
+                                                   13.17,
+                                                   16.097,
+                                                   19.023,
+                                                   21.95,
+                                                   24.877,
+                                                   27.803
+                                               ]
+                    }
+                ],
+    "sampling":  {
+                     "frameCountPerSource":  10,
+                     "columns":  5,
+                     "rowsPerSource":  2,
+                     "tileWidth":  320,
+                     "tileHeight":  180,
+                     "order":  "Each source occupies one row block; frames advance left-to-right, then top-to-bottom."
+                 },
+    "output":  {
+                   "path":  "experiments/06-production-pipelines/jpop-mv-5segment/previews/contact-sheet.jpg",
+                   "bytes":  271588,
+                   "sha256":  "5F0D9CC351E7014FB041F58855C7FF04680EB189309321DB8BC9962E151DEFA3",
+                   "format":  "jpg"
+               }
+}

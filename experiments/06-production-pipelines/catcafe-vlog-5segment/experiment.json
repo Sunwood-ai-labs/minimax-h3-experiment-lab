@@ -2,6 +2,7 @@
   "id": "h3-japanese-catcafe-vlog-5segment",
   "date": "2026-08-09",
   "category": "06-production-pipelines",
+  "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
   "status": "verified",
   "scope": "MiniMax-H3 Japanese dialogue cat-cafe influencer-style vlog using a five-segment Motion Context T2V chain",
   "language_design": {

@@ -1,0 +1,58 @@
+﻿{
+    "schema":  "minimax-h3-video-contact-sheet/v1",
+    "generatedAt":  "2026-08-09T16:25:47.9092587+09:00",
+    "sources":  [
+                    {
+                        "row":  1,
+                        "path":  "runtime/3060/output/video/MiniMax_H3_post_3060_864x480_8step_turbo_lowvram_gpuvae_merge_00001_.mp4",
+                        "bytes":  106840,
+                        "sha256":  "99625FBCA66033CE9858CACB9EEDA256743D921CD7915FA719C0D66290A0DBBA",
+                        "width":  864,
+                        "height":  480,
+                        "durationSeconds":  5.167,
+                        "fps":  "24/1",
+                        "frames":  124,
+                        "sampleTimesSeconds":  [
+                                                   0.431,
+                                                   1.292,
+                                                   2.153,
+                                                   3.014,
+                                                   3.875,
+                                                   4.736
+                                               ]
+                    },
+                    {
+                        "row":  2,
+                        "path":  "runtime/3060/output/video/MiniMax_H3_post_3060_864x480_8step_turbo_novram_cpu_00001_.mp4",
+                        "bytes":  13079118,
+                        "sha256":  "EBE99DB70455C4041D6D2A52D73B4A7F3862C85DB6D749CA7436DE4970E62296",
+                        "width":  864,
+                        "height":  480,
+                        "durationSeconds":  5.167,
+                        "fps":  "24/1",
+                        "frames":  124,
+                        "sampleTimesSeconds":  [
+                                                   0.431,
+                                                   1.292,
+                                                   2.153,
+                                                   3.014,
+                                                   3.875,
+                                                   4.736
+                                               ]
+                    }
+                ],
+    "sampling":  {
+                     "frameCountPerSource":  6,
+                     "columns":  3,
+                     "rowsPerSource":  2,
+                     "tileWidth":  320,
+                     "tileHeight":  180,
+                     "order":  "Each source occupies one row block; frames advance left-to-right, then top-to-bottom."
+                 },
+    "output":  {
+                   "path":  "experiments/01-baseline/3060-black-output/previews/contact-sheet.jpg",
+                   "bytes":  182147,
+                   "sha256":  "F0DBAB764F49988F6449E64CE668E96C7AD88D3E9372F648729ED72C6F126B2A",
+                   "format":  "jpg"
+               }
+}

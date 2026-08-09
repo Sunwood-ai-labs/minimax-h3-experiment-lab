@@ -6,6 +6,8 @@
 - Compose service: `h3-4090` (`http://localhost:8188`)
 - Purpose: ImageGenで作成した開始フレームをMiniMax-H3 I2Vへ入力し、車・スポーツ・イラスト・バトルの4種類で同じKijai/LightX2V条件が成立するか確認する
 
+Frame tile: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
+
 ## 結論
 
 4テーマすべてで生成に成功した。4本とも `1344×768 / 158 frames / 24 fps / 6.583333 sec / H.264 + AAC`、`blackdetect=0`、OOMなしだった。

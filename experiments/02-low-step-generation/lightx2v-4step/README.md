@@ -4,6 +4,8 @@
 - Status: `verified`
 - Purpose: KijaiのComfyUI向けLightX2V LoRAを、既存のMiniMax-H3 Docker Compose環境で検証する
 
+Frame tile: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
+
 ## 現時点の一次情報
 
 KijaiのHugging Faceリポジトリは、MiniMax-H3本体ではなくLoRAを配布している。READMEの記載は、`4 steps`、`0.75 LoRA strength`、`er_sde`および`sa_solver`の例である。LoRAのalphaはKijai自身が確定値としていないため、ノイズが出る場合は低いstrengthを試す注意書きがある。

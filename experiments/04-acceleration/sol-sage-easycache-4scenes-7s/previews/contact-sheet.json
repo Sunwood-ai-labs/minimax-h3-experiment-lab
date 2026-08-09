@@ -1,0 +1,104 @@
+﻿{
+    "schema":  "minimax-h3-video-contact-sheet/v1",
+    "generatedAt":  "2026-08-09T16:25:50.3961659+09:00",
+    "sources":  [
+                    {
+                        "row":  1,
+                        "path":  "runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_01_sunset_meeting_00001_.mp4",
+                        "bytes":  2029750,
+                        "sha256":  "B1497DF7FBBD50FE4558A8EECE0B611EABBAD4FC35340497A1FCF4B921D07D8A",
+                        "width":  1280,
+                        "height":  704,
+                        "durationSeconds":  7.292,
+                        "fps":  "24/1",
+                        "frames":  175,
+                        "sampleTimesSeconds":  [
+                                                   0.456,
+                                                   1.367,
+                                                   2.279,
+                                                   3.19,
+                                                   4.102,
+                                                   5.013,
+                                                   5.925,
+                                                   6.836
+                                               ]
+                    },
+                    {
+                        "row":  2,
+                        "path":  "runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_02_rainy_stairs_00001_.mp4",
+                        "bytes":  2255836,
+                        "sha256":  "054E3E26EE9819CA163FDDCF92C63F091A27F993645A85BE695B2A845C8212C8",
+                        "width":  1280,
+                        "height":  704,
+                        "durationSeconds":  7.292,
+                        "fps":  "24/1",
+                        "frames":  175,
+                        "sampleTimesSeconds":  [
+                                                   0.456,
+                                                   1.367,
+                                                   2.279,
+                                                   3.19,
+                                                   4.102,
+                                                   5.013,
+                                                   5.925,
+                                                   6.836
+                                               ]
+                    },
+                    {
+                        "row":  3,
+                        "path":  "runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_03_glasshouse_orbit_00001_.mp4",
+                        "bytes":  2473041,
+                        "sha256":  "951DF63B8E7F0AF9DBA14C6FE15B0B0C09D10080CBA4EC9BCAD2D12EEC719C39",
+                        "width":  1280,
+                        "height":  704,
+                        "durationSeconds":  7.292,
+                        "fps":  "24/1",
+                        "frames":  175,
+                        "sampleTimesSeconds":  [
+                                                   0.456,
+                                                   1.367,
+                                                   2.279,
+                                                   3.19,
+                                                   4.102,
+                                                   5.013,
+                                                   5.925,
+                                                   6.836
+                                               ]
+                    },
+                    {
+                        "row":  4,
+                        "path":  "runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_04_rooftop_pullback_00001_.mp4",
+                        "bytes":  2691547,
+                        "sha256":  "9C2297798EF326B114703E969E4F5CE6BC63D6554C8D6E53BC6E234712D110B7",
+                        "width":  1280,
+                        "height":  704,
+                        "durationSeconds":  7.292,
+                        "fps":  "24/1",
+                        "frames":  175,
+                        "sampleTimesSeconds":  [
+                                                   0.456,
+                                                   1.367,
+                                                   2.279,
+                                                   3.19,
+                                                   4.102,
+                                                   5.013,
+                                                   5.925,
+                                                   6.836
+                                               ]
+                    }
+                ],
+    "sampling":  {
+                     "frameCountPerSource":  8,
+                     "columns":  4,
+                     "rowsPerSource":  2,
+                     "tileWidth":  320,
+                     "tileHeight":  180,
+                     "order":  "Each source occupies one row block; frames advance left-to-right, then top-to-bottom."
+                 },
+    "output":  {
+                   "path":  "experiments/04-acceleration/sol-sage-easycache-4scenes-7s/previews/contact-sheet.jpg",
+                   "bytes":  500381,
+                   "sha256":  "F235149777CCF477AAAB49ECA406A1DA4F1C41D2AD2DB4AF3E2470878B2EC13D",
+                   "format":  "jpg"
+               }
+}

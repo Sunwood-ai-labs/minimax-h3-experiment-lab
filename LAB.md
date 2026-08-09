@@ -17,16 +17,14 @@ experiments/
   index.md                         # 全実験の入口
   experiment.schema.json           # 機械可読メタデータの契約
   _template/                       # 新規実験の雛形
-  01-baseline/<slug>/              # 基準条件・GPU比較・失敗経路
-  02-low-step-generation/<slug>/   # 少ないstepでの動画生成
-  03-reference-conditioned/<slug>/ # I2V・ref2va・複数リファレンスR2V
-  04-acceleration/<slug>/          # Attention・EasyCacheなどの高速化
-  05-temporal-continuity/<slug>/   # Motion Context・セグメント連鎖
-  06-production-pipelines/<slug>/ # Vlog・音楽MVなどの制作検証
+  <category>/<slug>/               # 機能カテゴリ内の個別実験
     README.md                      # 仮説・条件・結果・結論・制限
     experiment.json                # 機械可読な条件・run・成果物
     sources.md                     # 出典の要約（必要な実験）
     workflows/                     # 実験専用workflow
+    previews/
+      contact-sheet.jpg            # 動画の代表フレームを並べた公開用タイル
+      contact-sheet.json           # 入力動画・時刻・SHA-256・タイル条件
     artifacts/ / outputs/          # 小さな証跡・成果物
 runtime/<gpu>/
   benchmark/                       # 実行レポート（JSON/Markdown）
@@ -82,6 +80,21 @@ prompt、seed、scheduler、sampler、attention、EasyCache閾値など、比較
 ## 生成物の扱い
 
 動画や画像を実験記録へ同梱する場合は、読者が実験結果を確認するのに必要なものに限定します。大きなruntime出力はGitへ追跡せず、benchmark JSONや実験JSONから相対パスを参照します。
+
+## フレームタイルプレビュー
+
+動画をXやREADMEへ直接添付しにくい場合は、`previews/contact-sheet.jpg`を標準成果物として作成します。1つの動画なら1ブロック、複数動画なら入力順に1ブロックずつ縦に並べ、左から右・上から下へ時間が進む構成にします。入力動画の相対パス、サンプル時刻、bytes、SHA-256は同名の`contact-sheet.json`へ保存します。
+
+```powershell
+.\scripts\make-video-contact-sheet.ps1 `
+  -InputPath .\runtime\4090\output\video\h3_cat_cafe_vlog\segment_01_00001_.mp4 `
+  -OutputPath .\experiments\06-production-pipelines\catcafe-vlog-5segment\previews\contact-sheet.jpg `
+  -FrameCount 8 -Columns 4 -Overwrite
+```
+
+動画本体はローカル生成物として扱い、タイル画像とmanifestを再現可能な公開証跡としてGitへ残します。
+
+既存カテゴリに収まる実験は、カテゴリを増やさず`<slug>`を追加します。新しい機能系統を追加する場合だけ、`experiment.schema.json`の`category`、検証スクリプト、`experiments/index.md`の入口を同じ変更で更新し、分類理由を記録します。これにより、実験数が増えても日付・配布元・人物名が分類軸へ逆戻りしません。
 
 投稿シミュレーターは実際の添付動画・本文・返信順を確認するための成果物です。実験記録とは分けて`social/README.md`から辿れるようにし、投稿済みか未送信かをpayload内で明示します。
 

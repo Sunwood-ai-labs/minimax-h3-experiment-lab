@@ -1,0 +1,104 @@
+﻿{
+    "schema":  "minimax-h3-video-contact-sheet/v1",
+    "generatedAt":  "2026-08-09T16:25:48.2855506+09:00",
+    "sources":  [
+                    {
+                        "row":  1,
+                        "path":  "runtime/3060/output/video/MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
+                        "bytes":  1569004,
+                        "sha256":  "5437ADD0A093793E72DE178F0F8744A4D0539805319A8C4797E831B0C7011BC4",
+                        "width":  1280,
+                        "height":  704,
+                        "durationSeconds":  5.167,
+                        "fps":  "24/1",
+                        "frames":  124,
+                        "sampleTimesSeconds":  [
+                                                   0.323,
+                                                   0.969,
+                                                   1.615,
+                                                   2.261,
+                                                   2.906,
+                                                   3.552,
+                                                   4.198,
+                                                   4.844
+                                               ]
+                    },
+                    {
+                        "row":  2,
+                        "path":  "runtime/3060/output/video/MiniMax_H3_T2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
+                        "bytes":  927605,
+                        "sha256":  "BB7BC89D6279FA639165D80F1E894B43DCA3907AC2AF84BCCA3F52DA85222BB4",
+                        "width":  1280,
+                        "height":  704,
+                        "durationSeconds":  5.167,
+                        "fps":  "24/1",
+                        "frames":  124,
+                        "sampleTimesSeconds":  [
+                                                   0.323,
+                                                   0.969,
+                                                   1.615,
+                                                   2.261,
+                                                   2.906,
+                                                   3.552,
+                                                   4.198,
+                                                   4.844
+                                               ]
+                    },
+                    {
+                        "row":  3,
+                        "path":  "runtime/4090/output/video/MiniMax_H3_I2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
+                        "bytes":  1098548,
+                        "sha256":  "8D99CA9A3ABD3B836AED8E694DA0D7B885C1770BC208241CD33B13637E60A39B",
+                        "width":  1280,
+                        "height":  704,
+                        "durationSeconds":  5.167,
+                        "fps":  "24/1",
+                        "frames":  124,
+                        "sampleTimesSeconds":  [
+                                                   0.323,
+                                                   0.969,
+                                                   1.615,
+                                                   2.261,
+                                                   2.906,
+                                                   3.552,
+                                                   4.198,
+                                                   4.844
+                                               ]
+                    },
+                    {
+                        "row":  4,
+                        "path":  "runtime/4090/output/video/MiniMax_H3_T2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
+                        "bytes":  746645,
+                        "sha256":  "368E54C5FFD22EBD6DD901BC1C3800AA1470AA83EBC43EDBAA529C3B4C223D90",
+                        "width":  1280,
+                        "height":  704,
+                        "durationSeconds":  5.167,
+                        "fps":  "24/1",
+                        "frames":  124,
+                        "sampleTimesSeconds":  [
+                                                   0.323,
+                                                   0.969,
+                                                   1.615,
+                                                   2.261,
+                                                   2.906,
+                                                   3.552,
+                                                   4.198,
+                                                   4.844
+                                               ]
+                    }
+                ],
+    "sampling":  {
+                     "frameCountPerSource":  8,
+                     "columns":  4,
+                     "rowsPerSource":  2,
+                     "tileWidth":  320,
+                     "tileHeight":  180,
+                     "order":  "Each source occupies one row block; frames advance left-to-right, then top-to-bottom."
+                 },
+    "output":  {
+                   "path":  "experiments/01-baseline/gpu-baseline/previews/contact-sheet.jpg",
+                   "bytes":  352525,
+                   "sha256":  "4259EFAC686FB2D35F616876931CB305AD5BDB3A611DCFEB5DC6E595780698D7",
+                   "format":  "jpg"
+               }
+}

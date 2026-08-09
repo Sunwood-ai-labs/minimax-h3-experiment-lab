@@ -4,6 +4,8 @@
 Experiment ID: `niko-h3-motion-context-3segment`
 状態: `verified`
 
+フレームタイル: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
+
 ## 結論
 
 `ComfyUI-H3-Motion-Context` をDockerイメージへ組み込み、RTX 4090で3セグメントのT2V連鎖を実行した。セグメント2・3では、前セグメントの映像コンテキスト、音声コンテキスト、保存済みのvideo/audio latentを同時に渡した。

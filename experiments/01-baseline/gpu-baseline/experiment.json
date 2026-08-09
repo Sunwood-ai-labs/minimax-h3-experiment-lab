@@ -2,6 +2,7 @@
   "id": "2026-08-07-gpu-baseline",
   "date": "2026-08-07",
   "category": "01-baseline",
+  "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
   "status": "verified",
   "hypothesis": "RTX 3060とRTX 4090を個別Compose serviceで動かし、投稿・recipe条件と約720p級T2V/I2Vの実行可能性を確認する。",
   "sources": [

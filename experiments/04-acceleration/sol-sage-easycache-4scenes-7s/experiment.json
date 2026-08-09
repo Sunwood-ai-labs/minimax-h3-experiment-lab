@@ -2,6 +2,7 @@
   "id": "2026-08-08-acceleration-sol-sage-easycache-4scenes-7s",
   "date": "2026-08-08",
   "category": "04-acceleration",
+  "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
   "status": "verified",
   "purpose": "Integrate Sol-Attn, SageAttention, and EasyCache into the existing MiniMax-H3 ref2va multi-reference R2V workflow and measure four approximately seven-second scenes under the same conditions as the baseline.",
   "baselineExperiment": "../../03-reference-conditioned/multi-reference-r2v-4scenes-7s/experiment.json",

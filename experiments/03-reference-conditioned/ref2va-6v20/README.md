@@ -6,6 +6,8 @@
 - 状態: `verified`
 - 目的: ユーザー提供スクリーンショットに見える `ref2va`、Kijai/LightX2V LoRA、LoRA strength `0.8`、`er_sde`、`6 steps` と `20 steps` を、T2V/I2Vの両方で同じDocker Compose環境から検証する
 
+フレームタイル: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
+
 ## 結論
 
 4本すべて生成成功。`1344×768 / 158 frames / 24fps / 6.583333秒`のH.264/AAC動画になり、`blackdetect=0`、OOMなしだった。

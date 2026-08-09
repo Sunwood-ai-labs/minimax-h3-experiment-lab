@@ -2,6 +2,7 @@
   "id": "2026-08-08-reference-i2v-scenes",
   "date": "2026-08-08",
   "category": "03-reference-conditioned",
+  "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
   "status": "verified",
   "hypothesis": "KijaiのMiniMax-H3向けLightX2V 4-step LoRAを同じ4090 Docker Compose条件で使えば、ImageGenで用意した異なる開始フレームから、車・スポーツ・イラスト・バトルのI2Vを同じ出力条件で生成できる。",
   "sources": [
