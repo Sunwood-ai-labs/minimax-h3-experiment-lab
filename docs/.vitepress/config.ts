@@ -42,7 +42,9 @@ export default defineConfig({
   base,
   title: 'MiniMax-H3 Experiment Lab',
   description: 'Reproducible Docker Compose and ComfyUI experiments for MiniMax-H3 video generation.',
-  cleanUrls: true,
+  // GitHub Pages serves static files without server-side route fallback.
+  // Keep .html links so nested guide pages work on the static host.
+  cleanUrls: false,
   lastUpdated: true,
   head: [['link', { rel: 'icon', href: `${base}icon.svg` }]],
   locales: {
