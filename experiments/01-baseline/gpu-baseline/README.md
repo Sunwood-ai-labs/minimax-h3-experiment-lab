@@ -7,6 +7,12 @@
 
 フレームタイル: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
 
+Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/contact-sheet.jpg)
+
+![GPU baseline frame tile](./previews/contact-sheet.jpg)
+
+> This tracked tile is the public visual evidence; source MP4s under `runtime/*/output` remain local-only.
+
 ## 目的
 
 RTX 3060とRTX 4090を別Compose serviceで動かし、投稿・linked recipeに対応する基準条件と、約720p級のT2V/I2Vを比較する。

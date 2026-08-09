@@ -12,6 +12,12 @@
     "contactSheet": "previews/contact-sheet.jpg",
     "manifest": "previews/contact-sheet.json"
   },
+  "publicEvidence": {
+    "tile": "previews/contact-sheet.jpg",
+    "manifest": "previews/contact-sheet.json",
+    "videoStatus": "local-only",
+    "note": "Keep the frame tile and manifest tracked; record generated video paths and hashes without linking ignored MP4s."
+  },
   "conclusion": "",
   "limitations": []
 }

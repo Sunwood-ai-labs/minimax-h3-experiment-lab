@@ -3,6 +3,7 @@
   "date": "2026-08-09",
   "category": "05-temporal-continuity",
   "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
+  "publicEvidence": {"tile": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json", "videoStatus": "local-only", "note": "Source MP4s remain local-only; the tracked frame tile and manifest are the public visual evidence."},
   "status": "verified",
   "scope": "MiniMax-H3 Motion Context three-segment T2V chain with video/audio latent carry-over",
   "sources": [

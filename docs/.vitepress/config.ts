@@ -21,6 +21,7 @@ const englishSidebar = [
     text: 'Getting started',
     items: [
       { text: 'Reproduce an experiment', link: '/guide/reproduce' },
+      { text: 'Public artifacts and media', link: '/guide/artifacts' },
       { text: 'Experiment structure', link: '/guide/records' },
       { text: 'Experiment index', link: '/guide/experiments' },
     ],
@@ -32,6 +33,7 @@ const japaneseSidebar = [
     text: 'はじめに',
     items: [
       { text: '実験を再現する', link: '/ja/guide/reproduce' },
+      { text: '公開成果物と動画', link: '/ja/guide/artifacts' },
       { text: '実験の構成', link: '/ja/guide/records' },
       { text: '実験一覧', link: '/ja/guide/experiments' },
     ],

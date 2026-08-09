@@ -3,6 +3,7 @@
   "date": "2026-08-08",
   "category": "03-reference-conditioned",
   "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
+  "publicEvidence": {"tile": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json", "videoStatus": "local-only", "note": "Source MP4s remain local-only; the tracked frame tile and manifest are the public visual evidence."},
   "status": "verified",
   "purpose": "Run MiniMax-H3 ref2va reference-to-video with one background reference sheet and two character reference sheets, reusing all three references across four scenes of about seven seconds.",
   "sources": [

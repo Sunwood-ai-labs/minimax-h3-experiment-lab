@@ -85,6 +85,7 @@
     "merged": {
       "src": "assets/h3-catcafe-vlog-5segment-merged.mp4",
       "poster": "assets/poster-merged.jpg",
+      "publicTile": "../experiments/06-production-pipelines/catcafe-vlog-5segment/previews/contact-sheet.jpg",
       "title": "完成版 · 猫カフェVlog約30秒",
       "info": "1280×704 · 702 frames · 24fps · 29.256 sec",
       "provenance": "5本の実生成出力をFFmpeg concat filterで連結した実験結果。",
@@ -94,6 +95,7 @@
     "segment1": {
       "src": "assets/segment-01-intro.mp4",
       "poster": "assets/poster-segment-01.jpg",
+      "publicTile": "../experiments/06-production-pipelines/catcafe-vlog-5segment/previews/contact-sheet.jpg",
       "title": "実験1 · 導入",
       "info": "1280×704 · 158 frames · 6.583 sec",
       "provenance": "RTX 4090 / Docker Compose h3-4090で実生成。",
@@ -103,6 +105,7 @@
     "segment2": {
       "src": "assets/segment-02-cat-greeting.mp4",
       "poster": "assets/poster-segment-02.jpg",
+      "publicTile": "../experiments/06-production-pipelines/catcafe-vlog-5segment/previews/contact-sheet.jpg",
       "title": "実験2 · 猫がお出迎え",
       "info": "1280×704 · 136 frames · 5.667 sec",
       "provenance": "前セグメントの映像・音声・latentを22 frames引き継いだ実生成。",
@@ -112,6 +115,7 @@
     "segment3": {
       "src": "assets/segment-03-purring.mp4",
       "poster": "assets/poster-segment-03.jpg",
+      "publicTile": "../experiments/06-production-pipelines/catcafe-vlog-5segment/previews/contact-sheet.jpg",
       "title": "実験3 · ゴロゴロ音",
       "info": "1280×704 · 136 frames · 5.667 sec",
       "provenance": "前セグメントの映像・音声・latentを22 frames引き継いだ実生成。",
@@ -121,6 +125,7 @@
     "segment4": {
       "src": "assets/segment-04-treat.mp4",
       "poster": "assets/poster-segment-04.jpg",
+      "publicTile": "../experiments/06-production-pipelines/catcafe-vlog-5segment/previews/contact-sheet.jpg",
       "title": "実験4 · おやつタイム",
       "info": "1280×704 · 136 frames · 5.667 sec",
       "provenance": "前セグメントの映像・音声・latentを22 frames引き継いだ実生成。",
@@ -130,6 +135,7 @@
     "segment5": {
       "src": "assets/segment-05-outro.mp4",
       "poster": "assets/poster-segment-05.jpg",
+      "publicTile": "../experiments/06-production-pipelines/catcafe-vlog-5segment/previews/contact-sheet.jpg",
       "title": "実験5 · エンディング",
       "info": "1280×704 · 136 frames · 5.667 sec",
       "provenance": "前セグメントの映像・音声・latentを22 frames引き継いだ実生成。",

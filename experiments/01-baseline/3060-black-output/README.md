@@ -7,6 +7,12 @@
 
 フレームタイル: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
 
+Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/contact-sheet.jpg)
+
+![3060 black-output frame tile](./previews/contact-sheet.jpg)
+
+> This tracked tile is the public visual evidence; the failed source MP4s remain local-only and their hashes are preserved in the manifest.
+
 ## 仮説
 
 最初に動かしたTurbo/full-int8構成が、RTX 3060のメモリ制約下でも動画を生成できるか確認した。

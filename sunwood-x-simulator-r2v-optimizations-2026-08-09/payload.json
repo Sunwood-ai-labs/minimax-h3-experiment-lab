@@ -95,6 +95,8 @@
     "montage": {
       "id": "montage",
       "src": "assets/optimized-r2v-speedup-montage.mp4",
+      "poster": "../experiments/04-acceleration/sol-sage-easycache-4scenes-7s/previews/contact-sheet.jpg",
+      "publicTile": "../experiments/04-acceleration/sol-sage-easycache-4scenes-7s/previews/contact-sheet.jpg",
       "title": "高速化後 4シーン概要モンタージュ",
       "info": "2×2 · 1280×704 · 175 frames · 24fps · 7.292 sec",
       "provenance": "証拠由来。4本の最終実生成MP4をFFmpegで2×2配置。Scene 1の音声トラックのみ概要用に保持。",
@@ -105,6 +107,8 @@
     "scene1": {
       "id": "scene1",
       "src": "assets/optimized-scene-01-sunset-meeting.mp4",
+      "poster": "../experiments/04-acceleration/sol-sage-easycache-4scenes-7s/previews/contact-sheet.jpg",
+      "publicTile": "../experiments/04-acceleration/sol-sage-easycache-4scenes-7s/previews/contact-sheet.jpg",
       "title": "Scene 1 · optimized sunset meeting",
       "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
       "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / Sol-Attn + SageAttention + EasyCache。",
@@ -115,6 +119,8 @@
     "scene2": {
       "id": "scene2",
       "src": "assets/optimized-scene-02-rainy-stairs.mp4",
+      "poster": "../experiments/04-acceleration/sol-sage-easycache-4scenes-7s/previews/contact-sheet.jpg",
+      "publicTile": "../experiments/04-acceleration/sol-sage-easycache-4scenes-7s/previews/contact-sheet.jpg",
       "title": "Scene 2 · optimized rainy stairs",
       "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
       "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / Sol-Attn + SageAttention + EasyCache。",
@@ -125,6 +131,8 @@
     "scene3": {
       "id": "scene3",
       "src": "assets/optimized-scene-03-glasshouse-orbit.mp4",
+      "poster": "../experiments/04-acceleration/sol-sage-easycache-4scenes-7s/previews/contact-sheet.jpg",
+      "publicTile": "../experiments/04-acceleration/sol-sage-easycache-4scenes-7s/previews/contact-sheet.jpg",
       "title": "Scene 3 · optimized glasshouse orbit",
       "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
       "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / Sol-Attn + SageAttention + EasyCache。",
@@ -135,6 +143,8 @@
     "scene4": {
       "id": "scene4",
       "src": "assets/optimized-scene-04-rooftop-pullback.mp4",
+      "poster": "../experiments/04-acceleration/sol-sage-easycache-4scenes-7s/previews/contact-sheet.jpg",
+      "publicTile": "../experiments/04-acceleration/sol-sage-easycache-4scenes-7s/previews/contact-sheet.jpg",
       "title": "Scene 4 · optimized rooftop pullback",
       "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
       "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / Sol-Attn + SageAttention + EasyCache。",

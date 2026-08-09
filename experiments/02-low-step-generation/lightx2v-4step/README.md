@@ -6,6 +6,12 @@
 
 Frame tile: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
 
+Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/contact-sheet.jpg)
+
+![Low-step generation frame tile](./previews/contact-sheet.jpg)
+
+> This tracked tile is the public visual evidence; source MP4s under `runtime/*/output` remain local-only.
+
 ## 現時点の一次情報
 
 KijaiのHugging Faceリポジトリは、MiniMax-H3本体ではなくLoRAを配布している。READMEの記載は、`4 steps`、`0.75 LoRA strength`、`er_sde`および`sa_solver`の例である。LoRAのalphaはKijai自身が確定値としていないため、ノイズが出る場合は低いstrengthを試す注意書きがある。
@@ -43,10 +49,10 @@ X投稿の添付動画はXの公開メタデータ上、1344×768、6.583秒。�
 
 | Mode | Sampler | Prompt ID | Inference | Runner wall | Output | blackdetect | SHA-256 |
 |---|---|---|---:|---:|---|---:|---|
-| T2V | `er_sde` | `b87755af-c053-42c3-8c49-6c628013b124` | 362.48 sec | 365.71 sec | [MP4](../../../runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_T2V_1344x768_4step_er_sde_00001_.mp4) | 0 | `B0540FE30DC549ABA6E14B3A36270BFE7068CC76F81B2763C0949CEDD92E233E` |
-| T2V | `sa_solver` | `405a78d2-9999-42b7-ab3b-759771760416` | 196.25 sec | 200.39 sec | [MP4](../../../runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_T2V_1344x768_4step_sa_solver_00001_.mp4) | 0 | `DFB59D2BF85A1AFDAEB4C8B3EFABDD2909E91EBD46991F2DB7933F8B96C2C682` |
-| I2V | `er_sde` | `0734b9d9-105b-47b3-a562-ba4bb8e2f3b5` | 210.05 sec | 210.457 sec | [MP4](../../../runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_er_sde_00001_.mp4) | 0 | `CB7A683AF4A9864CA6A1EDAB1C3F350019FF88E9329E12823601772E03791787` |
-| I2V | `sa_solver` | `c56359c6-d7ca-4a64-bc30-b8add8ce5c7d` | 193.72 sec | 195.417 sec | [MP4](../../../runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_00001_.mp4) | 0 | `EB6487E54E1C8412A8BAAD2628CB25D24238E901B8939C8BF502B95C4E5F17B6` |
+| T2V | `er_sde` | `b87755af-c053-42c3-8c49-6c628013b124` | 362.48 sec | 365.71 sec | local-only MP4 | 0 | `B0540FE30DC549ABA6E14B3A36270BFE7068CC76F81B2763C0949CEDD92E233E` |
+| T2V | `sa_solver` | `405a78d2-9999-42b7-ab3b-759771760416` | 196.25 sec | 200.39 sec | local-only MP4 | 0 | `DFB59D2BF85A1AFDAEB4C8B3EFABDD2909E91EBD46991F2DB7933F8B96C2C682` |
+| I2V | `er_sde` | `0734b9d9-105b-47b3-a562-ba4bb8e2f3b5` | 210.05 sec | 210.457 sec | local-only MP4 | 0 | `CB7A683AF4A9864CA6A1EDAB1C3F350019FF88E9329E12823601772E03791787` |
+| I2V | `sa_solver` | `c56359c6-d7ca-4a64-bc30-b8add8ce5c7d` | 193.72 sec | 195.417 sec | local-only MP4 | 0 | `EB6487E54E1C8412A8BAAD2628CB25D24238E901B8939C8BF502B95C4E5F17B6` |
 
 全出力はffprobeで`1344×768 / 24fps / 158 frames / 6.583333 sec / H.264 / AAC stereo`を確認した。先頭・中間フレームを目視し、T2Vは湖・山・霧・朝日、I2Vは開始フレーム由来の湖・山・霧・反射が成立していることを確認した。OOMは発生していない。
 

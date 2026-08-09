@@ -104,6 +104,8 @@
     "montage": {
       "id": "montage",
       "src": "assets/r2v-4scene-montage.mp4",
+      "poster": "assets/r2v-4scene-contact-preview.jpg",
+      "publicTile": "../experiments/03-reference-conditioned/multi-reference-r2v-4scenes-7s/previews/contact-sheet.jpg",
       "title": "4シーン概要モンタージュ",
       "info": "2×2 · 1280×704 · 175 frames · 24fps · 7.291667 sec",
       "provenance": "証拠由来。4本の実生成MP4をFFmpegで2×2配置。Scene 1の音声トラックのみ概要用に保持。",
@@ -150,6 +152,8 @@
     "scene1": {
       "id": "scene1",
       "src": "assets/scene-01-sunset-meeting.mp4",
+      "poster": "assets/r2v-4scene-contact-preview.jpg",
+      "publicTile": "../experiments/03-reference-conditioned/multi-reference-r2v-4scenes-7s/previews/contact-sheet.jpg",
       "title": "Scene 1 · sunset meeting",
       "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
       "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / MiniMaxH3ReferenceToVideo。",
@@ -160,6 +164,8 @@
     "scene2": {
       "id": "scene2",
       "src": "assets/scene-02-rainy-stairs.mp4",
+      "poster": "assets/r2v-4scene-contact-preview.jpg",
+      "publicTile": "../experiments/03-reference-conditioned/multi-reference-r2v-4scenes-7s/previews/contact-sheet.jpg",
       "title": "Scene 2 · rainy stairs",
       "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
       "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / MiniMaxH3ReferenceToVideo。",
@@ -170,6 +176,8 @@
     "scene3": {
       "id": "scene3",
       "src": "assets/scene-03-glasshouse-orbit.mp4",
+      "poster": "assets/r2v-4scene-contact-preview.jpg",
+      "publicTile": "../experiments/03-reference-conditioned/multi-reference-r2v-4scenes-7s/previews/contact-sheet.jpg",
       "title": "Scene 3 · glasshouse orbit",
       "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
       "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / MiniMaxH3ReferenceToVideo。",
@@ -180,6 +188,8 @@
     "scene4": {
       "id": "scene4",
       "src": "assets/scene-04-rooftop-pullback.mp4",
+      "poster": "assets/r2v-4scene-contact-preview.jpg",
+      "publicTile": "../experiments/03-reference-conditioned/multi-reference-r2v-4scenes-7s/previews/contact-sheet.jpg",
       "title": "Scene 4 · rooftop pullback",
       "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
       "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / MiniMaxH3ReferenceToVideo。",

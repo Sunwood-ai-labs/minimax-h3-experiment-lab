@@ -13,6 +13,8 @@
 - `ffprobe`、黒画・signal検査、映像・音声確認、未検証項目
 - 出力の相対パス、bytes、SHA-256
 
+パスの基準: workflow、リファレンス入力、実験内成果物は各実験ディレクトリ基準です。`runtime/...`とcontact-sheet manifestのsource pathはリポジトリルート基準です。`../`で始まる値は実験ディレクトリから解決し、`<repo-root>`は保存時のホストを示す説明用placeholderで、そのまま実行するコマンドではありません。
+
 ## status
 
 | status | 意味 |
@@ -30,3 +32,5 @@
 ## 大きな成果物
 
 モデル本体、runtime出力動画、依存キャッシュ、一時ログは通常のGit管理外です。公開証跡にはフレームタイル、poster、hash、benchmark JSON、Markdown記録を使います。
+
+fresh cloneで必ず開けるものはREADME、`experiment.json`、追跡済みタイル、manifestです。無視対象のMP4へREADMEから直接リンクせず、動画のパス・media情報・SHA-256は記録へ残し、`publicEvidence.videoStatus`で`local-only`を明示します。

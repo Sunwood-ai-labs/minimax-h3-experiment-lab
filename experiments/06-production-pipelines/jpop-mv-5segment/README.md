@@ -6,6 +6,12 @@ Experiment ID: `h3-mv-jpop-5segment`
 
 フレームタイル: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
 
+Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/contact-sheet.jpg)
+
+![Japanese synth-pop MV frame tile](./previews/contact-sheet.jpg)
+
+> この追跡済みタイルで、H3生成映像とリリックモーションの時間変化を確認できます。動画本体はローカル成果物です。
+
 ## 結論
 
 MiniMax-H3のMotion Context連鎖で、同じ歌い手・衣装・曲調を維持した5セグメントの日本語シンセポップMVを生成し、その生成音声を使ってHyperFramesでリリックモーションを重ねた。
@@ -19,12 +25,12 @@ MiniMax-H3のMotion Context連鎖で、同じ歌い手・衣装・曲調を維�
 
 完成動画:
 
-- [h3_jpop_mv_lyric_motion.mp4](./hyperframes-mv-lyrics/renders/h3_jpop_mv_lyric_motion.mp4)
+- リリックモーション完成動画（local-only）: `hyperframes-mv-lyrics/renders/h3_jpop_mv_lyric_motion.mp4`。公開用の視覚確認は[フレームタイル](./previews/contact-sheet.jpg)を使用する。
 - SHA-256: `097EBE221189EE2726319DDC555E57B813483BCA9FD48640E18E75830B179050`
 
 H3のみの連結素材:
 
-- [h3_jpop_mv_5segment_merged.mp4](./outputs/h3_jpop_mv_5segment_merged.mp4)
+- H3連結素材（local-only）: `outputs/h3_jpop_mv_5segment_merged.mp4`。公開用の視覚確認は[フレームタイル](./previews/contact-sheet.jpg)を使用する。
 - SHA-256: `28F1921260CF45A710E7C1BB8D64E72A91889379F0495C5BDB91217F2E6EF92E`
 
 ## 何を検証したか

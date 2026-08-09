@@ -6,6 +6,12 @@ Experiment ID: `niko-h3-motion-context-3segment`
 
 フレームタイル: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
 
+Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/contact-sheet.jpg)
+
+![Motion Context frame tile](./previews/contact-sheet.jpg)
+
+> この追跡済みタイルが、3セグメント連鎖の公開用視覚証跡です。生成元MP4はローカル成果物として扱います。
+
 ## 結論
 
 `ComfyUI-H3-Motion-Context` をDockerイメージへ組み込み、RTX 4090で3セグメントのT2V連鎖を実行した。セグメント2・3では、前セグメントの映像コンテキスト、音声コンテキスト、保存済みのvideo/audio latentを同時に渡した。
@@ -163,7 +169,7 @@ runtime/4090/output/h3_context/clip_00003.safetensors  14,253,016 bytes
 
 ### 連結確認用動画
 
-- [3セグメント連結動画](./outputs/h3_motion_context_3segment_merged.mp4)
+- 3セグメント連結動画（local-only）: `outputs/h3_motion_context_3segment_merged.mp4`。公開用の視覚確認は[フレームタイル](./previews/contact-sheet.jpg)を使用する。
 - ファイル: `outputs/h3_motion_context_3segment_merged.mp4`
 - ffmpeg: concat filter、`libx264 -crf 18`、AAC `192k`、`+faststart`
 - 出力: `1280×704 / 24fps / 345 frames / 14.4167 sec / 5,349,778 bytes`

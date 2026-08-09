@@ -8,6 +8,12 @@
 
 Frame tile: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
 
+Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/contact-sheet.jpg)
+
+![ImageGen-started I2V frame tile](./previews/contact-sheet.jpg)
+
+> This tracked tile is the public visual evidence; source MP4s under `runtime/*/output` remain local-only.
+
 ## 結論
 
 4テーマすべてで生成に成功した。4本とも `1344×768 / 158 frames / 24 fps / 6.583333 sec / H.264 + AAC`、`blackdetect=0`、OOMなしだった。
@@ -85,7 +91,7 @@ docker compose --profile 4090 up -d h3-4090
 - Workflow SHA-256: `1416AA0642DCD91750BB35293DB78FAD43D6DFF701065D852A39A2C1DA73BA6F`
 - Prompt ID: `38166d06-cdd1-4f48-94fc-4fa381cc7d32`
 - Run: `2026-08-08T12:53:43.4019691+09:00` → `2026-08-08T12:57:13.8040417+09:00`
-- Output: [MP4](../../../runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_car_00001_.mp4)
+- Output: local-only MP4 at `runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_car_00001_.mp4`; review the tracked [contact sheet](./previews/contact-sheet.jpg)
 - Output SHA-256: `468D9FB859757B6AEB141950A97737D7C3F713FDD426122A40560A2920EBB062`
 - Input SHA-256: `AA18AB747483D6761E897456EED5F12CFB82402CC891B64484893D1AEF5A8B0A`
 - Detailed report: [`JSON`](../../../runtime/4090/benchmark/h3-38166d06-cdd1-4f48-94fc-4fa381cc7d32.json) / [`Markdown`](../../../runtime/4090/benchmark/h3-38166d06-cdd1-4f48-94fc-4fa381cc7d32.md)
@@ -100,7 +106,7 @@ docker compose --profile 4090 up -d h3-4090
 - Workflow SHA-256: `AE6D5FE87B7A682C8502C23A758F5FB46CC29EEA5CCFF1E714EC9AB2B7820121`
 - Prompt ID: `31b250ab-c2cf-472e-a843-118ffa7f6f98`
 - Run: `2026-08-08T12:58:11.1960404+09:00` → `2026-08-08T13:01:41.6045675+09:00`
-- Output: [MP4](../../../runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_sports_00001_.mp4)
+- Output: local-only MP4 at `runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_sports_00001_.mp4`; review the tracked [contact sheet](./previews/contact-sheet.jpg)
 - Output SHA-256: `0B9C76D2373473B258C9899B6127A8C22792C867714BF09FBF425360F83BB9E5`
 - Input SHA-256: `33B52086889F97ADE8FB2EA8F23C3F25214498A5015881D33B9E8E42F3D3130C`
 - Detailed report: [`JSON`](../../../runtime/4090/benchmark/h3-31b250ab-c2cf-472e-a843-118ffa7f6f98.json) / [`Markdown`](../../../runtime/4090/benchmark/h3-31b250ab-c2cf-472e-a843-118ffa7f6f98.md)
@@ -115,7 +121,7 @@ docker compose --profile 4090 up -d h3-4090
 - Workflow SHA-256: `3775C6350F6189CADB70CF7797B5C2D283672D5B17AA75481A70BD05E64D67A2`
 - Prompt ID: `acec67b0-578d-4b26-9ee4-0022a399b686`
 - Run: `2026-08-08T13:02:30.4564284+09:00` → `2026-08-08T13:06:00.9616352+09:00`
-- Output: [MP4](../../../runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration_00001_.mp4)
+- Output: local-only MP4 at `runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration_00001_.mp4`; review the tracked [contact sheet](./previews/contact-sheet.jpg)
 - Output SHA-256: `6ADC0B80614773902A2E2392B0965F2B9C945F086596D25523B43836349A293A`
 - Input SHA-256: `09D56EF3CD1947CE66E5BC9F019FA4DED2A636A14D42947022268134546D7A6F`
 - Detailed report: [`JSON`](../../../runtime/4090/benchmark/h3-acec67b0-578d-4b26-9ee4-0022a399b686.json) / [`Markdown`](../../../runtime/4090/benchmark/h3-acec67b0-578d-4b26-9ee4-0022a399b686.md)
@@ -130,7 +136,7 @@ docker compose --profile 4090 up -d h3-4090
 - Workflow SHA-256: `F1ED352B372B3276D27F970CE1A250B1BFCC496A0305CD010ADBF57687777553`
 - Prompt ID: `1bdb13fd-e452-415c-8a69-38d795d9ae98`
 - Run: `2026-08-08T13:06:48.1655644+09:00` → `2026-08-08T13:10:23.6183409+09:00`
-- Output: [MP4](../../../runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_battle_00001_.mp4)
+- Output: local-only MP4 at `runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_battle_00001_.mp4`; review the tracked [contact sheet](./previews/contact-sheet.jpg)
 - Output SHA-256: `5A0BECA0A21423F86F6280AAA72ED06359423C4A878CB2BCB17543443C3A8E2D`
 - Input SHA-256: `80D12E69F6E8B629D91A7E1F490C620A77D6CEC37D63B559CBADFDC497E9421A`
 - Detailed report: [`JSON`](../../../runtime/4090/benchmark/h3-1bdb13fd-e452-415c-8a69-38d795d9ae98.json) / [`Markdown`](../../../runtime/4090/benchmark/h3-1bdb13fd-e452-415c-8a69-38d795d9ae98.md)

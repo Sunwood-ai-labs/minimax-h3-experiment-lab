@@ -7,6 +7,12 @@
 
 Frame tile: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
 
+Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/contact-sheet.jpg)
+
+![Attention and cache acceleration frame tile](./previews/contact-sheet.jpg)
+
+> This tracked tile is the public visual evidence; the four optimized MP4s remain local-only capture artifacts.
+
 ## Conclusion
 
 The working combination was integrated into the same MiniMaxH3ReferenceToVideo ref2va graph:
@@ -51,10 +57,10 @@ The baseline values are from [the previous verified 4-scene experiment](../../03
 
 ### Videos
 
-- [Scene 1 MP4](../../../runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_01_sunset_meeting_00001_.mp4) — 2,029,750 bytes, SHA-256 B1497DF7FBBD50FE4558A8EECE0B611EABBAD4FC35340497A1FCF4B921D07D8A
-- [Scene 2 MP4](../../../runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_02_rainy_stairs_00001_.mp4) — 2,255,836 bytes, SHA-256 054E3E26EE9819CA163FDDCF92C63F091A27F993645A85BE695B2A845C8212C8
-- [Scene 3 MP4](../../../runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_03_glasshouse_orbit_00001_.mp4) — 2,473,041 bytes, SHA-256 951DF63B8E7F0AF9DBA14C6FE15B0B0C09D10080CBA4EC9BCAD2D12EEC719C39
-- [Scene 4 MP4](../../../runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_04_rooftop_pullback_00001_.mp4) — 2,691,547 bytes, SHA-256 9C2297798EF326B114703E969E4F5CE6BC63D6554C8D6E53BC6E234712D110B7
+- Scene 1 MP4 (local-only): `runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_01_sunset_meeting_00001_.mp4` — 2,029,750 bytes, SHA-256 B1497DF7FBBD50FE4558A8EECE0B611EABBAD4FC35340497A1FCF4B921D07D8A
+- Scene 2 MP4 (local-only): `runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_02_rainy_stairs_00001_.mp4` — 2,255,836 bytes, SHA-256 054E3E26EE9819CA163FDDCF92C63F091A27F993645A85BE695B2A845C8212C8
+- Scene 3 MP4 (local-only): `runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_03_glasshouse_orbit_00001_.mp4` — 2,473,041 bytes, SHA-256 951DF63B8E7F0AF9DBA14C6FE15B0B0C09D10080CBA4EC9BCAD2D12EEC719C39
+- Scene 4 MP4 (local-only): `runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_04_rooftop_pullback_00001_.mp4` — 2,691,547 bytes, SHA-256 9C2297798EF326B114703E969E4F5CE6BC63D6554C8D6E53BC6E234712D110B7
 
 Scene 1's official timing report is the independent diagnostic prompt c89dcb38... The later normalized-filename submission had the identical graph and seed and was served from ComfyUI's node cache in 3.137 seconds, so that cache replay is not used as a generation-performance result.
 

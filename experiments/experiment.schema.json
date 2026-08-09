@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "MiniMax-H3 Experiment",
   "type": "object",
-  "required": ["id", "date", "category", "status", "sources", "conditions", "runs"],
+  "required": ["id", "date", "category", "status", "sources", "conditions", "runs", "previews", "publicEvidence"],
   "properties": {
     "id": {"type": "string"},
     "date": {"type": "string", "format": "date"},
@@ -35,6 +35,17 @@
         "contactSheet": {"type": "string"},
         "manifest": {"type": "string"},
         "sourceVideos": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "publicEvidence": {
+      "type": "object",
+      "required": ["tile", "manifest", "videoStatus"],
+      "properties": {
+        "tile": {"type": "string"},
+        "manifest": {"type": "string"},
+        "videoStatus": {"enum": ["tracked", "local-only", "not-applicable"]},
+        "note": {"type": "string"}
       },
       "additionalProperties": true
     },

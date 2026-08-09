@@ -8,6 +8,12 @@
 
 Frame tile: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
 
+Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/contact-sheet.jpg)
+
+![Multi-reference R2V frame tile](./previews/contact-sheet.jpg)
+
+> This tracked tile is the public visual evidence; the four scene MP4s and overview montage remain local-only capture artifacts.
+
 ## What was actually tested
 
 This is a true 'MiniMaxH3ReferenceToVideo' run using the 'ref2va' model. It is separate from the earlier I2V experiment, which used 'MiniMaxH3ImageToVideo' with one 'first_frame' input.
@@ -62,10 +68,10 @@ The four API prompt IDs below were accepted by 'http://127.0.0.1:8188/prompt' an
 
 | Scene | Description | Seed | ComfyUI execution | Prompt ID | Output |
 |---:|---|---:|---:|---|---|
-| 1 | Sunset rooftop meeting / dolly-in | '2026080813' | '738.494 sec' ('00:12:18') | 'daab53e0-6304-461a-9eec-89ce70de33a1' | [scene 1 MP4](../../../runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_01_sunset_meeting_00001_.mp4) |
-| 2 | Rainy exterior stairs / tracking shot | '2026080814' | '738.442 sec' ('00:12:18') | '59fcae98-2947-4454-a5b0-9f8ad5c42f44' | [scene 2 MP4](../../../runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_02_rainy_stairs_00001_.mp4) |
-| 3 | Glasshouse conversation / half-orbit | '2026080815' | '739.257 sec' ('00:12:19') | '0eab4e9a-b288-4a41-bd1e-e39dc08c481c' | [scene 3 MP4](../../../runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_03_glasshouse_orbit_00001_.mp4) |
-| 4 | Rooftop skyline / pull-back | '2026080816' | '738.981 sec' ('00:12:19') | '1ff91445-428f-4675-85e6-058d393fde4b' | [scene 4 MP4](../../../runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_04_rooftop_pullback_00001_.mp4) |
+| 1 | Sunset rooftop meeting / dolly-in | '2026080813' | '738.494 sec' ('00:12:18') | 'daab53e0-6304-461a-9eec-89ce70de33a1' | local-only MP4 |
+| 2 | Rainy exterior stairs / tracking shot | '2026080814' | '738.442 sec' ('00:12:18') | '59fcae98-2947-4454-a5b0-9f8ad5c42f44' | local-only MP4 |
+| 3 | Glasshouse conversation / half-orbit | '2026080815' | '739.257 sec' ('00:12:19') | '0eab4e9a-b288-4a41-bd1e-e39dc08c481c' | local-only MP4 |
+| 4 | Rooftop skyline / pull-back | '2026080816' | '738.981 sec' ('00:12:19') | '1ff91445-428f-4675-85e6-058d393fde4b' | local-only MP4 |
 
 The three-scene queue was submitted in one batch. Its cumulative queue elapsed times were 750.721 seconds after Scene 2, 1486.229 seconds after Scene 3, and 2221.597 seconds after Scene 4. The first scene was run separately with an API-side wall time of 750.559 seconds.
 
@@ -82,7 +88,7 @@ Every output was checked with 'ffprobe' and FFmpeg 'blackdetect'.
 
 Visual review contact sheet: [outputs/r2v-4scene-contact.jpg](./outputs/r2v-4scene-contact.jpg)
 
-For the X follow-up simulation, [outputs/r2v-4scene-montage.mp4](./outputs/r2v-4scene-montage.mp4) is an evidence-derived 2×2 montage made directly from the four MP4s above. It is 1280×704, 175 frames, 24fps, 7.291667 seconds, 4,931,033 bytes, SHA-256 `487B252240CDB98211E7F13234396931E1148015DC093CB05E0FFE88057B1B3B`. The Scene 1 audio track is retained only as the overview soundtrack; the individual scene audio tracks remain unchanged.
+For the X follow-up simulation, `outputs/r2v-4scene-montage.mp4` is an evidence-derived 2×2 montage made directly from the four MP4s above. It is intentionally local-only; the tracked `previews/contact-sheet.jpg` and `outputs/r2v-4scene-contact.jpg` are the public visual evidence. The montage is 1280×704, 175 frames, 24fps, 7.291667 seconds, 4,931,033 bytes, SHA-256 `487B252240CDB98211E7F13234396931E1148015DC093CB05E0FFE88057B1B3B`. The Scene 1 audio track is retained only as the overview soundtrack; the individual scene audio tracks remain unchanged.
 
 ## Reproduction environment
 

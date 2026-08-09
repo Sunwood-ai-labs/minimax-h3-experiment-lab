@@ -3,6 +3,7 @@
   "date": "2026-08-09",
   "category": "06-production-pipelines",
   "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
+  "publicEvidence": {"tile": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json", "videoStatus": "local-only", "note": "Source MP4s remain local-only; the tracked frame tile and manifest are the public visual evidence."},
   "status": "verified",
   "scope": "MiniMax-H3 Japanese synth-pop music video with generated audio and HyperFrames lyric motion",
   "sources": [
@@ -207,7 +208,13 @@
     "check": "passed: lint/runtime/layout/motion/contrast/WCAG snapshots"
   },
   "artifacts": {
-    "workflows": "workflows/segment_01_api.json .. segment_05_api.json",
+    "workflows": [
+      "workflows/segment_01_api.json",
+      "workflows/segment_02_api.json",
+      "workflows/segment_03_api.json",
+      "workflows/segment_04_api.json",
+      "workflows/segment_05_api.json"
+    ],
     "manifest": "workflows/manifest.json",
     "run_progress": "run-progress.json",
     "merge_report": "merge.json",

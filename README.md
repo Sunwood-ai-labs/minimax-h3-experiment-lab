@@ -16,7 +16,8 @@ This repository is a growing experiment lab rather than a model mirror. It keeps
 
 ## 🧭 Start here
 
-- [Browse the experiment ledger](./experiments/index.md)
+- [Browse the visual experiment gallery](./experiments/README.md)
+- [Open the machine-readable experiment ledger](./experiments/index.md)
 - [Read the reproducibility contract](./LAB.md)
 - [Open the documentation site](https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/)
 - [Review X publishing payloads and simulators](./social/README.md)
@@ -55,7 +56,7 @@ The Compose file pins GPU services separately, mounts models read-only, and sepa
 | Temporal continuity | Motion Context with video/audio latent context carried across segments |
 | Production pipelines | Japanese cat-café Vlog and Japanese synth-pop MV with lyric motion |
 
-The ledger currently contains ten machine-readable experiment records. The failed black-output route remains documented so later experiments do not mistake it for a successful baseline.
+The gallery currently contains ten machine-readable experiment records. Each record exposes its README, JSON, tracked contact sheet, and contact-sheet manifest. The failed black-output route remains documented so later experiments do not mistake it for a successful baseline.
 
 ## 🗂️ Experiment structure
 
@@ -76,7 +77,7 @@ The six current categories are [baseline](./experiments/01-baseline/), [low-step
 
 ## 🖼️ Frame-tile previews
 
-Videos are useful locally but awkward to attach to documentation and X threads. Each experiment therefore keeps a compact contact sheet when possible. Frames progress left-to-right and then top-to-bottom; multiple input videos are stacked as separate row blocks. The companion manifest records the exact source video, SHA-256, dimensions, frame rate, duration, and sample timestamps.
+Videos are useful locally but awkward to attach to documentation and X threads. Each completed experiment therefore keeps a compact contact sheet. Frames progress left-to-right and then top-to-bottom; multiple input videos are stacked as separate row blocks. The companion manifest records the exact source video, SHA-256, dimensions, frame rate, duration, and sample timestamps. The source MP4 may be local-only; the tile is the tracked public visual evidence.
 
 ```powershell
 pwsh -File .\scripts\make-video-contact-sheet.ps1 `
@@ -96,11 +97,12 @@ pwsh -File .\scripts\validate-experiment-lab.ps1
 docker compose config --quiet
 ```
 
-Every completed run records wall time, ComfyUI status, workflow/model hashes, `ffprobe` output, black-frame checks, signal statistics, output hashes, and limitations where applicable. `blackdetect=0` is not treated as a sufficient visual-quality claim by itself.
+The stronger verified records record wall time, ComfyUI status, workflow/model hashes, `ffprobe` output, black-frame checks, signal statistics, output hashes, and limitations. Older baseline/failure records identify any missing replay evidence explicitly. `blackdetect=0` is not treated as a sufficient visual-quality claim by itself.
 
 ## 📚 Documentation and related files
 
 - [Documentation site](https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/)
+- [Public artifact and media boundary](./docs/guide/artifacts.md)
 - [Experiment ledger](./experiments/index.md)
 - [Lab operations guide](./LAB.md)
 - [Research notes](./research-notes.md)

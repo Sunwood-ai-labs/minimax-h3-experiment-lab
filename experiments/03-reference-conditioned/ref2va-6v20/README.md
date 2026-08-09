@@ -8,6 +8,12 @@
 
 フレームタイル: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
 
+Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/contact-sheet.jpg)
+
+![ref2va frame tile](./previews/contact-sheet.jpg)
+
+> この追跡済みタイルが公開用の視覚証跡です。生成元MP4は`runtime/*/output`のローカル成果物として扱います。
+
 ## 結論
 
 4本すべて生成成功。`1344×768 / 158 frames / 24fps / 6.583333秒`のH.264/AAC動画になり、`blackdetect=0`、OOMなしだった。
@@ -119,10 +125,10 @@ ref2vaの20GBモデルは、公式Comfy-Orgファイルをchunked HTTPS download
 
 | Mode | Steps | Prompt ID | ComfyUI | runner wall | Output | Bytes | SHA-256 |
 |---|---:|---|---:|---:|---|---:|---|
-| T2V | 6 | `976ed634-fad0-41be-bb2b-865637bb2758` | 459.42 sec | 460.953 sec | [MP4](../../../runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_T2V_1344x768_6step_er_sde_lora080_00001_.mp4) | 1,574,128 | `3A8B7EDA3B2F01EB3DC8635A1D7CFFBC7A7F8C9B3DE2D240BBC1145984075551` |
-| T2V | 20 | `23229ad1-a1da-4aa3-83e6-1d04eb74b926` | 659 sec | 661.217 sec | [MP4](../../../runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_T2V_1344x768_20step_er_sde_lora080_00001_.mp4) | 1,700,321 | `A9B8DA655BE3EB76660C034EBA04AA6A499845EABC1B877743404AF23975F39E` |
-| I2V | 6 | `40c56bb7-d5a3-489b-ad4a-08b59db84175` | 294.42 sec | 295.606 sec | [MP4](../../../runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_I2V_1344x768_6step_er_sde_lora080_00001_.mp4) | 2,467,722 | `228B82712E1849EA8E06CD90753F7E378515166EBF24A1711BB34C7A4C29BDEA` |
-| I2V | 20 | `e6a6708a-0e2e-418d-9f5f-21709cc2e5cf` | 691 sec | 696.292 sec | [MP4](../../../runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_I2V_1344x768_20step_er_sde_lora080_00001_.mp4) | 1,950,512 | `8952D5E1D639C58A9FE35F52BA94AB10E341F43EE2F4E0EE40104DE2432666E6` |
+| T2V | 6 | `976ed634-fad0-41be-bb2b-865637bb2758` | 459.42 sec | 460.953 sec | local-only MP4 | 1,574,128 | `3A8B7EDA3B2F01EB3DC8635A1D7CFFBC7A7F8C9B3DE2D240BBC1145984075551` |
+| T2V | 20 | `23229ad1-a1da-4aa3-83e6-1d04eb74b926` | 659 sec | 661.217 sec | local-only MP4 | 1,700,321 | `A9B8DA655BE3EB76660C034EBA04AA6A499845EABC1B877743404AF23975F39E` |
+| I2V | 6 | `40c56bb7-d5a3-489b-ad4a-08b59db84175` | 294.42 sec | 295.606 sec | local-only MP4 | 2,467,722 | `228B82712E1849EA8E06CD90753F7E378515166EBF24A1711BB34C7A4C29BDEA` |
+| I2V | 20 | `e6a6708a-0e2e-418d-9f5f-21709cc2e5cf` | 691 sec | 696.292 sec | local-only MP4 | 1,950,512 | `8952D5E1D639C58A9FE35F52BA94AB10E341F43EE2F4E0EE40104DE2432666E6` |
 
 4本共通でffprobeは次を返した。
 

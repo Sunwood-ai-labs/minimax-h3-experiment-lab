@@ -21,6 +21,10 @@ jobs:
         shell: pwsh
         run: ./scripts/validate-experiment-lab.ps1
 
+      - name: Validate public simulator media fallbacks
+        shell: pwsh
+        run: ./scripts/validate-public-media.ps1
+
       - name: Validate Compose configuration
         run: docker compose config --quiet
 

@@ -8,6 +8,10 @@
 
 このREADMEと同じディレクトリの`experiment.json`を機械可読な正本にします。出典にない値を推測で補完せず、検証用に固定した値と分けて記録します。
 
+Record: [experiment.json](./experiment.json) · `previews/contact-sheet.jpg` · `previews/contact-sheet.json`
+
+公開用の視覚証跡は追跡済みのフレームタイルとmanifestです。生成MP4・音声・モデル重みは通常local-onlyとして扱い、READMEのリンクにはせず、`experiment.json`へパス・bytes・SHA-256を記録します。
+
 テンプレートは`experiments/<category>/<slug>/`へコピーします。実施日は`experiment.json`に記録し、フォルダ名には日付を使いません。
 
 ## 仮説

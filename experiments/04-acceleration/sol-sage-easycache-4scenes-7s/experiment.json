@@ -3,6 +3,7 @@
   "date": "2026-08-08",
   "category": "04-acceleration",
   "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
+  "publicEvidence": {"tile": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json", "videoStatus": "local-only", "note": "Source MP4s remain local-only; the tracked frame tile and manifest are the public visual evidence."},
   "status": "verified",
   "purpose": "Integrate Sol-Attn, SageAttention, and EasyCache into the existing MiniMax-H3 ref2va multi-reference R2V workflow and measure four approximately seven-second scenes under the same conditions as the baseline.",
   "baselineExperiment": "../../03-reference-conditioned/multi-reference-r2v-4scenes-7s/experiment.json",
@@ -72,7 +73,7 @@
       "index": 1,
       "tag": "<Picture 1>",
       "role": "background/location",
-      "path": "references/MiniMax_H3_R2V_background_reference_sheet.png",
+      "path": "../../03-reference-conditioned/multi-reference-r2v-4scenes-7s/references/MiniMax_H3_R2V_background_reference_sheet.png",
       "runtimePath": "runtime/4090/input/MiniMax_H3_R2V_background_reference_sheet.png",
       "width": 1672,
       "height": 941,
@@ -83,7 +84,7 @@
       "index": 2,
       "tag": "<Picture 2>",
       "role": "Mina character",
-      "path": "references/MiniMax_H3_R2V_mina_reference_sheet.png",
+      "path": "../../03-reference-conditioned/multi-reference-r2v-4scenes-7s/references/MiniMax_H3_R2V_mina_reference_sheet.png",
       "runtimePath": "runtime/4090/input/MiniMax_H3_R2V_mina_reference_sheet.png",
       "width": 1672,
       "height": 941,
@@ -94,7 +95,7 @@
       "index": 3,
       "tag": "<Picture 3>",
       "role": "Ren character",
-      "path": "references/MiniMax_H3_R2V_ren_reference_sheet.png",
+      "path": "../../03-reference-conditioned/multi-reference-r2v-4scenes-7s/references/MiniMax_H3_R2V_ren_reference_sheet.png",
       "runtimePath": "runtime/4090/input/MiniMax_H3_R2V_ren_reference_sheet.png",
       "width": 1672,
       "height": 941,
@@ -315,9 +316,9 @@
       "workflows/scene-04-rooftop-pullback_api.json"
     ],
     "references": [
-      "references/MiniMax_H3_R2V_background_reference_sheet.png",
-      "references/MiniMax_H3_R2V_mina_reference_sheet.png",
-      "references/MiniMax_H3_R2V_ren_reference_sheet.png"
+      "../../03-reference-conditioned/multi-reference-r2v-4scenes-7s/references/MiniMax_H3_R2V_background_reference_sheet.png",
+      "../../03-reference-conditioned/multi-reference-r2v-4scenes-7s/references/MiniMax_H3_R2V_mina_reference_sheet.png",
+      "../../03-reference-conditioned/multi-reference-r2v-4scenes-7s/references/MiniMax_H3_R2V_ren_reference_sheet.png"
     ],
     "submittedPrompts": "submitted.json"
   },

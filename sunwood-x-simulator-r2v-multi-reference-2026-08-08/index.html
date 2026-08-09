@@ -59,10 +59,11 @@ function mediaHtml(ids){
   return (ids||[]).map(id=>{
     const m=mediaById()[id]; if(!m) return '';
     const isVideo=/\.(mp4|mov|m4v|webm|mkv)$/i.test(m.src);
-    const visual=isVideo?'<video controls preload="metadata" src="'+esc(m.src)+'"></video>':'<img loading="lazy" src="'+esc(m.src)+'" alt="'+esc(m.title)+'">';
+    const publicTile=m.publicTile||m.poster||m.src;
+    const visual=isVideo?'<img loading="lazy" src="'+esc(publicTile)+'" alt="'+esc(m.title)+' · tracked frame tile">':'<img loading="lazy" src="'+esc(publicTile)+'" alt="'+esc(m.title)+'">';
     const edit=m.edit?'<p class="provenance">編集: '+esc(m.edit)+'</p>':'';
     const source=m.sourcePath?'<p class="provenance">元ファイル: <code>'+esc(m.sourcePath)+'</code></p>':'';
-    return '<div class="media-shell">'+visual+'<div class="media-info"><div class="media-top"><strong>'+esc(m.title)+'</strong><span>'+esc(m.info)+'</span></div><div class="chips"><span class="chip">'+(isVideo?'実生成動画':'入力/確認画像')+'</span><span class="chip">SHA-256確認</span></div><p class="provenance">'+esc(m.provenance)+'</p><p class="provenance">SHA-256: <code>'+esc(m.sha256)+'</code></p>'+edit+source+'</div></div>';
+    return '<div class="media-shell">'+visual+'<div class="media-info"><div class="media-top"><strong>'+esc(m.title)+'</strong><span>'+esc(m.info)+'</span></div><div class="chips"><span class="chip">'+(isVideo?'実生成動画':'入力/確認画像')+'</span>'+(isVideo?'<span class="chip">公開表示: tracked frame tile</span>':'')+'<span class="chip">SHA-256確認</span></div><p class="provenance">'+esc(m.provenance)+'</p><p class="provenance">SHA-256: <code>'+esc(m.sha256)+'</code></p>'+edit+source+'</div></div>';
   }).join('');
 }
 function postHtml(post,index,isMain){

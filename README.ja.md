@@ -16,7 +16,8 @@
 
 ## 🧭 まず見る場所
 
-- [実験台帳](./experiments/index.md)
+- [実験ギャラリー](./experiments/README.md)
+- [機械可読な実験台帳](./experiments/index.md)
 - [再現性・記録の運用ガイド](./LAB.md)
 - [公開ドキュメント](https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/)
 - [X投稿payload・シミュレーター一覧](./social/README.md)
@@ -55,7 +56,7 @@ GPUサービスはComposeで分離し、モデルは読み取り専用、runtime
 | 時間連続性 | Motion Contextによる映像・音声latentのセグメント連鎖 |
 | 制作パイプライン | 日本語猫カフェVlogと日本語シンセポップMV |
 
-現在の台帳には機械可読な実験記録が10件あります。黒画経路も削除せず、成功条件と混同しないための失敗証跡として保存しています。
+現在の台帳には機械可読な実験記録が10件あります。各記録からREADME、JSON、Git追跡済みタイル、タイルmanifestへ移動できます。黒画経路も削除せず、成功条件と混同しないための失敗証跡として保存しています。
 
 ## 🗂️ 実験の構成
 
@@ -76,7 +77,7 @@ experiments/<category>/<slug>/
 
 ## 🖼️ フレームタイル
 
-動画はローカル検証には便利ですが、READMEやXへ添付しづらいため、可能な実験では代表フレームをタイル化します。フレームは左から右、次に上から下へ時間が進みます。複数動画は入力順にブロックを縦積みし、同名manifestへ入力動画、SHA-256、fps、duration、サンプル時刻を保存します。
+動画はローカル検証には便利ですが、READMEやXへ添付しづらいため、完了した実験は代表フレームをタイル化します。フレームは左から右、次に上から下へ時間が進みます。複数動画は入力順にブロックを縦積みし、同名manifestへ入力動画、SHA-256、fps、duration、サンプル時刻を保存します。生成元MP4は`runtime/*/output`などにローカル保存される場合があり、GitHub公開物ではタイルとmanifestを正本にします。
 
 ```powershell
 pwsh -File .\scripts\make-video-contact-sheet.ps1 `
@@ -94,11 +95,13 @@ pwsh -File .\scripts\validate-experiment-lab.ps1
 docker compose config --quiet
 ```
 
-実行記録にはwall time、ComfyUI status、workflow/model hash、`ffprobe`、黒画検査、signal統計、出力hash、未検証項目を残します。`blackdetect=0`だけでは画質成功と判断しません。
+詳細なverified記録にはwall time、ComfyUI status、workflow/model hash、`ffprobe`、黒画検査、signal統計、出力hash、未検証項目を残します。古い基準・失敗記録は、再現に不足する証拠があれば明示します。`blackdetect=0`だけでは画質成功と判断しません。
 
 ## 📚 ドキュメント
 
 - [公開ドキュメント](https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/)
+- [公開成果物と動画の境界](./docs/ja/guide/artifacts.md)
+- [実験ギャラリー](./experiments/README.md)
 - [実験台帳](./experiments/index.md)
 - [LAB運用ガイド](./LAB.md)
 - [調査メモ](./research-notes.md)

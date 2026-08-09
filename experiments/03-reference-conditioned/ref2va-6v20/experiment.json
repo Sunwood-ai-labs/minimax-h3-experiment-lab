@@ -3,6 +3,7 @@
   "date": "2026-08-08",
   "category": "03-reference-conditioned",
   "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
+  "publicEvidence": {"tile": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json", "videoStatus": "local-only", "note": "Source MP4s remain local-only; the tracked frame tile and manifest are the public visual evidence."},
   "status": "verified",
   "purpose": "User-provided screenshot conditions: ref2va, Kijai/LightX2V turbo LoRA, strength 0.8, er_sde, 6 versus 20 steps, tested as T2V and I2V.",
   "sources": [

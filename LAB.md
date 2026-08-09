@@ -14,6 +14,7 @@ MiniMax-H3をDocker Compose + ComfyUIで検証し、GPU・解像度・LoRA・sam
 
 ```text
 experiments/
+  README.md                        # タイルを並べた視覚ギャラリー
   index.md                         # 全実験の入口
   experiment.schema.json           # 機械可読メタデータの契約
   _template/                       # 新規実験の雛形
@@ -34,7 +35,7 @@ social/
   README.md                        # 投稿シミュレーターとpayloadの索引
 ```
 
-モデル本体、runtimeのoutput、依存キャッシュはGitへ入れません。実験記録には取得元、revision、ファイルサイズ、SHA-256、ローカル保存先を残します。
+モデル本体、runtimeのoutput、依存キャッシュはGitへ入れません。実験記録には取得元、revision、ファイルサイズ、SHA-256、ローカル保存先を残します。`experiment.json`のworkflow・実験内referenceは実験ディレクトリ基準、`runtime/...`やcontact-sheet manifestのsource pathはリポジトリルート基準として扱います。新しい記録では基準を混在させず、READMEリンクはREADME基準の相対パスにします。
 
 ## 1実験の必須項目
 
@@ -79,7 +80,7 @@ prompt、seed、scheduler、sampler、attention、EasyCache閾値など、比較
 
 ## 生成物の扱い
 
-動画や画像を実験記録へ同梱する場合は、読者が実験結果を確認するのに必要なものに限定します。大きなruntime出力はGitへ追跡せず、benchmark JSONや実験JSONから相対パスを参照します。
+動画や画像を実験記録へ同梱する場合は、読者が実験結果を確認するのに必要なものに限定します。大きなruntime出力はGitへ追跡せず、`publicEvidence.videoStatus=local-only`としてbenchmark JSONや実験JSONへパス・bytes・SHA-256を残します。公開READMEからlocal-only MP4へ直接リンクしてはいけません。
 
 ## フレームタイルプレビュー
 
@@ -92,17 +93,18 @@ prompt、seed、scheduler、sampler、attention、EasyCache閾値など、比較
   -FrameCount 8 -Columns 4 -Overwrite
 ```
 
-動画本体はローカル生成物として扱い、タイル画像とmanifestを再現可能な公開証跡としてGitへ残します。
+動画本体はローカル生成物として扱い、タイル画像とmanifestを再現可能な公開証跡としてGitへ残します。X投稿シミュレーターも公開表示はタイル優先とし、動画srcはローカル確認用の補助情報にします。
 
 既存カテゴリに収まる実験は、カテゴリを増やさず`<slug>`を追加します。新しい機能系統を追加する場合だけ、`experiment.schema.json`の`category`、検証スクリプト、`experiments/index.md`の入口を同じ変更で更新し、分類理由を記録します。これにより、実験数が増えても日付・配布元・人物名が分類軸へ逆戻りしません。
 
-投稿シミュレーターは実際の添付動画・本文・返信順を確認するための成果物です。実験記録とは分けて`social/README.md`から辿れるようにし、投稿済みか未送信かをpayload内で明示します。
+投稿シミュレーターは本文・返信順・添付レイアウトを確認するための成果物です。実験記録とは分けて`social/README.md`から辿れるようにし、投稿済みか未送信か、動画本体がlocal-onlyか、公開表示がタイルかをpayload内で明示します。
 
 ## 検証コマンド
 
 ```powershell
 # JSON / README / experiment indexの基本検証
 .\scripts\validate-experiment-lab.ps1
+.\scripts\validate-public-media.ps1
 
 # Composeの展開検証（コンテナ起動はしない）
 docker compose config --quiet

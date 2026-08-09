@@ -6,6 +6,12 @@ Experiment ID: `h3-japanese-catcafe-vlog-5segment`
 
 フレームタイル: [contact sheet](./previews/contact-sheet.jpg) / [manifest](./previews/contact-sheet.json)
 
+Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/contact-sheet.jpg)
+
+![Japanese cat-café Vlog frame tile](./previews/contact-sheet.jpg)
+
+> この追跡済みタイルで、約30秒Vlogのセグメント間の挙動を確認できます。動画本体はローカル成果物です。
+
 ## 結論
 
 英語の生成プロンプトに、日本語で話すセリフを直接含めてMiniMax-H3を実行した。猫カフェを訪れる日本人インフルエンサー風のVlogを5セグメントに分け、`ComfyUI-H3-Motion-Context`で映像・音声コンテキストとlatentを引き継いで連結した。
@@ -19,7 +25,7 @@ Experiment ID: `h3-japanese-catcafe-vlog-5segment`
 
 最終動画:
 
-- [h3_cat_cafe_vlog_5segment_merged.mp4](./outputs/h3_cat_cafe_vlog_5segment_merged.mp4)
+- 連結動画（local-only）: `outputs/h3_cat_cafe_vlog_5segment_merged.mp4`。公開用の視覚確認は[フレームタイル](./previews/contact-sheet.jpg)を使用する。
 - SHA-256: `73200CA4577C710BCADB41FD23451EBE01BDDE3E30D8E4E3A734F5A9A88E10DC`
 
 今回の要件は「セリフを日本語、プロンプトは英語」と解釈した。プロンプトのHTTP送信はUTF-8 bytesで行い、日本語文字が`?`へ置換されないことも確認した。なお、音声の日本語発音・内容をASRで文字起こしして照合する検査はまだ実施していない。目視したサンプルでは、プロンプトに「字幕なし」と書いたにもかかわらず、日本語のキャプション風テキストが一部フレームに自動生成された。この点はモデル側の副作用として記録する。
