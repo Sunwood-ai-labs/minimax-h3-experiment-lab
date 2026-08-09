@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">MiniMax-H3 Experiment Lab</title>
+  <desc id="desc">A geometric frame-grid mark with an H-shaped signal and three experiment dots.</desc>
+  <rect width="512" height="512" rx="112" fill="#0b1020"/>
+  <rect x="68" y="82" width="376" height="348" rx="52" fill="#17213a"/>
+  <path d="M104 144v-24h24M408 144v-24h-24M104 368v24h24M408 368v24h-24" fill="none" stroke="#58d6ff" stroke-linecap="round" stroke-width="18"/>
+  <path d="M146 174h42v58h64v-58h42v164h-42v-64h-64v64h-42z" fill="#f5f7ff"/>
+  <circle cx="352" cy="198" r="18" fill="#58d6ff"/>
+  <circle cx="352" cy="256" r="18" fill="#9d7bff"/>
+  <circle cx="352" cy="314" r="18" fill="#ffd166"/>
+</svg>

@@ -1,4 +1,6 @@
 .env
+.env.*
+!.env.example
 .h3-full-int8-parts/*
 models/*
 !models/.gitkeep
@@ -40,12 +42,27 @@ hyperframes-kijai-parent-montage-2026-08-08/renders/*
 .mypy_cache/
 .ruff_cache/
 .DS_Store
+docs/node_modules/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+docs/node_modules/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Generated video/audio is retained locally; metadata, workflows, posters and contact sheets remain trackable.
 experiments/**/outputs/*.mp4
 experiments/**/renders/*.mp4
 experiments/**/assets/*.mp4
 experiments/**/assets/*.mp3
+experiments/**/assets/*.mov
+experiments/**/assets/*.webm
+experiments/**/assets/*.mkv
 experiments/**/hyperframes-mv-lyrics/assets/*.mp4
 hyperframes-*/assets/*.mp4
 hyperframes-*/renders/*.mp4

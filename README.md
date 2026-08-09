@@ -1,131 +1,123 @@
-# MiniMax-H3 Experiment Lab
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Sunwood-ai-labs/minimax-h3-experiment-lab/master/docs/public/icon.svg" alt="MiniMax-H3 Experiment Lab" width="112">
+  <h1>MiniMax-H3 Experiment Lab</h1>
+  <p>Reproducible Docker Compose + ComfyUI experiments for MiniMax-H3 video generation.</p>
+</div>
 
-MiniMax-H3をDocker Compose + ComfyUIで動かし、RTX 3060とRTX 4090の条件差、LoRA、ref2va/R2V、Motion Context、音声付き動画生成を再現可能な実験記録として蓄積するラボです。
+<p align="center">
+  <a href="https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/actions/workflows/ci.yml"><img src="https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-5b8def.svg" alt="MIT License"></a>
+  <a href="https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/"><img src="https://img.shields.io/badge/docs-GitHub%20Pages-6f42c1.svg" alt="Documentation"></a>
+</p>
 
-実験の正本は、実験ごとの`experiment.json`と`README.md`です。生成物の見た目だけでなく、出典、固定条件、Docker環境、workflow、処理時間、出力検査、SHA-256、未検証項目まで同じ場所に残します。
+<p align="center"><a href="./README.ja.md">日本語版 / Japanese README</a></p>
 
-## まずここを見る
+This repository is a growing experiment lab rather than a model mirror. It keeps the Docker/ComfyUI runtime, reproducible workflows, GPU-specific measurements, prompts, provenance, failure evidence, and shareable frame-tile previews in one place.
 
-- [実験台帳](./experiments/index.md) — 2026-08-07以降の全実験への入口
-- [ラボ運用ガイド](./LAB.md) — 新しい実験を追加する手順と記録契約
-- [X投稿・シミュレーター一覧](./social/README.md) — 投稿用の動画・payload・シミュレーター
-- [フレームタイルの作成ルール](./LAB.md#フレームタイルプレビュー) — 動画の挙動を静止画で確認・共有
-- [3060 benchmark](./runtime/3060/benchmark/index.md) / [4090 benchmark](./runtime/4090/benchmark/index.md)
-- [調査メモ](./research-notes.md) / [検証ログ](./verification-log.md)
+## 🧭 Start here
 
-## ここまでの結論
+- [Browse the experiment ledger](./experiments/index.md)
+- [Read the reproducibility contract](./LAB.md)
+- [Open the documentation site](https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/)
+- [Review X publishing payloads and simulators](./social/README.md)
+- [Inspect the frame-tile rules](./LAB.md#フレームタイルプレビュー)
 
-| テーマ | 確認できたこと | 主な記録 |
-|---|---|---|
-| 3060 / 4090基準 | RTX 3060でもWSL再起動後の1280×704 T2V/I2Vを完走。RTX 4090は同条件でより短い | [benchmark台帳](./experiments/index.md#2026-08-07--基準条件) |
-| 4-step LightX2V | 4 steps、1344×768、T2V/I2V、`er_sde`/`sa_solver`をRTX 4090で検証 | [実験記録](./experiments/02-low-step-generation/lightx2v-4step/README.md) |
-| ref2va 6 vs 20 steps | T2V/I2Vの速度とSSIMを比較。速さだけで画質同等とは結論づけていない | [実験記録](./experiments/03-reference-conditioned/ref2va-6v20/README.md) |
-| 複数リファレンスR2V | 背景＋人物2人の3リファレンスで4シーンを生成 | [実験記録](./experiments/03-reference-conditioned/multi-reference-r2v-4scenes-7s/README.md) |
-| Sol-Attn + Sage + EasyCache | 同じR2V条件で平均2.092倍。参照投稿の最大3.2倍はこの条件では再現していない | [高速化記録](./experiments/04-acceleration/sol-sage-easycache-4scenes-7s/README.md) |
-| Motion Context | 映像・音声コンテキストとlatentを22フレーム引き継ぐ連鎖生成をDocker上で検証 | [3セグメント](./experiments/05-temporal-continuity/motion-context-3segment/README.md) |
-| 日本語猫カフェVlog | 英語プロンプト＋日本語セリフで約30秒の5セグメントを生成 | [実験記録](./experiments/06-production-pipelines/catcafe-vlog-5segment/README.md) |
-| 日本語シンセポップMV | H3生成音声を解析し、HyperFramesでビート同期リリックモーションを合成 | [実験記録](./experiments/06-production-pipelines/jpop-mv-5segment/README.md) |
+## 🚀 Quick start
 
-### 3060の黒画について
-
-初期のTurbo/full-int8 + Kijai int8 VAE経路は全フレームが黒信号になったため、成功結果として扱っていません。その後、投稿に明記された公式FP16/FP32 VAE構成へ切り替え、WSL再起動後に約720p T2V/I2Vを再実行しました。失敗経路と再発防止は[調査メモ](./research-notes.md)と[検証ログ](./verification-log.md)に残しています。
-
-## Docker Composeで起動
-
-### 前提
-
-- Windows 11 + WSL2 + Docker Desktop
-- NVIDIAドライバとDockerからGPUを利用できること
-- RTX 3060またはRTX 4090（両方同時起動も可）
-- モデル一式。初回ダウンロードは約42.5GB
-
-### 初回セットアップ
+Requirements: Windows 11 + WSL2 + Docker Desktop, an NVIDIA driver with Docker GPU support, and an RTX 3060 or RTX 4090. The model download is external to Git and is roughly 42.5 GB for the tested variant.
 
 ```powershell
-cd D:/Prj/minimax-h3-compose
+git clone https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab.git
+cd minimax-h3-experiment-lab
 Copy-Item .env.example .env
 nvidia-smi -L
-# .envのGPU_3060_UUID / GPU_4090_UUIDを自分のUUIDへ合わせる
+# Set GPU_3060_UUID and GPU_4090_UUID in .env when the defaults do not match.
 
 docker compose --profile 4090 build h3-4090
-docker compose --profile 3060 build h3-3060
 docker compose --profile download run --rm model-downloader
-```
-
-### 起動
-
-```powershell
-# RTX 4090: http://localhost:8188
 docker compose --profile 4090 up -d h3-4090
-
-# RTX 3060: http://localhost:8189
-docker compose --profile 3060 up -d h3-3060
-
-# 2枚同時
-docker compose --profile 3060 --profile 4090 up -d
-docker compose ps
 ```
 
-GPUはCompose serviceごとにUUIDで固定し、モデルは読み取り専用、入出力とComfyUI状態は`runtime/3060`または`runtime/4090`へ分離します。自分のPCでは必ず`.env.example`のGPU UUIDを置き換えてください。
+- RTX 4090: <http://localhost:8188>
+- RTX 3060: <http://localhost:8189>
+- Both services: `docker compose --profile 3060 --profile 4090 up -d`
 
-## 実験を再実行する
+The Compose file pins GPU services separately, mounts models read-only, and separates runtime state under `runtime/3060` and `runtime/4090`.
 
-まず対応する実験記録から、workflow・seed・解像度・frames・steps・モデルrevision・Docker条件を確認します。通常のpost-condition workflowは次のように実行します。
+## 🧪 What is already measured
 
-```powershell
-.\scripts\run-h3-post-condition.ps1 -Gpu 4090 -Port 8188 -Workflow .\workflows\tlanoai_t2v_1280x704_api.json -OutputPrefix video\MiniMax_H3_T2V_4090_1280x704_repeat -LowVram $false -Seed 2026080704 -TimeoutSeconds 14400
-```
+| Area | Current evidence |
+|---|---|
+| Baseline | RTX 3060 and RTX 4090 T2V/I2V runs, including the retained 3060 black-output failure route |
+| Low-step generation | 4-step T2V/I2V with LightX2V-style LoRA and `er_sde` / `sa_solver` |
+| Reference conditioning | ImageGen-started I2V, ref2va 6-vs-20-step comparison, and 3-reference R2V scenes |
+| Acceleration | Sol-Attn + generic FP16 CUDA SageAttention + EasyCache under the same R2V conditions |
+| Temporal continuity | Motion Context with video/audio latent context carried across segments |
+| Production pipelines | Japanese cat-café Vlog and Japanese synth-pop MV with lyric motion |
 
-実行後は`runtime/<gpu>/benchmark/`に、JSONとMarkdownの実行レポートを保存します。レポートにはwall time、ComfyUI status、prompt ID、環境、workflowのSHA-256、ffprobe、blackdetect、signalstatsを記録します。`blackdetect=0`だけで画質成功とは判断せず、必要な実験では抽出フレームも確認します。
+The ledger currently contains ten machine-readable experiment records. The failed black-output route remains documented so later experiments do not mistake it for a successful baseline.
 
-## ディレクトリ構成
+## 🗂️ Experiment structure
+
+Experiments are organized by function, not by date, distributor, or person name:
 
 ```text
-Dockerfile / compose.yaml       Docker Composeと固定revision
-docker/                         runtime patch、entrypoint、モデル取得
-workflows/                      共有API workflow
-runtime/3060/benchmark/         RTX 3060の機械可読レポート
-runtime/4090/benchmark/         RTX 4090の機械可読レポート
-runtime/*/input/                再現に必要な開始画像・リファレンス
-experiments/<category>/<slug>/  テーマ別の実験README、JSON、workflow、成果物
-experiments/01-baseline/        基準条件・GPU比較・失敗経路
-experiments/02-low-step-generation/ 少ないstepでの動画生成
-experiments/03-reference-conditioned/ I2V・ref2va・複数リファレンスR2V
-experiments/04-acceleration/    Attention・EasyCacheなどの高速化
-experiments/05-temporal-continuity/ Motion Context・セグメント連鎖
-experiments/06-production-pipelines/ Vlog・音楽MVなどの制作検証
-social/                         X投稿シミュレーターと公開用payloadの索引
-scripts/                        実行・マージ・検証ヘルパー
+experiments/<category>/<slug>/
+  README.md
+  experiment.json
+  sources.md                 # when external sources need a separate summary
+  workflows/                 # experiment-specific API workflows
+  previews/
+    contact-sheet.jpg        # shareable frame-tile preview
+    contact-sheet.json       # source paths, sample times, hashes, dimensions
 ```
 
-モデル本体、コンテナの出力ディレクトリ、Pythonキャッシュ、一時ログはGitの正本に含めません。必要な大容量ファイルは取得元、revision、サイズ、SHA-256、保存先を実験記録へ残します。
+The six current categories are [baseline](./experiments/01-baseline/), [low-step generation](./experiments/02-low-step-generation/), [reference conditioning](./experiments/03-reference-conditioned/), [acceleration](./experiments/04-acceleration/), [temporal continuity](./experiments/05-temporal-continuity/), and [production pipelines](./experiments/06-production-pipelines/). Add a new slug to an existing category whenever possible; introduce a new category only when the function is genuinely distinct and update the schema, validator, and ledger together.
 
-## 記録ルール
+## 🖼️ Frame-tile previews
 
-1. 出典に書かれていない値は推測で補完しない。
-2. 投稿条件とローカルで固定した検証条件を分けて書く。
-3. GPU、解像度、steps、sampler、scheduler、VAE、LoRA、attention、EasyCache、seedを固定値として残す。
-4. 実行時間はAPI投入からComfyUIのsuccess/errorまでのwall timeとして記録する。
-5. 出力の相対パス、bytes、SHA-256、ffprobe、黒画検査、目視確認、未検証項目を残す。
-6. 失敗、OOM、黒画、CUDA異常も削除せず、`failed`または`limitations`として記録する。
-
-新規実験は[テンプレート](./experiments/_template/README.md)をコピーし、記録後に次の検証を実行します。
+Videos are useful locally but awkward to attach to documentation and X threads. Each experiment therefore keeps a compact contact sheet when possible. Frames progress left-to-right and then top-to-bottom; multiple input videos are stacked as separate row blocks. The companion manifest records the exact source video, SHA-256, dimensions, frame rate, duration, and sample timestamps.
 
 ```powershell
-.\scripts\validate-experiment-lab.ps1
+pwsh -File .\scripts\make-video-contact-sheet.ps1 `
+  -InputPath .\runtime\4090\output\video\example.mp4 `
+  -OutputPath .\experiments\03-reference-conditioned\my-experiment\previews\contact-sheet.jpg `
+  -FrameCount 8 -Columns 4 -Overwrite
+```
+
+The generated tile is tracked; large runtime outputs and model weights are not.
+
+## 🔁 Reproduce and validate
+
+Start from the experiment README and `experiment.json`, then use the recorded workflow, seed, model revision, resolution, frame count, sampler, and runtime conditions.
+
+```powershell
+pwsh -File .\scripts\validate-experiment-lab.ps1
 docker compose config --quiet
 ```
 
-## 参照元
+Every completed run records wall time, ComfyUI status, workflow/model hashes, `ffprobe` output, black-frame checks, signal statistics, output hashes, and limitations where applicable. `blackdetect=0` is not treated as a sufficient visual-quality claim by itself.
 
-- [MiniMax-H3公式モデルカード](https://huggingface.co/MiniMaxAI/MiniMax-H3)
-- [MiniMax-H3公式GitHub](https://github.com/MiniMax-AI/MiniMax-H3)
-- [ComfyUI MiniMax-H3 docs](https://docs.comfy.org/tutorials/video/minimax/minimax-h3)
-- [Kijai MiniMax-H3 Comfy](https://huggingface.co/Kijai/MiniMax-H3_comfy)
+## 📚 Documentation and related files
+
+- [Documentation site](https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/)
+- [Experiment ledger](./experiments/index.md)
+- [Lab operations guide](./LAB.md)
+- [Research notes](./research-notes.md)
+- [Verification log](./verification-log.md)
+- [X payload and simulator index](./social/README.md)
+- [Docker Compose definition](./compose.yaml)
+
+## ⚖️ Scope and licensing
+
+This repository contains runtime code, workflows, experiment metadata, documentation, and selected preview assets. Model weights are intentionally not included. MiniMax-H3, ComfyUI, custom nodes, LoRAs, and downloaded assets remain subject to their respective upstream licenses and terms; check those terms before redistribution or commercial use.
+
+The repository-authored code, documentation, and experiment records are released under the [MIT License](./LICENSE). See [CONTRIBUTING.md](./CONTRIBUTING.md) before adding a new experiment.
+
+## 🔗 Primary references
+
+- [MiniMax-H3 model card](https://huggingface.co/MiniMaxAI/MiniMax-H3)
+- [MiniMax-H3 source repository](https://github.com/MiniMax-AI/MiniMax-H3)
+- [ComfyUI MiniMax-H3 guide](https://docs.comfy.org/tutorials/video/minimax/minimax-h3)
+- [MiniMax-H3 ComfyUI files](https://huggingface.co/Kijai/MiniMax-H3_comfy)
 - [H3 Motion Context](https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context)
-
-参照したX投稿、LightX2V、Sol-Attn、SageAttention、EasyCacheのURLは各実験の`README.md`または`experiment.json`に保存しています。
-
-## ライセンスと公開状態
-
-この作業ツリーにはまだ公開GitHub remoteが設定されていません。ライセンスは利用者の意図に合わせて決める必要があるため、未設定のままです。公開前にライセンス、GitHub repository、モデルの再配布条件を確認してください。

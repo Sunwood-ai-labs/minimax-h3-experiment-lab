@@ -1,0 +1,40 @@
+name: Repository checks
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate experiment records
+        shell: pwsh
+        run: ./scripts/validate-experiment-lab.ps1
+
+      - name: Validate Compose configuration
+        run: docker compose config --quiet
+
+      - name: Check JSON files
+        shell: pwsh
+        run: |
+          $errors = @()
+          Get-ChildItem -Recurse -File -Filter *.json |
+            Where-Object { $_.Name -ne 'package-lock.json' -and $_.FullName -notmatch '[/\\](\.git|models|node_modules)[/\\]' } |
+            ForEach-Object {
+              try { Get-Content -Raw -LiteralPath $_.FullName | ConvertFrom-Json | Out-Null }
+              catch { $errors += "$($_.FullName): $($_.Exception.Message)" }
+            }
+          if ($errors.Count -gt 0) {
+            $errors | ForEach-Object { Write-Error $_ }
+            exit 1
+          }
