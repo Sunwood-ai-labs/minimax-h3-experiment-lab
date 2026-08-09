@@ -17,13 +17,13 @@ MiniMax-H3をDocker Compose + ComfyUIで動かし、RTX 3060とRTX 4090の条件
 | テーマ | 確認できたこと | 主な記録 |
 |---|---|---|
 | 3060 / 4090基準 | RTX 3060でもWSL再起動後の1280×704 T2V/I2Vを完走。RTX 4090は同条件でより短い | [benchmark台帳](./experiments/index.md#2026-08-07--基準条件) |
-| Kijai LightX2V | 4 steps、1344×768、T2V/I2V、`er_sde`/`sa_solver`をRTX 4090で検証 | [実験記録](./experiments/2026-08-08/kijai-lightx2v-4step/README.md) |
-| ref2va 6 vs 20 steps | T2V/I2Vの速度とSSIMを比較。速さだけで画質同等とは結論づけていない | [実験記録](./experiments/2026-08-08/kijai-ref2va-6v20/README.md) |
-| 複数リファレンスR2V | 背景＋人物2人の3リファレンスで4シーンを生成 | [実験記録](./experiments/2026-08-08/kijai-r2v-multi-reference-4scenes-7s/README.md) |
-| Sol-Attn + Sage + EasyCache | 同じR2V条件で平均2.092倍。参照投稿の最大3.2倍はこの条件では再現していない | [高速化記録](./experiments/2026-08-08/kijai-r2v-sol-generic-fp16-sage-easycache-4scenes-7s/README.md) |
-| Motion Context | 映像・音声コンテキストとlatentを22フレーム引き継ぐ連鎖生成をDocker上で検証 | [3セグメント](./experiments/2026-08-09/niko-h3-motion-context-3segment/README.md) |
-| 日本語猫カフェVlog | 英語プロンプト＋日本語セリフで約30秒の5セグメントを生成 | [実験記録](./experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment/README.md) |
-| 日本語シンセポップMV | H3生成音声を解析し、HyperFramesでビート同期リリックモーションを合成 | [実験記録](./experiments/2026-08-09/h3-mv-jpop-5segment/README.md) |
+| 4-step LightX2V | 4 steps、1344×768、T2V/I2V、`er_sde`/`sa_solver`をRTX 4090で検証 | [実験記録](./experiments/02-low-step-generation/lightx2v-4step/README.md) |
+| ref2va 6 vs 20 steps | T2V/I2Vの速度とSSIMを比較。速さだけで画質同等とは結論づけていない | [実験記録](./experiments/03-reference-conditioned/ref2va-6v20/README.md) |
+| 複数リファレンスR2V | 背景＋人物2人の3リファレンスで4シーンを生成 | [実験記録](./experiments/03-reference-conditioned/multi-reference-r2v-4scenes-7s/README.md) |
+| Sol-Attn + Sage + EasyCache | 同じR2V条件で平均2.092倍。参照投稿の最大3.2倍はこの条件では再現していない | [高速化記録](./experiments/04-acceleration/sol-sage-easycache-4scenes-7s/README.md) |
+| Motion Context | 映像・音声コンテキストとlatentを22フレーム引き継ぐ連鎖生成をDocker上で検証 | [3セグメント](./experiments/05-temporal-continuity/motion-context-3segment/README.md) |
+| 日本語猫カフェVlog | 英語プロンプト＋日本語セリフで約30秒の5セグメントを生成 | [実験記録](./experiments/06-production-pipelines/catcafe-vlog-5segment/README.md) |
+| 日本語シンセポップMV | H3生成音声を解析し、HyperFramesでビート同期リリックモーションを合成 | [実験記録](./experiments/06-production-pipelines/jpop-mv-5segment/README.md) |
 
 ### 3060の黒画について
 
@@ -86,7 +86,13 @@ workflows/                      共有API workflow
 runtime/3060/benchmark/         RTX 3060の機械可読レポート
 runtime/4090/benchmark/         RTX 4090の機械可読レポート
 runtime/*/input/                再現に必要な開始画像・リファレンス
-experiments/YYYY-MM-DD/<slug>/  実験ごとのREADME、JSON、workflow、成果物
+experiments/<category>/<slug>/  テーマ別の実験README、JSON、workflow、成果物
+experiments/01-baseline/        基準条件・GPU比較・失敗経路
+experiments/02-low-step-generation/ 少ないstepでの動画生成
+experiments/03-reference-conditioned/ I2V・ref2va・複数リファレンスR2V
+experiments/04-acceleration/    Attention・EasyCacheなどの高速化
+experiments/05-temporal-continuity/ Motion Context・セグメント連鎖
+experiments/06-production-pipelines/ Vlog・音楽MVなどの制作検証
 social/                         X投稿シミュレーターと公開用payloadの索引
 scripts/                        実行・マージ・検証ヘルパー
 ```

@@ -1,4 +1,4 @@
-﻿{
+{
     "gpu":  "4090",
     "port":  8188,
     "prompt_id":  "d20498fe-66fc-4550-a14a-ca86987f4d2e",
@@ -11,7 +11,7 @@
     "invocation":  {
                        "gpu":  "4090",
                        "port":  8188,
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-r2v-sol-generic-fp16-sage-easycache-4scenes-7s\\workflows\\scene-02-rainy-stairs_api.json",
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\04-acceleration\\sol-sage-easycache-4scenes-7s\\workflows\\scene-02-rainy-stairs_api.json",
                        "output_prefix":  "video/MiniMax_H3_R2V_sol_fp16_scene_02_rainy_stairs",
                        "low_vram":  false,
                        "seed":  2026080814,
@@ -20,7 +20,7 @@
                        "skip_model_hashes":  false
                    },
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-r2v-sol-generic-fp16-sage-easycache-4scenes-7s\\workflows\\scene-02-rainy-stairs_api.json",
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\04-acceleration\\sol-sage-easycache-4scenes-7s\\workflows\\scene-02-rainy-stairs_api.json",
                        "low_vram_requested":  false,
                        "low_vram_applied":  false,
                        "runtime":  {
@@ -183,7 +183,7 @@
                                        },
                         "project_files":  [
                                               {
-                                                  "path":  "experiments\\2026-08-08\\kijai-r2v-sol-generic-fp16-sage-easycache-4scenes-7s\\workflows\\scene-02-rainy-stairs_api.json",
+                                                  "path":  "experiments\\04-acceleration\\sol-sage-easycache-4scenes-7s\\workflows\\scene-02-rainy-stairs_api.json",
                                                   "bytes":  10593,
                                                   "sha256":  "59492FAFEEE72103FF2638138982EE183A5FD1D4F9F3CF896F199BBBB288827A"
                                               },

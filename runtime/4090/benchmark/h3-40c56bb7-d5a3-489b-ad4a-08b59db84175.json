@@ -1,4 +1,4 @@
-﻿{
+{
     "gpu":  "4090",
     "port":  8188,
     "prompt_id":  "40c56bb7-d5a3-489b-ad4a-08b59db84175",
@@ -11,7 +11,7 @@
     "invocation":  {
                        "gpu":  "4090",
                        "port":  8188,
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-ref2va-6v20\\workflows\\minimax_h3_ref2va_lora080_i2v_er_sde_6step_1344x768_api.json",
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\03-reference-conditioned\\ref2va-6v20\\workflows\\minimax_h3_ref2va_lora080_i2v_er_sde_6step_1344x768_api.json",
                        "output_prefix":  "video/MiniMax_H3_Kijai_LightX2V_Ref2VA_I2V_1344x768_6step_er_sde_lora080",
                        "low_vram":  false,
                        "seed":  2026080808,
@@ -19,7 +19,7 @@
                        "skip_model_hashes":  true
                    },
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-ref2va-6v20\\workflows\\minimax_h3_ref2va_lora080_i2v_er_sde_6step_1344x768_api.json",
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\03-reference-conditioned\\ref2va-6v20\\workflows\\minimax_h3_ref2va_lora080_i2v_er_sde_6step_1344x768_api.json",
                        "low_vram_requested":  false,
                        "low_vram_applied":  false,
                        "runtime":  {
@@ -185,7 +185,7 @@
                                        },
                         "project_files":  [
                                               {
-                                                  "path":  "experiments\\2026-08-08\\kijai-ref2va-6v20\\workflows\\minimax_h3_ref2va_lora080_i2v_er_sde_6step_1344x768_api.json",
+                                                  "path":  "experiments\\03-reference-conditioned\\ref2va-6v20\\workflows\\minimax_h3_ref2va_lora080_i2v_er_sde_6step_1344x768_api.json",
                                                   "bytes":  7902,
                                                   "sha256":  "1B06FEEE04DD8E76570183B46A7319E22E87D71354411B46D56E4792A377BD71"
                                               },

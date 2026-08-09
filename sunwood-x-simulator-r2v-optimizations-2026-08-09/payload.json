@@ -4,7 +4,7 @@
   "series": "MiniMax-H3 ref2va R2V optimization continuation",
   "postMode": "progress",
   "simulationOnly": true,
-  "experimentRecord": "experiments/2026-08-08/kijai-r2v-sol-generic-fp16-sage-easycache-4scenes-7s/README.md",
+  "experimentRecord": "experiments/04-acceleration/sol-sage-easycache-4scenes-7s/README.md",
   "previousPostUrl": "https://x.com/hAru_mAki_ch/status/2086051398735847471",
   "main": {
     "label": "概要投稿",

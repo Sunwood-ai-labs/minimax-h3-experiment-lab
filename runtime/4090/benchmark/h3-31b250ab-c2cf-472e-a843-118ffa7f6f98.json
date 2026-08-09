@@ -1,4 +1,4 @@
-﻿{
+{
     "gpu":  "4090",
     "port":  8188,
     "prompt_id":  "31b250ab-c2cf-472e-a843-118ffa7f6f98",
@@ -11,7 +11,7 @@
     "invocation":  {
                        "gpu":  "4090",
                        "port":  8188,
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-scenes\\workflows\\minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_sports_1344x768_api.json",
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\03-reference-conditioned\\i2v-scenes\\workflows\\minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_sports_1344x768_api.json",
                        "output_prefix":  "video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_sports",
                        "low_vram":  false,
                        "seed":  -1,
@@ -19,7 +19,7 @@
                        "skip_model_hashes":  false
                    },
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-scenes\\workflows\\minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_sports_1344x768_api.json",
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\03-reference-conditioned\\i2v-scenes\\workflows\\minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_sports_1344x768_api.json",
                        "low_vram_requested":  false,
                        "low_vram_applied":  false,
                        "runtime":  {
@@ -185,7 +185,7 @@
                                        },
                         "project_files":  [
                                               {
-                                                  "path":  "experiments\\2026-08-08\\kijai-scenes\\workflows\\minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_sports_1344x768_api.json",
+                                                  "path":  "experiments\\03-reference-conditioned\\i2v-scenes\\workflows\\minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_sports_1344x768_api.json",
                                                   "bytes":  3490,
                                                   "sha256":  "AE6D5FE87B7A682C8502C23A758F5FB46CC29EEA5CCFF1E714EC9AB2B7820121"
                                               },

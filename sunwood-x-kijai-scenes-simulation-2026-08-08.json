@@ -153,9 +153,9 @@
     }
   ],
   "evidence": {
-    "experimentReadme": "experiments/2026-08-08/kijai-scenes/README.md",
-    "experimentJson": "experiments/2026-08-08/kijai-scenes/experiment.json",
-    "imagegenPrompts": "experiments/2026-08-08/kijai-scenes/imagegen-prompts.md",
+    "experimentReadme": "experiments/03-reference-conditioned/i2v-scenes/README.md",
+    "experimentJson": "experiments/03-reference-conditioned/i2v-scenes/experiment.json",
+    "imagegenPrompts": "experiments/03-reference-conditioned/i2v-scenes/imagegen-prompts.md",
     "composition": "hyperframes-kijai-scenes-2026-08-08/index.html",
     "mediaProvenance": "real generated outputs; montage is evidence-derived HyperFrames composition; no replacement media",
     "preflight": "ok: true; exact payload and five landscape MP4 attachments checked before review"

@@ -10,11 +10,11 @@
 |---|---|---|---|
 | 2026-08-07 | RTX 3060 T2V / I2V | [3060](../sunwood-x-simulator-2026-08-07/index.html) | [thread payload](../sunwood-x-thread-payload-2026-08-07.json) |
 | 2026-08-07 | RTX 4090 T2V / I2V | [4090](../sunwood-x-simulator-4090-2026-08-07/index.html) | [thread payload](../sunwood-x-thread-payload-4090-2026-08-07.json) |
-| 2026-08-08 | Kijai LightX2V 4-step | [Kijai](../sunwood-x-simulator-kijai-2026-08-08/index.html) | [simulation JSON](../sunwood-x-kijai-simulation-2026-08-08.json) |
-| 2026-08-08 | 車・スポーツ・イラスト・バトル | [scene experiments](../sunwood-x-simulator-kijai-scenes-2026-08-08/index.html) | [simulation JSON](../sunwood-x-kijai-scenes-simulation-2026-08-08.json) |
+| 2026-08-08 | 低ステップ動画生成（4-step T2V / I2V） | [シミュレーター](../sunwood-x-simulator-kijai-2026-08-08/index.html) | [simulation JSON](../sunwood-x-kijai-simulation-2026-08-08.json) |
+| 2026-08-08 | 参照付きI2V（車・スポーツ・イラスト・バトル） | [シーン実験](../sunwood-x-simulator-kijai-scenes-2026-08-08/index.html) | [simulation JSON](../sunwood-x-kijai-scenes-simulation-2026-08-08.json) |
 | 2026-08-08 | ref2va 6 vs 20 steps | [ref2va](../sunwood-x-simulator-ref2va-2026-08-08/index.html) | [simulation JSON](../sunwood-x-ref2va-simulation-2026-08-08.json) |
 | 2026-08-08 | 複数リファレンスR2V | [multi-reference R2V](../sunwood-x-simulator-r2v-multi-reference-2026-08-08/index.html) | `payload.json` |
-| 2026-08-09 | Sol-Attn + Sage + EasyCache | [R2V optimization](../sunwood-x-simulator-r2v-optimizations-2026-08-09/index.html) | `payload.json` |
+| 2026-08-09 | R2V高速化（Sol-Attn + Sage + EasyCache） | [高速化実験](../sunwood-x-simulator-r2v-optimizations-2026-08-09/index.html) | `payload.json` |
 | 2026-08-09 | Motion Context 3セグメント | [Motion Context](../sunwood-x-simulator-h3-motion-context-2026-08-09/index.html) | `payload.json` |
 | 2026-08-09 | 日本語猫カフェVlog | [cat-cafe Vlog](../sunwood-x-simulator-h3-catcafe-vlog-2026-08-09/index.html) | `payload.json` |
 | 2026-08-09 | 日本語シンセポップMV | [J-pop MV](../sunwood-x-simulator-h3-mv-jpop-2026-08-09/index.html) | `payload.json` |

@@ -178,7 +178,7 @@ def main() -> None:
 
     manifest = {
         "experiment": "MiniMax-H3 Japanese cat-cafe influencer vlog Motion Context chain",
-        "sourceExperiment": "experiments/2026-08-09/niko-h3-motion-context-3segment",
+        "sourceExperiment": "experiments/05-temporal-continuity/motion-context-3segment",
         "gpuService": "h3-4090",
         "resolution": [args.width, args.height],
         "fps": 24,

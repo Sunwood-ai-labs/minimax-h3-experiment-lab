@@ -17,7 +17,12 @@ experiments/
   index.md                         # 全実験の入口
   experiment.schema.json           # 機械可読メタデータの契約
   _template/                       # 新規実験の雛形
-  YYYY-MM-DD/<slug>/
+  01-baseline/<slug>/              # 基準条件・GPU比較・失敗経路
+  02-low-step-generation/<slug>/   # 少ないstepでの動画生成
+  03-reference-conditioned/<slug>/ # I2V・ref2va・複数リファレンスR2V
+  04-acceleration/<slug>/          # Attention・EasyCacheなどの高速化
+  05-temporal-continuity/<slug>/   # Motion Context・セグメント連鎖
+  06-production-pipelines/<slug>/ # Vlog・音楽MVなどの制作検証
     README.md                      # 仮説・条件・結果・結論・制限
     experiment.json                # 機械可読な条件・run・成果物
     sources.md                     # 出典の要約（必要な実験）
@@ -48,7 +53,8 @@ social/
 
 ```powershell
 cd D:/Prj/minimax-h3-compose
-Copy-Item experiments/_template experiments/2026-08-09/my-experiment -Recurse
+Copy-Item experiments/_template experiments/03-reference-conditioned/my-experiment -Recurse
+# 例: 内容に合うカテゴリへ追加する
 # README.md / experiment.json / sources.mdを埋める
 # workflowを実験ディレクトリへ保存する（共有workflowを使う場合は相対パスを記録）
 # .\scripts\run-h3-post-condition.ps1で実行する

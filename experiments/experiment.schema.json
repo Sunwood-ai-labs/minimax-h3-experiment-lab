@@ -2,10 +2,20 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "MiniMax-H3 Experiment",
   "type": "object",
-  "required": ["id", "date", "status", "sources", "conditions", "runs"],
+  "required": ["id", "date", "category", "status", "sources", "conditions", "runs"],
   "properties": {
     "id": {"type": "string"},
     "date": {"type": "string", "format": "date"},
+    "category": {
+      "enum": [
+        "01-baseline",
+        "02-low-step-generation",
+        "03-reference-conditioned",
+        "04-acceleration",
+        "05-temporal-continuity",
+        "06-production-pipelines"
+      ]
+    },
     "status": {"enum": ["planned", "running", "verified", "partial", "failed"]},
     "hypothesis": {"type": "string"},
     "purpose": {"type": "string"},

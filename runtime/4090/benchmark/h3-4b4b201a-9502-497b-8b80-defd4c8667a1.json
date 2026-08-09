@@ -1,4 +1,4 @@
-﻿{
+{
     "gpu":  "4090",
     "port":  8188,
     "prompt_id":  "4b4b201a-9502-497b-8b80-defd4c8667a1",
@@ -11,7 +11,7 @@
     "invocation":  {
                        "gpu":  "4090",
                        "port":  8188,
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-r2v-sol-generic-fp16-sage-easycache-4scenes-7s\\workflows\\scene-03-glasshouse-orbit_api.json",
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\04-acceleration\\sol-sage-easycache-4scenes-7s\\workflows\\scene-03-glasshouse-orbit_api.json",
                        "output_prefix":  "video/MiniMax_H3_R2V_sol_fp16_scene_03_glasshouse_orbit",
                        "low_vram":  false,
                        "seed":  2026080815,
@@ -20,7 +20,7 @@
                        "skip_model_hashes":  false
                    },
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-r2v-sol-generic-fp16-sage-easycache-4scenes-7s\\workflows\\scene-03-glasshouse-orbit_api.json",
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\04-acceleration\\sol-sage-easycache-4scenes-7s\\workflows\\scene-03-glasshouse-orbit_api.json",
                        "low_vram_requested":  false,
                        "low_vram_applied":  false,
                        "runtime":  {
@@ -183,7 +183,7 @@
                                        },
                         "project_files":  [
                                               {
-                                                  "path":  "experiments\\2026-08-08\\kijai-r2v-sol-generic-fp16-sage-easycache-4scenes-7s\\workflows\\scene-03-glasshouse-orbit_api.json",
+                                                  "path":  "experiments\\04-acceleration\\sol-sage-easycache-4scenes-7s\\workflows\\scene-03-glasshouse-orbit_api.json",
                                                   "bytes":  10522,
                                                   "sha256":  "2589060712A1D49A84DCEA004F1F901620A1FDA824CC872534B9A6BAF17F9B49"
                                               },

@@ -3,15 +3,29 @@
 更新日: 2026-08-09 JST
 プロジェクト: `D:/Prj/minimax-h3-compose`
 
-このページは「何を、どの条件で、どこまで確認したか」を時系列で追う入口です。詳細な条件・prompt・workflow・出力SHA-256・処理時間は各実験ディレクトリの`README.md`と`experiment.json`を正本とします。
+この台帳は、実施日ではなく「検証した機能」で実験を探せるように整理しています。実施日は各`experiment.json`の`date`に残し、詳細な条件・prompt・workflow・出力SHA-256・処理時間は各実験ディレクトリの`README.md`と`experiment.json`を正本とします。
 
-## テーマ別の入口
+## 機能別の入口
 
-- [基準条件とGPU比較](#2026-08-07--基準条件)
-- [Kijai / LightX2V / ref2va](#2026-08-08--kijai--lightx2v--ref2va)
-- [複数リファレンスR2Vと高速化](#2026-08-08--複数リファレンスr2vと高速化)
-- [Motion Contextと動画連鎖](#2026-08-09--motion-contextと動画連鎖)
-- [日本語Vlogと音楽MV](#2026-08-09--日本語vlogと音楽mv)
+- [基準条件・GPU比較](#01--基準条件gpu比較)
+- [低ステップ生成](#02--低ステップ生成)
+- [参照条件付き生成](#03--参照条件付き生成)
+- [高速化](#04--高速化)
+- [時間連続性](#05--時間連続性)
+- [制作パイプライン](#06--制作パイプライン)
+
+## フォルダ契約
+
+```text
+experiments/<category>/<slug>/
+  README.md
+  experiment.json
+  sources.md              # 必要な実験のみ
+  workflows/              # 実験専用workflow
+  outputs/ posters/ ...   # 小さな証跡・成果物
+```
+
+`category`は機能名、`slug`は実験内容です。日付や配布元の名前を分類軸にしません。出典元の名前は`experiment.json`と`README.md`の出典欄に記録します。
 
 ## ステータス定義
 
@@ -21,59 +35,54 @@
 - `partial`: 一部条件のみ実行、差分を明記
 - `failed`: OOM、黒画、node errorなどを再現し原因を記録
 
-## 2026-08-07 — 基準条件
+## 01 — 基準条件・GPU比較
 
-この日の初期実験は、GPU別benchmark台帳と時系列ログを中心に保存しています。
-
-| ID | GPU | 条件 | 結果 | 記録 |
+| ID | 実施日 | GPU / 条件 | 結果 | 記録 |
 |---|---|---|---|---|
-| `3060-tlanoai-864x480` | RTX 3060 | 864×480、25 steps、EasyCache、SageAttention | verified | [基準記録](./2026-08-07/minimax-h3-baseline/README.md) / [benchmark](../runtime/3060/benchmark/index.md) |
-| `3060-720p-t2v` | RTX 3060 | 1280×704、25 steps、WSL再起動後 | verified | [基準記録](./2026-08-07/minimax-h3-baseline/README.md) |
-| `3060-720p-i2v` | RTX 3060 | 1280×704、25 steps、ImageGen開始フレーム | verified | [基準記録](./2026-08-07/minimax-h3-baseline/README.md) |
-| `4090-yume-832x480` | RTX 4090 | linked recipe、20 steps | verified | [基準記録](./2026-08-07/minimax-h3-baseline/README.md) / [benchmark](../runtime/4090/benchmark/index.md) |
-| `4090-720p-t2v` | RTX 4090 | 1280×704、25 steps | verified | [基準記録](./2026-08-07/minimax-h3-baseline/README.md) |
-| `4090-720p-i2v` | RTX 4090 | 1280×704、25 steps、同じ開始フレーム | verified | [基準記録](./2026-08-07/minimax-h3-baseline/README.md) |
-| `3060-legacy-black-output` | RTX 3060 | 旧Turbo/full-int8 + Kijai int8 VAE | failed | [失敗記録](./2026-08-07/legacy-3060-black-output/README.md) |
+| `2026-08-07-gpu-baseline` | 2026-08-07 | RTX 3060 / 4090、T2V / I2V、864×480〜1280×704 | verified | [基準記録](./01-baseline/gpu-baseline/README.md) / [3060 benchmark](../runtime/3060/benchmark/index.md) / [4090 benchmark](../runtime/4090/benchmark/index.md) |
+| `2026-08-07-3060-legacy-black-output` | 2026-08-07 | 旧Turbo/full-int8 + int8 VAE | failed | [失敗記録](./01-baseline/3060-black-output/README.md) |
 
-### 主要な基準時間
+RTX 3060は、旧int8経路では黒画になった一方、公式FP16/FP32 VAE構成・WSL再起動後の1280×704 T2V/I2Vでは完走しました。失敗経路も削除せず、再発防止の証跡として残しています。
 
-| GPU | Mode | 解像度 | steps | runner wall |
-|---|---|---:|---:|---:|
-| RTX 3060 | T2V | 1280×704 | 25 | 961.655 sec |
-| RTX 3060 | I2V | 1280×704 | 25 | 800.840 sec |
-| RTX 4090 | T2V | 1280×704 | 25 | 290.337 sec |
-| RTX 4090 | I2V | 1280×704 | 25 | 275.309 sec |
+## 02 — 低ステップ生成
 
-最初の3060黒画は正しい成功結果ではありません。旧経路を除外し、投稿条件に合わせた公式FP16/FP32 VAEで再検証しました。
-
-## 2026-08-08 — Kijai / LightX2V / ref2va
-
-| ID | GPU | 条件 | 状態 | 記録 |
+| ID | 実施日 | 機能 | 状態 | 記録 |
 |---|---|---|---|---|
-| `kijai-lightx2v-4step` | RTX 4090 | Kijai LightX2V LoRA、strength 0.75、4 steps、1344×768、T2V/I2V | verified | [実験記録](./2026-08-08/kijai-lightx2v-4step/README.md) |
-| `kijai-scenes-i2v` | RTX 4090 | ImageGen開始フレームの車・スポーツ・イラスト・バトル、4 steps | verified | [実験記録](./2026-08-08/kijai-scenes/README.md) |
-| `kijai-ref2va-6v20` | RTX 4090 | ref2va、LoRA strength 0.8、6/20 steps、T2V/I2V、1344×768 | verified | [実験記録](./2026-08-08/kijai-ref2va-6v20/README.md) |
+| `2026-08-08-low-step-lightx2v-4step` | 2026-08-08 | LoRAによる4-step T2V / I2V、1344×768、`er_sde` / `sa_solver` | verified | [実験記録](./02-low-step-generation/lightx2v-4step/README.md) |
 
-6/20 stepsのSSIMはT2V `0.683275`、I2V `0.684799`です。これはシーン成立の確認であり、画質同等の証明ではありません。
+配布元・実装元は出典欄に記録し、フォルダは「少ないstepで生成する機能」で分類しています。
 
-## 2026-08-08 — 複数リファレンスR2Vと高速化
+## 03 — 参照条件付き生成
 
-| ID | GPU | 条件 | 状態 | 記録 |
+| ID | 実施日 | 機能 | 状態 | 記録 |
 |---|---|---|---|---|
-| `kijai-r2v-multi-reference-4scenes-7s` | RTX 4090 | 背景＋人物2人の3リファレンス、4シーン、約7秒 | verified | [ベースライン](./2026-08-08/kijai-r2v-multi-reference-4scenes-7s/README.md) |
-| `kijai-r2v-sol-generic-fp16-sage-easycache-4scenes-7s` | RTX 4090 | Sol-Attn + 汎用FP16 CUDA SageAttention + EasyCache | verified | [高速化](./2026-08-08/kijai-r2v-sol-generic-fp16-sage-easycache-4scenes-7s/README.md) |
+| `2026-08-08-reference-i2v-scenes` | 2026-08-08 | ImageGen開始フレームを使う車・スポーツ・イラスト・バトルのI2V | verified | [I2Vシーン](./03-reference-conditioned/i2v-scenes/README.md) |
+| `2026-08-08-reference-ref2va-6v20` | 2026-08-08 | ref2va、T2V / I2V、6 / 20 steps | verified | [ref2va記録](./03-reference-conditioned/ref2va-6v20/README.md) |
+| `2026-08-08-reference-multi-r2v-4scenes-7s` | 2026-08-08 | 背景＋人物2人の3リファレンス、4シーン、約7秒 | verified | [複数リファレンスR2V](./03-reference-conditioned/multi-reference-r2v-4scenes-7s/README.md) |
 
-高速化実験は、同条件の4シーンで平均`738.7935 → 353.14525 sec`、平均`2.092倍`でした。参照投稿の最大3.2倍は、このDocker・RTX 4090・ref2va条件では再現していません。H3専用FP8/auto経路などの失敗診断も同じJSONに残しています。
+参照画像を入力して内容・人物・背景を保持する系統を、I2V / ref2va / R2Vとしてまとめています。
 
-## 2026-08-09 — Motion Contextと動画連鎖
+## 04 — 高速化
 
-| ID | GPU | 条件 | 状態 | 記録 |
+| ID | 実施日 | 機能 | 状態 | 記録 |
 |---|---|---|---|---|
-| `niko-h3-motion-context-3segment` | RTX 4090 | 固定seed、映像＋音声latent、22フレーム引き継ぎ、3セグメント | verified | [実験記録](./2026-08-09/niko-h3-motion-context-3segment/README.md) |
-| `h3-japanese-catcafe-vlog-5segment` | RTX 4090 | 英語prompt＋日本語セリフ、5セグメント、約30秒 | verified | [実験記録](./2026-08-09/h3-japanese-catcafe-vlog-5segment/README.md) |
-| `h3-mv-jpop-5segment` | RTX 4090 | H3生成音声、123 BPM解析、HyperFramesリリックモーション、約29秒 | verified | [実験記録](./2026-08-09/h3-mv-jpop-5segment/README.md) |
+| `2026-08-08-acceleration-sol-sage-easycache-4scenes-7s` | 2026-08-08 | Sol-Attn + 汎用FP16 CUDA SageAttention + EasyCache | verified | [高速化記録](./04-acceleration/sol-sage-easycache-4scenes-7s/README.md) |
+| diagnostics | 2026-08-08 | attention / cache経路の比較・失敗診断 | partial / diagnostic | [診断workflow](./04-acceleration/diagnostics) |
 
-Motion Contextの実装元は[ComfyUI-H3-Motion-Context](https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context)、実験に使用したrevisionは各JSONに固定しています。
+同条件の4シーンで平均`738.7935 → 353.14525 sec`、平均`2.092倍`でした。参照投稿の最大3.2倍は、このDocker・RTX 4090・ref2va条件では再現していません。
+
+## 05 — 時間連続性
+
+| ID | 実施日 | 機能 | 状態 | 記録 |
+|---|---|---|---|---|
+| `niko-h3-motion-context-3segment` | 2026-08-09 | 映像・音声latentと22フレームのコンテキストを引き継ぐ連鎖生成 | verified | [Motion Context](./05-temporal-continuity/motion-context-3segment/README.md) |
+
+## 06 — 制作パイプライン
+
+| ID | 実施日 | 機能 | 状態 | 記録 |
+|---|---|---|---|---|
+| `h3-japanese-catcafe-vlog-5segment` | 2026-08-09 | 英語prompt＋日本語セリフ、約30秒の5セグメントVlog | verified | [猫カフェVlog](./06-production-pipelines/catcafe-vlog-5segment/README.md) |
+| `h3-mv-jpop-5segment` | 2026-08-09 | H3生成音声、123 BPM解析、HyperFramesリリックモーション | verified | [日本語MV](./06-production-pipelines/jpop-mv-5segment/README.md) |
 
 ## 成果物・再現入口
 
@@ -84,8 +93,10 @@ Motion Contextの実装元は[ComfyUI-H3-Motion-Context](https://github.com/Niko
 
 ## 次の実験を追加するとき
 
+機能に対応するカテゴリへテンプレートをコピーします。
+
 ```powershell
-Copy-Item experiments/_template experiments/2026-08-09/my-experiment -Recurse
+Copy-Item experiments/_template experiments/03-reference-conditioned/my-experiment -Recurse
 # README.md / experiment.json / sources.md / workflow / 成果物を記録
 .\scripts\validate-experiment-lab.ps1
 ```

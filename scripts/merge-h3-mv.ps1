@@ -5,7 +5,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent
-if ([string]::IsNullOrWhiteSpace($ExperimentDir)) { $ExperimentDir = Join-Path $projectRoot 'experiments/2026-08-09/h3-mv-jpop-5segment' }
+if ([string]::IsNullOrWhiteSpace($ExperimentDir)) { $ExperimentDir = Join-Path $projectRoot 'experiments/06-production-pipelines/jpop-mv-5segment' }
 $outputDir = Join-Path $projectRoot 'runtime/4090/output/video/h3_mv'
 $mergeDir = Join-Path $ExperimentDir 'outputs'
 $mergedPath = Join-Path $mergeDir 'h3_jpop_mv_5segment_merged.mp4'

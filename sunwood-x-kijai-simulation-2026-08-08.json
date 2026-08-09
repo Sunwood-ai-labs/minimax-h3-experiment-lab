@@ -161,8 +161,8 @@
     }
   ],
   "evidence": {
-    "experimentReadme": "experiments/2026-08-08/kijai-lightx2v-4step/README.md",
-    "experimentJson": "experiments/2026-08-08/kijai-lightx2v-4step/experiment.json",
+    "experimentReadme": "experiments/02-low-step-generation/lightx2v-4step/README.md",
+    "experimentJson": "experiments/02-low-step-generation/lightx2v-4step/experiment.json",
     "commit": "7fb3037",
     "mediaProvenance": "real generated output; no generated replacement media"
   }

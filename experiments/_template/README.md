@@ -1,11 +1,14 @@
 # MiniMax-H3 Experiment: <短い名前>
 
 - ID: `<YYYY-MM-DD-slug>`
+- Category: `<01-baseline|02-low-step-generation|03-reference-conditioned|04-acceleration|05-temporal-continuity|06-production-pipelines>`
 - Status: `planned`
 - GPU: `<RTX ...>`
 - Owner: `MiniMax-H3 Experiment Lab`
 
 このREADMEと同じディレクトリの`experiment.json`を機械可読な正本にします。出典にない値を推測で補完せず、検証用に固定した値と分けて記録します。
+
+テンプレートは`experiments/<category>/<slug>/`へコピーします。実施日は`experiment.json`に記録し、フォルダ名には日付を使いません。
 
 ## 仮説
 

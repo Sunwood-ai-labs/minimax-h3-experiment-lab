@@ -30,8 +30,8 @@
     "checkedWith": "sunwood-build-in-public/scripts/preflight.ps1"
   },
   "evidence": [
-    "experiments/2026-08-08/kijai-ref2va-6v20/README.md",
-    "experiments/2026-08-08/kijai-ref2va-6v20/experiment.json",
+    "experiments/03-reference-conditioned/ref2va-6v20/README.md",
+    "experiments/03-reference-conditioned/ref2va-6v20/experiment.json",
     "runtime/4090/benchmark/h3-976ed634-fad0-41be-bb2b-865637bb2758.md",
     "runtime/4090/benchmark/h3-23229ad1-a1da-4aa3-83e6-1d04eb74b926.md",
     "runtime/4090/benchmark/h3-40c56bb7-d5a3-489b-ad4a-08b59db84175.md",

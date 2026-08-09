@@ -9,6 +9,14 @@ $experimentRoot = Join-Path $repo 'experiments'
 $errors = [System.Collections.Generic.List[string]]::new()
 $warnings = [System.Collections.Generic.List[string]]::new()
 $allowedStatuses = @('planned', 'running', 'verified', 'partial', 'failed')
+$functionalCategories = @(
+    '01-baseline',
+    '02-low-step-generation',
+    '03-reference-conditioned',
+    '04-acceleration',
+    '05-temporal-continuity',
+    '06-production-pipelines'
+)
 $records = @()
 
 function Test-RequiredProperty {
@@ -31,6 +39,11 @@ $experimentDirs = Get-ChildItem -LiteralPath $experimentRoot -Directory -Recurse
 
 foreach ($dir in $experimentDirs) {
     $relativeDir = $dir.FullName.Substring($repo.Length + 1).Replace('\', '/')
+    $category = ($relativeDir -split '/')[1]
+    if ($category -notin $functionalCategories) {
+        $errors.Add("$relativeDir is outside the functional experiment categories: $($functionalCategories -join ', ').")
+    }
+
     $jsonPath = Join-Path $dir.FullName 'experiment.json'
     $readmePath = Join-Path $dir.FullName 'README.md'
 
@@ -41,13 +54,17 @@ foreach ($dir in $experimentDirs) {
         continue
     }
 
-    $required = @('id', 'date', 'status', 'sources', 'conditions', 'runs')
+    $required = @('id', 'date', 'category', 'status', 'sources', 'conditions', 'runs')
     foreach ($name in $required) {
         [void](Test-RequiredProperty -Object $record -Name $name -Path "$relativeDir/experiment.json")
     }
 
     if (($record.status -as [string]) -notin $allowedStatuses) {
         $errors.Add("$relativeDir/experiment.json has unsupported status '$($record.status)'.")
+    }
+
+    if (($record.category -as [string]) -ne $category) {
+        $errors.Add("$relativeDir/experiment.json category '$($record.category)' does not match directory category '$category'.")
     }
 
     if (-not (Test-Path -LiteralPath $readmePath)) {

@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string]$ExperimentDir = (Join-Path (Split-Path $PSScriptRoot -Parent) 'experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment')
+    [string]$ExperimentDir = (Join-Path (Split-Path $PSScriptRoot -Parent) 'experiments/06-production-pipelines/catcafe-vlog-5segment')
 )
 
 $ErrorActionPreference = 'Stop'

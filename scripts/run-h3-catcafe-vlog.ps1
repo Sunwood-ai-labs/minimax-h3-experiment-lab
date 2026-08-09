@@ -2,7 +2,7 @@
 param(
     [ValidateRange(1, 65535)]
     [int]$Port = 8188,
-    [string]$WorkflowDir = (Join-Path (Split-Path $PSScriptRoot -Parent) 'experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment'),
+    [string]$WorkflowDir = (Join-Path (Split-Path $PSScriptRoot -Parent) 'experiments/06-production-pipelines/catcafe-vlog-5segment'),
     [int]$TimeoutSeconds = 7200,
     [ValidateRange(1, 5)]
     [int]$StartSegment = 1

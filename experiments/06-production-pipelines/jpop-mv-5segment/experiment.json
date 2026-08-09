@@ -1,0 +1,224 @@
+{
+  "id": "h3-mv-jpop-5segment",
+  "date": "2026-08-09",
+  "category": "06-production-pipelines",
+  "status": "verified",
+  "scope": "MiniMax-H3 Japanese synth-pop music video with generated audio and HyperFrames lyric motion",
+  "sources": [
+    {
+      "type": "github",
+      "url": "https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context",
+      "revision": "15fc6a7bf7b78efb27f33d7eef3818e7ed0e118a",
+      "role": "H3 Motion Context custom node"
+    },
+    {
+      "type": "local",
+      "path": "experiments/05-temporal-continuity/motion-context-3segment",
+      "role": "base Docker Compose integration"
+    }
+  ],
+  "host": {
+    "platform": "Windows host with WSL2 Ubuntu",
+    "docker_engine": "29.4.3",
+    "docker_compose": "v5.1.3",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_uuid": "GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa",
+    "driver": "591.86",
+    "vram_mib": 24564
+  },
+  "container": {
+    "service": "h3-4090",
+    "endpoint": "http://127.0.0.1:8188",
+    "image": "local/minimax-h3-comfyui:v0.30.0",
+    "image_digest": "sha256:8611a4bdaf00f565811cde2fd9d9e04fa0ad7648ce819111ae1d1573f55bff60",
+    "comfyui": "0.30.0",
+    "python": "3.12.3",
+    "pytorch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "argv": [
+      "--listen", "0.0.0.0", "--port", "8188",
+      "--disable-pinned-memory", "--disable-async-offload",
+      "--fp16-intermediates", "--preview-method", "none"
+    ],
+    "environment": {
+      "H3_MEMORY_USAGE_FACTOR": "1.0",
+      "CUDA_MODULE_LOADING": "LAZY",
+      "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+    }
+  },
+  "models": {
+    "diffusion": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+    "text_encoder": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+    "video_vae": "minimax_h3_video_vae_fp16.safetensors",
+    "audio_vae": "minimax_h3_audio_vae_fp32.safetensors"
+  },
+  "conditions": {
+    "mode": "T2V",
+    "resolution": [1280, 704],
+    "fps": 24,
+    "raw_frames_per_segment": 158,
+    "steps": 20,
+    "sampler": "res_multistep",
+    "scheduler": "simple",
+    "denoise": 1.0,
+    "seed": 2026080911,
+    "context_length": 22,
+    "audio_context_length": 22,
+    "encode_mode": "video",
+    "anchor_mode": "head",
+    "audio_mode": "timeline",
+    "trim_match_tail": true,
+    "attention": "sageattn_qk_int8_pv_fp16_cuda",
+    "easycache": false,
+    "sol_attn": false,
+    "spectrum": false
+  },
+  "music": {
+    "source": "H3-generated audio",
+    "style": "original Japanese synth-pop / alt-pop",
+    "planned_lyrics": [
+      "夜を越えて　光を探す",
+      "君となら　まだ飛べる",
+      "雨の向こう　夢が見える",
+      "この瞬間を　抱きしめて",
+      "明日へ行こう　また会おう"
+    ],
+    "lyrics_are_planned_prompt_text": true,
+    "asr_verified": false,
+    "analysis": {
+      "bpm": 123.0,
+      "beats": 56,
+      "bars": 14,
+      "events": 146,
+      "rolls": 11,
+      "energy_phases": 8,
+      "fft_bands": 16,
+      "analysis_fps": 30
+    }
+  },
+  "runs": [
+    {
+      "segment": 1,
+      "prompt_id": "3efb7532-36e0-40b4-a2ff-0cb2da0cf610",
+      "status": "success",
+      "raw_frames": 158,
+      "context_frames": 0,
+      "output_frames": 158,
+      "duration_seconds": 6.583008,
+      "generation_seconds": 465.797,
+      "output": "runtime/4090/output/video/h3_mv/segment_01_00001_.mp4",
+      "bytes": 1530760,
+      "sha256": "0E49C3F87CD955FAD2E01059AE8EC86F2386D582368A952A0A9F5223508D5D96",
+      "blackdetect_intervals": 0
+    },
+    {
+      "segment": 2,
+      "prompt_id": "335aedc6-8b92-4319-b75a-40e6ec0c476f",
+      "status": "success",
+      "raw_frames": 158,
+      "context_frames": 22,
+      "output_frames": 136,
+      "duration_seconds": 5.666667,
+      "generation_seconds": 553.979,
+      "output": "runtime/4090/output/video/h3_mv/segment_02_00001_.mp4",
+      "bytes": 1738920,
+      "sha256": "517FDF145AA5D2C2A71A598957B5702C4094765F6055D207A6B74167F2A254CF",
+      "blackdetect_intervals": 0
+    },
+    {
+      "segment": 3,
+      "prompt_id": "89ebf33d-0f0e-48e3-b3c1-a268d6e5cb47",
+      "status": "success",
+      "raw_frames": 158,
+      "context_frames": 22,
+      "output_frames": 136,
+      "duration_seconds": 5.666667,
+      "generation_seconds": 553.619,
+      "output": "runtime/4090/output/video/h3_mv/segment_03_00001_.mp4",
+      "bytes": 1232107,
+      "sha256": "2856C6E0E1DC7C4889DF920FFE2E4E83B25490929186222C062D2E7AD50736E4",
+      "blackdetect_intervals": 0
+    },
+    {
+      "segment": 4,
+      "prompt_id": "2562fdd9-8b43-423f-b86a-ac4594281ff0",
+      "status": "success",
+      "raw_frames": 158,
+      "context_frames": 22,
+      "output_frames": 136,
+      "duration_seconds": 5.666667,
+      "generation_seconds": 552.608,
+      "output": "runtime/4090/output/video/h3_mv/segment_04_00001_.mp4",
+      "bytes": 1258854,
+      "sha256": "31A121BC62C2EFA43C3E6FB969D07EF9990BCE2C998C2DB3BFFFF232AAC1CF21",
+      "blackdetect_intervals": 0
+    },
+    {
+      "segment": 5,
+      "prompt_id": "3dbe432d-cf8f-42fa-8243-212ded5df970",
+      "status": "success",
+      "raw_frames": 158,
+      "context_frames": 22,
+      "output_frames": 136,
+      "duration_seconds": 5.666667,
+      "generation_seconds": 555.882,
+      "output": "runtime/4090/output/video/h3_mv/segment_05_00001_.mp4",
+      "bytes": 1170175,
+      "sha256": "F44334ADDB5F4103BB481638763D333EF4591D8FDC2EC8DDC546E6739541823E",
+      "blackdetect_intervals": 0
+    }
+  ],
+  "merged_output": {
+    "path": "experiments/06-production-pipelines/jpop-mv-5segment/outputs/h3_jpop_mv_5segment_merged.mp4",
+    "width": 1280,
+    "height": 704,
+    "fps": 24,
+    "frames": 702,
+    "duration_seconds": 29.256,
+    "bytes": 10104411,
+    "sha256": "28F1921260CF45A710E7C1BB8D64E72A91889379F0495C5BDB91217F2E6EF92E",
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "audio_sample_rate": 32000,
+    "audio_channels": 2,
+    "blackdetect_intervals": 0
+  },
+  "hyperframes": {
+    "version": "0.7.102",
+    "skill": "music-to-video",
+    "preset": "broadside",
+    "width": 1280,
+    "height": 704,
+    "fps": 30,
+    "frames": 878,
+    "duration_seconds": 29.266667,
+    "video_plate": "hyperframes-mv-lyrics/assets/h3_jpop_mv_5segment_keyint30.mp4",
+    "video_plate_sha256": "CB375A6C1E0D783444D6725AA2C57C7CADD0F1BB23523BE7D843F1A6C26DCAA7",
+    "output": "experiments/06-production-pipelines/jpop-mv-5segment/hyperframes-mv-lyrics/renders/h3_jpop_mv_lyric_motion.mp4",
+    "output_bytes": 19614049,
+    "output_sha256": "097EBE221189EE2726319DDC555E57B813483BCA9FD48640E18E75830B179050",
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "audio_sample_rate": 48000,
+    "audio_channels": 2,
+    "blackdetect": "none",
+    "freezedetect": "no freeze >= 0.50 seconds",
+    "check": "passed: lint/runtime/layout/motion/contrast/WCAG snapshots"
+  },
+  "artifacts": {
+    "workflows": "workflows/segment_01_api.json .. segment_05_api.json",
+    "manifest": "workflows/manifest.json",
+    "run_progress": "run-progress.json",
+    "merge_report": "merge.json",
+    "audio_map": "audiomap.json",
+    "audio_data": "audio-data.json",
+    "storyboard": "hyperframes-mv-lyrics/STORYBOARD.md",
+    "contact_sheet": "hyperframes-mv-lyrics/verification/h3_mv_contact.jpg"
+  },
+  "limitations": [
+    "The planned lyric text was not independently verified against generated vocals with ASR.",
+    "Identity continuity and audio seam quality were reviewed visually but not scored quantitatively.",
+    "The same five-segment 720p-equivalent experiment was not run on RTX 3060.",
+    "EasyCache, Sol-Attn and Spectrum speed/quality comparison was not part of this run."
+  ]
+}

@@ -1,6 +1,7 @@
 {
   "id": "YYYY-MM-DD-slug",
   "date": "YYYY-MM-DD",
+  "category": "03-reference-conditioned",
   "status": "planned",
   "hypothesis": "",
   "sources": [],

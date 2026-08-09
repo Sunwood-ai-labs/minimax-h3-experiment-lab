@@ -1,0 +1,205 @@
+{
+  "id": "2026-08-08-reference-multi-r2v-4scenes-7s",
+  "date": "2026-08-08",
+  "category": "03-reference-conditioned",
+  "status": "verified",
+  "purpose": "Run MiniMax-H3 ref2va reference-to-video with one background reference sheet and two character reference sheets, reusing all three references across four scenes of about seven seconds.",
+  "sources": [
+    {
+      "type": "official-comfyui-workflow",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/main/templates/video_minimax_h3_r2v.json",
+      "facts": ["MiniMaxH3ReferenceToVideo", "ref2va", "multiple reference images", "res_multistep", "20 steps"]
+    },
+    {
+      "type": "huggingface",
+      "url": "https://huggingface.co/Comfy-Org/MiniMax-H3",
+      "facts": ["ref2va model source"]
+    },
+    {
+      "type": "huggingface",
+      "url": "https://huggingface.co/Kijai/MiniMax-H3_comfy",
+      "facts": ["Kijai ComfyUI reference repository"]
+    }
+  ],
+  "referenceInputs": [
+    {
+      "index": 1,
+      "tag": "<Picture 1>",
+      "role": "background/location",
+      "path": "references/MiniMax_H3_R2V_background_reference_sheet.png",
+      "runtimePath": "runtime/4090/input/MiniMax_H3_R2V_background_reference_sheet.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2545156,
+      "sha256": "5DA392A5655261637B1932CA5A6D6762A2ECF5682A01F1409063831981221038"
+    },
+    {
+      "index": 2,
+      "tag": "<Picture 2>",
+      "role": "Mina character",
+      "path": "references/MiniMax_H3_R2V_mina_reference_sheet.png",
+      "runtimePath": "runtime/4090/input/MiniMax_H3_R2V_mina_reference_sheet.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2180477,
+      "sha256": "0D46C441160B8E7768F55D65926EB859D3500C21FD6472182FAEEB8AE09D4D6B"
+    },
+    {
+      "index": 3,
+      "tag": "<Picture 3>",
+      "role": "Ren character",
+      "path": "references/MiniMax_H3_R2V_ren_reference_sheet.png",
+      "runtimePath": "runtime/4090/input/MiniMax_H3_R2V_ren_reference_sheet.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1967565,
+      "sha256": "3449B9DEF4C05694ACC7C84EDF6DFD06A08F625CE7D094CBC8B195128A90FF36"
+    }
+  ],
+  "conditions": {
+    "gpu": "RTX 4090",
+    "gpuUuid": "GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa",
+    "gpuMemoryMiB": 24564,
+    "driver": "591.86",
+    "composeService": "h3-4090",
+    "port": 8188,
+    "baseModel": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+    "baseModelBytes": 20970379616,
+    "baseModelSha256": "9255F52B6677845AD238F20DFAAFA94727053694127AB7F255C048F0F9365779",
+    "textEncoder": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+    "videoVae": "minimax_h3_video_vae_fp16.safetensors",
+    "audioVae": "minimax_h3_audio_vae_fp32.safetensors",
+    "lora": null,
+    "easyCache": false,
+    "node": "MiniMaxH3ReferenceToVideo",
+    "refImageSize": "match",
+    "sampler": "res_multistep",
+    "scheduler": "simple",
+    "steps": 20,
+    "denoise": 1.0,
+    "width": 1280,
+    "height": 704,
+    "frames": 175,
+    "fps": 24,
+    "durationSeconds": 7.292
+  },
+  "environment": {
+    "hostOs": "Windows 11 Pro build 26200",
+    "hostRamBytes": 137270165504,
+    "dockerEngine": "29.4.3",
+    "dockerCompose": "5.1.3",
+    "image": "local/minimax-h3-comfyui:v0.30.0",
+    "comfyUi": "0.30.0",
+    "containerPython": "3.12.3",
+    "pytorch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "cudnn": "9",
+    "composeFile": "compose.yaml",
+    "commandArgs": ["--listen", "0.0.0.0", "--port", "8188", "--disable-pinned-memory", "--fp16-intermediates", "--preview-method", "none"],
+    "gitCommit": "66bb2e0",
+    "gitBranch": "master"
+  },
+  "runs": [
+    {
+      "id": "scene-01-sunset-meeting",
+      "seed": 2026080813,
+      "promptId": "daab53e0-6304-461a-9eec-89ce70de33a1",
+      "workflow": "workflows/scene-01-sunset-meeting_api.json",
+      "workflowSha256": "4A6A1A9AB0A65BD81954065EDC27352F4531C93F68B57268A9DD9556EC7C24BF",
+      "status": "success",
+      "comfyUiSeconds": 738.494,
+      "logDuration": "00:12:18",
+      "output": "runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_01_sunset_meeting_00001_.mp4",
+      "outputBytes": 1934071,
+      "outputSha256": "2C742EB70CB873B8D67E140AF83F781C228DADAC6B105502DB81E6899A01D898",
+      "media": {"width": 1280, "height": 704, "frames": 175, "fps": 24, "durationSeconds": 7.292, "codec": "h264", "blackdetectIntervals": 0, "oom": false}
+    },
+    {
+      "id": "scene-02-rainy-stairs",
+      "seed": 2026080814,
+      "promptId": "59fcae98-2947-4454-a5b0-9f8ad5c42f44",
+      "workflow": "workflows/scene-02-rainy-stairs_api.json",
+      "workflowSha256": "958193D98E2E36BC730ABCD0D483FF0C16B28E44EA3A598F140289533549E3DA",
+      "status": "success",
+      "comfyUiSeconds": 738.442,
+      "logDuration": "00:12:18",
+      "output": "runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_02_rainy_stairs_00001_.mp4",
+      "outputBytes": 2194117,
+      "outputSha256": "096768A3CFD2C917120BCCFDC2E5B366BFD035FD5CFA80ED30F0262E9BF3474A",
+      "media": {"width": 1280, "height": 704, "frames": 175, "fps": 24, "durationSeconds": 7.292, "codec": "h264", "blackdetectIntervals": 0, "oom": false}
+    },
+    {
+      "id": "scene-03-glasshouse-orbit",
+      "seed": 2026080815,
+      "promptId": "0eab4e9a-b288-4a41-bd1e-e39dc08c481c",
+      "workflow": "workflows/scene-03-glasshouse-orbit_api.json",
+      "workflowSha256": "050F00296EF09B84D58BA4648701DC33DA98E70DC68E152CC2AFDCB8E24630C7",
+      "status": "success",
+      "comfyUiSeconds": 739.257,
+      "logDuration": "00:12:19",
+      "output": "runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_03_glasshouse_orbit_00001_.mp4",
+      "outputBytes": 2438065,
+      "outputSha256": "4E77DEDEE84278A773DAA43B7B57A5A2CED0A9DC1DBC28F369C4F729E46AA9E5",
+      "media": {"width": 1280, "height": 704, "frames": 175, "fps": 24, "durationSeconds": 7.292, "codec": "h264", "blackdetectIntervals": 0, "oom": false}
+    },
+    {
+      "id": "scene-04-rooftop-pullback",
+      "seed": 2026080816,
+      "promptId": "1ff91445-428f-4675-85e6-058d393fde4b",
+      "workflow": "workflows/scene-04-rooftop-pullback_api.json",
+      "workflowSha256": "0F9655F9907863002847DFE8214601958F5F5E5C5E3C45C023A3B975AF240F58",
+      "status": "success",
+      "comfyUiSeconds": 738.981,
+      "logDuration": "00:12:19",
+      "output": "runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_04_rooftop_pullback_00001_.mp4",
+      "outputBytes": 2697353,
+      "outputSha256": "F485BD71F7F2748A929F74EAF7669D25417CB0BD29A07E9B6B3F0E44F1EFBF62",
+      "media": {"width": 1280, "height": 704, "frames": 175, "fps": 24, "durationSeconds": 7.292, "codec": "h264", "blackdetectIntervals": 0, "oom": false}
+    }
+  ],
+  "validation": {
+    "allRunsSuccess": true,
+    "allBlackdetectIntervalsZero": true,
+    "oomDetected": false,
+    "objectInfoRefImages": {"type": "COMFY_AUTOGROW_V3", "prefix": "ref_image_", "min": 0, "max": 9},
+    "systemStats": {"ramTotal": 116045905920, "ramFreeAtCheck": 35775676416, "comfyUiVersion": "0.30.0", "pytorch": "2.11.0+cu130"},
+    "sampledGpu": {"utilizationPercent": 100, "memoryUsedMiB": 8172, "memoryTotalMiB": 24564},
+    "contactSheet": "outputs/r2v-4scene-contact.jpg"
+  },
+  "artifacts": {
+    "readme": "README.md",
+    "referencePrompts": "reference-prompts.md",
+    "workflows": [
+      "workflows/scene-01-sunset-meeting_api.json",
+      "workflows/scene-02-rainy-stairs_api.json",
+      "workflows/scene-03-glasshouse-orbit_api.json",
+      "workflows/scene-04-rooftop-pullback_api.json"
+    ],
+    "contactSheet": "outputs/r2v-4scene-contact.jpg",
+    "overviewMontage": {
+      "path": "outputs/r2v-4scene-montage.mp4",
+      "sha256": "487B252240CDB98211E7F13234396931E1148015DC093CB05E0FFE88057B1B3B",
+      "bytes": 4931033,
+      "width": 1280,
+      "height": 704,
+      "frames": 175,
+      "fps": 24,
+      "durationSeconds": 7.291667,
+      "provenance": "Evidence-derived FFmpeg 2x2 montage from the four real RTX 4090 Docker Compose outputs; Scene 1 audio track retained.",
+      "sources": [
+        "runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_01_sunset_meeting_00001_.mp4",
+        "runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_02_rainy_stairs_00001_.mp4",
+        "runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_03_glasshouse_orbit_00001_.mp4",
+        "runtime/4090/output/video/MiniMax_H3_R2V_multi_ref_scene_04_rooftop_pullback_00001_.mp4"
+      ]
+    }
+  },
+  "limitations": [
+    "Stored PNGs are the reproducibility inputs; regenerating them with image generation is not deterministic.",
+    "No reference-count ablation was run; all four scenes use exactly three reference images.",
+    "Scene 4 retained a sunset-heavy look despite a night prompt, showing background-reference influence.",
+    "No blind human preference or identity score was measured.",
+    "Audio was preserved but not separately evaluated."
+  ],
+  "conclusion": "MiniMax-H3 ref2va accepted three distinct reference image sheets in one R2V prompt and produced four successful approximately seven-second videos across different scenes on the RTX 4090 Docker Compose service. The reference sheets visibly carried the rooftop environment and the two character identities into the generated scenes without OOM or black output."
+}

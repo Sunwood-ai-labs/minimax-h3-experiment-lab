@@ -1,4 +1,4 @@
-﻿{
+{
     "gpu":  "4090",
     "port":  8188,
     "prompt_id":  "9d918e61-5549-43e4-9e4d-12111ddfd5db",
@@ -11,7 +11,7 @@
     "invocation":  {
                        "gpu":  "4090",
                        "port":  8188,
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-r2v-solattn-sage-easycache-4scenes-7s\\workflows\\scene-01-sunset-meeting_api.json",
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\04-acceleration\\diagnostics\\solattn-sage-easycache-4scenes-7s\\workflows\\scene-01-sunset-meeting_api.json",
                        "output_prefix":  "video/MiniMax_H3_R2V_opt_scene_01_sunset_meeting",
                        "low_vram":  false,
                        "seed":  2026080813,
@@ -19,7 +19,7 @@
                        "skip_model_hashes":  false
                    },
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-r2v-solattn-sage-easycache-4scenes-7s\\workflows\\scene-01-sunset-meeting_api.json",
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\04-acceleration\\diagnostics\\solattn-sage-easycache-4scenes-7s\\workflows\\scene-01-sunset-meeting_api.json",
                        "low_vram_requested":  false,
                        "low_vram_applied":  false,
                        "runtime":  {
@@ -120,7 +120,7 @@
                                        },
                         "project_files":  [
                                               {
-                                                  "path":  "experiments\\2026-08-08\\kijai-r2v-solattn-sage-easycache-4scenes-7s\\workflows\\scene-01-sunset-meeting_api.json",
+                                                  "path":  "experiments\\04-acceleration\\diagnostics\\solattn-sage-easycache-4scenes-7s\\workflows\\scene-01-sunset-meeting_api.json",
                                                   "bytes":  10093,
                                                   "sha256":  "B6204FCA21F29B06C65DF801D1132F2B685F9FCF30D970EBD8E6C3972600FBF4"
                                               },

@@ -10,7 +10,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent
-$defaultWorkflowDir = Join-Path $projectRoot 'experiments/2026-08-09/h3-mv-jpop-5segment/workflows'
+$defaultWorkflowDir = Join-Path $projectRoot 'experiments/06-production-pipelines/jpop-mv-5segment/workflows'
 if ([string]::IsNullOrWhiteSpace($WorkflowDir)) { $WorkflowDir = $defaultWorkflowDir }
 $baseUrl = "http://127.0.0.1:$Port"
 $experimentDir = Split-Path -Parent $WorkflowDir

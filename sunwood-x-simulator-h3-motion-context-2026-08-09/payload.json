@@ -4,7 +4,7 @@
   "series": "MiniMax-H3 Motion Context continuation",
   "postMode": "retrospective",
   "simulationOnly": true,
-  "experimentRecord": "experiments/2026-08-09/niko-h3-motion-context-3segment/README.md",
+  "experimentRecord": "experiments/05-temporal-continuity/motion-context-3segment/README.md",
   "previousPostUrl": "https://x.com/hAru_mAki_ch/status/2086223412129902756",
   "commonConditions": {
     "gpu": "RTX 4090",
@@ -75,7 +75,7 @@
       "title": "3セグメント連結動画",
       "info": "1280×704 · 345 frames · 24fps · 14.4167 sec",
       "provenance": "実生成出力3本をFFmpeg concat filterで連結した確認用動画。",
-      "sourcePath": "D:/Prj/minimax-h3-compose/experiments/2026-08-09/niko-h3-motion-context-3segment/outputs/h3_motion_context_3segment_merged.mp4",
+      "sourcePath": "D:/Prj/minimax-h3-compose/experiments/05-temporal-continuity/motion-context-3segment/outputs/h3_motion_context_3segment_merged.mp4",
       "sha256": "24EAAF2B1F5F9965BD4FD887FBA1BF8CA4675A0E0EE53F6543E28996760D8598"
     },
     "segment1": {

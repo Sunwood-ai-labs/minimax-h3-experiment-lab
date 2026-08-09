@@ -1,4 +1,4 @@
-﻿{
+{
     "gpu":  "4090",
     "port":  8188,
     "prompt_id":  "9820a6b1-3db1-4ee9-b274-c1f3d78cf7af",
@@ -11,7 +11,7 @@
     "invocation":  {
                        "gpu":  "4090",
                        "port":  8188,
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-r2v-solattn-kjnodes-easycache-4scenes-7s\\diagnostics\\sage-generic-fp16-easycache_scene-01_api.json",
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\04-acceleration\\diagnostics\\solattn-kjnodes-easycache-4scenes-7s\\diagnostics\\sage-generic-fp16-easycache_scene-01_api.json",
                        "output_prefix":  "video/MiniMax_H3_R2V_diag_sage_generic_fp16_easycache",
                        "low_vram":  false,
                        "seed":  2026080813,
@@ -20,7 +20,7 @@
                        "skip_model_hashes":  false
                    },
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-r2v-solattn-kjnodes-easycache-4scenes-7s\\diagnostics\\sage-generic-fp16-easycache_scene-01_api.json",
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\04-acceleration\\diagnostics\\solattn-kjnodes-easycache-4scenes-7s\\diagnostics\\sage-generic-fp16-easycache_scene-01_api.json",
                        "low_vram_requested":  false,
                        "low_vram_applied":  false,
                        "runtime":  {
@@ -183,7 +183,7 @@
                                        },
                         "project_files":  [
                                               {
-                                                  "path":  "experiments\\2026-08-08\\kijai-r2v-solattn-kjnodes-easycache-4scenes-7s\\diagnostics\\sage-generic-fp16-easycache_scene-01_api.json",
+                                                  "path":  "experiments\\04-acceleration\\diagnostics\\solattn-kjnodes-easycache-4scenes-7s\\diagnostics\\sage-generic-fp16-easycache_scene-01_api.json",
                                                   "bytes":  9612,
                                                   "sha256":  "D78A746B9AE853ACE608A00F61A14176FAFACA2EBDE6D472B4513BA3B61563CB"
                                               },
