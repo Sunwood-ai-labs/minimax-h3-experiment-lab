@@ -113,7 +113,7 @@ The service was healthy after the run. A sampled 'nvidia-smi' check during gener
 Start the same service:
 
 ~~~powershell
-cd D:\Prj\minimax-h3-compose
+cd <repo-root>
 docker compose --profile 4090 up -d h3-4090
 Invoke-RestMethod http://127.0.0.1:8188/object_info
 ~~~

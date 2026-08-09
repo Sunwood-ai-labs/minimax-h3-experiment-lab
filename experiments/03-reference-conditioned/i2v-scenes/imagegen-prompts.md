@@ -4,7 +4,7 @@ The following four PNGs were generated with the built-in `image_gen.imagegen` to
 
 ## Car
 
-- Source output: `C:/Users/makim/.codex/generated_images/019fd6dc-6f7e-7892-baf2-4be0e7d7cff9/exec-2895704c-e003-4dd5-bad6-7559efdaaa42.png`
+- Source output: `<generated-image-root>/exec-2895704c-e003-4dd5-bad6-7559efdaaa42.png`
 - Copied input: `runtime/4090/input/MiniMax_H3_I2V_scene_car_imagegen_start.png`
 - Bytes: `1,979,098`
 - SHA-256: `AA18AB747483D6761E897456EED5F12CFB82402CC891B64484893D1AEF5A8B0A`
@@ -25,7 +25,7 @@ Avoid: Deformed wheels, duplicate cars, impossible reflections, melted road, art
 
 ## Sports
 
-- Source output: `C:/Users/makim/.codex/generated_images/019fd6dc-6f7e-7892-baf2-4be0e7d7cff9/exec-06aec98e-8a28-4c8c-a32d-9f4a09c31082.png`
+- Source output: `<generated-image-root>/exec-06aec98e-8a28-4c8c-a32d-9f4a09c31082.png`
 - Copied input: `runtime/4090/input/MiniMax_H3_I2V_scene_sports_imagegen_start.png`
 - Bytes: `1,945,542`
 - SHA-256: `33B52086889F97ADE8FB2EA8F23C3F25214498A5015881D33B9E8E42F3D3130C`
@@ -46,7 +46,7 @@ Avoid: Extra limbs, distorted hands, duplicated body parts, motion blur in the s
 
 ## Illustration
 
-- Source output: `C:/Users/makim/.codex/generated_images/019fd6dc-6f7e-7892-baf2-4be0e7d7cff9/exec-3fc9fba4-34b6-4113-8288-be1888182e97.png`
+- Source output: `<generated-image-root>/exec-3fc9fba4-34b6-4113-8288-be1888182e97.png`
 - Copied input: `runtime/4090/input/MiniMax_H3_I2V_scene_illustration_imagegen_start.png`
 - Bytes: `2,108,414`
 - SHA-256: `09D56EF3CD1947CE66E5BC9F019FA4DED2A636A14D42947022268134546D7A6F`
@@ -67,7 +67,7 @@ Avoid: Photorealism, muddy silhouettes, broken anatomy, excessive tiny details, 
 
 ## Battle
 
-- Source output: `C:/Users/makim/.codex/generated_images/019fd6dc-6f7e-7892-baf2-4be0e7d7cff9/exec-4395585c-22cb-4115-ae01-477481145d3c.png`
+- Source output: `<generated-image-root>/exec-4395585c-22cb-4115-ae01-477481145d3c.png`
 - Copied input: `runtime/4090/input/MiniMax_H3_I2V_scene_battle_imagegen_start.png`
 - Bytes: `2,350,823`
 - SHA-256: `80D12E69F6E8B629D91A7E1F490C620A77D6CEC37D63B559CBADFDC497E9421A`

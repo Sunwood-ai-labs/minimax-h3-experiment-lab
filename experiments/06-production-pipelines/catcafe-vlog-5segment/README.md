@@ -153,12 +153,12 @@ Continue directly from the previous clip and finish the same Japanese influencer
 
 ## 実行手順
 
-リポジトリルートは `D:/Prj/minimax-h3-compose` とする。
+リポジトリルートは `<repo-root>` とする。
 
 ### 1. Docker Composeを起動
 
 ```powershell
-cd D:/Prj/minimax-h3-compose
+cd <repo-root>
 docker compose --profile 4090 up -d --build h3-4090
 ```
 

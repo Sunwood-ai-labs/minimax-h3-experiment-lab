@@ -1,4 +1,4 @@
-﻿{
+{
     "gpu":  "4090",
     "port":  8188,
     "prompt_id":  "b87755af-c053-42c3-8c49-6c628013b124",
@@ -11,7 +11,7 @@
     "invocation":  {
                        "gpu":  "4090",
                        "port":  8188,
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\minimax_h3_kijai_lightx2v_4step_1344x768_er_sde_api.json",
+                       "workflow":  "<repo-root>\\workflows\\minimax_h3_kijai_lightx2v_4step_1344x768_er_sde_api.json",
                        "output_prefix":  "video/MiniMax_H3_Kijai_LightX2V_T2V_1344x768_4step_er_sde",
                        "low_vram":  false,
                        "seed":  2026080801,
@@ -19,7 +19,7 @@
                        "skip_model_hashes":  false
                    },
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\minimax_h3_kijai_lightx2v_4step_1344x768_er_sde_api.json",
+                       "workflow":  "<repo-root>\\workflows\\minimax_h3_kijai_lightx2v_4step_1344x768_er_sde_api.json",
                        "low_vram_requested":  false,
                        "low_vram_applied":  false,
                        "runtime":  {
@@ -312,14 +312,14 @@
                        },
     "output_files":  [
                          {
-                             "FullName":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_T2V_1344x768_4step_er_sde_00001_.mp4",
+                             "FullName":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_T2V_1344x768_4step_er_sde_00001_.mp4",
                              "Length":  4604012,
                              "LastWriteTime":  "\/Date(1786154379146)\/"
                          }
                      ],
     "media_evidence":  [
                            {
-                               "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_T2V_1344x768_4step_er_sde_00001_.mp4",
+                               "path":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_T2V_1344x768_4step_er_sde_00001_.mp4",
                                "bytes":  4604012,
                                "last_write_time":  "\/Date(1786154379146)\/",
                                "ffprobe":  {
@@ -436,7 +436,7 @@
                                                                }
                                                            ],
                                                "format":  {
-                                                              "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_T2V_1344x768_4step_er_sde_00001_.mp4",
+                                                              "filename":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_T2V_1344x768_4step_er_sde_00001_.mp4",
                                                               "nb_streams":  2,
                                                               "nb_programs":  0,
                                                               "nb_stream_groups":  0,

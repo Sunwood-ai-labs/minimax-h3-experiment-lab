@@ -1,4 +1,4 @@
-﻿{
+{
     "gpu":  "4090",
     "port":  8188,
     "prompt_id":  "342f3ad9-72f5-4efc-9910-f4614c4fecc3",
@@ -8,7 +8,7 @@
     "status":  "success",
     "low_vram":  false,
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\yume_4090_recipe_api.json",
+                       "workflow":  "<repo-root>\\workflows\\yume_4090_recipe_api.json",
                        "low_vram_requested":  false,
                        "runtime":  {
                                        "compose_service":  "h3-4090",
@@ -68,7 +68,7 @@
                        },
     "output_files":  [
                          {
-                             "FullName":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_4090_yume_recipe_832x480_20step_cu130_00001_.mp4",
+                             "FullName":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_4090_yume_recipe_832x480_20step_cu130_00001_.mp4",
                              "Length":  547652,
                              "LastWriteTime":  "\/Date(1786094158602)\/"
                          }

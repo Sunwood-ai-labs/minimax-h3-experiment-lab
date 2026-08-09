@@ -88,7 +88,7 @@
       "title": "完成版 · 猫カフェVlog約30秒",
       "info": "1280×704 · 702 frames · 24fps · 29.256 sec",
       "provenance": "5本の実生成出力をFFmpeg concat filterで連結した実験結果。",
-      "sourcePath": "D:/Prj/minimax-h3-compose/experiments/06-production-pipelines/catcafe-vlog-5segment/outputs/h3_cat_cafe_vlog_5segment_merged.mp4",
+      "sourcePath": "<repo-root>/experiments/06-production-pipelines/catcafe-vlog-5segment/outputs/h3_cat_cafe_vlog_5segment_merged.mp4",
       "sha256": "73200CA4577C710BCADB41FD23451EBE01BDDE3E30D8E4E3A734F5A9A88E10DC"
     },
     "segment1": {
@@ -97,7 +97,7 @@
       "title": "実験1 · 導入",
       "info": "1280×704 · 158 frames · 6.583 sec",
       "provenance": "RTX 4090 / Docker Compose h3-4090で実生成。",
-      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/h3_cat_cafe_vlog/segment_01_00001_.mp4",
+      "sourcePath": "<repo-root>/runtime/4090/output/video/h3_cat_cafe_vlog/segment_01_00001_.mp4",
       "sha256": "3111BD6478094C1015C01691D7C485C0A59E42E1B244E838075BA0E9BB74D4F8"
     },
     "segment2": {
@@ -106,7 +106,7 @@
       "title": "実験2 · 猫がお出迎え",
       "info": "1280×704 · 136 frames · 5.667 sec",
       "provenance": "前セグメントの映像・音声・latentを22 frames引き継いだ実生成。",
-      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/h3_cat_cafe_vlog/segment_02_00001_.mp4",
+      "sourcePath": "<repo-root>/runtime/4090/output/video/h3_cat_cafe_vlog/segment_02_00001_.mp4",
       "sha256": "F093788DD228F68802F8AD3F86F5EF0243EC4E91B63C7514CB11F483FBDF5A24"
     },
     "segment3": {
@@ -115,7 +115,7 @@
       "title": "実験3 · ゴロゴロ音",
       "info": "1280×704 · 136 frames · 5.667 sec",
       "provenance": "前セグメントの映像・音声・latentを22 frames引き継いだ実生成。",
-      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/h3_cat_cafe_vlog/segment_03_00001_.mp4",
+      "sourcePath": "<repo-root>/runtime/4090/output/video/h3_cat_cafe_vlog/segment_03_00001_.mp4",
       "sha256": "D013D2D26EBD9AFC585139D0DB918BC42187F2F0296A5EBA391615E6D01BB97C"
     },
     "segment4": {
@@ -124,7 +124,7 @@
       "title": "実験4 · おやつタイム",
       "info": "1280×704 · 136 frames · 5.667 sec",
       "provenance": "前セグメントの映像・音声・latentを22 frames引き継いだ実生成。",
-      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/h3_cat_cafe_vlog/segment_04_00001_.mp4",
+      "sourcePath": "<repo-root>/runtime/4090/output/video/h3_cat_cafe_vlog/segment_04_00001_.mp4",
       "sha256": "F741DAA70C7FE69B399026EB353F8115057D30E002284C41AC9DD32AD5918761"
     },
     "segment5": {
@@ -133,7 +133,7 @@
       "title": "実験5 · エンディング",
       "info": "1280×704 · 136 frames · 5.667 sec",
       "provenance": "前セグメントの映像・音声・latentを22 frames引き継いだ実生成。",
-      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/h3_cat_cafe_vlog/segment_05_00001_.mp4",
+      "sourcePath": "<repo-root>/runtime/4090/output/video/h3_cat_cafe_vlog/segment_05_00001_.mp4",
       "sha256": "E271965D47915F2868172E69AF326DCE6F497D45BB253B885A8C5983E0C7F4E9"
     }
   }

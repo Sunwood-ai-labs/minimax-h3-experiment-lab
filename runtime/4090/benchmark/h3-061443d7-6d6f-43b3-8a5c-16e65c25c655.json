@@ -1,4 +1,4 @@
-﻿{
+{
     "gpu":  "4090",
     "port":  8188,
     "prompt_id":  "061443d7-6d6f-43b3-8a5c-16e65c25c655",
@@ -11,7 +11,7 @@
     "invocation":  {
                        "gpu":  "4090",
                        "port":  8188,
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\tlanoai_t2v_1280x704_api.json",
+                       "workflow":  "<repo-root>\\workflows\\tlanoai_t2v_1280x704_api.json",
                        "output_prefix":  "video/MiniMax_H3_T2V_4090_1280x704_25step_easycache_sage_cu130",
                        "low_vram":  false,
                        "seed":  2026080704,
@@ -19,7 +19,7 @@
                        "skip_model_hashes":  false
                    },
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\tlanoai_t2v_1280x704_api.json",
+                       "workflow":  "<repo-root>\\workflows\\tlanoai_t2v_1280x704_api.json",
                        "low_vram_requested":  false,
                        "low_vram_applied":  false,
                        "runtime":  {
@@ -286,14 +286,14 @@
                        },
     "output_files":  [
                          {
-                             "FullName":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_T2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
+                             "FullName":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_T2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
                              "Length":  746645,
                              "LastWriteTime":  "\/Date(1786097157369)\/"
                          }
                      ],
     "media_evidence":  [
                            {
-                               "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_T2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
+                               "path":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_T2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
                                "bytes":  746645,
                                "last_write_time":  "\/Date(1786097157369)\/",
                                "ffprobe":  {
@@ -410,7 +410,7 @@
                                                                }
                                                            ],
                                                "format":  {
-                                                              "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_T2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
+                                                              "filename":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_T2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
                                                               "nb_streams":  2,
                                                               "nb_programs":  0,
                                                               "nb_stream_groups":  0,

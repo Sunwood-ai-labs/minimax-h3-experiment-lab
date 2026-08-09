@@ -62,7 +62,7 @@ ImageGenの開始画像は各`1672×941` PNGをそのままワークフローの
 ## 再現手順
 
 ```powershell
-cd D:/Prj/minimax-h3-compose
+cd <repo-root>
 docker compose --profile 4090 up -d h3-4090
 
 .\scripts\run-h3-post-condition.ps1 `

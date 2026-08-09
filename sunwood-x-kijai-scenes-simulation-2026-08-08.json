@@ -9,7 +9,7 @@
     "text": "MiniMax-H3 × Kijai LightX2V、シーン展開やってみた！！！\n\nImageGenで作った開始フレームを使って、車・スポーツ・イラスト・バトルを同じI2V条件で生成。\nRTX 4090 · Docker Compose · 1344×768 · 4 steps · LoRA 0.75。\n\n4本とも成功、OOMなし、blackdetect=0。概要動画にまとめたぞ🔥",
     "media": [
       {
-        "path": "D:\\Prj\\minimax-h3-compose\\hyperframes-kijai-scenes-2026-08-08\\renders\\MiniMax_H3_Kijai_LightX2V_scene_montage_1920x1080_24fps.mp4",
+        "path": "<repo-root>\\hyperframes-kijai-scenes-2026-08-08\\renders\\MiniMax_H3_Kijai_LightX2V_scene_montage_1920x1080_24fps.mp4",
         "simulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_scene_montage_1920x1080_24fps.mp4",
         "posterSimulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_scene_montage_1920x1080_24fps_poster.png",
         "provenance": "HyperFrames render from four real RTX 4090 Docker Compose outputs; no replacement media",
@@ -31,7 +31,7 @@
       "text": "【Scene 1｜車 / I2V】\n\nPrompt:\nAnimate the supplied sports car start frame into a cinematic high-speed mountain-road shot. Preserve the car design, road composition, and mountain background, add controlled forward camera movement, subtle wheel rotation, realistic reflections, and natural road motion, no text.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nResolution: 1344×768, 158 frames, 24fps\nBase: minimax_h3_fl2va_pruned_int8_convrot.safetensors\nText encoder: qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\nVAE: official FP16 video + FP32 audio\nKijai full LoRA: strength 0.75\nSteps: 4 / Sampler: sa_solver / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080803\nInput: MiniMax_H3_I2V_scene_car_imagegen_start.png (AA18AB747483D6761E897456EED5F12CFB82402CC891B64484893D1AEF5A8B0A)\n\nResult:\nComfy execution 209.579 sec / runner wall 210.402 sec\nOutput 6.583333 sec / H.264 + AAC stereo\nOOMなし / blackdetect 0\nOutput SHA-256: 468D9FB859757B6AEB141950A97737D7C3F713FDD426122A40560A2920EBB062\nBenchmark: h3-38166d06-cdd1-4f48-94fc-4fa381cc7d32.md",
       "media": [
         {
-          "path": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_car_00001_.mp4",
+          "path": "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_car_00001_.mp4",
           "simulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_car_00001_.mp4",
           "posterSimulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/scene-car-poster.png",
           "provenance": "real generated output from verified RTX 4090 Docker Compose run",
@@ -55,7 +55,7 @@
       "text": "【Scene 2｜スポーツ / I2V】\n\nPrompt:\nAnimate the supplied sprint start frame into a cinematic sports shot. Preserve the athlete's anatomy, starting pose, lane, and stadium composition, add a powerful launch into the sprint, subtle camera tracking, realistic fabric movement, and natural stadium atmosphere, no text.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nResolution: 1344×768, 158 frames, 24fps\nBase: minimax_h3_fl2va_pruned_int8_convrot.safetensors\nText encoder: qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\nVAE: official FP16 video + FP32 audio\nKijai full LoRA: strength 0.75\nSteps: 4 / Sampler: sa_solver / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080804\nInput: MiniMax_H3_I2V_scene_sports_imagegen_start.png (33B52086889F97ADE8FB2EA8F23C3F25214498A5015881D33B9E8E42F3D3130C)\n\nResult:\nComfy execution 208.834 sec / runner wall 210.409 sec\nOutput 6.583333 sec / H.264 + AAC stereo\nOOMなし / blackdetect 0\nOutput SHA-256: 0B9C76D2373473B258C9899B6127A8C22792C867714BF09FBF425360F83BB9E5\nBenchmark: h3-31b250ab-c2cf-472e-a843-118ffa7f6f98.md",
       "media": [
         {
-          "path": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_sports_00001_.mp4",
+          "path": "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_sports_00001_.mp4",
           "simulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_sports_00001_.mp4",
           "posterSimulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/scene-sports-poster.png",
           "provenance": "real generated output from verified RTX 4090 Docker Compose run",
@@ -79,7 +79,7 @@
       "text": "【Scene 3｜イラスト / I2V】\n\nPrompt:\nAnimate the supplied floating-island illustration start frame while preserving its hand-painted style, character silhouette, lantern, path, and luminous ruin composition. Add gentle forward camera movement, drifting clouds, a subtle cape and lantern motion, and soft atmospheric light, no text.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nResolution: 1344×768, 158 frames, 24fps\nBase: minimax_h3_fl2va_pruned_int8_convrot.safetensors\nText encoder: qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\nVAE: official FP16 video + FP32 audio\nKijai full LoRA: strength 0.75\nSteps: 4 / Sampler: sa_solver / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080805\nInput: MiniMax_H3_I2V_scene_illustration_imagegen_start.png (09D56EF3CD1947CE66E5BC9F019FA4DED2A636A14D42947022268134546D7A6F)\n\nResult:\nComfy execution 208.941 sec / runner wall 210.505 sec\nOutput 6.583333 sec / H.264 + AAC stereo\nOOMなし / blackdetect 0\nOutput SHA-256: 6ADC0B80614773902A2E2392B0965F2B9C945F086596D25523B43836349A293A\nBenchmark: h3-acec67b0-578d-4b26-9ee4-0022a399b686.md",
       "media": [
         {
-          "path": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration_00001_.mp4",
+          "path": "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration_00001_.mp4",
           "simulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration_00001_.mp4",
           "posterSimulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/scene-illustration-poster.png",
           "provenance": "real generated output from verified RTX 4090 Docker Compose run",
@@ -103,7 +103,7 @@
       "text": "【Scene 4｜バトル / I2V】\n\nPrompt:\nAnimate the supplied fantasy battle start frame into a cinematic pre-clash shot. Preserve both original warriors, their armor, weapons, positions, and ruined arena composition, add a slow camera push-in, controlled cape movement, drifting dust, sparks, and distant lightning, no gore and no text.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nResolution: 1344×768, 158 frames, 24fps\nBase: minimax_h3_fl2va_pruned_int8_convrot.safetensors\nText encoder: qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\nVAE: official FP16 video + FP32 audio\nKijai full LoRA: strength 0.75\nSteps: 4 / Sampler: sa_solver / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080806\nInput: MiniMax_H3_I2V_scene_battle_imagegen_start.png (80D12E69F6E8B629D91A7E1F490C620A77D6CEC37D63B559CBADFDC497E9421A)\n\nResult:\nComfy execution 210.609 sec / runner wall 215.453 sec\nOutput 6.583333 sec / H.264 + AAC stereo\nOOMなし / blackdetect 0\nOutput SHA-256: 5A0BECA0A21423F86F6280AAA72ED06359423C4A878CB2BCB17543443C3A8E2D\nBenchmark: h3-1bdb13fd-e452-415c-8a69-38d795d9ae98.md",
       "media": [
         {
-          "path": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_battle_00001_.mp4",
+          "path": "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_battle_00001_.mp4",
           "simulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_battle_00001_.mp4",
           "posterSimulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/scene-battle-poster.png",
           "provenance": "real generated output from verified RTX 4090 Docker Compose run",

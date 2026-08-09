@@ -1,7 +1,7 @@
 # MiniMax-H3 Experiment Lab — 実験台帳
 
 更新日: 2026-08-09 JST
-プロジェクト: `D:/Prj/minimax-h3-compose`
+プロジェクト: `<repo-root>`
 
 この台帳は、実施日ではなく「検証した機能」で実験を探せるように整理しています。実施日は各`experiment.json`の`date`に残し、詳細な条件・prompt・workflow・出力SHA-256・処理時間は各実験ディレクトリの`README.md`と`experiment.json`を正本とします。
 

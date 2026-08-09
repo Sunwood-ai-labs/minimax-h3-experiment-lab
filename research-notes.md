@@ -2,7 +2,7 @@
 
 調査日: 2026-08-07 JST
 対象: X上のRTX 3060 / RTX 4090投稿、公式資料、Docker Composeローカル検証
-プロジェクト: D:/Prj/minimax-h3-compose
+プロジェクト: <repo-root>
 
 ## 結論
 

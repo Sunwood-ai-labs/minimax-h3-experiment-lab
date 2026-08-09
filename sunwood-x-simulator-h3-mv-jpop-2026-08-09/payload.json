@@ -78,7 +78,7 @@
       "title": "完成版 · リリックモーション付きMV",
       "info": "1280×704 · 878 frames · 30fps · 29.267 sec",
       "provenance": "H3生成音声＋H3 5セグメント映像へHyperFramesのリリックモーションを合成した実レンダー。",
-      "sourcePath": "D:/Prj/minimax-h3-compose/experiments/06-production-pipelines/jpop-mv-5segment/hyperframes-mv-lyrics/renders/h3_jpop_mv_lyric_motion.mp4",
+      "sourcePath": "<repo-root>/experiments/06-production-pipelines/jpop-mv-5segment/hyperframes-mv-lyrics/renders/h3_jpop_mv_lyric_motion.mp4",
       "sha256": "097EBE221189EE2726319DDC555E57B813483BCA9FD48640E18E75830B179050"
     },
     "raw": {
@@ -88,7 +88,7 @@
       "title": "H3生素材 · リリック合成前",
       "info": "1280×704 · 702 frames · 24fps · 29.256 sec",
       "provenance": "RTX 4090 / Docker Compose h3-4090で生成したH3 5セグメント連結素材。",
-      "sourcePath": "D:/Prj/minimax-h3-compose/experiments/06-production-pipelines/jpop-mv-5segment/outputs/h3_jpop_mv_5segment_merged.mp4",
+      "sourcePath": "<repo-root>/experiments/06-production-pipelines/jpop-mv-5segment/outputs/h3_jpop_mv_5segment_merged.mp4",
       "sha256": "28F1921260CF45A710E7C1BB8D64E72A91889379F0495C5BDB91217F2E6EF92E"
     }
   }

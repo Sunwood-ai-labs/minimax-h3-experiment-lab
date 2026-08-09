@@ -4,7 +4,7 @@
 - 対象アカウント: `@hAru_mAki_ch`
 - 状態: **承認後に投稿完了**
 - 構成: **2スレッド**。T2VとI2Vを分離し、各メイン投稿に実生成動画を1本だけ添付
-- プロジェクトのGitHub: 未作成。`D:\Prj\minimax-h3-compose` はGitリポジトリではない
+- プロジェクトのGitHub: 未作成。`<repo-root>` はGitリポジトリではない
 - artifact link: <https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo>
 - 調査元: <https://x.com/TlanoAI/status/2084940455809286397>
 
@@ -17,7 +17,7 @@ Tailscale URL:
 ローカルサーバーを次の条件で起動している。
 
 ```powershell
-python -m http.server 8791 --bind 127.0.0.1 --directory D:\Prj\minimax-h3-compose\sunwood-x-simulator-2026-08-07
+python -m http.server 8791 --bind 127.0.0.1 --directory <repo-root>\sunwood-x-simulator-2026-08-07
 tailscale funnel --bg --yes --https=8879 8791
 ```
 
@@ -38,7 +38,7 @@ WSL再起動後に、1280×704、25 steps、124 framesを生成。
 
 Attachment:
 
-- path: `D:\Prj\minimax-h3-compose\runtime\3060\output\video\MiniMax_H3_T2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4`
+- path: `<repo-root>\runtime\3060\output\video\MiniMax_H3_T2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4`
 - provenance: 3060 Docker Compose実験で生成した実MP4
 - SHA-256: `BB7BC89D6279FA639165D80F1E894B43DCA3907AC2AF84BCCA3F52DA85222BB4`
 - media: H.264 / 1280×704 / 24fps / 124 frames / 5.166667秒
@@ -77,14 +77,14 @@ imagegenで作った開始フレームを接続して、1280×704、25 steps、1
 
 Attachment:
 
-- path: `D:\Prj\minimax-h3-compose\runtime\3060\output\video\MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4`
+- path: `<repo-root>\runtime\3060\output\video\MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4`
 - provenance: 3060 Docker Compose実験で生成した実MP4。開始フレームのみimagegenで作成
 - SHA-256: `5437ADD0A093793E72DE178F0F8744A4D0539805319A8C4797E831B0C7011BC4`
 - media: H.264 / 1280×704 / 24fps / 124 frames / 5.166667秒
 - runner wall: 800.840秒（13分21秒）
 - blackdetect interval count: 0
 - crop/edit/redaction: なし
-- start frame: `D:\Prj\minimax-h3-compose\runtime\3060\input\MiniMax_H3_I2V_1280x704_start.png`
+- start frame: `<repo-root>\runtime\3060\input\MiniMax_H3_I2V_1280x704_start.png`
 - start frame SHA-256: `BE63F90186D46A2860A463C70E4E3E76FDF95A19E98F9DB9E696CD7610D96CD8`
 - imagegen prompt record: `assets\i2v_start_frame_generation.md`
 

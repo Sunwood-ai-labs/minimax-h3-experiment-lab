@@ -11,7 +11,7 @@
     "invocation":  {
                        "gpu":  "4090",
                        "port":  8188,
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\04-acceleration\\sol-sage-easycache-4scenes-7s\\workflows\\scene-02-rainy-stairs_api.json",
+                       "workflow":  "<repo-root>\\experiments\\04-acceleration\\sol-sage-easycache-4scenes-7s\\workflows\\scene-02-rainy-stairs_api.json",
                        "output_prefix":  "video/MiniMax_H3_R2V_sol_fp16_scene_02_rainy_stairs",
                        "low_vram":  false,
                        "seed":  2026080814,
@@ -20,7 +20,7 @@
                        "skip_model_hashes":  false
                    },
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\04-acceleration\\sol-sage-easycache-4scenes-7s\\workflows\\scene-02-rainy-stairs_api.json",
+                       "workflow":  "<repo-root>\\experiments\\04-acceleration\\sol-sage-easycache-4scenes-7s\\workflows\\scene-02-rainy-stairs_api.json",
                        "low_vram_requested":  false,
                        "low_vram_applied":  false,
                        "runtime":  {
@@ -319,7 +319,7 @@
                                                                                  }
                                                                              ],
                                                                  "format":  {
-                                                                                "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\MiniMax_H3_R2V_background_reference_sheet.png",
+                                                                                "filename":  "<repo-root>\\runtime\\4090\\input\\MiniMax_H3_R2V_background_reference_sheet.png",
                                                                                 "nb_streams":  1,
                                                                                 "nb_programs":  0,
                                                                                 "nb_stream_groups":  0,
@@ -381,7 +381,7 @@
                                                                                  }
                                                                              ],
                                                                  "format":  {
-                                                                                "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\MiniMax_H3_R2V_mina_reference_sheet.png",
+                                                                                "filename":  "<repo-root>\\runtime\\4090\\input\\MiniMax_H3_R2V_mina_reference_sheet.png",
                                                                                 "nb_streams":  1,
                                                                                 "nb_programs":  0,
                                                                                 "nb_stream_groups":  0,
@@ -443,7 +443,7 @@
                                                                                  }
                                                                              ],
                                                                  "format":  {
-                                                                                "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\MiniMax_H3_R2V_ren_reference_sheet.png",
+                                                                                "filename":  "<repo-root>\\runtime\\4090\\input\\MiniMax_H3_R2V_ren_reference_sheet.png",
                                                                                 "nb_streams":  1,
                                                                                 "nb_programs":  0,
                                                                                 "nb_stream_groups":  0,
@@ -500,13 +500,13 @@
                                         ]
                        },
     "output_files":  {
-                         "FullName":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_R2V_sol_fp16_scene_02_rainy_stairs_00001_.mp4",
+                         "FullName":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_R2V_sol_fp16_scene_02_rainy_stairs_00001_.mp4",
                          "Length":  2255836,
                          "LastWriteTime":  "\/Date(1786196437502)\/"
                      },
     "media_evidence":  [
                            {
-                               "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_R2V_sol_fp16_scene_02_rainy_stairs_00001_.mp4",
+                               "path":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_R2V_sol_fp16_scene_02_rainy_stairs_00001_.mp4",
                                "bytes":  2255836,
                                "last_write_time":  "\/Date(1786196437502)\/",
                                "ffprobe":  {
@@ -623,7 +623,7 @@
                                                                }
                                                            ],
                                                "format":  {
-                                                              "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_R2V_sol_fp16_scene_02_rainy_stairs_00001_.mp4",
+                                                              "filename":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_R2V_sol_fp16_scene_02_rainy_stairs_00001_.mp4",
                                                               "nb_streams":  2,
                                                               "nb_programs":  0,
                                                               "nb_stream_groups":  0,

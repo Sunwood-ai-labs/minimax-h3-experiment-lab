@@ -153,7 +153,7 @@ The Docker integration is recorded in [Dockerfile](../../../Dockerfile), [compos
 ## Reproduction
 
 ~~~powershell
-cd D:\Prj\minimax-h3-compose
+cd <repo-root>
 docker compose --profile 4090 build h3-4090
 docker compose --profile 4090 up -d h3-4090
 

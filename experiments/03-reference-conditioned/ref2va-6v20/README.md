@@ -157,7 +157,7 @@ ref2vaの20GBモデルは、公式Comfy-Orgファイルをchunked HTTPS download
 リポジトリルートで実行する。`h3-4090`を起動し、healthcheckが通った状態にする。
 
 ```powershell
-cd D:/Prj/minimax-h3-compose
+cd <repo-root>
 docker compose --profile 4090 up -d h3-4090
 docker compose ps
 

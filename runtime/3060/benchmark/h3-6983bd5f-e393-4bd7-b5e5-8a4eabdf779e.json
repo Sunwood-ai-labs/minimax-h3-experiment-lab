@@ -1,4 +1,4 @@
-﻿{
+{
     "gpu":  "3060",
     "port":  8189,
     "prompt_id":  "6983bd5f-e393-4bd7-b5e5-8a4eabdf779e",
@@ -8,7 +8,7 @@
     "status":  "success",
     "low_vram":  true,
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\tlanoai_3060_api.json",
+                       "workflow":  "<repo-root>\\workflows\\tlanoai_3060_api.json",
                        "low_vram_requested":  true,
                        "runtime":  {
                                        "compose_service":  "h3-3060",
@@ -82,7 +82,7 @@
                        },
     "output_files":  [
                          {
-                             "FullName":  "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\output\\video\\MiniMax_H3_TlanoAI_3060_864x480_25step_easycache_sage_warm_inference_cu130_00001_.mp4",
+                             "FullName":  "<repo-root>\\runtime\\3060\\output\\video\\MiniMax_H3_TlanoAI_3060_864x480_25step_easycache_sage_warm_inference_cu130_00001_.mp4",
                              "Length":  463849,
                              "LastWriteTime":  "\/Date(1786093712925)\/"
                          }

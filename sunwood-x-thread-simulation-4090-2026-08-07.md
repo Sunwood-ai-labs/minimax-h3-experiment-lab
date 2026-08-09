@@ -27,7 +27,7 @@ MiniMax-H3 × Docker Compose、RTX 4090で約720p T2Vやってみた！！！
 
 添付動画:
 
-- 実体: `D:\Prj\minimax-h3-compose\runtime\4090\output\video\MiniMax_H3_T2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4`
+- 実体: `<repo-root>\runtime\4090\output\video\MiniMax_H3_T2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4`
 - サイズ: 746,645 bytes
 - SHA-256: `368E54C5FFD22EBD6DD901BC1C3800AA1470AA83EBC43EDBAA529C3B4C223D90`
 - 1280×704 / 24 fps / 124 frames / 5.167秒
@@ -63,13 +63,13 @@ I2Vも4分台。4090強い🔥
 
 添付動画:
 
-- 実体: `D:\Prj\minimax-h3-compose\runtime\4090\output\video\MiniMax_H3_I2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4`
+- 実体: `<repo-root>\runtime\4090\output\video\MiniMax_H3_I2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4`
 - サイズ: 1,098,548 bytes
 - SHA-256: `8D99CA9A3ABD3B836AED8E694DA0D7B885C1770BC208241CD33B13637E60A39B`
 - 1280×704 / 24 fps / 124 frames / 5.167秒
 - 実測wall: 275.309秒（約4分35秒）
 - `blackdetect` interval_count: 0
-- 開始フレーム: `D:\Prj\minimax-h3-compose\runtime\4090\input\MiniMax_H3_I2V_1280x704_start.png`
+- 開始フレーム: `<repo-root>\runtime\4090\input\MiniMax_H3_I2V_1280x704_start.png`
 - 開始フレームSHA-256: `BE63F90186D46A2860A463C70E4E3E76FDF95A19E98F9DB9E696CD7610D96CD8`
 
 返信1（3060編への継続リンク）:
@@ -105,13 +105,13 @@ https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo
 - dynamic VRAM: false
 - SageAttention requested: false
 - CUDA module loading: `LAZY`
-- T2V workflow: `D:\Prj\minimax-h3-compose\workflows\tlanoai_t2v_1280x704_api.json`
-- I2V workflow: `D:\Prj\minimax-h3-compose\workflows\tlanoai_i2v_1280x704_api.json`
+- T2V workflow: `<repo-root>\workflows\tlanoai_t2v_1280x704_api.json`
+- I2V workflow: `<repo-root>\workflows\tlanoai_i2v_1280x704_api.json`
 
 詳細な環境スナップショットとモデルSHA-256は、各実験レポートに保存済み。
 
-- T2V: `D:\Prj\minimax-h3-compose\runtime\4090\benchmark\h3-061443d7-6d6f-43b3-8a5c-16e65c25c655.md`
-- I2V: `D:\Prj\minimax-h3-compose\runtime\4090\benchmark\h3-f26da7d6-5f00-4cd0-bd18-b384e5ffa4e1.md`
+- T2V: `<repo-root>\runtime\4090\benchmark\h3-061443d7-6d6f-43b3-8a5c-16e65c25c655.md`
+- I2V: `<repo-root>\runtime\4090\benchmark\h3-f26da7d6-5f00-4cd0-bd18-b384e5ffa4e1.md`
 
 ## 投稿結果
 
@@ -151,4 +151,4 @@ https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo
 - T2Vメイン: media key 1個、継続返信の引用先は3060 T2V、成果物返信のURLはGitHub
 - I2Vメイン: media key 1個、継続返信の引用先は3060 I2V、成果物返信のURLはGitHub
 
-ペイロード: `D:\Prj\minimax-h3-compose\sunwood-x-thread-payload-4090-2026-08-07.json`
+ペイロード: `<repo-root>\sunwood-x-thread-payload-4090-2026-08-07.json`

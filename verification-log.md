@@ -1,7 +1,7 @@
 # MiniMax-H3 検証ログ
 
 検証日: 2026-08-07 JST
-プロジェクト: D:/Prj/minimax-h3-compose
+プロジェクト: <repo-root>
 
 ## 判定ルール
 

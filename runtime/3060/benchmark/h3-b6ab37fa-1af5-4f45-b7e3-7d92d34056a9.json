@@ -1,4 +1,4 @@
-﻿{
+{
     "gpu":  "3060",
     "port":  8189,
     "prompt_id":  "b6ab37fa-1af5-4f45-b7e3-7d92d34056a9",
@@ -11,7 +11,7 @@
     "invocation":  {
                        "gpu":  "3060",
                        "port":  8189,
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\tlanoai_i2v_1280x704_api.json",
+                       "workflow":  "<repo-root>\\workflows\\tlanoai_i2v_1280x704_api.json",
                        "output_prefix":  "video/MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart",
                        "low_vram":  true,
                        "seed":  2026080708,
@@ -19,7 +19,7 @@
                        "skip_model_hashes":  false
                    },
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\tlanoai_i2v_1280x704_api.json",
+                       "workflow":  "<repo-root>\\workflows\\tlanoai_i2v_1280x704_api.json",
                        "low_vram_requested":  true,
                        "low_vram_applied":  false,
                        "runtime":  {
@@ -317,7 +317,7 @@
                                                                                  }
                                                                              ],
                                                                  "format":  {
-                                                                                "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\input\\MiniMax_H3_I2V_1280x704_start.png",
+                                                                                "filename":  "<repo-root>\\runtime\\3060\\input\\MiniMax_H3_I2V_1280x704_start.png",
                                                                                 "nb_streams":  1,
                                                                                 "nb_programs":  0,
                                                                                 "nb_stream_groups":  0,
@@ -370,14 +370,14 @@
                        },
     "output_files":  [
                          {
-                             "FullName":  "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\output\\video\\MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
+                             "FullName":  "<repo-root>\\runtime\\3060\\output\\video\\MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
                              "Length":  1569004,
                              "LastWriteTime":  "\/Date(1786109108020)\/"
                          }
                      ],
     "media_evidence":  [
                            {
-                               "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\output\\video\\MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
+                               "path":  "<repo-root>\\runtime\\3060\\output\\video\\MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
                                "bytes":  1569004,
                                "last_write_time":  "\/Date(1786109108020)\/",
                                "ffprobe":  {
@@ -494,7 +494,7 @@
                                                                }
                                                            ],
                                                "format":  {
-                                                              "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\output\\video\\MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
+                                                              "filename":  "<repo-root>\\runtime\\3060\\output\\video\\MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
                                                               "nb_streams":  2,
                                                               "nb_programs":  0,
                                                               "nb_stream_groups":  0,

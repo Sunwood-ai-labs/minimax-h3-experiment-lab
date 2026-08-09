@@ -11,7 +11,7 @@
     "invocation":  {
                        "gpu":  "4090",
                        "port":  8188,
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\03-reference-conditioned\\i2v-scenes\\workflows\\minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_illustration_1344x768_api.json",
+                       "workflow":  "<repo-root>\\experiments\\03-reference-conditioned\\i2v-scenes\\workflows\\minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_illustration_1344x768_api.json",
                        "output_prefix":  "video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration",
                        "low_vram":  false,
                        "seed":  -1,
@@ -19,7 +19,7 @@
                        "skip_model_hashes":  false
                    },
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\03-reference-conditioned\\i2v-scenes\\workflows\\minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_illustration_1344x768_api.json",
+                       "workflow":  "<repo-root>\\experiments\\03-reference-conditioned\\i2v-scenes\\workflows\\minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_illustration_1344x768_api.json",
                        "low_vram_requested":  false,
                        "low_vram_applied":  false,
                        "runtime":  {
@@ -329,7 +329,7 @@
                                                                                  }
                                                                              ],
                                                                  "format":  {
-                                                                                "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\MiniMax_H3_I2V_scene_illustration_imagegen_start.png",
+                                                                                "filename":  "<repo-root>\\runtime\\4090\\input\\MiniMax_H3_I2V_scene_illustration_imagegen_start.png",
                                                                                 "nb_streams":  1,
                                                                                 "nb_programs":  0,
                                                                                 "nb_stream_groups":  0,
@@ -383,14 +383,14 @@
                        },
     "output_files":  [
                          {
-                             "FullName":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration_00001_.mp4",
+                             "FullName":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration_00001_.mp4",
                              "Length":  2328790,
                              "LastWriteTime":  "\/Date(1786161959496)\/"
                          }
                      ],
     "media_evidence":  [
                            {
-                               "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration_00001_.mp4",
+                               "path":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration_00001_.mp4",
                                "bytes":  2328790,
                                "last_write_time":  "\/Date(1786161959496)\/",
                                "ffprobe":  {
@@ -507,7 +507,7 @@
                                                                }
                                                            ],
                                                "format":  {
-                                                              "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration_00001_.mp4",
+                                                              "filename":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration_00001_.mp4",
                                                               "nb_streams":  2,
                                                               "nb_programs":  0,
                                                               "nb_stream_groups":  0,

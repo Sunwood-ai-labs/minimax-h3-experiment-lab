@@ -55,7 +55,7 @@
           "text": "MiniMax-H3 × Docker Compose、RTX 4090で約720p T2Vやってみた！！！\n\n3060編と同じ1280×704・25 steps・124 framesで生成。\n実測wall 4分50秒、OOMなし、blackdetectも0。\n\n4090、約720pでも4分台。これは速い🔥",
           "media": [
             {
-              "path": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_T2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
+              "path": "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_T2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
               "relativeUrl": "./assets/MiniMax_H3_T2V_4090_1280x704.mp4",
               "poster": "./assets/MiniMax_H3_T2V_4090_1280x704_poster.png",
               "provenance": "real generated output from the verified RTX 4090 Docker Compose run",
@@ -67,7 +67,7 @@
               "durationSeconds": 5.167,
               "runnerWallSeconds": 290.337,
               "blackdetectIntervalCount": 0,
-              "report": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\benchmark\\h3-061443d7-6d6f-43b3-8a5c-16e65c25c655.md"
+              "report": "<repo-root>\\runtime\\4090\\benchmark\\h3-061443d7-6d6f-43b3-8a5c-16e65c25c655.md"
             }
           ]
         },
@@ -94,7 +94,7 @@
           "text": "MiniMax-H3 × imagegen、RTX 4090で約720p I2Vやってみた！！！\n\n3060編と同じ開始フレームで、1280×704・25 steps・124 framesを生成。\n実測wall 4分35秒、OOMなし、blackdetectも0。\n\nI2Vも4分台。4090強い🔥",
           "media": [
             {
-              "path": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_I2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
+              "path": "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_I2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
               "relativeUrl": "./assets/MiniMax_H3_I2V_4090_1280x704.mp4",
               "poster": "./assets/MiniMax_H3_I2V_4090_1280x704_poster.png",
               "provenance": "real generated output from the verified RTX 4090 Docker Compose run; the same imagegen start frame was used as the 3060 I2V run",
@@ -106,9 +106,9 @@
               "durationSeconds": 5.167,
               "runnerWallSeconds": 275.309,
               "blackdetectIntervalCount": 0,
-              "startFramePath": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\MiniMax_H3_I2V_1280x704_start.png",
+              "startFramePath": "<repo-root>\\runtime\\4090\\input\\MiniMax_H3_I2V_1280x704_start.png",
               "startFrameSha256": "BE63F90186D46A2860A463C70E4E3E76FDF95A19E98F9DB9E696CD7610D96CD8",
-              "report": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\benchmark\\h3-f26da7d6-5f00-4cd0-bd18-b384e5ffa4e1.md"
+              "report": "<repo-root>\\runtime\\4090\\benchmark\\h3-f26da7d6-5f00-4cd0-bd18-b384e5ffa4e1.md"
             }
           ]
         },
@@ -128,11 +128,11 @@
     }
   ],
   "localEvidence": {
-    "t2vReport": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\benchmark\\h3-061443d7-6d6f-43b3-8a5c-16e65c25c655.md",
-    "i2vReport": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\benchmark\\h3-f26da7d6-5f00-4cd0-bd18-b384e5ffa4e1.md",
-    "t2vWorkflow": "D:\\Prj\\minimax-h3-compose\\workflows\\tlanoai_t2v_1280x704_api.json",
-    "i2vWorkflow": "D:\\Prj\\minimax-h3-compose\\workflows\\tlanoai_i2v_1280x704_api.json",
-    "startFrame": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\MiniMax_H3_I2V_1280x704_start.png"
+    "t2vReport": "<repo-root>\\runtime\\4090\\benchmark\\h3-061443d7-6d6f-43b3-8a5c-16e65c25c655.md",
+    "i2vReport": "<repo-root>\\runtime\\4090\\benchmark\\h3-f26da7d6-5f00-4cd0-bd18-b384e5ffa4e1.md",
+    "t2vWorkflow": "<repo-root>\\workflows\\tlanoai_t2v_1280x704_api.json",
+    "i2vWorkflow": "<repo-root>\\workflows\\tlanoai_i2v_1280x704_api.json",
+    "startFrame": "<repo-root>\\runtime\\4090\\input\\MiniMax_H3_I2V_1280x704_start.png"
   },
   "validation": {
     "mainPostsHaveUrls": false,

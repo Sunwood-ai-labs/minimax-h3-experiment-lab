@@ -1,4 +1,4 @@
-﻿{
+{
     "gpu":  "4090",
     "port":  8188,
     "prompt_id":  "f26da7d6-5f00-4cd0-bd18-b384e5ffa4e1",
@@ -11,7 +11,7 @@
     "invocation":  {
                        "gpu":  "4090",
                        "port":  8188,
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\tlanoai_i2v_1280x704_api.json",
+                       "workflow":  "<repo-root>\\workflows\\tlanoai_i2v_1280x704_api.json",
                        "output_prefix":  "video/MiniMax_H3_I2V_4090_1280x704_25step_easycache_sage_cu130",
                        "low_vram":  false,
                        "seed":  2026080705,
@@ -19,7 +19,7 @@
                        "skip_model_hashes":  false
                    },
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\tlanoai_i2v_1280x704_api.json",
+                       "workflow":  "<repo-root>\\workflows\\tlanoai_i2v_1280x704_api.json",
                        "low_vram_requested":  false,
                        "low_vram_applied":  false,
                        "runtime":  {
@@ -303,7 +303,7 @@
                                                                                  }
                                                                              ],
                                                                  "format":  {
-                                                                                "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\MiniMax_H3_I2V_1280x704_start.png",
+                                                                                "filename":  "<repo-root>\\runtime\\4090\\input\\MiniMax_H3_I2V_1280x704_start.png",
                                                                                 "nb_streams":  1,
                                                                                 "nb_programs":  0,
                                                                                 "nb_stream_groups":  0,
@@ -356,14 +356,14 @@
                        },
     "output_files":  [
                          {
-                             "FullName":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_I2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
+                             "FullName":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_I2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
                              "Length":  1098548,
                              "LastWriteTime":  "\/Date(1786097486051)\/"
                          }
                      ],
     "media_evidence":  [
                            {
-                               "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_I2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
+                               "path":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_I2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
                                "bytes":  1098548,
                                "last_write_time":  "\/Date(1786097486051)\/",
                                "ffprobe":  {
@@ -480,7 +480,7 @@
                                                                }
                                                            ],
                                                "format":  {
-                                                              "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_I2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
+                                                              "filename":  "<repo-root>\\runtime\\4090\\output\\video\\MiniMax_H3_I2V_4090_1280x704_25step_easycache_sage_cu130_00001_.mp4",
                                                               "nb_streams":  2,
                                                               "nb_programs":  0,
                                                               "nb_stream_groups":  0,

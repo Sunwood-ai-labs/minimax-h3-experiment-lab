@@ -98,7 +98,7 @@
       "title": "高速化後 4シーン概要モンタージュ",
       "info": "2×2 · 1280×704 · 175 frames · 24fps · 7.292 sec",
       "provenance": "証拠由来。4本の最終実生成MP4をFFmpegで2×2配置。Scene 1の音声トラックのみ概要用に保持。",
-      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video",
+      "sourcePath": "<repo-root>/runtime/4090/output/video",
       "sha256": "2F0730E05F6CB500E66852F864F633846D9A9EE0E8476E26712E15C2DD49E32F",
       "bytes": 2618074
     },
@@ -108,7 +108,7 @@
       "title": "Scene 1 · optimized sunset meeting",
       "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
       "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / Sol-Attn + SageAttention + EasyCache。",
-      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_01_sunset_meeting_00001_.mp4",
+      "sourcePath": "<repo-root>/runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_01_sunset_meeting_00001_.mp4",
       "sha256": "B1497DF7FBBD50FE4558A8EECE0B611EABBAD4FC35340497A1FCF4B921D07D8A",
       "bytes": 2029750
     },
@@ -118,7 +118,7 @@
       "title": "Scene 2 · optimized rainy stairs",
       "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
       "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / Sol-Attn + SageAttention + EasyCache。",
-      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_02_rainy_stairs_00001_.mp4",
+      "sourcePath": "<repo-root>/runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_02_rainy_stairs_00001_.mp4",
       "sha256": "054E3E26EE9819CA163FDDCF92C63F091A27F993645A85BE695B2A845C8212C8",
       "bytes": 2255836
     },
@@ -128,7 +128,7 @@
       "title": "Scene 3 · optimized glasshouse orbit",
       "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
       "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / Sol-Attn + SageAttention + EasyCache。",
-      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_03_glasshouse_orbit_00001_.mp4",
+      "sourcePath": "<repo-root>/runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_03_glasshouse_orbit_00001_.mp4",
       "sha256": "951DF63B8E7F0AF9DBA14C6FE15B0B0C09D10080CBA4EC9BCAD2D12EEC719C39",
       "bytes": 2473041
     },
@@ -138,7 +138,7 @@
       "title": "Scene 4 · optimized rooftop pullback",
       "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
       "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / Sol-Attn + SageAttention + EasyCache。",
-      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_04_rooftop_pullback_00001_.mp4",
+      "sourcePath": "<repo-root>/runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_04_rooftop_pullback_00001_.mp4",
       "sha256": "9C2297798EF326B114703E969E4F5CE6BC63D6554C8D6E53BC6E234712D110B7",
       "bytes": 2691547
     }

@@ -2,7 +2,7 @@
     "status":  "verified",
     "startedAt":  "2026-08-09T11:01:45.8370000+09:00",
     "endpoint":  "http://127.0.0.1:8188",
-    "workflowDir":  "D:\\Prj\\minimax-h3-compose\\experiments\\06-production-pipelines\\catcafe-vlog-5segment",
+    "workflowDir":  "<repo-root>\\experiments\\06-production-pipelines\\catcafe-vlog-5segment",
     "gpuService":  "h3-4090",
     "resumeFromSegment":  2,
     "segments":  [
@@ -18,7 +18,7 @@
                                         "executionSeconds":  464.903
                                     },
                          "output":  {
-                                        "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_01_00001_.mp4",
+                                        "path":  "<repo-root>\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_01_00001_.mp4",
                                         "bytes":  1813877,
                                         "sha256":  "3111BD6478094C1015C01691D7C485C0A59E42E1B244E838075BA0E9BB74D4F8",
                                         "ffprobe":  {
@@ -37,7 +37,7 @@
 
                                                            ]
                                     },
-                         "contextInput":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\h3_cat_cafe_vlog\\segment_01.mp4"
+                         "contextInput":  "<repo-root>\\runtime\\4090\\input\\h3_cat_cafe_vlog\\segment_01.mp4"
                      },
                      {
                          "segment":  2,
@@ -51,7 +51,7 @@
                                         "executionSeconds":  556.262
                                     },
                          "output":  {
-                                        "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_02_00001_.mp4",
+                                        "path":  "<repo-root>\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_02_00001_.mp4",
                                         "bytes":  1866529,
                                         "sha256":  "F093788DD228F68802F8AD3F86F5EF0243EC4E91B63C7514CB11F483FBDF5A24",
                                         "ffprobe":  {
@@ -70,7 +70,7 @@
 
                                                            ]
                                     },
-                         "contextInput":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\h3_cat_cafe_vlog\\segment_02.mp4"
+                         "contextInput":  "<repo-root>\\runtime\\4090\\input\\h3_cat_cafe_vlog\\segment_02.mp4"
                      },
                      {
                          "segment":  3,
@@ -84,7 +84,7 @@
                                         "executionSeconds":  555.96
                                     },
                          "output":  {
-                                        "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_03_00001_.mp4",
+                                        "path":  "<repo-root>\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_03_00001_.mp4",
                                         "bytes":  1413609,
                                         "sha256":  "D013D2D26EBD9AFC585139D0DB918BC42187F2F0296A5EBA391615E6D01BB97C",
                                         "ffprobe":  {
@@ -103,7 +103,7 @@
 
                                                            ]
                                     },
-                         "contextInput":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\h3_cat_cafe_vlog\\segment_03.mp4"
+                         "contextInput":  "<repo-root>\\runtime\\4090\\input\\h3_cat_cafe_vlog\\segment_03.mp4"
                      },
                      {
                          "segment":  4,
@@ -117,7 +117,7 @@
                                         "executionSeconds":  556.361
                                     },
                          "output":  {
-                                        "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_04_00001_.mp4",
+                                        "path":  "<repo-root>\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_04_00001_.mp4",
                                         "bytes":  1282981,
                                         "sha256":  "F741DAA70C7FE69B399026EB353F8115057D30E002284C41AC9DD32AD5918761",
                                         "ffprobe":  {
@@ -136,7 +136,7 @@
 
                                                            ]
                                     },
-                         "contextInput":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\h3_cat_cafe_vlog\\segment_04.mp4"
+                         "contextInput":  "<repo-root>\\runtime\\4090\\input\\h3_cat_cafe_vlog\\segment_04.mp4"
                      },
                      {
                          "segment":  5,
@@ -150,7 +150,7 @@
                                         "executionSeconds":  554.413
                                     },
                          "output":  {
-                                        "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_05_00001_.mp4",
+                                        "path":  "<repo-root>\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_05_00001_.mp4",
                                         "bytes":  1252937,
                                         "sha256":  "E271965D47915F2868172E69AF326DCE6F497D45BB253B885A8C5983E0C7F4E9",
                                         "ffprobe":  {
@@ -172,13 +172,13 @@
                      }
                  ],
     "mergedOutput":  {
-                         "path":  "D:\\Prj\\minimax-h3-compose\\experiments\\06-production-pipelines\\catcafe-vlog-5segment\\outputs\\h3_cat_cafe_vlog_5segment_merged.mp4",
+                         "path":  "<repo-root>\\experiments\\06-production-pipelines\\catcafe-vlog-5segment\\outputs\\h3_cat_cafe_vlog_5segment_merged.mp4",
                          "inputs":  [
-                                        "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_01_00001_.mp4",
-                                        "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_02_00001_.mp4",
-                                        "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_03_00001_.mp4",
-                                        "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_04_00001_.mp4",
-                                        "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_05_00001_.mp4"
+                                        "<repo-root>\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_01_00001_.mp4",
+                                        "<repo-root>\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_02_00001_.mp4",
+                                        "<repo-root>\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_03_00001_.mp4",
+                                        "<repo-root>\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_04_00001_.mp4",
+                                        "<repo-root>\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_05_00001_.mp4"
                                     ],
                          "bytes":  11404834,
                          "sha256":  "73200CA4577C710BCADB41FD23451EBE01BDDE3E30D8E4E3A734F5A9A88E10DC",

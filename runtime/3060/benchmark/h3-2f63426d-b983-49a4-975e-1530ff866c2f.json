@@ -1,4 +1,4 @@
-﻿{
+{
     "gpu":  "3060",
     "port":  8189,
     "prompt_id":  "2f63426d-b983-49a4-975e-1530ff866c2f",
@@ -8,7 +8,7 @@
     "status":  "error",
     "low_vram":  true,
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\tlanoai_3060_api.json",
+                       "workflow":  "<repo-root>\\workflows\\tlanoai_3060_api.json",
                        "low_vram_requested":  true,
                        "runtime":  {
                                        "compose_service":  "h3-3060",

@@ -184,7 +184,7 @@ runtime/4090/output/h3_context/clip_00003.safetensors  14,253,016 bytes
 
 ## 再現手順
 
-リポジトリルートを`D:/Prj/minimax-h3-compose`とする。
+リポジトリルートを`<repo-root>`とする。
 
 ```powershell
 docker compose --profile 4090 build h3-4090

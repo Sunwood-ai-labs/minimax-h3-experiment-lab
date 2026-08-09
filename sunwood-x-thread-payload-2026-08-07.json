@@ -30,7 +30,7 @@
           "text": "MiniMax-H3 × Docker Compose、RTX 3060で約720p T2Vやってみた！！！\n\nWSL再起動後に、1280×704、25 steps、124 framesを生成。\n実測wall 16分01秒、OOMなし、blackdetectも0。\n\n3060でも約720p、できたぞ🔥",
           "media": [
             {
-              "path": "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\output\\video\\MiniMax_H3_T2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
+              "path": "<repo-root>\\runtime\\3060\\output\\video\\MiniMax_H3_T2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
               "relativeUrl": "./assets/MiniMax_H3_T2V_3060_1280x704_preview.mp4",
               "poster": "./assets/h3_t2v_1280x704_wsl_restart_frame_0.1.png",
               "provenance": "real generated output from the verified 3060 Docker Compose run",
@@ -67,7 +67,7 @@
           "text": "MiniMax-H3 × imagegen、RTX 3060で約720p I2Vやってみた！！！\n\nimagegenで作った開始フレームを接続して、1280×704、25 steps、124 framesを生成。\n実測wall 13分21秒、OOMなし、blackdetectも0。\n\n開始画像の構図を保ったまま霧が動いた。これは熱い🔥",
           "media": [
             {
-              "path": "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\output\\video\\MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
+              "path": "<repo-root>\\runtime\\3060\\output\\video\\MiniMax_H3_I2V_3060_1280x704_25step_easycache_sage_cu130_wsl_restart_00001_.mp4",
               "relativeUrl": "./assets/MiniMax_H3_I2V_3060_1280x704_preview.mp4",
               "poster": "./assets/h3_i2v_1280x704_wsl_restart_frame_0.1.png",
               "provenance": "real generated output from the verified 3060 Docker Compose run; the start frame was made with imagegen",
@@ -78,7 +78,7 @@
               "durationSeconds": 5.166667,
               "runnerWallSeconds": 800.840,
               "blackdetectIntervalCount": 0,
-              "startFramePath": "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\input\\MiniMax_H3_I2V_1280x704_start.png",
+              "startFramePath": "<repo-root>\\runtime\\3060\\input\\MiniMax_H3_I2V_1280x704_start.png",
               "startFrameSha256": "BE63F90186D46A2860A463C70E4E3E76FDF95A19E98F9DB9E696CD7610D96CD8"
             }
           ]

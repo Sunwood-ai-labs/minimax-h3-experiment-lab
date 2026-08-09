@@ -1,4 +1,4 @@
-﻿{
+{
     "gpu":  "3060",
     "port":  8189,
     "prompt_id":  "773356f3-568c-4324-bc08-00ec497f69f9",
@@ -8,7 +8,7 @@
     "status":  "success",
     "low_vram":  true,
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\diag_gpu_vae_5f_api.json",
+                       "workflow":  "<repo-root>\\workflows\\diag_gpu_vae_5f_api.json",
                        "low_vram_requested":  true,
                        "width":  864,
                        "height":  480,
@@ -53,7 +53,7 @@
                        },
     "output_files":  [
                          {
-                             "FullName":  "D:\\Prj\\minimax-h3-compose\\runtime\\3060\\output\\video\\diag_3060_official_fp16_gpu_vae_5f_00001_.mp4",
+                             "FullName":  "<repo-root>\\runtime\\3060\\output\\video\\diag_3060_official_fp16_gpu_vae_5f_00001_.mp4",
                              "Length":  34510,
                              "LastWriteTime":  "\/Date(1786090520835)\/"
                          }

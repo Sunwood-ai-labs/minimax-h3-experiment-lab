@@ -50,7 +50,7 @@ social/
 ## 実験追加の標準手順
 
 ```powershell
-cd D:/Prj/minimax-h3-compose
+cd <repo-root>
 Copy-Item experiments/_template experiments/03-reference-conditioned/my-experiment -Recurse
 # 例: 内容に合うカテゴリへ追加する
 # README.md / experiment.json / sources.mdを埋める

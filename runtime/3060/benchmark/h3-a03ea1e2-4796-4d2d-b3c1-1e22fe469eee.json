@@ -1,4 +1,4 @@
-﻿{
+{
     "gpu":  "3060",
     "port":  8189,
     "prompt_id":  "a03ea1e2-4796-4d2d-b3c1-1e22fe469eee",
@@ -8,7 +8,7 @@
     "status":  "error",
     "low_vram":  true,
     "conditions":  {
-                       "workflow":  "D:\\Prj\\minimax-h3-compose\\workflows\\diag_gpu_vae_5f_api.json",
+                       "workflow":  "<repo-root>\\workflows\\diag_gpu_vae_5f_api.json",
                        "low_vram_requested":  true,
                        "width":  864,
                        "height":  480,
