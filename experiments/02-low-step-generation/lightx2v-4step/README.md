@@ -12,6 +12,21 @@ Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/
 
 > This tracked tile is the public visual evidence; source MP4s under `runtime/*/output` remain local-only.
 
+## X動画・参照URL
+
+- **生成動画投稿**: [X投稿](https://x.com/hAru_mAki_ch/status/2085926432086307010) — `uncertain`。投稿シミュレーションに使ったURLで、4本のMP4添付と各runの対応は原投稿の添付情報を再確認するまで未確定。
+- **参照元**: [sd_tutorialの投稿](https://x.com/sd_tutorial/status/2085760369612783646) / [Kijai MiniMax-H3 Comfy](https://huggingface.co/Kijai/MiniMax-H3_comfy) / [LightX2V upstream](https://huggingface.co/lightx2v/Minimax-h3-Turbo/tree/main) / [LightX2V reproduction repository](https://github.com/ModelTC/Minimax-H3-Turbo)
+- **workflowと動画URLの対応**:
+
+  | Workflow | Run | X動画 |
+  |---|---|---|
+  | [`er_sde`](../../../workflows/minimax_h3_kijai_lightx2v_4step_1344x768_er_sde_api.json) | T2V / `b87755af...` | [X投稿](https://x.com/hAru_mAki_ch/status/2085926432086307010)（添付対応未確認） |
+  | [`sa_solver`](../../../workflows/minimax_h3_kijai_lightx2v_4step_1344x768_sa_solver_api.json) | T2V / `405a78d2...` | [X投稿](https://x.com/hAru_mAki_ch/status/2085926432086307010)（添付対応未確認） |
+  | [`i2v_er_sde`](../../../workflows/minimax_h3_kijai_lightx2v_4step_1344x768_i2v_er_sde_api.json) | I2V / `0734b9d9...` | [X投稿](https://x.com/hAru_mAki_ch/status/2085926432086307010)（添付対応未確認） |
+  | [`i2v_sa_solver`](../../../workflows/minimax_h3_kijai_lightx2v_4step_1344x768_i2v_sa_solver_api.json) | I2V / `c56359c6...` | [X投稿](https://x.com/hAru_mAki_ch/status/2085926432086307010)（添付対応未確認） |
+
+  URLは中央一覧だけに置かず、この実験のworkflow一覧の横に直接記載している。添付の確度が未確認のため、投稿URLを個別MP4の確定証跡とは表現しない。
+
 ## 現時点の一次情報
 
 KijaiのHugging Faceリポジトリは、MiniMax-H3本体ではなくLoRAを配布している。READMEの記載は、`4 steps`、`0.75 LoRA strength`、`er_sde`および`sa_solver`の例である。LoRAのalphaはKijai自身が確定値としていないため、ノイズが出る場合は低いstrengthを試す注意書きがある。

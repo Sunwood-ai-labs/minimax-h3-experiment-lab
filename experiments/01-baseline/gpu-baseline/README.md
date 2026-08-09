@@ -13,6 +13,22 @@ Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/
 
 > This tracked tile is the public visual evidence; source MP4s under `runtime/*/output` remain local-only.
 
+## X動画・参照URL
+
+- **生成動画**: [3060 T2V](https://x.com/hAru_mAki_ch/status/2085730512677855266) / [3060 I2V](https://x.com/hAru_mAki_ch/status/2085731260169953315) / [4090 T2V](https://x.com/hAru_mAki_ch/status/2085738947553185852) / [4090 I2V](https://x.com/hAru_mAki_ch/status/2085738981866811714)
+- **参照元**: [TlanoAIの3060投稿](https://x.com/TlanoAI/status/2084940455809286397) / [yume_arasakiの4090投稿](https://x.com/yume_arasaki/status/2084766655331360999) / [4090 recipe](https://github.com/yume-arasaki/RTX-4090-3090-Minimax-H3-15s)
+- **runと動画URLの対応**:
+
+  | Run | X動画 | 状態 |
+  |---|---|---|
+  | RTX 3060 T2V 1280×704（WSL再起動後） | [X動画](https://x.com/hAru_mAki_ch/status/2085730512677855266) | 投稿済み |
+  | RTX 3060 I2V 1280×704（WSL再起動後） | [X動画](https://x.com/hAru_mAki_ch/status/2085731260169953315) | 投稿済み |
+  | RTX 4090 T2V 1280×704 | [X動画](https://x.com/hAru_mAki_ch/status/2085738947553185852) | 投稿済み |
+  | RTX 4090 I2V 1280×704 | [X動画](https://x.com/hAru_mAki_ch/status/2085738981866811714) | 投稿済み |
+  | 3060/4090のその他のbaseline run | — | local-only |
+
+  この実験は個別workflow READMEではなく、run単位で記録しているため、URLは上表で実測runへ直接対応づけている。
+
 ## 目的
 
 RTX 3060とRTX 4090を別Compose serviceで動かし、投稿・linked recipeに対応する基準条件と、約720p級のT2V/I2Vを比較する。

@@ -28,6 +28,11 @@
       "type": "local_experiment",
       "path": "../../../experiments/05-temporal-continuity/motion-context-3segment",
       "role": "base Docker Compose integration and three-segment workflow"
+    },
+    {
+      "type": "x",
+      "url": "https://x.com/photogenicweeke/status/2085848283138891926?s=46",
+      "role": "source post for the inherited three-segment video/audio continuity method"
     }
   ],
   "host": {

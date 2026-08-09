@@ -14,6 +14,19 @@ Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/
 
 > This tracked tile is the public visual evidence; the four scene MP4s and overview montage remain local-only capture artifacts.
 
+## X動画・参照URL
+
+- **生成動画投稿**: [X投稿](https://x.com/hAru_mAki_ch/status/2086019982308352292) — `uncertain`。投稿シミュレーションのURLで、4シーンの添付対応は未確認。
+- **参照元**: [公式R2V workflow](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/video_minimax_h3_r2v.json) / [公式Comfy-Org MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3) / [Kijai MiniMax-H3 Comfy](https://huggingface.co/Kijai/MiniMax-H3_comfy)
+- **workflowと動画URLの対応**:
+
+  | Workflow | Scene | X動画 |
+  |---|---|---|
+  | [`scene-01`](./workflows/scene-01-sunset-meeting_api.json) | sunset meeting | [X投稿](https://x.com/hAru_mAki_ch/status/2086019982308352292)（添付対応未確認） |
+  | [`scene-02`](./workflows/scene-02-rainy-stairs_api.json) | rainy stairs | [X投稿](https://x.com/hAru_mAki_ch/status/2086019982308352292)（添付対応未確認） |
+  | [`scene-03`](./workflows/scene-03-glasshouse-orbit_api.json) | glasshouse orbit | [X投稿](https://x.com/hAru_mAki_ch/status/2086019982308352292)（添付対応未確認） |
+  | [`scene-04`](./workflows/scene-04-rooftop-pullback_api.json) | rooftop pull-back | [X投稿](https://x.com/hAru_mAki_ch/status/2086019982308352292)（添付対応未確認） |
+
 ## What was actually tested
 
 This is a true 'MiniMaxH3ReferenceToVideo' run using the 'ref2va' model. It is separate from the earlier I2V experiment, which used 'MiniMaxH3ImageToVideo' with one 'first_frame' input.

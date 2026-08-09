@@ -18,6 +18,21 @@
       "type": "local",
       "path": "../../../experiments/05-temporal-continuity/motion-context-3segment",
       "role": "base Docker Compose integration"
+    },
+    {
+      "type": "x",
+      "url": "https://x.com/photogenicweeke/status/2085848283138891926?s=46",
+      "role": "source post for the inherited three-segment video/audio continuity method"
+    },
+    {
+      "type": "tool",
+      "url": "https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry",
+      "role": "HyperFrames registry used by the lyric-motion composition"
+    },
+    {
+      "type": "tool",
+      "url": "https://hyperframes.heygen.com/llms.txt",
+      "role": "HyperFrames authoring and rendering reference"
     }
   ],
   "host": {

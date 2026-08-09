@@ -14,6 +14,19 @@ Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/
 
 > This tracked tile is the public visual evidence; source MP4s under `runtime/*/output` remain local-only.
 
+## X動画・参照URL
+
+- **生成動画投稿**: なし（未投稿 / `local-only`）。4本の生成MP4はこの実験のローカル成果物として記録している。
+- **参照元**: [sd_tutorialの投稿](https://x.com/sd_tutorial/status/2085760369612783646) / [Kijai MiniMax-H3 Comfy](https://huggingface.co/Kijai/MiniMax-H3_comfy) / [LightX2V upstream](https://huggingface.co/lightx2v/Minimax-h3-Turbo/tree/main)
+- **workflowと動画URLの対応**:
+
+  | Workflow | Scene | X動画 |
+  |---|---|---|
+  | [`car`](./workflows/minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_car_1344x768_api.json) | 車 | —（未投稿 / local-only） |
+  | [`sports`](./workflows/minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_sports_1344x768_api.json) | スポーツ | —（未投稿 / local-only） |
+  | [`illustration`](./workflows/minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_illustration_1344x768_api.json) | イラスト | —（未投稿 / local-only） |
+  | [`battle`](./workflows/minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_battle_1344x768_api.json) | バトル | —（未投稿 / local-only） |
+
 ## 結論
 
 4テーマすべてで生成に成功した。4本とも `1344×768 / 158 frames / 24 fps / 6.583333 sec / H.264 + AAC`、`blackdetect=0`、OOMなしだった。

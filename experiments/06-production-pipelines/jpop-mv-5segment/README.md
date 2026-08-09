@@ -12,6 +12,20 @@ Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/
 
 > この追跡済みタイルで、H3生成映像とリリックモーションの時間変化を確認できます。動画本体はローカル成果物です。
 
+## X動画・参照URL
+
+- **完成動画投稿**: [X投稿](https://x.com/hAru_mAki_ch/status/2086334052639142176) — `uncertain`。投稿情報はあるが、公開X添付とこのローカル完成版（H3映像＋リリックモーション）の同一性・添付対応は未確認。
+- **参照元**: [Motion Context実装](https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context) / [3セグメント元投稿](https://x.com/photogenicweeke/status/2085848283138891926?s=46) / [HyperFrames registry](https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry) / [HyperFrames guide](https://hyperframes.heygen.com/llms.txt)
+- **workflowと完成動画URLの対応**:
+
+  | Workflow | Segment | X動画 |
+  |---|---:|---|
+  | [`segment_01`](./workflows/segment_01_api.json) | 1 | [完成動画のX投稿](https://x.com/hAru_mAki_ch/status/2086334052639142176)（添付対応未確認） |
+  | [`segment_02`](./workflows/segment_02_api.json) | 2 | [完成動画のX投稿](https://x.com/hAru_mAki_ch/status/2086334052639142176)（添付対応未確認） |
+  | [`segment_03`](./workflows/segment_03_api.json) | 3 | [完成動画のX投稿](https://x.com/hAru_mAki_ch/status/2086334052639142176)（添付対応未確認） |
+  | [`segment_04`](./workflows/segment_04_api.json) | 4 | [完成動画のX投稿](https://x.com/hAru_mAki_ch/status/2086334052639142176)（添付対応未確認） |
+  | [`segment_05`](./workflows/segment_05_api.json) | 5 | [完成動画のX投稿](https://x.com/hAru_mAki_ch/status/2086334052639142176)（添付対応未確認） |
+
 ## 結論
 
 MiniMax-H3のMotion Context連鎖で、同じ歌い手・衣装・曲調を維持した5セグメントの日本語シンセポップMVを生成し、その生成音声を使ってHyperFramesでリリックモーションを重ねた。

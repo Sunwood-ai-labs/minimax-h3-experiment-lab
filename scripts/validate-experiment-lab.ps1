@@ -133,6 +133,49 @@ foreach ($dir in $experimentDirs) {
         if ($readmeText -notmatch '\]\(\./experiment\.json\)') {
             $warnings.Add("$relativeDir/README.md does not link experiment.json near the top of the record.")
         }
+        if ($readmeText -notmatch '(?m)^## X動画・参照URL\s*$') {
+            $errors.Add("$relativeDir/README.md must contain a direct 'X動画・参照URL' section.")
+        }
+
+        if ($record.PSObject.Properties.Name -contains 'publication' -and $null -ne $record.publication -and
+            $record.publication.PSObject.Properties.Name -contains 'videoTweets') {
+            foreach ($tweet in @($record.publication.videoTweets)) {
+                if ($null -eq $tweet -or $tweet.PSObject.Properties.Name -notcontains 'url') {
+                    continue
+                }
+
+                $tweetUrl = [string]$tweet.url
+                if (-not [string]::IsNullOrWhiteSpace($tweetUrl) -and
+                    $readmeText.IndexOf($tweetUrl, [System.StringComparison]::OrdinalIgnoreCase) -lt 0) {
+                    $errors.Add("$relativeDir/README.md must link publication.videoTweets URL '$tweetUrl'.")
+                }
+            }
+        }
+
+        foreach ($source in @($record.sources)) {
+            if ($null -eq $source -or $source.PSObject.Properties.Name -notcontains 'url') {
+                continue
+            }
+
+            $sourceUrl = [string]$source.url
+            if (-not [string]::IsNullOrWhiteSpace($sourceUrl) -and
+                $readmeText.IndexOf($sourceUrl, [System.StringComparison]::OrdinalIgnoreCase) -lt 0) {
+                $errors.Add("$relativeDir/README.md must link source URL '$sourceUrl'.")
+            }
+        }
+
+        $sourceNotesPath = Join-Path $dir.FullName 'sources.md'
+        if (Test-Path -LiteralPath $sourceNotesPath -PathType Leaf) {
+            $sourceNotesText = Get-Content -Raw -LiteralPath $sourceNotesPath
+            $sourceNoteUrls = [regex]::Matches($sourceNotesText, 'https?://[^\s)<>]+') |
+                ForEach-Object { $_.Value.TrimEnd('.', ',', ';') } |
+                Sort-Object -Unique
+            foreach ($sourceNoteUrl in $sourceNoteUrls) {
+                if ($readmeText.IndexOf($sourceNoteUrl, [System.StringComparison]::OrdinalIgnoreCase) -lt 0) {
+                    $errors.Add("$relativeDir/README.md must link sources.md URL '$sourceNoteUrl'.")
+                }
+            }
+        }
     }
 
     if ($record.PSObject.Properties.Name -contains 'previews' -and $null -ne $record.previews) {

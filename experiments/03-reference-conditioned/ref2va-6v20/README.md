@@ -14,6 +14,19 @@ Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/
 
 > この追跡済みタイルが公開用の視覚証跡です。生成元MP4は`runtime/*/output`のローカル成果物として扱います。
 
+## X動画・参照URL
+
+- **生成動画投稿**: [X投稿](https://x.com/hAru_mAki_ch/status/2085955887575990468) — `uncertain`。投稿シミュレーションのURLで、T2V/I2V・6/20 stepsの各添付対応は未確認。
+- **参照元**: [sd_tutorialの投稿](https://x.com/sd_tutorial/status/2085760369612783646) / [Kijai MiniMax-H3 Comfy](https://huggingface.co/Kijai/MiniMax-H3_comfy) / [公式Comfy-Org MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)
+- **workflowと動画URLの対応**:
+
+  | Workflow | Run | X動画 |
+  |---|---|---|
+  | [`T2V 6-step`](./workflows/minimax_h3_ref2va_lora080_t2v_er_sde_6step_1344x768_api.json) | T2V / 6 steps | [X投稿](https://x.com/hAru_mAki_ch/status/2085955887575990468)（添付対応未確認） |
+  | [`T2V 20-step`](./workflows/minimax_h3_ref2va_lora080_t2v_er_sde_20step_1344x768_api.json) | T2V / 20 steps | [X投稿](https://x.com/hAru_mAki_ch/status/2085955887575990468)（添付対応未確認） |
+  | [`I2V 6-step`](./workflows/minimax_h3_ref2va_lora080_i2v_er_sde_6step_1344x768_api.json) | I2V / 6 steps | [X投稿](https://x.com/hAru_mAki_ch/status/2085955887575990468)（添付対応未確認） |
+  | [`I2V 20-step`](./workflows/minimax_h3_ref2va_lora080_i2v_er_sde_20step_1344x768_api.json) | I2V / 20 steps | [X投稿](https://x.com/hAru_mAki_ch/status/2085955887575990468)（添付対応未確認） |
+
 ## 結論
 
 4本すべて生成成功。`1344×768 / 158 frames / 24fps / 6.583333秒`のH.264/AAC動画になり、`blackdetect=0`、OOMなしだった。

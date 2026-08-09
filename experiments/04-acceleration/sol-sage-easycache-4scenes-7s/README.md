@@ -13,6 +13,19 @@ Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/
 
 > This tracked tile is the public visual evidence; the four optimized MP4s remain local-only capture artifacts.
 
+## X動画・参照URL
+
+- **生成動画投稿**: [X投稿](https://x.com/hAru_mAki_ch/status/2086051398735847471) — `uncertain`。投稿シミュレーションのURLで、4シーンの最適化済みMP4との添付対応は未確認。
+- **参照元**: [公式R2V workflow](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/video_minimax_h3_r2v.json) / [SolAttn](https://github.com/kijai/ComfyUI-SolAttn_triton) / [KJNodes](https://github.com/kijai/ComfyUI-KJNodes) / [SageAttention](https://github.com/thu-ml/SageAttention) / [比較元のX投稿](https://x.com/sunbaolong_2001/status/2085689404031672372?s=46)
+- **workflowと動画URLの対応**:
+
+  | Workflow | Scene | X動画 |
+  |---|---|---|
+  | [`scene-01`](./workflows/scene-01-sunset-meeting_api.json) | sunset meeting | [X投稿](https://x.com/hAru_mAki_ch/status/2086051398735847471)（添付対応未確認） |
+  | [`scene-02`](./workflows/scene-02-rainy-stairs_api.json) | rainy stairs | [X投稿](https://x.com/hAru_mAki_ch/status/2086051398735847471)（添付対応未確認） |
+  | [`scene-03`](./workflows/scene-03-glasshouse-orbit_api.json) | glasshouse orbit | [X投稿](https://x.com/hAru_mAki_ch/status/2086051398735847471)（添付対応未確認） |
+  | [`scene-04`](./workflows/scene-04-rooftop-pullback_api.json) | rooftop pull-back | [X投稿](https://x.com/hAru_mAki_ch/status/2086051398735847471)（添付対応未確認） |
+
 ## Conclusion
 
 The working combination was integrated into the same MiniMaxH3ReferenceToVideo ref2va graph:

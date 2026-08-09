@@ -12,6 +12,18 @@ Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/
 
 > この追跡済みタイルが、3セグメント連鎖の公開用視覚証跡です。生成元MP4はローカル成果物として扱います。
 
+## X動画・参照URL
+
+- **生成動画投稿**: [X投稿](https://x.com/hAru_mAki_ch/status/2086223412129902756) — `uncertain`。投稿シミュレーションのURLで、3セグメントの添付対応は未確認。
+- **参照元**: [実装リポジトリ](https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context) / [Photogenic Weekendの元投稿](https://x.com/photogenicweeke/status/2085848283138891926?s=46)
+- **workflowと動画URLの対応**:
+
+  | Workflow | Segment | X動画 |
+  |---|---:|---|
+  | [`segment_01`](./workflows/segment_01_api.json) | 1 | [X投稿](https://x.com/hAru_mAki_ch/status/2086223412129902756)（添付対応未確認） |
+  | [`segment_02`](./workflows/segment_02_api.json) | 2 | [X投稿](https://x.com/hAru_mAki_ch/status/2086223412129902756)（添付対応未確認） |
+  | [`segment_03`](./workflows/segment_03_api.json) | 3 | [X投稿](https://x.com/hAru_mAki_ch/status/2086223412129902756)（添付対応未確認） |
+
 ## 結論
 
 `ComfyUI-H3-Motion-Context` をDockerイメージへ組み込み、RTX 4090で3セグメントのT2V連鎖を実行した。セグメント2・3では、前セグメントの映像コンテキスト、音声コンテキスト、保存済みのvideo/audio latentを同時に渡した。

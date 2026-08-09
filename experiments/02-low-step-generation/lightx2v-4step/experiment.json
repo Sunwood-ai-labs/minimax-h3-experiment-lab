@@ -27,6 +27,11 @@
       "revision": "b65e359c0d128b3c5e08e0f5bf2791b794378588",
       "checkedAt": "2026-08-08",
       "facts": ["base LightX2V H3 turbo safetensors", "ModelTC/Minimax-H3-Turbo reproduction link"]
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/ModelTC/Minimax-H3-Turbo",
+      "role": "LightX2V reproduction reference linked by the upstream README"
     }
   ],
   "conditions": {

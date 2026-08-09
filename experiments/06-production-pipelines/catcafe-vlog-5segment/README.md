@@ -12,6 +12,20 @@ Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/
 
 > この追跡済みタイルで、約30秒Vlogのセグメント間の挙動を確認できます。動画本体はローカル成果物です。
 
+## X動画・参照URL
+
+- **完成動画投稿**: [X投稿](https://x.com/hAru_mAki_ch/status/2086296391702438041) — `uncertain`。投稿情報はあるが、公開X添付とこのローカル完成動画の同一性・添付対応は未確認。
+- **参照元**: [Motion Context実装](https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context) / [3セグメント元投稿](https://x.com/photogenicweeke/status/2085848283138891926?s=46)
+- **workflowと完成動画URLの対応**:
+
+  | Workflow | Segment | X動画 |
+  |---|---:|---|
+  | [`segment_01`](./segment_01_api.json) | 1 | [完成動画のX投稿](https://x.com/hAru_mAki_ch/status/2086296391702438041)（添付対応未確認） |
+  | [`segment_02`](./segment_02_api.json) | 2 | [完成動画のX投稿](https://x.com/hAru_mAki_ch/status/2086296391702438041)（添付対応未確認） |
+  | [`segment_03`](./segment_03_api.json) | 3 | [完成動画のX投稿](https://x.com/hAru_mAki_ch/status/2086296391702438041)（添付対応未確認） |
+  | [`segment_04`](./segment_04_api.json) | 4 | [完成動画のX投稿](https://x.com/hAru_mAki_ch/status/2086296391702438041)（添付対応未確認） |
+  | [`segment_05`](./segment_05_api.json) | 5 | [完成動画のX投稿](https://x.com/hAru_mAki_ch/status/2086296391702438041)（添付対応未確認） |
+
 ## 結論
 
 英語の生成プロンプトに、日本語で話すセリフを直接含めてMiniMax-H3を実行した。猫カフェを訪れる日本人インフルエンサー風のVlogを5セグメントに分け、`ComfyUI-H3-Motion-Context`で映像・音声コンテキストとlatentを引き継いで連結した。

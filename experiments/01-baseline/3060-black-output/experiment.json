@@ -17,6 +17,11 @@
       "type": "local",
       "path": "research-notes.md",
       "role": "condition research and root-cause isolation"
+    },
+    {
+      "type": "x",
+      "url": "https://x.com/TlanoAI/status/2084940455809286397",
+      "role": "RTX 3060 condition reference post"
     }
   ],
   "conditions": {

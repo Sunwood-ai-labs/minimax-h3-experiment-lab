@@ -1,6 +1,6 @@
-# Experiment video links
+# Experiment video links (cross-index)
 
-This is the URL index for the videos discussed or published alongside each experiment. The labels distinguish an X thread containing our generated result from a source post used as a condition reference. A local MP4 path is never treated as a public URL; the tracked contact sheet remains the clone-safe visual evidence.
+This is a cross-experiment discovery index, not the sole place where provenance is recorded. Each record README has the direct **X動画・参照URL** section with the generated-video URL, every `experiment.json` source URL, and the workflow/run mapping. The labels distinguish an X thread containing our generated result from a source post used as a condition reference. A local MP4 path is never treated as a public URL; the tracked contact sheet remains the clone-safe visual evidence.
 
 | Experiment | Record / tile | Generated-video X thread | Source / reference video |
 |---|---|---|---|
@@ -12,8 +12,8 @@ This is the URL index for the videos discussed or published alongside each exper
 | Multi-reference R2V | [record](./03-reference-conditioned/multi-reference-r2v-4scenes-7s/README.md) · [tile](./03-reference-conditioned/multi-reference-r2v-4scenes-7s/previews/contact-sheet.jpg) | [X URL — attachment correspondence uncertain](https://x.com/hAru_mAki_ch/status/2086019982308352292) | [SD Tutorial reference post](https://x.com/sd_tutorial/status/2085760369612783646) |
 | Sol-Attn + SageAttention + EasyCache | [record](./04-acceleration/sol-sage-easycache-4scenes-7s/README.md) · [tile](./04-acceleration/sol-sage-easycache-4scenes-7s/previews/contact-sheet.jpg) | [X URL — attachment correspondence uncertain](https://x.com/hAru_mAki_ch/status/2086051398735847471) | [reported 3.2× speed-up post](https://x.com/sunbaolong_2001/status/2085689404031672372) |
 | H3 Motion Context | [record](./05-temporal-continuity/motion-context-3segment/README.md) · [tile](./05-temporal-continuity/motion-context-3segment/previews/contact-sheet.jpg) | [X URL — attachment correspondence uncertain](https://x.com/hAru_mAki_ch/status/2086223412129902756) | [Photogenic Weekend reference post](https://x.com/photogenicweeke/status/2085848283138891926) |
-| Japanese cat-café Vlog | [record](./06-production-pipelines/catcafe-vlog-5segment/README.md) · [tile](./06-production-pipelines/catcafe-vlog-5segment/previews/contact-sheet.jpg) | [X URL — attachment correspondence uncertain](https://x.com/hAru_mAki_ch/status/2086296391702438041) | — |
-| Japanese synth-pop MV | [record](./06-production-pipelines/jpop-mv-5segment/README.md) · [tile](./06-production-pipelines/jpop-mv-5segment/previews/contact-sheet.jpg) | [X URL — attachment correspondence uncertain](https://x.com/hAru_mAki_ch/status/2086334052639142176) | — |
+| Japanese cat-café Vlog | [record](./06-production-pipelines/catcafe-vlog-5segment/README.md) · [tile](./06-production-pipelines/catcafe-vlog-5segment/previews/contact-sheet.jpg) | [X URL — attachment correspondence uncertain](https://x.com/hAru_mAki_ch/status/2086296391702438041) | [Motion Context implementation](https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context) · [source post](https://x.com/photogenicweeke/status/2085848283138891926?s=46) |
+| Japanese synth-pop MV | [record](./06-production-pipelines/jpop-mv-5segment/README.md) · [tile](./06-production-pipelines/jpop-mv-5segment/previews/contact-sheet.jpg) | [X URL — attachment correspondence uncertain](https://x.com/hAru_mAki_ch/status/2086334052639142176) | [Motion Context implementation](https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context) · [source post](https://x.com/photogenicweeke/status/2085848283138891926?s=46) · [HyperFrames registry](https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry) |
 
 ## 日本語メモ
 

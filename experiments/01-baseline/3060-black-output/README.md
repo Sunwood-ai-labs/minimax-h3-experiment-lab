@@ -13,6 +13,12 @@ Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/
 
 > This tracked tile is the public visual evidence; the failed source MP4s remain local-only and their hashes are preserved in the manifest.
 
+## X動画・参照URL
+
+- **生成動画**: なし（未投稿 / `local-only`）。黒画の失敗結果を公開成功動画として扱っていない。
+- **参照元**: [RTX 3060条件のTlanoAI投稿](https://x.com/TlanoAI/status/2084940455809286397)
+- **対応する実験記録**: このREADMEと[`experiment.json`](./experiment.json)が旧Turbo/full-int8経路の失敗記録。成功した再検証動画は[GPU基準比較](../gpu-baseline/README.md)に分離している。
+
 ## 仮説
 
 最初に動かしたTurbo/full-int8構成が、RTX 3060のメモリ制約下でも動画を生成できるか確認した。
