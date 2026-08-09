@@ -21,6 +21,10 @@ jobs:
         shell: pwsh
         run: ./scripts/validate-experiment-lab.ps1
 
+      - name: Validate reproducibility kit and workflow files
+        shell: pwsh
+        run: ./scripts/validate-reproducibility.ps1
+
       - name: Validate public simulator media fallbacks
         shell: pwsh
         run: ./scripts/validate-public-media.ps1

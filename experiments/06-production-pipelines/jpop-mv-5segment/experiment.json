@@ -4,6 +4,7 @@
   "category": "06-production-pipelines",
   "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
   "publicEvidence": {"tile": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json", "videoStatus": "local-only", "note": "Source MP4s remain local-only; the tracked frame tile and manifest are the public visual evidence."},
+  "publication": {"platform": "x", "status": "uncertain", "videoTweets": [{"runId": "final", "url": "https://x.com/hAru_mAki_ch/status/2086334052639142176"}], "note": "social/README labels this URL as posted, while the payload is simulation-only and does not contain the URL; verify the original X attachment before treating it as canonical evidence."},
   "status": "verified",
   "scope": "MiniMax-H3 Japanese synth-pop music video with generated audio and HyperFrames lyric motion",
   "sources": [
@@ -15,7 +16,7 @@
     },
     {
       "type": "local",
-      "path": "experiments/05-temporal-continuity/motion-context-3segment",
+      "path": "../../../experiments/05-temporal-continuity/motion-context-3segment",
       "role": "base Docker Compose integration"
     }
   ],

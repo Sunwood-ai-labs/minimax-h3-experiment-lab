@@ -10,6 +10,8 @@ x-build: &build
       SOL_ATTN_REF: ${SOL_ATTN_REF:-0e334dc981cfe3b0ed926ee13ad43f64914b7f5b}
       KJNODES_REF: ${KJNODES_REF:-60cd6bc1870db94c6eeb05fbe455147a8e91c4e9}
       H3_MOTION_CONTEXT_REF: ${H3_MOTION_CONTEXT_REF:-15fc6a7bf7b78efb27f33d7eef3818e7ed0e118a}
+      SAGEATTENTION_WHEEL_URL: ${SAGEATTENTION_WHEEL_URL:-https://github.com/Comfy-Org/wheels/releases/download/sageattention-latest/sageattention-2.2.0%2Bcu130torch2.11-cp312-cp312-manylinux_2_34_x86_64.manylinux_2_35_x86_64.whl}
+      SAGEATTENTION_WHEEL_SHA256: ${SAGEATTENTION_WHEEL_SHA256:-988a5b510078dfef67fa0ca517321afb659a62a3ace12d7f52f3b831d2ddb58f}
   image: local/minimax-h3-comfyui:${COMFYUI_REF:-v0.30.0}
 
 x-environment: &environment
@@ -30,6 +32,7 @@ x-common: &common
   volumes:
     - ./models:/opt/ComfyUI/models:ro
     - ./workflows:/opt/ComfyUI/workflows:ro
+    - ./experiments:/opt/ComfyUI/experiments:ro
 
 services:
   h3-4090:
@@ -53,6 +56,7 @@ services:
     volumes:
       - ./models:/opt/ComfyUI/models:ro
       - ./workflows:/opt/ComfyUI/workflows:ro
+      - ./experiments:/opt/ComfyUI/experiments:ro
       - ./runtime/4090/input:/opt/ComfyUI/input
       - ./runtime/4090/output:/opt/ComfyUI/output
       - ./runtime/4090/user:/opt/ComfyUI/user
@@ -93,6 +97,7 @@ services:
     volumes:
       - ./models:/opt/ComfyUI/models:ro
       - ./workflows:/opt/ComfyUI/workflows:ro
+      - ./experiments:/opt/ComfyUI/experiments:ro
       - ./runtime/3060/input:/opt/ComfyUI/input
       - ./runtime/3060/output:/opt/ComfyUI/output
       - ./runtime/3060/user:/opt/ComfyUI/user
@@ -118,7 +123,13 @@ services:
     environment:
       <<: *environment
       H3_MODEL_REPO: ${H3_MODEL_REPO:-Comfy-Org/MiniMax-H3}
+      H3_MODEL_REF: ${H3_MODEL_REF:-93acf8c91365d40dc32a3abd19af06df6b6f7c65}
+      H3_PROFILE: ${H3_PROFILE:-${H3_VARIANT:-fl2va}}
       H3_VARIANT: ${H3_VARIANT:-fl2va}
+      H3_LIGHTX2V_REPO: ${H3_LIGHTX2V_REPO:-Kijai/MiniMax-H3_comfy}
+      H3_LIGHTX2V_REF: ${H3_LIGHTX2V_REF:-37ae5cbe1d6f2243484812fc511f9fa427b12a30}
+      H3_TURBO_MODEL_REPO: ${H3_TURBO_MODEL_REPO:-larryvrh/MiniMax-H3-Turbo-Lora}
+      H3_TURBO_MODEL_REF: ${H3_TURBO_MODEL_REF:-43a74557ac3f6539db8e0f2a959d03feb7a81480}
       HF_HUB_DISABLE_XET: ${HF_HUB_DISABLE_XET:-1}
     volumes:
       - ./models:/opt/ComfyUI/models

@@ -8,7 +8,9 @@
 
 このREADMEと同じディレクトリの`experiment.json`を機械可読な正本にします。出典にない値を推測で補完せず、検証用に固定した値と分けて記録します。
 
-Record: [experiment.json](./experiment.json) · `previews/contact-sheet.jpg` · `previews/contact-sheet.json`
+Record: [experiment.json](./experiment.json) · [tracked tile](./previews/contact-sheet.jpg) · [manifest](./previews/contact-sheet.json)
+
+Video/source X URL: `<https://x.com/...>` or `Not published / local-only`
 
 公開用の視覚証跡は追跡済みのフレームタイルとmanifestです。生成MP4・音声・モデル重みは通常local-onlyとして扱い、READMEのリンクにはせず、`experiment.json`へパス・bytes・SHA-256を記録します。
 
@@ -36,6 +38,15 @@ Record: [experiment.json](./experiment.json) · `previews/contact-sheet.jpg` · 
 - EasyCache / attention / offload:
 - Seed / prompt:
 
+## 再現キット
+
+- Compose: [`compose.yaml`](../../../compose.yaml)
+- Image build: [`Dockerfile`](../../../Dockerfile)
+- Host config: [`.env.example`](../../../.env.example)
+- Model setup: [`docker/download-h3-model.sh`](../../../docker/download-h3-model.sh)
+- Model lock: [`models/manifest.json`](../../../models/manifest.json)
+- Workflow JSON: `./workflows/` or a shared file under [`workflows/`](../../../workflows/)
+
 ## 実行結果
 
 | Run | Status | Start | End | runner wall | OOM | blackdetect |
@@ -56,4 +67,5 @@ Record: [experiment.json](./experiment.json) · `previews/contact-sheet.jpg` · 
 
 ```powershell
 .\scripts\validate-experiment-lab.ps1
+.\scripts\validate-reproducibility.ps1
 ```

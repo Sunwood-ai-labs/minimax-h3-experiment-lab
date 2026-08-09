@@ -4,6 +4,7 @@
   "category": "05-temporal-continuity",
   "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
   "publicEvidence": {"tile": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json", "videoStatus": "local-only", "note": "Source MP4s remain local-only; the tracked frame tile and manifest are the public visual evidence."},
+  "publication": {"platform": "x", "status": "uncertain", "videoTweets": [{"runId": "thread-overview", "url": "https://x.com/hAru_mAki_ch/status/2086223412129902756"}], "note": "The URL is present in the publication simulation, but simulation-only media provenance does not prove the exact attachment mapping."},
   "status": "verified",
   "scope": "MiniMax-H3 Motion Context three-segment T2V chain with video/audio latent carry-over",
   "sources": [

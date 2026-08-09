@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "MiniMax-H3 Experiment",
   "type": "object",
-  "required": ["id", "date", "category", "status", "sources", "conditions", "runs", "previews", "publicEvidence"],
+  "required": ["id", "date", "category", "status", "sources", "conditions", "runs", "previews", "publicEvidence", "publication"],
   "properties": {
     "id": {"type": "string"},
     "date": {"type": "string", "format": "date"},
@@ -45,6 +45,28 @@
         "tile": {"type": "string"},
         "manifest": {"type": "string"},
         "videoStatus": {"enum": ["tracked", "local-only", "not-applicable"]},
+        "note": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "publication": {
+      "type": "object",
+      "required": ["platform", "status", "videoTweets"],
+      "properties": {
+        "platform": {"const": "x"},
+        "status": {"enum": ["posted", "uncertain", "simulation_only", "not_posted"]},
+        "videoTweets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["url"],
+            "properties": {
+              "runId": {"type": "string"},
+              "url": {"type": "string", "pattern": "^https://x\\.com/[^/]+/status/[0-9]+"}
+            },
+            "additionalProperties": true
+          }
+        },
         "note": {"type": "string"}
       },
       "additionalProperties": true

@@ -8,6 +8,7 @@
 各実験の動画挙動を素早く確認するため、可能な場合は`previews/contact-sheet.jpg`に代表フレームをタイル表示し、同名JSONに入力動画とサンプル時刻を記録します。
 
 まず視覚的に探す場合は[実験ギャラリー](./README.md)を開いてください。各カードからREADME、`experiment.json`、追跡済みタイル、タイルmanifestへ移動できます。
+動画投稿・参照元のURLだけを確認する場合は[動画リンク台帳](./video-links.md)を開いてください。生成結果のXスレッドと、条件を調べた参照投稿を区別しています。
 
 ## 機能別の入口
 
@@ -96,6 +97,7 @@ RTX 3060は、旧int8経路では黒画になった一方、公式FP16/FP32 VAE�
 - 共有workflow: [workflows](../workflows)
 - 実験テンプレート: [experiments/_template](./_template/README.md)
 - X用の動画・投稿payload: [social/README](../social/README.md)
+- X動画・参照投稿URL: [video-links.md](./video-links.md)
 
 生成MP4・音声・モデル重みは通常Gitへ含めません。公開cloneで確認できる視覚証跡は追跡済みタイルとmanifestで、動画本体のパスとSHA-256は各記録に残します。
 

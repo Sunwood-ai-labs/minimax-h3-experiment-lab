@@ -17,15 +17,45 @@
 ## 🧭 まず見る場所
 
 - [実験ギャラリー](./experiments/README.md)
+- [このページで10件のタイルを一覧プレビュー](#🖼️-実験タイルプレビュー)
 - [機械可読な実験台帳](./experiments/index.md)
 - [再現性・記録の運用ガイド](./LAB.md)
 - [公開ドキュメント](https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/)
 - [X投稿payload・シミュレーター一覧](./social/README.md)
 - [フレームタイルのルール](./LAB.md#フレームタイルプレビュー)
 
+## 🖼️ 実験タイルプレビュー
+
+Git clone直後でも挙動を比較できるよう、Git追跡済みのcontact sheetを表紙に直接表示します。タイルをクリックすると実験記録へ移動でき、X動画スレッドまたは参照元投稿も同じカードから開けます。生成MP4は通常ローカルのみとし、公開視覚証跡はタイルです。
+
+<table>
+  <tr>
+    <td width="50%" valign="top"><a href="./experiments/01-baseline/gpu-baseline/README.md"><img src="./experiments/01-baseline/gpu-baseline/previews/contact-sheet.jpg" alt="GPU baseline contact sheet" width="480"></a><br><strong>GPU基準比較</strong><br>RTX 3060 / 4090 · T2V + I2V<br><a href="./experiments/01-baseline/gpu-baseline/README.md">記録</a> · <a href="https://x.com/hAru_mAki_ch/status/2085730512677855266">3060 T2V</a> · <a href="https://x.com/hAru_mAki_ch/status/2085731260169953315">3060 I2V</a> · <a href="https://x.com/hAru_mAki_ch/status/2085738947553185852">4090 T2V</a> · <a href="https://x.com/hAru_mAki_ch/status/2085738981866811714">4090 I2V</a></td>
+    <td width="50%" valign="top"><a href="./experiments/01-baseline/3060-black-output/README.md"><img src="./experiments/01-baseline/3060-black-output/previews/contact-sheet.jpg" alt="3060 black-output contact sheet" width="480"></a><br><strong>3060黒画失敗</strong><br>成功基準と混同しないための失敗証跡<br><a href="./experiments/01-baseline/3060-black-output/README.md">記録</a> · <a href="https://x.com/TlanoAI/status/2084940455809286397">参照動画投稿</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="./experiments/02-low-step-generation/lightx2v-4step/README.md"><img src="./experiments/02-low-step-generation/lightx2v-4step/previews/contact-sheet.jpg" alt="LightX2V low-step contact sheet" width="480"></a><br><strong>LightX2V 4-step</strong><br>T2V / I2V · `er_sde` / `sa_solver`<br><a href="./experiments/02-low-step-generation/lightx2v-4step/README.md">記録</a> · <a href="https://x.com/hAru_mAki_ch/status/2085926432086307010">Xスレッド（添付対応は未確定）</a> · <a href="https://x.com/sd_tutorial/status/2085760369612783646">参照投稿</a></td>
+    <td valign="top"><a href="./experiments/03-reference-conditioned/i2v-scenes/README.md"><img src="./experiments/03-reference-conditioned/i2v-scenes/previews/contact-sheet.jpg" alt="ImageGen-started I2V contact sheet" width="480"></a><br><strong>ImageGen開始I2V</strong><br>車・スポーツ・イラスト・バトル<br><a href="./experiments/03-reference-conditioned/i2v-scenes/README.md">記録</a> · <a href="https://x.com/sd_tutorial/status/2085760369612783646">参照動画投稿</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="./experiments/03-reference-conditioned/ref2va-6v20/README.md"><img src="./experiments/03-reference-conditioned/ref2va-6v20/previews/contact-sheet.jpg" alt="ref2va steps comparison contact sheet" width="480"></a><br><strong>ref2va 6 vs 20 steps</strong><br>T2V / I2V · LoRA 0.8<br><a href="./experiments/03-reference-conditioned/ref2va-6v20/README.md">記録</a> · <a href="https://x.com/hAru_mAki_ch/status/2085955887575990468">Xスレッド（添付対応は未確定）</a> · <a href="https://x.com/sd_tutorial/status/2085760369612783646">参照投稿</a></td>
+    <td valign="top"><a href="./experiments/03-reference-conditioned/multi-reference-r2v-4scenes-7s/README.md"><img src="./experiments/03-reference-conditioned/multi-reference-r2v-4scenes-7s/previews/contact-sheet.jpg" alt="multi-reference R2V contact sheet" width="480"></a><br><strong>複数リファレンスR2V</strong><br>背景＋人物2人 · 4シーン<br><a href="./experiments/03-reference-conditioned/multi-reference-r2v-4scenes-7s/README.md">記録</a> · <a href="https://x.com/hAru_mAki_ch/status/2086019982308352292">Xスレッド（添付対応は未確定）</a> · <a href="https://x.com/sd_tutorial/status/2085760369612783646">参照投稿</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="./experiments/04-acceleration/sol-sage-easycache-4scenes-7s/README.md"><img src="./experiments/04-acceleration/sol-sage-easycache-4scenes-7s/previews/contact-sheet.jpg" alt="attention and cache acceleration contact sheet" width="480"></a><br><strong>Attention / cache高速化</strong><br>Sol-Attn + SageAttention + EasyCache<br><a href="./experiments/04-acceleration/sol-sage-easycache-4scenes-7s/README.md">記録</a> · <a href="https://x.com/hAru_mAki_ch/status/2086051398735847471">Xスレッド（添付対応は未確定）</a> · <a href="https://x.com/sunbaolong_2001/status/2085689404031672372">参照投稿</a></td>
+    <td valign="top"><a href="./experiments/05-temporal-continuity/motion-context-3segment/README.md"><img src="./experiments/05-temporal-continuity/motion-context-3segment/previews/contact-sheet.jpg" alt="Motion Context contact sheet" width="480"></a><br><strong>Motion Context</strong><br>映像＋音声latentの連続性<br><a href="./experiments/05-temporal-continuity/motion-context-3segment/README.md">記録</a> · <a href="https://x.com/hAru_mAki_ch/status/2086223412129902756">Xスレッド（添付対応は未確定）</a> · <a href="https://x.com/photogenicweeke/status/2085848283138891926">参照投稿</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="./experiments/06-production-pipelines/catcafe-vlog-5segment/README.md"><img src="./experiments/06-production-pipelines/catcafe-vlog-5segment/previews/contact-sheet.jpg" alt="Japanese cat cafe vlog contact sheet" width="480"></a><br><strong>日本語猫カフェVlog</strong><br>5セグメント · 日本語セリフ · 約30秒<br><a href="./experiments/06-production-pipelines/catcafe-vlog-5segment/README.md">記録</a> · <a href="https://x.com/hAru_mAki_ch/status/2086296391702438041">X URL（添付対応は未確定）</a></td>
+    <td valign="top"><a href="./experiments/06-production-pipelines/jpop-mv-5segment/README.md"><img src="./experiments/06-production-pipelines/jpop-mv-5segment/previews/contact-sheet.jpg" alt="Japanese synth-pop MV contact sheet" width="480"></a><br><strong>日本語シンセポップMV</strong><br>生成音声 · ビート解析 · リリックモーション<br><a href="./experiments/06-production-pipelines/jpop-mv-5segment/README.md">記録</a> · <a href="https://x.com/hAru_mAki_ch/status/2086334052639142176">X URL（添付対応は未確定）</a></td>
+  </tr>
+</table>
+
+一覧表は[実験台帳](./experiments/index.md)、動画URLだけを確認する場合は[動画リンク台帳](./experiments/video-links.md)を開いてください。
+
 ## 🚀 起動方法
 
-前提は Windows 11 + WSL2 + Docker Desktop、DockerからGPUを利用できるNVIDIAドライバ、RTX 3060またはRTX 4090です。モデルはGitへ含めず、検証した構成では外部から約42.5GBを取得します。
+前提は Windows 11 + WSL2 + Docker Desktop、DockerからGPUを利用できるNVIDIAドライバ、RTX 3060またはRTX 4090です。モデルはGitへ含めず、既定の`fl2va` / `ref2va` profileでは外部から約42.5GBを取得します。
 
 ```powershell
 git clone https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab.git
@@ -38,6 +68,8 @@ docker compose --profile 4090 build h3-4090
 docker compose --profile download run --rm model-downloader
 docker compose --profile 4090 up -d h3-4090
 ```
+
+取得profileは`.env`で選択します。`fl2va`（既定）、`ref2va`、`fl2va-lightx2v`、`ref2va-lightx2v`、`legacy-turbo`に対応しています。大きいprofileを選ぶ前に[`models/README.md`](./models/README.md)と、固定値を記録した[`models/manifest.json`](./models/manifest.json)を確認してください。
 
 - RTX 4090: <http://localhost:8188>
 - RTX 3060: <http://localhost:8189>
@@ -75,6 +107,22 @@ experiments/<category>/<slug>/
 
 カテゴリは[基準条件](./experiments/01-baseline/)、[低ステップ](./experiments/02-low-step-generation/)、[参照条件](./experiments/03-reference-conditioned/)、[高速化](./experiments/04-acceleration/)、[時間連続性](./experiments/05-temporal-continuity/)、[制作パイプライン](./experiments/06-production-pipelines/)です。既存カテゴリに入る実験は同じカテゴリへslugを追加し、新機能系統だけschema・validator・台帳を同時更新してカテゴリを増やします。
 
+## 🧰 再現キット
+
+実行に必要な主要ファイルはGit管理下にあり、各実験から辿れるようにしています。
+
+| 層 | 正本ファイル | 役割 |
+|---|---|---|
+| Compose | [`compose.yaml`](./compose.yaml) | RTX 3060 / RTX 4090サービスとモデル取得profile |
+| Image build | [`Dockerfile`](./Dockerfile) | PyTorch base digest、ComfyUI/custom nodeのrevision、SageAttention wheel hashを固定 |
+| ホスト設定 | [`.env.example`](./.env.example) | GPU UUID、モデルprofile、upstream revision、build revision |
+| モデル取得 | [`docker/download-h3-model.sh`](./docker/download-h3-model.sh) | profile別にモデルを取得し、サイズとSHA-256を検査 |
+| モデル固定表 | [`models/manifest.json`](./models/manifest.json) と [`models/README.md`](./models/README.md) | モデル名、source revision、配置先、bytes、hash |
+| workflow | [`workflows/`](./workflows/) と各記録の`workflows/` | API形式のComfyUIグラフとhash |
+| 検証 | [`scripts/validate-reproducibility.ps1`](./scripts/validate-reproducibility.ps1) | Compose / Docker / workflow / 入力の実在性を確認 |
+
+モデル本体と生成動画は意図的に外部・ローカル扱いです。clone直後にDocker build入力、runtime、モデル固定表、workflowの構成は再現できますが、モデル取得とGPU実行なしに生成MP4まで再現できるわけではありません。Python/apt依存は固定したupstream sourceとbuild時のpackage indexに従うため、bit単位の出力一致までは保証しません。
+
 ## 🖼️ フレームタイル
 
 動画はローカル検証には便利ですが、READMEやXへ添付しづらいため、完了した実験は代表フレームをタイル化します。フレームは左から右、次に上から下へ時間が進みます。複数動画は入力順にブロックを縦積みし、同名manifestへ入力動画、SHA-256、fps、duration、サンプル時刻を保存します。生成元MP4は`runtime/*/output`などにローカル保存される場合があり、GitHub公開物ではタイルとmanifestを正本にします。
@@ -108,6 +156,7 @@ docker compose config --quiet
 - [検証ログ](./verification-log.md)
 - [X投稿・シミュレーター](./social/README.md)
 - [Docker Compose](./compose.yaml)
+- [動画リンク台帳](./experiments/video-links.md)
 
 ## ⚖️ ライセンスと範囲
 

@@ -35,7 +35,7 @@ social/
   README.md                        # 投稿シミュレーターとpayloadの索引
 ```
 
-モデル本体、runtimeのoutput、依存キャッシュはGitへ入れません。実験記録には取得元、revision、ファイルサイズ、SHA-256、ローカル保存先を残します。`experiment.json`のworkflow・実験内referenceは実験ディレクトリ基準、`runtime/...`やcontact-sheet manifestのsource pathはリポジトリルート基準として扱います。新しい記録では基準を混在させず、READMEリンクはREADME基準の相対パスにします。
+モデル本体、runtimeのoutput、依存キャッシュはGitへ入れません。モデルは[`models/manifest.json`](./models/manifest.json)でprofile、取得元、revision、ファイルサイズ、SHA-256、配置先を固定し、download scriptで取得後に検証します。実験記録にはローカル保存先も残します。`experiment.json`のworkflow・実験内referenceは実験ディレクトリ基準、`runtime/...`やcontact-sheet manifestのsource pathはリポジトリルート基準として扱います。新しい記録では基準を混在させず、READMEリンクはREADME基準の相対パスにします。
 
 ## 1実験の必須項目
 
@@ -105,6 +105,7 @@ prompt、seed、scheduler、sampler、attention、EasyCache閾値など、比較
 # JSON / README / experiment indexの基本検証
 .\scripts\validate-experiment-lab.ps1
 .\scripts\validate-public-media.ps1
+.\scripts\validate-reproducibility.ps1
 
 # Composeの展開検証（コンテナ起動はしない）
 docker compose config --quiet

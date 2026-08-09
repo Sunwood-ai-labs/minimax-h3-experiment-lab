@@ -92,7 +92,7 @@ foreach ($dir in $experimentDirs) {
         continue
     }
 
-    $required = @('id', 'date', 'category', 'status', 'sources', 'conditions', 'runs', 'previews', 'publicEvidence')
+    $required = @('id', 'date', 'category', 'status', 'sources', 'conditions', 'runs', 'previews', 'publicEvidence', 'publication')
     foreach ($name in $required) {
         [void](Test-RequiredProperty -Object $record -Name $name -Path "$relativeDir/experiment.json")
     }
@@ -103,6 +103,24 @@ foreach ($dir in $experimentDirs) {
 
     if (($record.category -as [string]) -ne $category) {
         $errors.Add("$relativeDir/experiment.json category '$($record.category)' does not match directory category '$category'.")
+    }
+
+    if ($record.PSObject.Properties.Name -contains 'publication' -and $null -ne $record.publication) {
+        if ($record.publication.PSObject.Properties.Name -notcontains 'platform' -or [string]$record.publication.platform -ne 'x') {
+            $errors.Add("$relativeDir/experiment.json publication.platform must be 'x'.")
+        }
+        if ($record.publication.PSObject.Properties.Name -notcontains 'status' -or [string]$record.publication.status -notin @('posted', 'uncertain', 'simulation_only', 'not_posted')) {
+            $errors.Add("$relativeDir/experiment.json publication.status is unsupported.")
+        }
+        if ($record.publication.PSObject.Properties.Name -notcontains 'videoTweets') {
+            $errors.Add("$relativeDir/experiment.json publication.videoTweets is missing.")
+        } else {
+            foreach ($tweet in @($record.publication.videoTweets)) {
+                if ($tweet.PSObject.Properties.Name -notcontains 'url' -or [string]$tweet.url -notmatch '^https://x\.com/[^/]+/status/[0-9]+') {
+                    $errors.Add("$relativeDir/experiment.json publication.videoTweets contains an invalid X URL.")
+                }
+            }
+        }
     }
 
     if (-not (Test-Path -LiteralPath $readmePath)) {

@@ -4,6 +4,7 @@
   "category": "03-reference-conditioned",
   "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
   "publicEvidence": {"tile": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json", "videoStatus": "local-only", "note": "Source MP4s remain local-only; the tracked frame tile and manifest are the public visual evidence."},
+  "publication": {"platform": "x", "status": "uncertain", "videoTweets": [{"runId": "thread-overview", "url": "https://x.com/hAru_mAki_ch/status/2086019982308352292"}], "note": "The URL is present in the publication simulation, but simulationOnly=true leaves the exact attachment-to-run mapping unverified."},
   "status": "verified",
   "purpose": "Run MiniMax-H3 ref2va reference-to-video with one background reference sheet and two character reference sheets, reusing all three references across four scenes of about seven seconds.",
   "sources": [
@@ -96,7 +97,7 @@
     "pytorch": "2.11.0+cu130",
     "cuda": "13.0",
     "cudnn": "9",
-    "composeFile": "compose.yaml",
+    "composeFile": "../../../compose.yaml",
     "commandArgs": ["--listen", "0.0.0.0", "--port", "8188", "--disable-pinned-memory", "--fp16-intermediates", "--preview-method", "none"],
     "gitCommit": "66bb2e0",
     "gitBranch": "master"

@@ -18,6 +18,12 @@
     "videoStatus": "local-only",
     "note": "Keep the frame tile and manifest tracked; record generated video paths and hashes without linking ignored MP4s."
   },
+  "publication": {
+    "platform": "x",
+    "status": "not_posted",
+    "videoTweets": [],
+    "note": "Add only an X URL whose attachment status is known; use uncertain or simulation_only when the payload does not prove the video correspondence."
+  },
   "conclusion": "",
   "limitations": []
 }

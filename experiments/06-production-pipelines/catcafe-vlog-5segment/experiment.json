@@ -4,6 +4,7 @@
   "category": "06-production-pipelines",
   "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
   "publicEvidence": {"tile": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json", "videoStatus": "local-only", "note": "Source MP4s remain local-only; the tracked frame tile and manifest are the public visual evidence."},
+  "publication": {"platform": "x", "status": "uncertain", "videoTweets": [{"runId": "merged", "url": "https://x.com/hAru_mAki_ch/status/2086296391702438041"}], "note": "social/README labels this URL as posted, while the payload says simulationOnly=true; verify the original X attachment before treating it as canonical evidence."},
   "status": "verified",
   "scope": "MiniMax-H3 Japanese dialogue cat-cafe influencer-style vlog using a five-segment Motion Context T2V chain",
   "language_design": {
@@ -25,7 +26,7 @@
     },
     {
       "type": "local_experiment",
-      "path": "experiments/05-temporal-continuity/motion-context-3segment",
+      "path": "../../../experiments/05-temporal-continuity/motion-context-3segment",
       "role": "base Docker Compose integration and three-segment workflow"
     }
   ],
@@ -91,15 +92,15 @@
     "chain_formula": "158 + 4 * (158 - 22)"
   },
   "scripts": {
-    "workflow_builder": "scripts/build-h3-catcafe-vlog-workflows.py",
-    "runner": "scripts/run-h3-catcafe-vlog.ps1",
-    "merger": "scripts/merge-h3-catcafe-vlog.ps1",
+    "workflow_builder": "../../../scripts/build-h3-catcafe-vlog-workflows.py",
+    "runner": "../../../scripts/run-h3-catcafe-vlog.ps1",
+    "merger": "../../../scripts/merge-h3-catcafe-vlog.ps1",
     "workflow_files": [
-      "experiments/06-production-pipelines/catcafe-vlog-5segment/segment_01_api.json",
-      "experiments/06-production-pipelines/catcafe-vlog-5segment/segment_02_api.json",
-      "experiments/06-production-pipelines/catcafe-vlog-5segment/segment_03_api.json",
-      "experiments/06-production-pipelines/catcafe-vlog-5segment/segment_04_api.json",
-      "experiments/06-production-pipelines/catcafe-vlog-5segment/segment_05_api.json"
+      "segment_01_api.json",
+      "segment_02_api.json",
+      "segment_03_api.json",
+      "segment_04_api.json",
+      "segment_05_api.json"
     ]
   },
   "prompts": [

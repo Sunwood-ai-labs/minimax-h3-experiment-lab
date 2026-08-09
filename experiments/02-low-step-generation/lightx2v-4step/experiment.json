@@ -4,6 +4,7 @@
   "category": "02-low-step-generation",
   "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
   "publicEvidence": {"tile": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json", "videoStatus": "local-only", "note": "Source MP4s remain local-only; the tracked frame tile and manifest are the public visual evidence."},
+  "publication": {"platform": "x", "status": "uncertain", "videoTweets": [{"runId": "thread-overview", "url": "https://x.com/hAru_mAki_ch/status/2085926432086307010"}], "note": "The URL is present in the publication simulation, but the payload is simulation_only and does not prove which generated MP4s were attached."},
   "status": "verified",
   "hypothesis": "KijaiのLightX2V 4-step LoRAをMiniMax-H3公式VAEとpruned int8 baseへ接続すると、4 stepsで動画生成できる。",
   "sources": [

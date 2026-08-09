@@ -4,6 +4,7 @@
   "category": "01-baseline",
   "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
   "publicEvidence": {"tile": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json", "videoStatus": "local-only", "note": "Source MP4s remain local-only; the tracked frame tile and manifest are the public visual evidence."},
+  "publication": {"platform": "x", "status": "posted", "videoTweets": [{"runId": "3060-t2v-720p-class", "url": "https://x.com/hAru_mAki_ch/status/2085730512677855266"}, {"runId": "3060-i2v-720p-class", "url": "https://x.com/hAru_mAki_ch/status/2085731260169953315"}, {"runId": "4090-t2v-720p-class", "url": "https://x.com/hAru_mAki_ch/status/2085738947553185852"}, {"runId": "4090-i2v-720p-class", "url": "https://x.com/hAru_mAki_ch/status/2085738981866811714"}], "note": "These four URLs are the published 1280x704 video posts; other baseline runs remain local-only."},
   "status": "verified",
   "hypothesis": "RTX 3060とRTX 4090を個別Compose serviceで動かし、投稿・recipe条件と約720p級T2V/I2Vの実行可能性を確認する。",
   "sources": [

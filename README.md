@@ -17,15 +17,45 @@ This repository is a growing experiment lab rather than a model mirror. It keeps
 ## 🧭 Start here
 
 - [Browse the visual experiment gallery](./experiments/README.md)
+- [See all ten tile previews on this page](#🖼️-experiment-tile-previews)
 - [Open the machine-readable experiment ledger](./experiments/index.md)
 - [Read the reproducibility contract](./LAB.md)
 - [Open the documentation site](https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/)
 - [Review X publishing payloads and simulators](./social/README.md)
 - [Inspect the frame-tile rules](./LAB.md#フレームタイルプレビュー)
 
+## 🖼️ Experiment tile previews
+
+These tracked contact sheets are the fastest way to compare temporal behavior from a fresh clone. Click a tile to open the full experiment record; each card also links to the corresponding video thread or source post on X. Generated MP4s remain local-only, so the tiles are the public visual evidence.
+
+<table>
+  <tr>
+    <td width="50%" valign="top"><a href="./experiments/01-baseline/gpu-baseline/README.md"><img src="./experiments/01-baseline/gpu-baseline/previews/contact-sheet.jpg" alt="GPU baseline contact sheet" width="480"></a><br><strong>GPU baseline</strong><br>RTX 3060 / 4090 · T2V + I2V<br><a href="./experiments/01-baseline/gpu-baseline/README.md">Record</a> · <a href="https://x.com/hAru_mAki_ch/status/2085730512677855266">3060 T2V</a> · <a href="https://x.com/hAru_mAki_ch/status/2085731260169953315">3060 I2V</a> · <a href="https://x.com/hAru_mAki_ch/status/2085738947553185852">4090 T2V</a> · <a href="https://x.com/hAru_mAki_ch/status/2085738981866811714">4090 I2V</a></td>
+    <td width="50%" valign="top"><a href="./experiments/01-baseline/3060-black-output/README.md"><img src="./experiments/01-baseline/3060-black-output/previews/contact-sheet.jpg" alt="3060 black-output contact sheet" width="480"></a><br><strong>3060 black-output failure</strong><br>Retained failure evidence · not a success baseline<br><a href="./experiments/01-baseline/3060-black-output/README.md">Record</a> · <a href="https://x.com/TlanoAI/status/2084940455809286397">source video post</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="./experiments/02-low-step-generation/lightx2v-4step/README.md"><img src="./experiments/02-low-step-generation/lightx2v-4step/previews/contact-sheet.jpg" alt="LightX2V low-step contact sheet" width="480"></a><br><strong>LightX2V 4-step</strong><br>T2V / I2V · `er_sde` / `sa_solver`<br><a href="./experiments/02-low-step-generation/lightx2v-4step/README.md">Record</a> · <a href="https://x.com/hAru_mAki_ch/status/2085926432086307010">X thread (attachment uncertain)</a> · <a href="https://x.com/sd_tutorial/status/2085760369612783646">source post</a></td>
+    <td valign="top"><a href="./experiments/03-reference-conditioned/i2v-scenes/README.md"><img src="./experiments/03-reference-conditioned/i2v-scenes/previews/contact-sheet.jpg" alt="ImageGen-started I2V contact sheet" width="480"></a><br><strong>ImageGen-started I2V</strong><br>Car · sports · illustration · battle<br><a href="./experiments/03-reference-conditioned/i2v-scenes/README.md">Record</a> · <a href="https://x.com/sd_tutorial/status/2085760369612783646">source video post</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="./experiments/03-reference-conditioned/ref2va-6v20/README.md"><img src="./experiments/03-reference-conditioned/ref2va-6v20/previews/contact-sheet.jpg" alt="ref2va steps comparison contact sheet" width="480"></a><br><strong>ref2va 6 vs 20 steps</strong><br>T2V / I2V · LoRA 0.8<br><a href="./experiments/03-reference-conditioned/ref2va-6v20/README.md">Record</a> · <a href="https://x.com/hAru_mAki_ch/status/2085955887575990468">X thread (attachment uncertain)</a> · <a href="https://x.com/sd_tutorial/status/2085760369612783646">source post</a></td>
+    <td valign="top"><a href="./experiments/03-reference-conditioned/multi-reference-r2v-4scenes-7s/README.md"><img src="./experiments/03-reference-conditioned/multi-reference-r2v-4scenes-7s/previews/contact-sheet.jpg" alt="multi-reference R2V contact sheet" width="480"></a><br><strong>Multi-reference R2V</strong><br>Background + two characters · four scenes<br><a href="./experiments/03-reference-conditioned/multi-reference-r2v-4scenes-7s/README.md">Record</a> · <a href="https://x.com/hAru_mAki_ch/status/2086019982308352292">X thread (attachment uncertain)</a> · <a href="https://x.com/sd_tutorial/status/2085760369612783646">source post</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="./experiments/04-acceleration/sol-sage-easycache-4scenes-7s/README.md"><img src="./experiments/04-acceleration/sol-sage-easycache-4scenes-7s/previews/contact-sheet.jpg" alt="attention and cache acceleration contact sheet" width="480"></a><br><strong>Attention / cache acceleration</strong><br>Sol-Attn + SageAttention + EasyCache<br><a href="./experiments/04-acceleration/sol-sage-easycache-4scenes-7s/README.md">Record</a> · <a href="https://x.com/hAru_mAki_ch/status/2086051398735847471">X thread (attachment uncertain)</a> · <a href="https://x.com/sunbaolong_2001/status/2085689404031672372">source post</a></td>
+    <td valign="top"><a href="./experiments/05-temporal-continuity/motion-context-3segment/README.md"><img src="./experiments/05-temporal-continuity/motion-context-3segment/previews/contact-sheet.jpg" alt="Motion Context contact sheet" width="480"></a><br><strong>Motion Context</strong><br>Video + audio latent continuity<br><a href="./experiments/05-temporal-continuity/motion-context-3segment/README.md">Record</a> · <a href="https://x.com/hAru_mAki_ch/status/2086223412129902756">X thread (attachment uncertain)</a> · <a href="https://x.com/photogenicweeke/status/2085848283138891926">source post</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="./experiments/06-production-pipelines/catcafe-vlog-5segment/README.md"><img src="./experiments/06-production-pipelines/catcafe-vlog-5segment/previews/contact-sheet.jpg" alt="Japanese cat cafe vlog contact sheet" width="480"></a><br><strong>Japanese cat-café Vlog</strong><br>Five segments · Japanese dialogue · about 30 seconds<br><a href="./experiments/06-production-pipelines/catcafe-vlog-5segment/README.md">Record</a> · <a href="https://x.com/hAru_mAki_ch/status/2086296391702438041">X URL (attachment uncertain)</a></td>
+    <td valign="top"><a href="./experiments/06-production-pipelines/jpop-mv-5segment/README.md"><img src="./experiments/06-production-pipelines/jpop-mv-5segment/previews/contact-sheet.jpg" alt="Japanese synth-pop MV contact sheet" width="480"></a><br><strong>Japanese synth-pop MV</strong><br>Generated audio · beat analysis · lyric motion<br><a href="./experiments/06-production-pipelines/jpop-mv-5segment/README.md">Record</a> · <a href="https://x.com/hAru_mAki_ch/status/2086334052639142176">X URL (attachment uncertain)</a></td>
+  </tr>
+</table>
+
+For the same list in a compact ledger, see [the experiment index](./experiments/index.md) and [the video-link index](./experiments/video-links.md).
+
 ## 🚀 Quick start
 
-Requirements: Windows 11 + WSL2 + Docker Desktop, an NVIDIA driver with Docker GPU support, and an RTX 3060 or RTX 4090. The model download is external to Git and is roughly 42.5 GB for the tested variant.
+Requirements: Windows 11 + WSL2 + Docker Desktop, an NVIDIA driver with Docker GPU support, and an RTX 3060 or RTX 4090. The model download is external to Git and is roughly 42.5 GB for the default `fl2va` / `ref2va` profile.
 
 ```powershell
 git clone https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab.git
@@ -38,6 +68,8 @@ docker compose --profile 4090 build h3-4090
 docker compose --profile download run --rm model-downloader
 docker compose --profile 4090 up -d h3-4090
 ```
+
+The downloader profile is selected in `.env`: `fl2va` (default), `ref2va`, `fl2va-lightx2v`, `ref2va-lightx2v`, or `legacy-turbo`. See [`models/README.md`](./models/README.md) and the pinned [`models/manifest.json`](./models/manifest.json) before choosing a larger profile.
 
 - RTX 4090: <http://localhost:8188>
 - RTX 3060: <http://localhost:8189>
@@ -74,6 +106,22 @@ experiments/<category>/<slug>/
 ```
 
 The six current categories are [baseline](./experiments/01-baseline/), [low-step generation](./experiments/02-low-step-generation/), [reference conditioning](./experiments/03-reference-conditioned/), [acceleration](./experiments/04-acceleration/), [temporal continuity](./experiments/05-temporal-continuity/), and [production pipelines](./experiments/06-production-pipelines/). Add a new slug to an existing category whenever possible; introduce a new category only when the function is genuinely distinct and update the schema, validator, and ledger together.
+
+## 🧰 Reproduction kit
+
+The files needed to rebuild the runtime are committed and linked from the records:
+
+| Layer | Canonical file | Role |
+|---|---|---|
+| Compose | [`compose.yaml`](./compose.yaml) | Separate RTX 3060 / RTX 4090 services and the model-download profile |
+| Image build | [`Dockerfile`](./Dockerfile) | Pinned PyTorch base digest, ComfyUI/custom-node refs, and SageAttention wheel hash |
+| Host config | [`.env.example`](./.env.example) | GPU UUIDs, model profile, upstream revisions, and pinned build refs |
+| Model setup | [`docker/download-h3-model.sh`](./docker/download-h3-model.sh) | Profile-aware external model download with size and SHA-256 checks |
+| Model lock | [`models/manifest.json`](./models/manifest.json) and [`models/README.md`](./models/README.md) | Exact model filenames, source revisions, target paths, bytes, and hashes |
+| Workflows | [`workflows/`](./workflows/) and each record's `workflows/` | API-format ComfyUI graphs with recorded hashes |
+| Validation | [`scripts/validate-reproducibility.ps1`](./scripts/validate-reproducibility.ps1) | Confirms the Compose/Docker/workflow/input graph before a run |
+
+The model weights and generated videos are intentionally external/local-only. A fresh clone can reproduce the Docker build inputs, runtime, model inventory, and workflow graph after downloading the upstream model files; it cannot reproduce a generated MP4 until the model download and GPU run are performed. Python/apt dependencies still follow the pinned upstream source files and package indexes at build time, so bit-for-bit output identity is not claimed.
 
 ## 🖼️ Frame-tile previews
 

@@ -4,6 +4,7 @@
   "category": "04-acceleration",
   "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
   "publicEvidence": {"tile": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json", "videoStatus": "local-only", "note": "Source MP4s remain local-only; the tracked frame tile and manifest are the public visual evidence."},
+  "publication": {"platform": "x", "status": "uncertain", "videoTweets": [{"runId": "thread-overview", "url": "https://x.com/hAru_mAki_ch/status/2086051398735847471"}], "note": "The URL is present in the publication simulation, but the payload is simulation-only and does not prove the exact MP4 attachment mapping."},
   "status": "verified",
   "purpose": "Integrate Sol-Attn, SageAttention, and EasyCache into the existing MiniMax-H3 ref2va multi-reference R2V workflow and measure four approximately seven-second scenes under the same conditions as the baseline.",
   "baselineExperiment": "../../03-reference-conditioned/multi-reference-r2v-4scenes-7s/experiment.json",
@@ -146,7 +147,7 @@
     "cudaModuleLoading": "LAZY",
     "cudaLaunchBlocking": "0",
     "h3DebugKjSage": "0",
-    "composeFile": "compose.yaml",
+    "composeFile": "../../../compose.yaml",
     "commandArgs": [
       "--listen",
       "0.0.0.0",

@@ -4,6 +4,8 @@
 .h3-full-int8-parts/*
 models/*
 !models/.gitkeep
+!models/README.md
+!models/manifest.json
 runtime/*
 !runtime/4090/
 runtime/4090/*

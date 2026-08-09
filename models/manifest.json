@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-08-09",
+  "description": "Pinned external model inventory for the tracked MiniMax-H3 workflows. The large files stay outside Git; this manifest records where to fetch them and how to verify them.",
+  "profiles": {
+    "fl2va": {
+      "description": "Default tested pruned-int8 FL2VA profile used by the baseline, temporal, and production workflows.",
+      "files": [
+        "fl2va-pruned-int8",
+        "text-nvfp4",
+        "video-vae-fp16",
+        "audio-vae-fp32"
+      ]
+    },
+    "ref2va": {
+      "description": "Pruned-int8 Ref2VA profile used by the multi-reference and ref2va experiments.",
+      "files": [
+        "ref2va-pruned-int8",
+        "text-nvfp4",
+        "video-vae-fp16",
+        "audio-vae-fp32"
+      ]
+    },
+    "fl2va-lightx2v": {
+      "description": "FL2VA plus the Kijai ComfyUI LightX2V LoRA used by the 4-step and ImageGen-started I2V experiments.",
+      "files": [
+        "fl2va-pruned-int8",
+        "text-nvfp4",
+        "video-vae-fp16",
+        "audio-vae-fp32",
+        "lightx2v-comfy-lora"
+      ]
+    },
+    "ref2va-lightx2v": {
+      "description": "Ref2VA plus the same Kijai ComfyUI LightX2V LoRA used by the 6-vs-20-step and acceleration experiments.",
+      "files": [
+        "ref2va-pruned-int8",
+        "text-nvfp4",
+        "video-vae-fp16",
+        "audio-vae-fp32",
+        "lightx2v-comfy-lora"
+      ]
+    },
+    "legacy-turbo": {
+      "description": "Compatibility profile for the retained legacy Turbo diagnostic workflow. It uses the official full-int8 FL2VA base, the historical Turbo checkpoint, and the same current official VAEs.",
+      "files": [
+        "fl2va-int8",
+        "text-nvfp4",
+        "video-vae-fp16",
+        "audio-vae-fp32",
+        "turbo-ckpt850"
+      ]
+    }
+  },
+  "files": [
+    {
+      "id": "fl2va-pruned-int8",
+      "filename": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+      "target": "diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+      "repository": "Comfy-Org/MiniMax-H3",
+      "revision": "93acf8c91365d40dc32a3abd19af06df6b6f7c65",
+      "sourcePath": "diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+      "bytes": 20970379616,
+      "sha256": "E889202C41DAFB67B10D67B97F0D8541508036A6090AF23425A5C2615D03C47A"
+    },
+    {
+      "id": "ref2va-pruned-int8",
+      "filename": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "target": "diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "repository": "Comfy-Org/MiniMax-H3",
+      "revision": "93acf8c91365d40dc32a3abd19af06df6b6f7c65",
+      "sourcePath": "diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "bytes": 20970379616,
+      "sha256": "9255F52B6677845AD238F20DFAAFA94727053694127AB7F255C048F0F9365779"
+    },
+    {
+      "id": "fl2va-int8",
+      "filename": "minimax_h3_fl2va_int8_convrot.safetensors",
+      "target": "diffusion_models/minimax_h3_fl2va_int8_convrot.safetensors",
+      "repository": "Comfy-Org/MiniMax-H3",
+      "revision": "93acf8c91365d40dc32a3abd19af06df6b6f7c65",
+      "sourcePath": "diffusion_models/minimax_h3_fl2va_int8_convrot.safetensors",
+      "bytes": 34038892334,
+      "sha256": "7AD4C73E6E378B822FFD1629F27F632D3787D95F5E468E3AF958F98C58DF96A5"
+    },
+    {
+      "id": "text-nvfp4",
+      "filename": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "target": "text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "repository": "Comfy-Org/MiniMax-H3",
+      "revision": "93acf8c91365d40dc32a3abd19af06df6b6f7c65",
+      "sourcePath": "text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "bytes": 15687142551,
+      "sha256": "35A88D51044231FE332301D7A62AA81E3F2CBA62FEBEB446E2C1E3E0EF76F2C6"
+    },
+    {
+      "id": "video-vae-fp16",
+      "filename": "minimax_h3_video_vae_fp16.safetensors",
+      "target": "vae/minimax_h3_video_vae_fp16.safetensors",
+      "repository": "Comfy-Org/MiniMax-H3",
+      "revision": "93acf8c91365d40dc32a3abd19af06df6b6f7c65",
+      "sourcePath": "vae/minimax_h3_video_vae_fp16.safetensors",
+      "bytes": 5207808496,
+      "sha256": "7C1F131492E7EDDACAAC9069A61B81BDD39DE5CC96561E677C5EAB1CDCE5E522"
+    },
+    {
+      "id": "audio-vae-fp32",
+      "filename": "minimax_h3_audio_vae_fp32.safetensors",
+      "target": "vae/minimax_h3_audio_vae_fp32.safetensors",
+      "repository": "Comfy-Org/MiniMax-H3",
+      "revision": "93acf8c91365d40dc32a3abd19af06df6b6f7c65",
+      "sourcePath": "vae/minimax_h3_audio_vae_fp32.safetensors",
+      "bytes": 605254808,
+      "sha256": "8E505D95DD1561D47ABD43D4238FD40D9BB1AE9E147ED0A4CBA778D76AE4DB48"
+    },
+    {
+      "id": "lightx2v-comfy-lora",
+      "filename": "minimax_h3_fl2v_lightx2v_turbo_4step_v0.1_comfy.safetensors",
+      "target": "loras/minimax_h3_fl2v_lightx2v_turbo_4step_v0.1_comfy.safetensors",
+      "repository": "Kijai/MiniMax-H3_comfy",
+      "revision": "37ae5cbe1d6f2243484812fc511f9fa427b12a30",
+      "sourcePath": "loras/minimax_h3_fl2v_lightx2v_turbo_4step_v0.1_comfy.safetensors",
+      "bytes": 1956171984,
+      "sha256": "FC9B6500F0331FE925B004738BAAA31BD34104741C8BF9334816F9AC3005C8C1"
+    },
+    {
+      "id": "turbo-ckpt850",
+      "filename": "minimax_h3_turbo_4step_ema_ckpt850.safetensors",
+      "target": "loras/minimax_h3_turbo_4step_ema_ckpt850.safetensors",
+      "repository": "larryvrh/MiniMax-H3-Turbo-Lora",
+      "revision": "43a74557ac3f6539db8e0f2a959d03feb7a81480",
+      "sourcePath": "minimax_h3_turbo_4step_ema_ckpt850.safetensors",
+      "bytes": 779849816,
+      "sha256": "5A6EEBA171CF183020A4AD48774BB2968F29F8168AFD6EC17A04987F3528B4EA"
+    }
+  ]
+}

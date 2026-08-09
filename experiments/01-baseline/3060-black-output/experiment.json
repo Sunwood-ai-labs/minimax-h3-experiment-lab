@@ -4,6 +4,7 @@
   "category": "01-baseline",
   "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
   "publicEvidence": {"tile": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json", "videoStatus": "local-only", "note": "Source MP4s remain local-only; the tracked frame tile and manifest are the public visual evidence."},
+  "publication": {"platform": "x", "status": "not_posted", "videoTweets": [], "note": "The failed output was not published as a generated-result video; the TlanoAI URL remains a source reference."},
   "status": "failed",
   "hypothesis": "旧Turbo/full-int8 + Kijai int8 video VAEの3060経路で動画生成できるか確認する。",
   "sources": [

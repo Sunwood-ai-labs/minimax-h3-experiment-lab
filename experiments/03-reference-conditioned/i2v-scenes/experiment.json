@@ -4,6 +4,7 @@
   "category": "03-reference-conditioned",
   "previews": {"contactSheet": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json"},
   "publicEvidence": {"tile": "previews/contact-sheet.jpg", "manifest": "previews/contact-sheet.json", "videoStatus": "local-only", "note": "Source MP4s remain local-only; the tracked frame tile and manifest are the public visual evidence."},
+  "publication": {"platform": "x", "status": "not_posted", "videoTweets": [], "note": "The four generated scene videos are documented locally; only the source post is asserted as public video reference."},
   "status": "verified",
   "hypothesis": "KijaiのMiniMax-H3向けLightX2V 4-step LoRAを同じ4090 Docker Compose条件で使えば、ImageGenで用意した異なる開始フレームから、車・スポーツ・イラスト・バトルのI2Vを同じ出力条件で生成できる。",
   "sources": [
@@ -254,7 +255,7 @@
     },
     {
       "type": "workflows",
-      "path": "experiments/03-reference-conditioned/i2v-scenes/workflows/",
+      "path": "workflows/",
       "note": "Four API workflows; individual bytes and SHA-256 are recorded per run."
     },
     {

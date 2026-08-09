@@ -1,0 +1,22 @@
+# Experiment video links
+
+This is the URL index for the videos discussed or published alongside each experiment. The labels distinguish an X thread containing our generated result from a source post used as a condition reference. A local MP4 path is never treated as a public URL; the tracked contact sheet remains the clone-safe visual evidence.
+
+| Experiment | Record / tile | Generated-video X thread | Source / reference video |
+|---|---|---|---|
+| GPU baseline | [record](./01-baseline/gpu-baseline/README.md) · [tile](./01-baseline/gpu-baseline/previews/contact-sheet.jpg) | [3060 T2V](https://x.com/hAru_mAki_ch/status/2085730512677855266) · [3060 I2V](https://x.com/hAru_mAki_ch/status/2085731260169953315) · [4090 T2V](https://x.com/hAru_mAki_ch/status/2085738947553185852) · [4090 I2V](https://x.com/hAru_mAki_ch/status/2085738981866811714) | [TlanoAI 3060](https://x.com/TlanoAI/status/2084940455809286397) · [yume_arasaki 4090](https://x.com/yume_arasaki/status/2084766655331360999) |
+| 3060 black-output failure | [record](./01-baseline/3060-black-output/README.md) · [tile](./01-baseline/3060-black-output/previews/contact-sheet.jpg) | No generated result was published; the failure is retained locally as evidence. | [TlanoAI reference video](https://x.com/TlanoAI/status/2084940455809286397) |
+| LightX2V 4-step | [record](./02-low-step-generation/lightx2v-4step/README.md) · [tile](./02-low-step-generation/lightx2v-4step/previews/contact-sheet.jpg) | [X URL — attachment correspondence uncertain](https://x.com/hAru_mAki_ch/status/2085926432086307010) | [SD Tutorial source post](https://x.com/sd_tutorial/status/2085760369612783646) |
+| ImageGen-started I2V scenes | [record](./03-reference-conditioned/i2v-scenes/README.md) · [tile](./03-reference-conditioned/i2v-scenes/previews/contact-sheet.jpg) | The four-scene output is documented in the repository; no separate published output URL is asserted here. | [SD Tutorial source post](https://x.com/sd_tutorial/status/2085760369612783646) |
+| ref2va 6 vs 20 steps | [record](./03-reference-conditioned/ref2va-6v20/README.md) · [tile](./03-reference-conditioned/ref2va-6v20/previews/contact-sheet.jpg) | [X URL — attachment correspondence uncertain](https://x.com/hAru_mAki_ch/status/2085955887575990468) | [SD Tutorial reference post](https://x.com/sd_tutorial/status/2085760369612783646) |
+| Multi-reference R2V | [record](./03-reference-conditioned/multi-reference-r2v-4scenes-7s/README.md) · [tile](./03-reference-conditioned/multi-reference-r2v-4scenes-7s/previews/contact-sheet.jpg) | [X URL — attachment correspondence uncertain](https://x.com/hAru_mAki_ch/status/2086019982308352292) | [SD Tutorial reference post](https://x.com/sd_tutorial/status/2085760369612783646) |
+| Sol-Attn + SageAttention + EasyCache | [record](./04-acceleration/sol-sage-easycache-4scenes-7s/README.md) · [tile](./04-acceleration/sol-sage-easycache-4scenes-7s/previews/contact-sheet.jpg) | [X URL — attachment correspondence uncertain](https://x.com/hAru_mAki_ch/status/2086051398735847471) | [reported 3.2× speed-up post](https://x.com/sunbaolong_2001/status/2085689404031672372) |
+| H3 Motion Context | [record](./05-temporal-continuity/motion-context-3segment/README.md) · [tile](./05-temporal-continuity/motion-context-3segment/previews/contact-sheet.jpg) | [X URL — attachment correspondence uncertain](https://x.com/hAru_mAki_ch/status/2086223412129902756) | [Photogenic Weekend reference post](https://x.com/photogenicweeke/status/2085848283138891926) |
+| Japanese cat-café Vlog | [record](./06-production-pipelines/catcafe-vlog-5segment/README.md) · [tile](./06-production-pipelines/catcafe-vlog-5segment/previews/contact-sheet.jpg) | [X URL — attachment correspondence uncertain](https://x.com/hAru_mAki_ch/status/2086296391702438041) | — |
+| Japanese synth-pop MV | [record](./06-production-pipelines/jpop-mv-5segment/README.md) · [tile](./06-production-pipelines/jpop-mv-5segment/previews/contact-sheet.jpg) | [X URL — attachment correspondence uncertain](https://x.com/hAru_mAki_ch/status/2086334052639142176) | — |
+
+## 日本語メモ
+
+ここでのURLは「生成した動画を含むことを確認できた投稿」、「URLは存在するが添付動画との対応を確認できない投稿」、「実験条件を調べた参照投稿」を分けて記載しています。ローカルにしか存在しないMP4を公開URLのように扱わず、clone後に見える正本は各実験のREADME、`experiment.json`、フレームタイル、manifestです。判定は各記録の`publication.status`にも保存しています。
+
+投稿シミュレーターの本文・添付構成は[`social/README.md`](../social/README.md)、再現に必要なworkflowとComposeの確認は[`docs/guide/reproduce.md`](../docs/guide/reproduce.md)を参照してください。

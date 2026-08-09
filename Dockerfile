@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:2.11.0-cuda13.0-cudnn9-runtime
+FROM pytorch/pytorch:2.11.0-cuda13.0-cudnn9-runtime@sha256:bfbb4a2b4fdba0fefdb428ea737e626d61bb3daf74a16e1ff935bdb03aa7c3f0
 
 ARG COMFYUI_REF=v0.30.0
 ARG H3_TURBO_REF=a7624b4c00626a8ae7e78860769389d706565190
@@ -6,6 +6,7 @@ ARG SOL_ATTN_REF=0e334dc981cfe3b0ed926ee13ad43f64914b7f5b
 ARG KJNODES_REF=60cd6bc1870db94c6eeb05fbe455147a8e91c4e9
 ARG H3_MOTION_CONTEXT_REF=15fc6a7bf7b78efb27f33d7eef3818e7ed0e118a
 ARG SAGEATTENTION_WHEEL_URL=https://github.com/Comfy-Org/wheels/releases/download/sageattention-latest/sageattention-2.2.0%2Bcu130torch2.11-cp312-cp312-manylinux_2_34_x86_64.manylinux_2_35_x86_64.whl
+ARG SAGEATTENTION_WHEEL_SHA256=988a5b510078dfef67fa0ca517321afb659a62a3ace12d7f52f3b831d2ddb58f
 
 ENV DEBIAN_FRONTEND=noninteractive \
     PIP_NO_CACHE_DIR=1 \
@@ -61,7 +62,10 @@ RUN python -m pip install --upgrade pip \
     && python -m pip install -r requirements.txt \
     && python -m pip install "huggingface_hub[cli]" \
     && python -m pip install -r custom_nodes/ComfyUI-KJNodes/requirements.txt \
-    && python -m pip install --no-deps "${SAGEATTENTION_WHEEL_URL}"
+    && curl -fsSL --retry 5 --retry-delay 3 "${SAGEATTENTION_WHEEL_URL}" -o /tmp/sageattention.whl \
+    && echo "${SAGEATTENTION_WHEEL_SHA256}  /tmp/sageattention.whl" | sha256sum -c - \
+    && python -m pip install --no-deps /tmp/sageattention.whl \
+    && rm -f /tmp/sageattention.whl
 
 COPY docker/entrypoint.sh /usr/local/bin/minimax-h3-entrypoint
 COPY docker/download-h3-model.sh /usr/local/bin/download-h3-model
