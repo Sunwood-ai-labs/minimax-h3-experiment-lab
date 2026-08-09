@@ -24,6 +24,21 @@
       "role": "RTX 4090 linked recipe"
     },
     {
+      "type": "x",
+      "url": "https://x.com/lizikk_zhu/status/2084859489115648336",
+      "role": "researched RTX 4090 candidate; excluded because key sampler/offload conditions were missing"
+    },
+    {
+      "type": "x",
+      "url": "https://x.com/thekhoma/status/2084504336173076800",
+      "role": "researched RTX 4090 candidate; excluded because key model/offload conditions were missing"
+    },
+    {
+      "type": "x",
+      "url": "https://x.com/onigirikila/status/2084858171462754672",
+      "role": "researched RTX 3060 candidate; excluded because the exact base/LoRA/VAE/sampler were unknown"
+    },
+    {
       "type": "local",
       "path": "verification-log.md",
       "role": "detailed run log"

@@ -17,6 +17,7 @@ Record: [experiment.json](./experiment.json) · [tracked frame tile](./previews/
 
 - **生成動画**: [3060 T2V](https://x.com/hAru_mAki_ch/status/2085730512677855266) / [3060 I2V](https://x.com/hAru_mAki_ch/status/2085731260169953315) / [4090 T2V](https://x.com/hAru_mAki_ch/status/2085738947553185852) / [4090 I2V](https://x.com/hAru_mAki_ch/status/2085738981866811714)
 - **参照元**: [TlanoAIの3060投稿](https://x.com/TlanoAI/status/2084940455809286397) / [yume_arasakiの4090投稿](https://x.com/yume_arasaki/status/2084766655331360999) / [4090 recipe](https://github.com/yume-arasaki/RTX-4090-3090-Minimax-H3-15s)
+- **調査候補（条件不足のため採用せず）**: [lizikk_zhu](https://x.com/lizikk_zhu/status/2084859489115648336) / [thekhoma](https://x.com/thekhoma/status/2084504336173076800) / [onigirikila](https://x.com/onigirikila/status/2084858171462754672)
 - **runと動画URLの対応**:
 
   | Run | X動画 | 状態 |
