@@ -1,0 +1,260 @@
+{
+  "id": "2026-08-08-kijai-ref2va-6v20",
+  "date": "2026-08-08",
+  "status": "verified",
+  "purpose": "User-provided screenshot conditions: ref2va, Kijai/LightX2V turbo LoRA, strength 0.8, er_sde, 6 versus 20 steps, tested as T2V and I2V.",
+  "sources": [
+    {
+      "type": "huggingface",
+      "url": "https://huggingface.co/Kijai/MiniMax-H3_comfy",
+      "revision": "37ae5cbe1d6f2243484812fc511f9fa427b12a30",
+      "facts": ["Kijai ComfyUI LoRA", "LightX2V turbo LoRA filename"]
+    },
+    {
+      "type": "huggingface",
+      "url": "https://huggingface.co/Comfy-Org/MiniMax-H3",
+      "facts": ["ref2va pruned int8 convrot model"]
+    },
+    {
+      "type": "user-provided-screenshot",
+      "url": null,
+      "facts": ["ref2va", "LoRA strength 0.8", "er_sde", "6 steps compared with 20 steps"],
+      "limitations": ["GPU, prompt, seed, scheduler, VAE, EasyCache and full workflow are not visible"]
+    }
+  ],
+  "conditions": {
+    "gpu": "RTX 4090",
+    "gpuUuid": "GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa",
+    "gpuMemoryMiB": 24564,
+    "driver": "591.86",
+    "composeService": "h3-4090",
+    "port": 8188,
+    "baseModel": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+    "baseModelBytes": 20970379616,
+    "baseModelSha256": "9255F52B6677845AD238F20DFAAFA94727053694127AB7F255C048F0F9365779",
+    "textEncoder": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+    "videoVae": "minimax_h3_video_vae_fp16.safetensors",
+    "audioVae": "minimax_h3_audio_vae_fp32.safetensors",
+    "lora": "minimax_h3_fl2v_lightx2v_turbo_4step_v0.1_comfy.safetensors",
+    "loraBytes": 1956171984,
+    "loraSha256": "FC9B6500F0331FE925B004738BAAA31BD34104741C8BF9334816F9AC3005C8C1",
+    "loraLoader": "LoraLoaderModelOnly",
+    "loraStrengthModel": 0.8,
+    "sampler": "er_sde",
+    "scheduler": "simple",
+    "easyCache": {
+      "reuseThreshold": 0.3,
+      "startPercent": 0.2,
+      "endPercent": 0.9,
+      "verbose": false
+    },
+    "resolution": "1344x768",
+    "width": 1344,
+    "height": 768,
+    "frames": 158,
+    "fps": 24,
+    "lowVramRequested": false,
+    "lowVramApplied": false,
+    "h3MemoryUsageFactor": 1.0,
+    "cudaModuleLoading": "LAZY",
+    "sageAttention": false,
+    "startFrame": {
+      "path": "runtime/4090/input/MiniMax_H3_I2V_1344x768_start.png",
+      "width": 1344,
+      "height": 768,
+      "bytes": 1187835,
+      "sha256": "9E5893D7C5A9919726E7E60FF2BF4F19E77F746342D38E5FE3217FD2288A3D0F"
+    },
+    "t2vPrompt": "A calm cinematic sunrise over a quiet Japanese mountain lake, gentle mist drifting across the water, slow camera movement, natural ambient birds and soft wind, no text, five seconds.",
+    "i2vPrompt": "Animate the supplied sunrise lake start frame into a calm cinematic shot. Preserve the mountain silhouette and composition, add gentle camera movement, natural mist drifting over the water, subtle ripples and ambient birds and soft wind, no text.",
+    "seeds": {
+      "t2v": 2026080807,
+      "i2v": 2026080808
+    }
+  },
+  "environment": {
+    "hostOs": "Windows 11 Pro build 26200",
+    "hostRamBytes": 137270165504,
+    "powershell": "5.1.26100.8875",
+    "locale": "ja-JP",
+    "timezone": "Asia/Tokyo",
+    "dockerEngine": "29.4.3",
+    "dockerCompose": "5.1.3",
+    "image": "local/minimax-h3-comfyui:v0.30.0",
+    "comfyUi": "0.30.0",
+    "containerPython": "3.12.3",
+    "pytorch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "cudnn": "9",
+    "composeFile": "compose.yaml",
+    "commandArgs": ["--disable-pinned-memory", "--fp16-intermediates", "--preview-method", "none"]
+  },
+  "runs": [
+    {
+      "id": "t2v-6",
+      "mode": "T2V",
+      "steps": 6,
+      "seed": 2026080807,
+      "promptId": "976ed634-fad0-41be-bb2b-865637bb2758",
+      "status": "success",
+      "comfyUiSeconds": 459.42,
+      "runnerWallSeconds": 460.953,
+      "dockerLog": "Prompt executed in 459.42 seconds",
+      "workflow": "workflows/minimax_h3_ref2va_lora080_t2v_er_sde_6step_1344x768_api.json",
+      "workflowSha256": "DF08720D1E4361D289E360D47AA9C6AD8E191C9E0EE441767F56B29EAB20F1BE",
+      "reportJson": "runtime/4090/benchmark/h3-976ed634-fad0-41be-bb2b-865637bb2758.json",
+      "reportMarkdown": "runtime/4090/benchmark/h3-976ed634-fad0-41be-bb2b-865637bb2758.md",
+      "output": "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_T2V_1344x768_6step_er_sde_lora080_00001_.mp4",
+      "outputBytes": 1574128,
+      "outputSha256": "3A8B7EDA3B2F01EB3DC8635A1D7CFFBC7A7F8C9B3DE2D240BBC1145984075551",
+      "media": {
+        "resolution": "1344x768",
+        "frames": 158,
+        "fps": 24,
+        "durationSeconds": 6.583333,
+        "video": "H.264",
+        "audio": "AAC stereo 32000Hz",
+        "blackdetectIntervals": 0,
+        "oom": false
+      }
+    },
+    {
+      "id": "t2v-20",
+      "mode": "T2V",
+      "steps": 20,
+      "seed": 2026080807,
+      "promptId": "23229ad1-a1da-4aa3-83e6-1d04eb74b926",
+      "status": "success",
+      "comfyUiSeconds": 659,
+      "runnerWallSeconds": 661.217,
+      "dockerLog": "Prompt executed in 00:10:59",
+      "workflow": "workflows/minimax_h3_ref2va_lora080_t2v_er_sde_20step_1344x768_api.json",
+      "workflowSha256": "2478780152456C4D61FB6AD152B56564B03E2340145E4384D0C1EC9BCFB08AFA",
+      "reportJson": "runtime/4090/benchmark/h3-23229ad1-a1da-4aa3-83e6-1d04eb74b926.json",
+      "reportMarkdown": "runtime/4090/benchmark/h3-23229ad1-a1da-4aa3-83e6-1d04eb74b926.md",
+      "output": "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_T2V_1344x768_20step_er_sde_lora080_00001_.mp4",
+      "outputBytes": 1700321,
+      "outputSha256": "A9B8DA655BE3EB76660C034EBA04AA6A499845EABC1B877743404AF23975F39E",
+      "media": {
+        "resolution": "1344x768",
+        "frames": 158,
+        "fps": 24,
+        "durationSeconds": 6.583333,
+        "video": "H.264",
+        "audio": "AAC stereo 32000Hz",
+        "blackdetectIntervals": 0,
+        "oom": false
+      }
+    },
+    {
+      "id": "i2v-6",
+      "mode": "I2V",
+      "steps": 6,
+      "seed": 2026080808,
+      "promptId": "40c56bb7-d5a3-489b-ad4a-08b59db84175",
+      "status": "success",
+      "comfyUiSeconds": 294.42,
+      "runnerWallSeconds": 295.606,
+      "dockerLog": "Prompt executed in 294.42 seconds",
+      "workflow": "workflows/minimax_h3_ref2va_lora080_i2v_er_sde_6step_1344x768_api.json",
+      "workflowSha256": "1B06FEEE04DD8E76570183B46A7319E22E87D71354411B46D56E4792A377BD71",
+      "reportJson": "runtime/4090/benchmark/h3-40c56bb7-d5a3-489b-ad4a-08b59db84175.json",
+      "reportMarkdown": "runtime/4090/benchmark/h3-40c56bb7-d5a3-489b-ad4a-08b59db84175.md",
+      "output": "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_I2V_1344x768_6step_er_sde_lora080_00001_.mp4",
+      "outputBytes": 2467722,
+      "outputSha256": "228B82712E1849EA8E06CD90753F7E378515166EBF24A1711BB34C7A4C29BDEA",
+      "media": {
+        "resolution": "1344x768",
+        "frames": 158,
+        "fps": 24,
+        "durationSeconds": 6.583333,
+        "video": "H.264",
+        "audio": "AAC stereo 32000Hz",
+        "blackdetectIntervals": 0,
+        "oom": false,
+        "inputImage": "runtime/4090/input/MiniMax_H3_I2V_1344x768_start.png"
+      }
+    },
+    {
+      "id": "i2v-20",
+      "mode": "I2V",
+      "steps": 20,
+      "seed": 2026080808,
+      "promptId": "e6a6708a-0e2e-418d-9f5f-21709cc2e5cf",
+      "status": "success",
+      "comfyUiSeconds": 691,
+      "runnerWallSeconds": 696.292,
+      "dockerLog": "Prompt executed in 00:11:31",
+      "workflow": "workflows/minimax_h3_ref2va_lora080_i2v_er_sde_20step_1344x768_api.json",
+      "workflowSha256": "1079FBC319E465854431D00319298C0B90C890156209D7E1F7A3491A8462CB1B",
+      "reportJson": "runtime/4090/benchmark/h3-e6a6708a-0e2e-418d-9f5f-21709cc2e5cf.json",
+      "reportMarkdown": "runtime/4090/benchmark/h3-e6a6708a-0e2e-418d-9f5f-21709cc2e5cf.md",
+      "output": "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_I2V_1344x768_20step_er_sde_lora080_00001_.mp4",
+      "outputBytes": 1950512,
+      "outputSha256": "8952D5E1D639C58A9FE35F52BA94AB10E341F43EE2F4E0EE40104DE2432666E6",
+      "media": {
+        "resolution": "1344x768",
+        "frames": 158,
+        "fps": 24,
+        "durationSeconds": 6.583333,
+        "video": "H.264",
+        "audio": "AAC stereo 32000Hz",
+        "blackdetectIntervals": 0,
+        "oom": false,
+        "inputImage": "runtime/4090/input/MiniMax_H3_I2V_1344x768_start.png"
+      }
+    }
+  ],
+  "qualityComparison": {
+    "tool": "FFmpeg SSIM/PSNR",
+    "t2v6Vs20": {
+      "ssimAll": 0.683275,
+      "psnrAverageDb": 14.406153,
+      "logs": ["quality/t2v-6-vs-20.ssim-ffmpeg.log", "quality/t2v-6-vs-20.psnr-ffmpeg.log"]
+    },
+    "i2v6Vs20": {
+      "ssimAll": 0.684799,
+      "psnrAverageDb": 14.455215,
+      "logs": ["quality/i2v-6-vs-20.ssim-ffmpeg.log", "quality/i2v-6-vs-20.psnr-ffmpeg.log"]
+    },
+    "interpretation": "Same seed does not make different step counts frame-identical. SSIM/PSNR here are similarity measurements, not a perceptual quality score or proof that 6 steps is indistinguishable from 20 steps."
+  },
+  "validation": {
+    "allHistorySuccess": true,
+    "allBlackdetectIntervalsZero": true,
+    "oomDetected": false,
+    "visualPoster": "posters/ref2va-6v20-contact.jpg",
+    "posterOrder": ["T2V 6", "T2V 20", "I2V 6", "I2V 20"],
+    "modelTypeLog": "FLOW",
+    "gpuUtilizationDuringGeneration": "100% observed",
+    "benignWarnings": ["Torch already imported, torch should never be imported before this point"]
+  },
+  "reproduction": {
+    "runner": "scripts/run-h3-post-condition.ps1",
+    "timeoutSeconds": 1800,
+    "skipModelHashes": true,
+    "commands": [
+      ".\\scripts\\run-h3-post-condition.ps1 -Gpu 4090 -Port 8188 -Workflow .\\experiments\\2026-08-08\\kijai-ref2va-6v20\\workflows\\minimax_h3_ref2va_lora080_t2v_er_sde_6step_1344x768_api.json -OutputPrefix video/MiniMax_H3_Kijai_LightX2V_Ref2VA_T2V_1344x768_6step_er_sde_lora080 -LowVram $false -Seed 2026080807 -TimeoutSeconds 1800 -SkipModelHashes",
+      ".\\scripts\\run-h3-post-condition.ps1 -Gpu 4090 -Port 8188 -Workflow .\\experiments\\2026-08-08\\kijai-ref2va-6v20\\workflows\\minimax_h3_ref2va_lora080_t2v_er_sde_20step_1344x768_api.json -OutputPrefix video/MiniMax_H3_Kijai_LightX2V_Ref2VA_T2V_1344x768_20step_er_sde_lora080 -LowVram $false -Seed 2026080807 -TimeoutSeconds 1800 -SkipModelHashes",
+      ".\\scripts\\run-h3-post-condition.ps1 -Gpu 4090 -Port 8188 -Workflow .\\experiments\\2026-08-08\\kijai-ref2va-6v20\\workflows\\minimax_h3_ref2va_lora080_i2v_er_sde_6step_1344x768_api.json -OutputPrefix video/MiniMax_H3_Kijai_LightX2V_Ref2VA_I2V_1344x768_6step_er_sde_lora080 -LowVram $false -Seed 2026080808 -TimeoutSeconds 1800 -SkipModelHashes",
+      ".\\scripts\\run-h3-post-condition.ps1 -Gpu 4090 -Port 8188 -Workflow .\\experiments\\2026-08-08\\kijai-ref2va-6v20\\workflows\\minimax_h3_ref2va_lora080_i2v_er_sde_20step_1344x768_api.json -OutputPrefix video/MiniMax_H3_Kijai_LightX2V_Ref2VA_I2V_1344x768_20step_er_sde_lora080 -LowVram $false -Seed 2026080808 -TimeoutSeconds 1800 -SkipModelHashes"
+    ]
+  },
+  "artifacts": {
+    "workflows": [
+      {"path": "workflows/minimax_h3_ref2va_lora080_t2v_er_sde_6step_1344x768_api.json", "sha256": "DF08720D1E4361D289E360D47AA9C6AD8E191C9E0EE441767F56B29EAB20F1BE"},
+      {"path": "workflows/minimax_h3_ref2va_lora080_t2v_er_sde_20step_1344x768_api.json", "sha256": "2478780152456C4D61FB6AD152B56564B03E2340145E4384D0C1EC9BCFB08AFA"},
+      {"path": "workflows/minimax_h3_ref2va_lora080_i2v_er_sde_6step_1344x768_api.json", "sha256": "1B06FEEE04DD8E76570183B46A7319E22E87D71354411B46D56E4792A377BD71"},
+      {"path": "workflows/minimax_h3_ref2va_lora080_i2v_er_sde_20step_1344x768_api.json", "sha256": "1079FBC319E465854431D00319298C0B90C890156209D7E1F7A3491A8462CB1B"}
+    ],
+    "modelHashNote": "Runner reports used -SkipModelHashes; ref2va and LoRA hashes above were separately verified during model preparation.",
+    "reports": "runtime/4090/benchmark/h3-<prompt_id>.json and .md"
+  },
+  "limitations": [
+    "The exact X post URL and full workflow are not recoverable from the supplied screenshot alone.",
+    "GPU, prompt, seed, scheduler, VAE and EasyCache were not visible in the screenshot and were fixed locally for reproducibility.",
+    "The Kijai filename contains 4step, but the same LoRA was intentionally tested at 6 and 20 steps as an A/B experiment.",
+    "SSIM/PSNR are not a perceptual quality benchmark; no blind human rating was performed."
+  ],
+  "conclusion": "ref2va + Kijai LightX2V LoRA strength 0.8 + er_sde produced valid T2V and I2V video at both 6 and 20 steps on RTX 4090 in Docker Compose. Six steps reduced runtime substantially, while the outputs were similar at the scene level but not frame-identical; the screenshot's claim of no major difference is plausible as a qualitative observation but not quantitatively proven by this experiment."
+}

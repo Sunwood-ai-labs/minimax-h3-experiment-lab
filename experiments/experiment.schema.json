@@ -2,17 +2,25 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "MiniMax-H3 Experiment",
   "type": "object",
-  "required": ["id", "date", "status", "hypothesis", "sources", "conditions", "runs"],
+  "required": ["id", "date", "status", "sources", "conditions", "runs"],
   "properties": {
     "id": {"type": "string"},
     "date": {"type": "string", "format": "date"},
     "status": {"enum": ["planned", "running", "verified", "partial", "failed"]},
     "hypothesis": {"type": "string"},
+    "purpose": {"type": "string"},
+    "scope": {"type": "string"},
     "sources": {"type": "array", "items": {"type": "object"}},
     "conditions": {"type": "object"},
     "runs": {"type": "array", "items": {"type": "object"}},
-    "artifacts": {"type": "array", "items": {"type": "object"}},
+    "artifacts": {
+      "anyOf": [
+        {"type": "array", "items": {"type": "object"}},
+        {"type": "object"}
+      ]
+    },
     "conclusion": {"type": "string"},
     "limitations": {"type": "array", "items": {"type": "string"}}
-  }
+  },
+  "additionalProperties": true
 }

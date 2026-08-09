@@ -1,0 +1,270 @@
+{
+  "id": "2026-08-08-kijai-scenes-i2v",
+  "date": "2026-08-08",
+  "status": "verified",
+  "hypothesis": "KijaiのMiniMax-H3向けLightX2V 4-step LoRAを同じ4090 Docker Compose条件で使えば、ImageGenで用意した異なる開始フレームから、車・スポーツ・イラスト・バトルのI2Vを同じ出力条件で生成できる。",
+  "sources": [
+    {
+      "type": "huggingface",
+      "url": "https://huggingface.co/Kijai/MiniMax-H3_comfy",
+      "revision": "37ae5cbe1d6f2243484812fc511f9fa427b12a30",
+      "checkedAt": "2026-08-08",
+      "facts": ["4 steps", "LoRA strength 0.75", "er_sde", "sa_solver"]
+    },
+    {
+      "type": "x",
+      "url": "https://x.com/sd_tutorial/status/2085760369612783646",
+      "checkedAt": "2026-08-08",
+      "facts": ["Kijai repacked LightX2V H3 turbo LoRA for Comfy support", "1344x768 public media target", "6.583 seconds", "158 frames at 24 fps delivery variant"]
+    },
+    {
+      "type": "huggingface-upstream",
+      "url": "https://huggingface.co/lightx2v/Minimax-h3-Turbo/tree/main",
+      "revision": "b65e359c0d128b3c5e08e0f5bf2791b794378588",
+      "checkedAt": "2026-08-08",
+      "facts": ["LightX2V H3 Turbo lineage"]
+    }
+  ],
+  "conditions": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpuUuid": "GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa",
+    "gpuVramMiB": 24564,
+    "nvidiaDriver": "591.86",
+    "composeService": "h3-4090",
+    "port": 8188,
+    "dockerEngine": "29.4.3",
+    "dockerCompose": "5.1.3",
+    "dockerImage": "local/minimax-h3-comfyui:v0.30.0",
+    "dockerImageDigest": "sha256:38005038907d58cec68c163448251a5578328a57bae6bde589db306bf2ed4736",
+    "comfyUi": "0.30.0",
+    "python": "3.12.3",
+    "pytorch": "2.11.0+cu130",
+    "cudaModuleLoading": "LAZY",
+    "comfyArgs": ["--listen", "0.0.0.0", "--port", "8188", "--disable-pinned-memory", "--fp16-intermediates", "--preview-method", "none"],
+    "lowVram": false,
+    "dynamicVram": false,
+    "sageAttention": false,
+    "baseModel": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+    "textEncoder": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+    "videoVae": "minimax_h3_video_vae_fp16.safetensors",
+    "audioVae": "minimax_h3_audio_vae_fp32.safetensors",
+    "loraLoader": "LoraLoaderModelOnly",
+    "lora": "minimax_h3_fl2v_lightx2v_turbo_4step_v0.1_comfy.safetensors",
+    "loraStrength": 0.75,
+    "resolution": "1344x768",
+    "frames": 158,
+    "fps": 24,
+    "steps": 4,
+    "scheduler": "simple",
+    "sampler": "sa_solver",
+    "easyCache": {
+      "reuseThreshold": 0.3,
+      "startPercent": 0.2,
+      "endPercent": 0.9,
+      "verbose": false
+    },
+    "audio": "official audio VAE -> AAC stereo",
+    "host": {
+      "os": "Microsoft Windows 11 Pro 10.0.26200 (64-bit)",
+      "computer": "Micro-Star International Co., Ltd. MS-7D88",
+      "physicalMemoryBytes": 137270165504,
+      "powershell": "5.1.26100.8875",
+      "culture": "ja-JP",
+      "timezone": "Tokyo Standard Time"
+    },
+    "inputImageDimensions": "1672x941",
+    "imageGeneration": {
+      "tool": "built-in image_gen.imagegen",
+      "promptRecord": "imagegen-prompts.md",
+      "deterministicReproduction": false,
+      "note": "保存済みPNGを固定入力としてworkflowを再現する。ImageGen内部モデル版・乱数は固定していない。"
+    },
+    "modelFiles": [
+      {
+        "path": "models/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "bytes": 20970379616,
+        "sha256": "E889202C41DAFB67B10D67B97F0D8541508036A6090AF23425A5C2615D03C47A"
+      },
+      {
+        "path": "models/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "bytes": 15687142551,
+        "sha256": "35A88D51044231FE332301D7A62AA81E3F2CBA62FEBEB446E2C1E3E0EF76F2C6"
+      },
+      {
+        "path": "models/vae/minimax_h3_video_vae_fp16.safetensors",
+        "bytes": 5207808496,
+        "sha256": "7C1F131492E7EDDACAAC9069A61B81BDD39DE5CC96561E677C5EAB1CDCE5E522"
+      },
+      {
+        "path": "models/vae/minimax_h3_audio_vae_fp32.safetensors",
+        "bytes": 605254808,
+        "sha256": "8E505D95DD1561D47ABD43D4238FD40D9BB1AE9E147ED0A4CBA778D76AE4DB48"
+      },
+      {
+        "path": "models/loras/minimax_h3_fl2v_lightx2v_turbo_4step_v0.1_comfy.safetensors",
+        "bytes": 1956171984,
+        "sha256": "FC9B6500F0331FE925B004738BAAA31BD34104741C8BF9334816F9AC3005C8C1"
+      }
+    ],
+    "controlVariables": ["scene", "ImageGen start frame", "I2V prompt", "seed"],
+    "fixedVariables": ["GPU", "Docker image", "ComfyUI", "base", "text encoder", "VAE", "LoRA", "LoRA strength", "resolution", "frames", "fps", "steps", "scheduler", "sampler", "EasyCache", "offload flags"]
+  },
+  "runs": [
+    {
+      "id": "i2v-car",
+      "scene": "car",
+      "mode": "I2V",
+      "seed": 2026080803,
+      "promptId": "38166d06-cdd1-4f48-94fc-4fa381cc7d32",
+      "status": "success",
+      "startedLocal": "2026-08-08T12:53:43.4019691+09:00",
+      "endedLocal": "2026-08-08T12:57:13.8040417+09:00",
+      "comfyExecutionSeconds": 209.579,
+      "wallSeconds": 210.402,
+      "workflow": "experiments/2026-08-08/kijai-scenes/workflows/minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_car_1344x768_api.json",
+      "workflowBytes": 3485,
+      "workflowSha256": "1416AA0642DCD91750BB35293DB78FAD43D6DFF701065D852A39A2C1DA73BA6F",
+      "inputImage": "runtime/4090/input/MiniMax_H3_I2V_scene_car_imagegen_start.png",
+      "inputImageBytes": 1979098,
+      "inputImageSha256": "AA18AB747483D6761E897456EED5F12CFB82402CC891B64484893D1AEF5A8B0A",
+      "videoPrompt": "Animate the supplied sports car start frame into a cinematic high-speed mountain-road shot. Preserve the car design, road composition, and mountain background, add controlled forward camera movement, subtle wheel rotation, realistic reflections, and natural road motion, no text.",
+      "output": "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_car_00001_.mp4",
+      "outputBytes": 2896740,
+      "outputSha256": "468D9FB859757B6AEB141950A97737D7C3F713FDD426122A40560A2920EBB062",
+      "media": {
+        "resolution": "1344x768",
+        "frames": 158,
+        "fps": 24,
+        "durationSeconds": 6.583333,
+        "audio": "AAC 32000Hz stereo, 6.575000 sec",
+        "blackdetectIntervals": 0,
+        "visualInspection": "車体・道路・山を維持し、前進とカメラ追従を確認"
+      },
+      "reportJson": "runtime/4090/benchmark/h3-38166d06-cdd1-4f48-94fc-4fa381cc7d32.json",
+      "reportMarkdown": "runtime/4090/benchmark/h3-38166d06-cdd1-4f48-94fc-4fa381cc7d32.md"
+    },
+    {
+      "id": "i2v-sports",
+      "scene": "sports",
+      "mode": "I2V",
+      "seed": 2026080804,
+      "promptId": "31b250ab-c2cf-472e-a843-118ffa7f6f98",
+      "status": "success",
+      "startedLocal": "2026-08-08T12:58:11.1960404+09:00",
+      "endedLocal": "2026-08-08T13:01:41.6045675+09:00",
+      "comfyExecutionSeconds": 208.834,
+      "wallSeconds": 210.409,
+      "workflow": "experiments/2026-08-08/kijai-scenes/workflows/minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_sports_1344x768_api.json",
+      "workflowBytes": 3490,
+      "workflowSha256": "AE6D5FE87B7A682C8502C23A758F5FB46CC29EEA5CCFF1E714EC9AB2B7820121",
+      "inputImage": "runtime/4090/input/MiniMax_H3_I2V_scene_sports_imagegen_start.png",
+      "inputImageBytes": 1945542,
+      "inputImageSha256": "33B52086889F97ADE8FB2EA8F23C3F25214498A5015881D33B9E8E42F3D3130C",
+      "videoPrompt": "Animate the supplied sprint start frame into a cinematic sports shot. Preserve the athlete's anatomy, starting pose, lane, and stadium composition, add a powerful launch into the sprint, subtle camera tracking, realistic fabric movement, and natural stadium atmosphere, no text.",
+      "output": "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_sports_00001_.mp4",
+      "outputBytes": 2241947,
+      "outputSha256": "0B9C76D2373473B258C9899B6127A8C22792C867714BF09FBF425360F83BB9E5",
+      "media": {
+        "resolution": "1344x768",
+        "frames": 158,
+        "fps": 24,
+        "durationSeconds": 6.583333,
+        "audio": "AAC 32000Hz stereo, 6.575000 sec",
+        "blackdetectIntervals": 0,
+        "visualInspection": "スタート姿勢から走り出す動きと追従カメラを確認"
+      },
+      "reportJson": "runtime/4090/benchmark/h3-31b250ab-c2cf-472e-a843-118ffa7f6f98.json",
+      "reportMarkdown": "runtime/4090/benchmark/h3-31b250ab-c2cf-472e-a843-118ffa7f6f98.md"
+    },
+    {
+      "id": "i2v-illustration",
+      "scene": "illustration",
+      "mode": "I2V",
+      "seed": 2026080805,
+      "promptId": "acec67b0-578d-4b26-9ee4-0022a399b686",
+      "status": "success",
+      "startedLocal": "2026-08-08T13:02:30.4564284+09:00",
+      "endedLocal": "2026-08-08T13:06:00.9616352+09:00",
+      "comfyExecutionSeconds": 208.941,
+      "wallSeconds": 210.505,
+      "workflow": "experiments/2026-08-08/kijai-scenes/workflows/minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_illustration_1344x768_api.json",
+      "workflowBytes": 3518,
+      "workflowSha256": "3775C6350F6189CADB70CF7797B5C2D283672D5B17AA75481A70BD05E64D67A2",
+      "inputImage": "runtime/4090/input/MiniMax_H3_I2V_scene_illustration_imagegen_start.png",
+      "inputImageBytes": 2108414,
+      "inputImageSha256": "09D56EF3CD1947CE66E5BC9F019FA4DED2A636A14D42947022268134546D7A6F",
+      "videoPrompt": "Animate the supplied floating-island illustration start frame while preserving its hand-painted style, character silhouette, lantern, path, and luminous ruin composition. Add gentle forward camera movement, drifting clouds, a subtle cape and lantern motion, and soft atmospheric light, no text.",
+      "output": "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration_00001_.mp4",
+      "outputBytes": 2328790,
+      "outputSha256": "6ADC0B80614773902A2E2392B0965F2B9C945F086596D25523B43836349A293A",
+      "media": {
+        "resolution": "1344x768",
+        "frames": 158,
+        "fps": 24,
+        "durationSeconds": 6.583333,
+        "audio": "AAC 32000Hz stereo, 6.575000 sec",
+        "blackdetectIntervals": 0,
+        "visualInspection": "絵柄・人物・道を維持し、雲・光・カメラの変化を確認"
+      },
+      "reportJson": "runtime/4090/benchmark/h3-acec67b0-578d-4b26-9ee4-0022a399b686.json",
+      "reportMarkdown": "runtime/4090/benchmark/h3-acec67b0-578d-4b26-9ee4-0022a399b686.md"
+    },
+    {
+      "id": "i2v-battle",
+      "scene": "battle",
+      "mode": "I2V",
+      "seed": 2026080806,
+      "promptId": "1bdb13fd-e452-415c-8a69-38d795d9ae98",
+      "status": "success",
+      "startedLocal": "2026-08-08T13:06:48.1655644+09:00",
+      "endedLocal": "2026-08-08T13:10:23.6183409+09:00",
+      "comfyExecutionSeconds": 210.609,
+      "wallSeconds": 215.453,
+      "workflow": "experiments/2026-08-08/kijai-scenes/workflows/minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_battle_1344x768_api.json",
+      "workflowBytes": 3508,
+      "workflowSha256": "F1ED352B372B3276D27F970CE1A250B1BFCC496A0305CD010ADBF57687777553",
+      "inputImage": "runtime/4090/input/MiniMax_H3_I2V_scene_battle_imagegen_start.png",
+      "inputImageBytes": 2350823,
+      "inputImageSha256": "80D12E69F6E8B629D91A7E1F490C620A77D6CEC37D63B559CBADFDC497E9421A",
+      "videoPrompt": "Animate the supplied fantasy battle start frame into a cinematic pre-clash shot. Preserve both original warriors, their armor, weapons, positions, and ruined arena composition, add a slow camera push-in, controlled cape movement, drifting dust, sparks, and distant lightning, no gore and no text.",
+      "output": "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_battle_00001_.mp4",
+      "outputBytes": 2804264,
+      "outputSha256": "5A0BECA0A21423F86F6280AAA72ED06359423C4A878CB2BCB17543443C3A8E2D",
+      "media": {
+        "resolution": "1344x768",
+        "frames": 158,
+        "fps": 24,
+        "durationSeconds": 6.583333,
+        "audio": "AAC 32000Hz stereo, 6.575000 sec",
+        "blackdetectIntervals": 0,
+        "visualInspection": "2人の位置・武器・闘技場を維持し、押し込み・砂塵・旗・雷を確認"
+      },
+      "reportJson": "runtime/4090/benchmark/h3-1bdb13fd-e452-415c-8a69-38d795d9ae98.json",
+      "reportMarkdown": "runtime/4090/benchmark/h3-1bdb13fd-e452-415c-8a69-38d795d9ae98.md"
+    }
+  ],
+  "artifacts": [
+    {
+      "type": "input-images",
+      "path": "runtime/4090/input/MiniMax_H3_I2V_scene_car_imagegen_start.png; MiniMax_H3_I2V_scene_sports_imagegen_start.png; MiniMax_H3_I2V_scene_illustration_imagegen_start.png; MiniMax_H3_I2V_scene_battle_imagegen_start.png",
+      "note": "Individual bytes and SHA-256 are recorded per run and in imagegen-prompts.md."
+    },
+    {
+      "type": "workflows",
+      "path": "experiments/2026-08-08/kijai-scenes/workflows/",
+      "note": "Four API workflows; individual bytes and SHA-256 are recorded per run."
+    },
+    {
+      "type": "benchmark-reports",
+      "path": "runtime/4090/benchmark/",
+      "note": "Each run has a JSON and Markdown report."
+    }
+  ],
+  "conclusion": "ImageGenで作成した4種類の開始フレームをMiniMax-H3 I2Vへ入力し、Kijai LightX2V LoRAの4-step条件で4本すべて生成成功した。4本ともOOMなし、blackdetect=0、1344x768、158 frames、24 fps、6.583333秒のH.264/AAC出力だった。",
+  "limitations": [
+    "X投稿にGPU、prompt、seed、sampler、scheduler、workflowは明記されていないため、完全再現ではなく出典条件に寄せたローカル検証である。",
+    "今回の4本はsa_solver固定で、er_sdeとの画質・速度比較ではない。",
+    "ImageGen内部モデル版・乱数は固定していないため、同一PNGの再生成は保証しない。保存済みPNGを使ったworkflow再現は可能。",
+    "目視確認は冒頭と約3.0秒地点で実施し、長時間の人物・車体一貫性や音質の定量評価は未実施。"
+  ]
+}

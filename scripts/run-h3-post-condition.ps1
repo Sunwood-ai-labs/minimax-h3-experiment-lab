@@ -7,12 +7,15 @@ param(
     [string]$Workflow = (Join-Path (Split-Path $PSScriptRoot -Parent) 'workflows/post_conditions_turbo_864x480_api.json'),
     [string]$OutputPrefix = 'video/MiniMax_H3_post_conditions_864x480_8step_turbo',
     [bool]$LowVram = $true,
+    [Nullable[bool]]$SageAttention,
     [long]$Seed = -1,
     [int]$TimeoutSeconds = 7200,
-    [switch]$SkipModelHashes
+    [switch]$SkipModelHashes,
+    [string]$ExistingPromptId
 )
 
 $ErrorActionPreference = 'Stop'
+$sageAttentionRequested = if ($null -eq $SageAttention) { $Gpu -eq '3060' } else { [bool]$SageAttention }
 $projectRoot = Split-Path $PSScriptRoot -Parent
 $baseUrl = "http://localhost:$Port"
 $outputDir = Join-Path $projectRoot "runtime/$Gpu/output"
@@ -45,18 +48,27 @@ $request = @{ prompt = $graph; client_id = [guid]::NewGuid().Guid } | ConvertTo-
 
 $started = Get-Date
 $before = @{}
-Get-ChildItem -LiteralPath $outputDir -Recurse -File -ErrorAction SilentlyContinue | ForEach-Object {
-    $before[$_.FullName] = $_.LastWriteTimeUtc
+$historyItem = $null
+$executionEnded = $null
+if ([string]::IsNullOrWhiteSpace($ExistingPromptId)) {
+    Get-ChildItem -LiteralPath $outputDir -Recurse -File -ErrorAction SilentlyContinue | ForEach-Object {
+        $before[$_.FullName] = $_.LastWriteTimeUtc
+    }
+
+    $response = Invoke-RestMethod -Method Post -Uri "$baseUrl/prompt" -ContentType 'application/json' -Body $request
+    $promptId = [string]$response.prompt_id
+    Write-Host "Started $promptId at $($started.ToString('o'))"
+}
+else {
+    $promptId = $ExistingPromptId
+    Write-Host "Recording existing prompt $promptId"
 }
 
-$response = Invoke-RestMethod -Method Post -Uri "$baseUrl/prompt" -ContentType 'application/json' -Body $request
-$promptId = [string]$response.prompt_id
-Write-Host "Started $promptId at $($started.ToString('o'))"
-
-$historyItem = $null
 $deadline = $started.AddSeconds($TimeoutSeconds)
 while ((Get-Date) -lt $deadline) {
-    Start-Sleep -Seconds 5
+    if ([string]::IsNullOrWhiteSpace($ExistingPromptId)) {
+        Start-Sleep -Seconds 5
+    }
     try {
         $history = Invoke-RestMethod -Uri "$baseUrl/history/$promptId"
         $property = $history.PSObject.Properties | Where-Object Name -eq $promptId | Select-Object -First 1
@@ -64,20 +76,45 @@ while ((Get-Date) -lt $deadline) {
             $historyItem = $property.Value
             $status = [string]$historyItem.status.status_str
             if ($status -in @('success', 'error')) {
+                if (-not [string]::IsNullOrWhiteSpace($ExistingPromptId)) {
+                    $executionStart = @($historyItem.status.messages | Where-Object { $_[0] -eq 'execution_start' } | Select-Object -First 1)
+                    if ($executionStart.Count -gt 0) {
+                        $timestamp = [long]$executionStart[0][1].timestamp
+                        $started = [DateTimeOffset]::FromUnixTimeMilliseconds($timestamp).ToLocalTime().DateTime
+                    }
+                    $executionEnd = @($historyItem.status.messages | Where-Object { $_[0] -in @('execution_success', 'execution_error') } | Select-Object -Last 1)
+                    if ($executionEnd.Count -gt 0) {
+                        $endedTimestamp = [long]$executionEnd[0][1].timestamp
+                        $executionEnded = [DateTimeOffset]::FromUnixTimeMilliseconds($endedTimestamp).ToLocalTime().DateTime
+                    }
+                }
                 break
             }
         }
     } catch {
         # The prompt may not be in history until execution has started.
     }
+    if (-not [string]::IsNullOrWhiteSpace($ExistingPromptId)) {
+        Start-Sleep -Seconds 1
+    }
 }
 
-$ended = Get-Date
-$after = @(
-    Get-ChildItem -LiteralPath $outputDir -Recurse -File -ErrorAction SilentlyContinue |
-        Where-Object { -not $before.ContainsKey($_.FullName) -or $_.LastWriteTimeUtc -gt $before[$_.FullName] } |
-        Select-Object FullName, Length, LastWriteTime
-)
+$ended = if ($null -ne $executionEnded) { $executionEnded } else { Get-Date }
+$after = if ([string]::IsNullOrWhiteSpace($ExistingPromptId)) {
+    @(
+        Get-ChildItem -LiteralPath $outputDir -Recurse -File -ErrorAction SilentlyContinue |
+            Where-Object { -not $before.ContainsKey($_.FullName) -or $_.LastWriteTimeUtc -gt $before[$_.FullName] } |
+            Select-Object FullName, Length, LastWriteTime
+    )
+}
+else {
+    $outputLeaf = [System.IO.Path]::GetFileName($OutputPrefix.Replace('/', '\'))
+    @(
+        Get-ChildItem -LiteralPath $outputDir -Recurse -File -ErrorAction SilentlyContinue |
+            Where-Object { $_.BaseName -like "$outputLeaf*" } |
+            Select-Object FullName, Length, LastWriteTime
+    )
+}
 
 $mediaEvidence = @()
 $nullSink = if ($IsWindows) { 'NUL' } else { '/dev/null' }
@@ -146,7 +183,7 @@ $conditions = [ordered]@{
     runtime = [ordered]@{
         compose_service = $composeService
         dynamic_vram = ($Gpu -eq '3060')
-        sage_attention_requested = ($Gpu -eq '3060')
+        sage_attention_requested = $sageAttentionRequested
         cuda_module_loading = 'LAZY'
     }
 }
@@ -438,6 +475,7 @@ $report = [ordered]@{
         low_vram = $LowVram
         seed = $Seed
         timeout_seconds = $TimeoutSeconds
+        existing_prompt_id = $ExistingPromptId
         skip_model_hashes = [bool]$SkipModelHashes
     }
     conditions = $conditions

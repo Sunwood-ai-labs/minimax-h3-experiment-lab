@@ -1,0 +1,330 @@
+{
+  "id": "2026-08-08-kijai-r2v-sol-generic-fp16-sage-easycache-4scenes-7s",
+  "date": "2026-08-08",
+  "status": "verified",
+  "purpose": "Integrate Sol-Attn, SageAttention, and EasyCache into the existing MiniMax-H3 ref2va multi-reference R2V workflow and measure four approximately seven-second scenes under the same conditions as the baseline.",
+  "baselineExperiment": "../kijai-r2v-multi-reference-4scenes-7s/experiment.json",
+  "sources": [
+    {
+      "type": "official-comfyui-workflow",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/main/templates/video_minimax_h3_r2v.json",
+      "facts": ["MiniMaxH3ReferenceToVideo", "ref2va", "multiple reference images", "res_multistep", "20 steps"]
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/kijai/ComfyUI-SolAttn_triton",
+      "facts": ["SolAttnPatch", "int8 QK/PV", "sparse attention", "autotune"]
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/kijai/ComfyUI-KJNodes",
+      "facts": ["PathchSageAttentionKJ", "SageAttention modes", "EasyCache"]
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/thu-ml/SageAttention",
+      "facts": ["SageAttention CUDA kernels"]
+    },
+    {
+      "type": "x-reference",
+      "url": "https://x.com/sunbaolong_2001/status/2085689404031672372?s=46",
+      "facts": ["Sol-Attn", "SageAttention", "EasyCache", "MiniMax-H3 speedup report", "reported maximum 3.2x"]
+    }
+  ],
+  "optimization": {
+    "chain": [
+      "UNETLoader",
+      "EasyCache",
+      "PathchSageAttentionKJ",
+      "SolAttnPatch",
+      "BasicGuider",
+      "BasicScheduler"
+    ],
+    "easyCache": {
+      "reuseThreshold": 0.3,
+      "startPercent": 0.2,
+      "endPercent": 0.9
+    },
+    "sageAttention": {
+      "node": "PathchSageAttentionKJ",
+      "mode": "sageattn_qk_int8_pv_fp16_cuda",
+      "allowCompile": false,
+      "wheel": "sageattention-2.2.0+cu130torch2.11"
+    },
+    "solAttn": {
+      "node": "SolAttnPatch",
+      "tau": 1.3,
+      "startPercent": 0.2,
+      "endPercent": 0.9,
+      "minTokens": 4096,
+      "int8QK": true,
+      "sinkConditioning": "exact_kv_and_rows",
+      "morton": false,
+      "mortonCurve": "2d_frame",
+      "int8PV": true,
+      "useTma": false
+    }
+  },
+  "referenceInputs": [
+    {
+      "index": 1,
+      "tag": "<Picture 1>",
+      "role": "background/location",
+      "path": "references/MiniMax_H3_R2V_background_reference_sheet.png",
+      "runtimePath": "runtime/4090/input/MiniMax_H3_R2V_background_reference_sheet.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2545156,
+      "sha256": "5DA392A5655261637B1932CA5A6D6762A2ECF5682A01F1409063831981221038"
+    },
+    {
+      "index": 2,
+      "tag": "<Picture 2>",
+      "role": "Mina character",
+      "path": "references/MiniMax_H3_R2V_mina_reference_sheet.png",
+      "runtimePath": "runtime/4090/input/MiniMax_H3_R2V_mina_reference_sheet.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2180477,
+      "sha256": "0D46C441160B8E7768F55D65926EB859D3500C21FD6472182FAEEB8AE09D4D6B"
+    },
+    {
+      "index": 3,
+      "tag": "<Picture 3>",
+      "role": "Ren character",
+      "path": "references/MiniMax_H3_R2V_ren_reference_sheet.png",
+      "runtimePath": "runtime/4090/input/MiniMax_H3_R2V_ren_reference_sheet.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1967565,
+      "sha256": "3449B9DEF4C05694ACC7C84EDF6DFD06A08F625CE7D094CBC8B195128A90FF36"
+    }
+  ],
+  "conditions": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpuUuid": "GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa",
+    "gpuMemoryMiB": 24564,
+    "driver": "591.86",
+    "composeService": "h3-4090",
+    "port": 8188,
+    "baseModel": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+    "baseModelSha256": "9255F52B6677845AD238F20DFAAFA94727053694127AB7F255C048F0F9365779",
+    "textEncoder": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+    "videoVae": "minimax_h3_video_vae_fp16.safetensors",
+    "audioVae": "minimax_h3_audio_vae_fp32.safetensors",
+    "lora": null,
+    "node": "MiniMaxH3ReferenceToVideo",
+    "refImageSize": "match",
+    "sampler": "res_multistep",
+    "scheduler": "simple",
+    "steps": 20,
+    "denoise": 1.0,
+    "width": 1280,
+    "height": 704,
+    "frames": 175,
+    "fps": 24,
+    "durationSeconds": 7.292,
+    "oomDetected": false,
+    "blackdetectIntervals": 0
+  },
+  "environment": {
+    "hostOs": "Windows 11 Pro build 26200",
+    "hostRamBytes": 137270165504,
+    "wsl": "WSL2 via Docker Desktop",
+    "dockerEngine": "29.4.3",
+    "dockerCompose": "5.1.3",
+    "image": "local/minimax-h3-comfyui:v0.30.0",
+    "imageDigest": "sha256:5bdcdbbe1c193f224739a10e186fbfc7ada5cb69e15e0f8399c6624ec1ce02c0",
+    "comfyUi": "0.30.0",
+    "containerPython": "3.12.3",
+    "pytorch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "cudnn": "9",
+    "cudaModuleLoading": "LAZY",
+    "cudaLaunchBlocking": "0",
+    "h3DebugKjSage": "0",
+    "composeFile": "compose.yaml",
+    "commandArgs": [
+      "--listen",
+      "0.0.0.0",
+      "--port",
+      "8188",
+      "--disable-pinned-memory",
+      "--disable-async-offload",
+      "--fp16-intermediates",
+      "--preview-method",
+      "none"
+    ],
+    "gitCommitAtBaseline": "66bb2e0",
+    "gitBranch": "master"
+  },
+  "runs": [
+    {
+      "id": "scene-01-sunset-meeting",
+      "seed": 2026080813,
+      "promptId": "c89dcb38-d2ad-496b-8409-f204694d7406",
+      "workflow": "workflows/scene-01-sunset-meeting_api.json",
+      "timingReport": "../../../runtime/4090/benchmark/h3-c89dcb38-d2ad-496b-8409-f204694d7406.json",
+      "baselineSeconds": 738.494,
+      "optimizedSeconds": 349.394,
+      "speedup": 2.114,
+      "easyCacheSkipped": "7/20",
+      "status": "success",
+      "output": "../../../runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_01_sunset_meeting_00001_.mp4",
+      "outputBytes": 2029750,
+      "outputSha256": "B1497DF7FBBD50FE4558A8EECE0B611EABBAD4FC35340497A1FCF4B921D07D8A",
+      "media": {
+        "width": 1280,
+        "height": 704,
+        "frames": 175,
+        "fps": 24,
+        "durationSeconds": 7.292,
+        "codec": "h264",
+        "blackdetectIntervals": 0,
+        "oom": false,
+        "note": "The normalized filename was created by a same-graph, same-seed ComfyUI cache replay; timing uses the independent c89 diagnostic run."
+      }
+    },
+    {
+      "id": "scene-02-rainy-stairs",
+      "seed": 2026080814,
+      "promptId": "d20498fe-66fc-4550-a14a-ca86987f4d2e",
+      "workflow": "workflows/scene-02-rainy-stairs_api.json",
+      "timingReport": "../../../runtime/4090/benchmark/h3-d20498fe-66fc-4550-a14a-ca86987f4d2e.json",
+      "baselineSeconds": 738.442,
+      "optimizedSeconds": 365.705,
+      "speedup": 2.019,
+      "easyCacheSkipped": "7/20",
+      "status": "success",
+      "output": "../../../runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_02_rainy_stairs_00001_.mp4",
+      "outputBytes": 2255836,
+      "outputSha256": "054E3E26EE9819CA163FDDCF92C63F091A27F993645A85BE695B2A845C8212C8",
+      "media": {
+        "width": 1280,
+        "height": 704,
+        "frames": 175,
+        "fps": 24,
+        "durationSeconds": 7.292,
+        "codec": "h264",
+        "blackdetectIntervals": 0,
+        "oom": false
+      }
+    },
+    {
+      "id": "scene-03-glasshouse-orbit",
+      "seed": 2026080815,
+      "promptId": "4b4b201a-9502-497b-8b80-defd4c8667a1",
+      "workflow": "workflows/scene-03-glasshouse-orbit_api.json",
+      "timingReport": "../../../runtime/4090/benchmark/h3-4b4b201a-9502-497b-8b80-defd4c8667a1.json",
+      "baselineSeconds": 739.257,
+      "optimizedSeconds": 352.304,
+      "speedup": 2.098,
+      "easyCacheSkipped": "8/20",
+      "status": "success",
+      "output": "../../../runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_03_glasshouse_orbit_00001_.mp4",
+      "outputBytes": 2473041,
+      "outputSha256": "951DF63B8E7F0AF9DBA14C6FE15B0B0C09D10080CBA4EC9BCAD2D12EEC719C39",
+      "media": {
+        "width": 1280,
+        "height": 704,
+        "frames": 175,
+        "fps": 24,
+        "durationSeconds": 7.292,
+        "codec": "h264",
+        "blackdetectIntervals": 0,
+        "oom": false
+      }
+    },
+    {
+      "id": "scene-04-rooftop-pullback",
+      "seed": 2026080816,
+      "promptId": "f9903bb3-52aa-442b-82c9-da2d4e5d1c04",
+      "workflow": "workflows/scene-04-rooftop-pullback_api.json",
+      "timingReport": "../../../runtime/4090/benchmark/h3-f9903bb3-52aa-442b-82c9-da2d4e5d1c04.json",
+      "baselineSeconds": 738.981,
+      "optimizedSeconds": 345.178,
+      "speedup": 2.141,
+      "easyCacheSkipped": "8/20",
+      "status": "success",
+      "output": "../../../runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_04_rooftop_pullback_00001_.mp4",
+      "outputBytes": 2691547,
+      "outputSha256": "9C2297798EF326B114703E969E4F5CE6BC63D6554C8D6E53BC6E234712D110B7",
+      "media": {
+        "width": 1280,
+        "height": 704,
+        "frames": 175,
+        "fps": 24,
+        "durationSeconds": 7.292,
+        "codec": "h264",
+        "blackdetectIntervals": 0,
+        "oom": false
+      }
+    }
+  ],
+  "aggregate": {
+    "baselineAverageSeconds": 738.7935,
+    "optimizedAverageSeconds": 353.14525,
+    "averageSpeedup": 2.092,
+    "maxSpeedup": 2.141,
+    "averageSavedPercent": 52.2,
+    "allRunsSuccess": true,
+    "allBlackdetectIntervalsZero": true,
+    "oomDetected": false
+  },
+  "diagnostics": {
+    "easyCacheOnly": {
+      "promptId": "60b96e34-4cf9-423a-8548-eb9fd0af6134",
+      "seconds": 591.541,
+      "speedupVsBaselineScene1": 1.2488
+    },
+    "genericSageFp16EasyCache": {
+      "promptId": "9820a6b1-3db1-4ee9-b274-c1f3d78cf7af",
+      "seconds": 580.269,
+      "speedupVsBaselineScene1": 1.2726
+    },
+    "rejected": [
+      {
+        "variant": "MiniMaxH3MemoryEfficientSageAttentionPatch + EasyCache",
+        "promptIds": [
+          "229e980e-59ae-4046-b001-dab97bf1857c",
+          "a6412774-0747-4463-9489-0fe5eaaf6099",
+          "d67298f2-909b-4044-a542-b556f1eecb6e"
+        ],
+        "error": "CUDA error: unspecified launch failure"
+      },
+      {
+        "variant": "MiniMaxLowVRAMAttention head_chunks=4 with H3 Sage",
+        "promptId": "ff836580-fc51-4eb0-aa61-683405eca242",
+        "error": "CUDA failure in KJ grouped assignment path"
+      },
+      {
+        "variant": "Generic PathchSageAttentionKJ auto/FP8",
+        "promptId": "e58f06f1-2aa7-431e-bba4-dd0098a4636a",
+        "error": "CUDA error: unspecified launch failure"
+      }
+    ]
+  },
+  "artifacts": {
+    "readme": "README.md",
+    "workflows": [
+      "workflows/scene-01-sunset-meeting_api.json",
+      "workflows/scene-02-rainy-stairs_api.json",
+      "workflows/scene-03-glasshouse-orbit_api.json",
+      "workflows/scene-04-rooftop-pullback_api.json"
+    ],
+    "references": [
+      "references/MiniMax_H3_R2V_background_reference_sheet.png",
+      "references/MiniMax_H3_R2V_mina_reference_sheet.png",
+      "references/MiniMax_H3_R2V_ren_reference_sheet.png"
+    ],
+    "submittedPrompts": "submitted.json"
+  },
+  "limitations": [
+    "The normalized Scene 1 output filename was produced by a same-graph, same-seed ComfyUI cache replay; the independent diagnostic timing is used.",
+    "The final Sage path is generic KJ FP16 CUDA SageAttention, not the H3-specific FP8 path, because the latter failed in this H3 context.",
+    "Sol-Attn is approximate attention and should be visually compared with baseline outputs before making a quality claim.",
+    "No blind human preference or identity score was measured.",
+    "The 3.2x advertised maximum was not reproduced under this exact ref2va/Docker/RTX 4090 condition."
+  ],
+  "conclusion": "The existing MiniMax-H3 ref2va multi-reference R2V workflow successfully ran with Sol-Attn, generic FP16 CUDA SageAttention, and EasyCache on an RTX 4090. Four 1280x704, 175-frame scenes completed without OOM or black output, averaging 2.092x faster than the matched baseline."
+}

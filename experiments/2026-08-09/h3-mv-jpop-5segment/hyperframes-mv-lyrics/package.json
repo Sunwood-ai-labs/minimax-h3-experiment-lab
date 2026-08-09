@@ -1,0 +1,11 @@
+{
+  "name": "hyperframes-mv-lyrics",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.7.102 preview",
+    "check": "npx --yes hyperframes@0.7.102 check",
+    "render": "npx --yes hyperframes@0.7.102 render",
+    "publish": "npx --yes hyperframes@0.7.102 publish"
+  }
+}

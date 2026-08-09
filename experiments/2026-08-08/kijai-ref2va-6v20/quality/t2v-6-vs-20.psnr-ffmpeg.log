@@ -1,0 +1,69 @@
+ffmpeg : Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '.\runtime\4090\output\video\MiniMax_H3_Kijai_LightX2V_Ref2VA_T2V_1344
+x768_6step_er_sde_lora080_00001_.mp4':
+At line:2 char:951
++ ... oding utf8; ffmpeg -hide_banner -loglevel info -i $pair.a -i $pair.b  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Input #0, mov,m...80_00001_.mp4'::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    prompt          : {"1": {"class_type": "UNETLoader", "inputs": {"unet_name": "minimax_h3_ref2va_pruned_int8_convrot
+.safetensors", "weight_dtype": "default"}}, "17": {"class_type": "LoraLoaderModelOnly", "inputs": {"model": ["1", 0], "
+lora_name": "minimax_h3_fl2v_lightx2v_t
+    encoder         : Lavf62.12.102
+  Duration: 00:00:06.58, start: 0.000000, bitrate: 1912 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1344x768, 1774 kb/s, 24 fps, 24
+tbr, 12288 tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 32000 Hz, stereo, fltp, 127 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from '.\runtime\4090\output\video\MiniMax_H3_Kijai_LightX2V_Ref2VA_T2V_1344x768_20st
+ep_er_sde_lora080_00001_.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    prompt          : {"1": {"class_type": "UNETLoader", "inputs": {"unet_name": "minimax_h3_ref2va_pruned_int8_convrot
+.safetensors", "weight_dtype": "default"}}, "17": {"class_type": "LoraLoaderModelOnly", "inputs": {"model": ["1", 0], "
+lora_name": "minimax_h3_fl2v_lightx2v_t
+    encoder         : Lavf62.12.102
+  Duration: 00:00:06.58, start: 0.000000, bitrate: 2066 kb/s
+  Stream #1:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1344x768, 1927 kb/s, 24 fps, 24
+tbr, 12288 tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+  Stream #1:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 32000 Hz, stereo, fltp, 127 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+Stream mapping:
+  Stream #0:0 (h264) -> psnr
+  Stream #1:0 (h264) -> psnr
+  psnr:default -> Stream #0:0 (wrapped_avframe)
+  Stream #0:1 -> #0:1 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'NUL':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    prompt          : {"1": {"class_type": "UNETLoader", "inputs": {"unet_name": "minimax_h3_ref2va_pruned_int8_convrot
+.safetensors", "weight_dtype": "default"}}, "17": {"class_type": "LoraLoaderModelOnly", "inputs": {"model": ["1", 0], "
+lora_name": "minimax_h3_fl2v_lightx2v_t
+    encoder         : Lavf62.12.101
+  Stream #0:0: Video: wrapped_avframe, yuv420p(progressive), 1344x768, q=2-31, 200 kb/s, 24 fps, 24 tbn
+    Metadata:
+      encoder         : Lavc62.28.101 wrapped_avframe
+  Stream #0:1(und): Audio: pcm_s16le, 32000 Hz, stereo, s16, 1024 kb/s (default)
+    Metadata:
+      encoder         : Lavc62.28.101 pcm_s16le
+      handler_name    : SoundHandler
+[Parsed_psnr_0 @ 0000015ea4915fc0] PSNR y:12.727978 u:25.895144 v:28.147972 average:14.406153 min:13.438912 max:14.9927
+04
+[out#0/null @ 0000015ea2cacf80] video:65KiB audio:824KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing ov
+erhead: unknown
+frame=  158 fps=0.0 q=-0.0 Lsize=N/A time=00:00:06.58 bitrate=N/A speed=  59x elapsed=0:00:00.11

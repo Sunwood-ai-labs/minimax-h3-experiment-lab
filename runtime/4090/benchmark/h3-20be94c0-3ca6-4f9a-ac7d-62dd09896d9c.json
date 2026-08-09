@@ -1,0 +1,558 @@
+﻿{
+    "gpu":  "4090",
+    "port":  8188,
+    "prompt_id":  "20be94c0-3ca6-4f9a-ac7d-62dd09896d9c",
+    "started_local":  "2026-08-08T21:15:54.7359630+09:00",
+    "ended_local":  "2026-08-08T21:16:43.0371569+09:00",
+    "wall_seconds":  48.301,
+    "status":  "error",
+    "low_vram":  false,
+    "low_vram_applied":  false,
+    "invocation":  {
+                       "gpu":  "4090",
+                       "port":  8188,
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-r2v-solattn-kjnodes-easycache-4scenes-7s\\workflows\\scene-01-sunset-meeting_api.json",
+                       "output_prefix":  "video/MiniMax_H3_R2V_kjopt_scene_01_sunset_meeting",
+                       "low_vram":  false,
+                       "seed":  2026080813,
+                       "timeout_seconds":  21600,
+                       "skip_model_hashes":  false
+                   },
+    "conditions":  {
+                       "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-r2v-solattn-kjnodes-easycache-4scenes-7s\\workflows\\scene-01-sunset-meeting_api.json",
+                       "low_vram_requested":  false,
+                       "low_vram_applied":  false,
+                       "runtime":  {
+                                       "compose_service":  "h3-4090",
+                                       "dynamic_vram":  false,
+                                       "sage_attention_requested":  true,
+                                       "cuda_module_loading":  "LAZY"
+                                   },
+                       "steps":  20,
+                       "scheduler":  "simple",
+                       "sampler":  "res_multistep",
+                       "base":  "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+                       "text_encoder":  "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+                       "vae":  [
+                                   {
+                                       "node_id":  "3",
+                                       "vae_name":  "minimax_h3_video_vae_fp16.safetensors"
+                                   },
+                                   {
+                                       "node_id":  "4",
+                                       "vae_name":  "minimax_h3_audio_vae_fp32.safetensors"
+                                   }
+                               ],
+                       "easycache":  {
+                                         "reuse_threshold":  0.3,
+                                         "start_percent":  0.2,
+                                         "end_percent":  0.9,
+                                         "verbose":  false
+                                     },
+                       "input_images":  [
+                                            "MiniMax_H3_R2V_background_reference_sheet.png",
+                                            "MiniMax_H3_R2V_mina_reference_sheet.png",
+                                            "MiniMax_H3_R2V_ren_reference_sheet.png"
+                                        ],
+                       "seed":  2026080813
+                   },
+    "environment":  {
+                        "captured_local":  "2026-08-08T21:17:17.1692826+09:00",
+                        "host":  {
+                                     "os":  {
+                                                "Caption":  "Microsoft Windows 11 Pro",
+                                                "Version":  "10.0.26200",
+                                                "BuildNumber":  "26200",
+                                                "OSArchitecture":  "64-bit",
+                                                "LastBootUpTime":  "\/Date(1785270124500)\/"
+                                            },
+                                     "computer":  {
+                                                      "Manufacturer":  "Micro-Star International Co., Ltd.",
+                                                      "Model":  "MS-7D88",
+                                                      "TotalPhysicalMemory":  137270165504
+                                                  },
+                                     "powershell":  "5.1.26100.8875",
+                                     "culture":  "ja-JP",
+                                     "timezone":  "Tokyo Standard Time"
+                                 },
+                        "docker":  {
+                                       "server":  {
+                                                      "available":  true,
+                                                      "path":  "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe",
+                                                      "exit_code":  0,
+                                                      "output":  [
+                                                                     "29.4.3"
+                                                                 ]
+                                                  },
+                                       "compose":  {
+                                                       "available":  true,
+                                                       "path":  "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe",
+                                                       "exit_code":  0,
+                                                       "output":  [
+                                                                      "5.1.3"
+                                                                  ]
+                                                   },
+                                       "container_id":  "7809ebf3dfd10beebef0d1e7b6ae067c562d0b5c372fbab082c92881202f508b",
+                                       "image_id":  "sha256:b41dff79ba77e8a34619803b9653004335fafa5f2371e699a99aa4f1374c291d",
+                                       "image":  {
+                                                     "id":  "sha256:b41dff79ba77e8a34619803b9653004335fafa5f2371e699a99aa4f1374c291d",
+                                                     "repo_tags":  [
+                                                                       "local/minimax-h3-comfyui:v0.30.0"
+                                                                   ],
+                                                     "repo_digests":  [
+                                                                          "local/minimax-h3-comfyui@sha256:b41dff79ba77e8a34619803b9653004335fafa5f2371e699a99aa4f1374c291d"
+                                                                      ],
+                                                     "created":  "2026-08-08T12:13:37.684455965Z",
+                                                     "size":  4026377101
+                                                 }
+                                   },
+                        "container_system_stats":  {
+                                                       "error":  "リモート サーバーがエラーを返しました: (500) 内部サーバー エラーです"
+                                                   },
+                        "nvidia_smi":  {
+                                           "available":  true,
+                                           "path":  "C:\\WINDOWS\\system32\\nvidia-smi.exe",
+                                           "exit_code":  0,
+                                           "output":  [
+                                                          "NVIDIA GeForce RTX 3060, GPU-580ccd21-cc60-0b38-9671-7a7e8f6a9efd, 591.86, 12288 MiB, 8932 MiB, 43",
+                                                          "NVIDIA GeForce RTX 4090, GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa, 591.86, 24564 MiB, 7590 MiB, 39"
+                                                      ]
+                                       },
+                        "project_files":  [
+                                              {
+                                                  "path":  "experiments\\2026-08-08\\kijai-r2v-solattn-kjnodes-easycache-4scenes-7s\\workflows\\scene-01-sunset-meeting_api.json",
+                                                  "bytes":  10443,
+                                                  "sha256":  "64B3FF2061F6136C9A401EAD175368C61B48C5467AE99649A05ADD1A91AD743B"
+                                              },
+                                              {
+                                                  "path":  "compose.yaml",
+                                                  "bytes":  3600,
+                                                  "sha256":  "ECE5ADED55C2C48F4188D646855618A57ADF63C1BFC4A421EF43BB5B79053335"
+                                              },
+                                              {
+                                                  "path":  "Dockerfile",
+                                                  "bytes":  2940,
+                                                  "sha256":  "22A6C630741C33A7CCBC3131C27DA6E3E8BC24C266BD195256492D9A68B5A11D"
+                                              },
+                                              {
+                                                  "path":  "scripts\\run-h3-post-condition.ps1",
+                                                  "bytes":  20650,
+                                                  "sha256":  "11E0045346017E48A9CBE0BC6C3C2BA4C859809A5F386EB84E3859FCC183A0EA"
+                                              },
+                                              {
+                                                  "path":  "docker\\entrypoint.sh",
+                                                  "bytes":  1385,
+                                                  "sha256":  "FD0698DFA84F57E64A76A0A7A7B8B40FBCF01742FC0BE310CC2B6E678B852B82"
+                                              },
+                                              {
+                                                  "path":  "docker\\h3-runtime-patch.py",
+                                                  "bytes":  4134,
+                                                  "sha256":  "A97F430882B25B113A407B2EC68C205FF87DA444C87611FD490C664158796C9A"
+                                              },
+                                              {
+                                                  "path":  "docker\\download-h3-model.sh",
+                                                  "bytes":  2262,
+                                                  "sha256":  "A0B90B4536E0853A114D0F8B2E7E544F1339A2364EA468D5A333D4D7D64EA6AC"
+                                              },
+                                              {
+                                                  "path":  "assets\\i2v_start_frame_generation.md",
+                                                  "bytes":  2211,
+                                                  "sha256":  "AF42EF84D4E0D68B549D34F07662D46C4B586F1BC90B2D785177D8282C142F76"
+                                              },
+                                              {
+                                                  "path":  "assets\\i2v_start_frame_1280x704.png",
+                                                  "bytes":  1081736,
+                                                  "sha256":  "BE63F90186D46A2860A463C70E4E3E76FDF95A19E98F9DB9E696CD7610D96CD8"
+                                              },
+                                              {
+                                                  "path":  "assets\\i2v_start_frame_864x480.png",
+                                                  "bytes":  515647,
+                                                  "sha256":  "6E075DDA3C2E5D1F7B0A9E2C1422504A11CFF353947BB10C348628F5237B7F58"
+                                              }
+                                          ],
+                        "model_files":  [
+                                            {
+                                                "file_name":  "minimax_h3_audio_vae_fp32.safetensors",
+                                                "found":  true,
+                                                "path":  "models\\vae\\minimax_h3_audio_vae_fp32.safetensors",
+                                                "bytes":  605254808,
+                                                "sha256":  "8E505D95DD1561D47ABD43D4238FD40D9BB1AE9E147ED0A4CBA778D76AE4DB48",
+                                                "hash_status":  "sha256"
+                                            },
+                                            {
+                                                "file_name":  "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+                                                "found":  true,
+                                                "path":  "models\\diffusion_models\\minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+                                                "bytes":  20970379616,
+                                                "sha256":  "9255F52B6677845AD238F20DFAAFA94727053694127AB7F255C048F0F9365779",
+                                                "hash_status":  "sha256"
+                                            },
+                                            {
+                                                "file_name":  "minimax_h3_video_vae_fp16.safetensors",
+                                                "found":  true,
+                                                "path":  "models\\vae\\minimax_h3_video_vae_fp16.safetensors",
+                                                "bytes":  5207808496,
+                                                "sha256":  "7C1F131492E7EDDACAAC9069A61B81BDD39DE5CC96561E677C5EAB1CDCE5E522",
+                                                "hash_status":  "sha256"
+                                            },
+                                            {
+                                                "file_name":  "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+                                                "found":  true,
+                                                "path":  "models\\text_encoders\\qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+                                                "bytes":  15687142551,
+                                                "sha256":  "35A88D51044231FE332301D7A62AA81E3F2CBA62FEBEB446E2C1E3E0EF76F2C6",
+                                                "hash_status":  "sha256"
+                                            }
+                                        ],
+                        "input_assets":  [
+                                             {
+                                                 "file_name":  "MiniMax_H3_R2V_background_reference_sheet.png",
+                                                 "found":  true,
+                                                 "path":  "runtime\\4090\\input\\MiniMax_H3_R2V_background_reference_sheet.png",
+                                                 "bytes":  2545156,
+                                                 "sha256":  "5DA392A5655261637B1932CA5A6D6762A2ECF5682A01F1409063831981221038",
+                                                 "ffprobe":  {
+                                                                 "streams":  [
+                                                                                 {
+                                                                                     "index":  0,
+                                                                                     "codec_name":  "png",
+                                                                                     "codec_long_name":  "PNG (Portable Network Graphics) image",
+                                                                                     "codec_type":  "video",
+                                                                                     "codec_tag_string":  "[0][0][0][0]",
+                                                                                     "codec_tag":  "0x0000",
+                                                                                     "width":  1672,
+                                                                                     "height":  941,
+                                                                                     "coded_width":  1672,
+                                                                                     "coded_height":  941,
+                                                                                     "has_b_frames":  0,
+                                                                                     "pix_fmt":  "rgb24",
+                                                                                     "level":  -99,
+                                                                                     "color_range":  "pc",
+                                                                                     "color_space":  "gbr",
+                                                                                     "r_frame_rate":  "25/1",
+                                                                                     "avg_frame_rate":  "25/1",
+                                                                                     "time_base":  "1/25",
+                                                                                     "disposition":  {
+                                                                                                         "default":  0,
+                                                                                                         "dub":  0,
+                                                                                                         "original":  0,
+                                                                                                         "comment":  0,
+                                                                                                         "lyrics":  0,
+                                                                                                         "karaoke":  0,
+                                                                                                         "forced":  0,
+                                                                                                         "hearing_impaired":  0,
+                                                                                                         "visual_impaired":  0,
+                                                                                                         "clean_effects":  0,
+                                                                                                         "attached_pic":  0,
+                                                                                                         "timed_thumbnails":  0,
+                                                                                                         "non_diegetic":  0,
+                                                                                                         "captions":  0,
+                                                                                                         "descriptions":  0,
+                                                                                                         "metadata":  0,
+                                                                                                         "dependent":  0,
+                                                                                                         "still_image":  0,
+                                                                                                         "multilayer":  0
+                                                                                                     }
+                                                                                 }
+                                                                             ],
+                                                                 "format":  {
+                                                                                "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\MiniMax_H3_R2V_background_reference_sheet.png",
+                                                                                "nb_streams":  1,
+                                                                                "nb_programs":  0,
+                                                                                "nb_stream_groups":  0,
+                                                                                "format_name":  "png_pipe",
+                                                                                "format_long_name":  "piped png sequence",
+                                                                                "size":  "2545156",
+                                                                                "probe_score":  99
+                                                                            }
+                                                             }
+                                             },
+                                             {
+                                                 "file_name":  "MiniMax_H3_R2V_mina_reference_sheet.png",
+                                                 "found":  true,
+                                                 "path":  "runtime\\4090\\input\\MiniMax_H3_R2V_mina_reference_sheet.png",
+                                                 "bytes":  2180477,
+                                                 "sha256":  "0D46C441160B8E7768F55D65926EB859D3500C21FD6472182FAEEB8AE09D4D6B",
+                                                 "ffprobe":  {
+                                                                 "streams":  [
+                                                                                 {
+                                                                                     "index":  0,
+                                                                                     "codec_name":  "png",
+                                                                                     "codec_long_name":  "PNG (Portable Network Graphics) image",
+                                                                                     "codec_type":  "video",
+                                                                                     "codec_tag_string":  "[0][0][0][0]",
+                                                                                     "codec_tag":  "0x0000",
+                                                                                     "width":  1672,
+                                                                                     "height":  941,
+                                                                                     "coded_width":  1672,
+                                                                                     "coded_height":  941,
+                                                                                     "has_b_frames":  0,
+                                                                                     "pix_fmt":  "rgb24",
+                                                                                     "level":  -99,
+                                                                                     "color_range":  "pc",
+                                                                                     "color_space":  "gbr",
+                                                                                     "r_frame_rate":  "25/1",
+                                                                                     "avg_frame_rate":  "25/1",
+                                                                                     "time_base":  "1/25",
+                                                                                     "disposition":  {
+                                                                                                         "default":  0,
+                                                                                                         "dub":  0,
+                                                                                                         "original":  0,
+                                                                                                         "comment":  0,
+                                                                                                         "lyrics":  0,
+                                                                                                         "karaoke":  0,
+                                                                                                         "forced":  0,
+                                                                                                         "hearing_impaired":  0,
+                                                                                                         "visual_impaired":  0,
+                                                                                                         "clean_effects":  0,
+                                                                                                         "attached_pic":  0,
+                                                                                                         "timed_thumbnails":  0,
+                                                                                                         "non_diegetic":  0,
+                                                                                                         "captions":  0,
+                                                                                                         "descriptions":  0,
+                                                                                                         "metadata":  0,
+                                                                                                         "dependent":  0,
+                                                                                                         "still_image":  0,
+                                                                                                         "multilayer":  0
+                                                                                                     }
+                                                                                 }
+                                                                             ],
+                                                                 "format":  {
+                                                                                "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\MiniMax_H3_R2V_mina_reference_sheet.png",
+                                                                                "nb_streams":  1,
+                                                                                "nb_programs":  0,
+                                                                                "nb_stream_groups":  0,
+                                                                                "format_name":  "png_pipe",
+                                                                                "format_long_name":  "piped png sequence",
+                                                                                "size":  "2180477",
+                                                                                "probe_score":  99
+                                                                            }
+                                                             }
+                                             },
+                                             {
+                                                 "file_name":  "MiniMax_H3_R2V_ren_reference_sheet.png",
+                                                 "found":  true,
+                                                 "path":  "runtime\\4090\\input\\MiniMax_H3_R2V_ren_reference_sheet.png",
+                                                 "bytes":  1967565,
+                                                 "sha256":  "3449B9DEF4C05694ACC7C84EDF6DFD06A08F625CE7D094CBC8B195128A90FF36",
+                                                 "ffprobe":  {
+                                                                 "streams":  [
+                                                                                 {
+                                                                                     "index":  0,
+                                                                                     "codec_name":  "png",
+                                                                                     "codec_long_name":  "PNG (Portable Network Graphics) image",
+                                                                                     "codec_type":  "video",
+                                                                                     "codec_tag_string":  "[0][0][0][0]",
+                                                                                     "codec_tag":  "0x0000",
+                                                                                     "width":  1672,
+                                                                                     "height":  941,
+                                                                                     "coded_width":  1672,
+                                                                                     "coded_height":  941,
+                                                                                     "has_b_frames":  0,
+                                                                                     "pix_fmt":  "rgb24",
+                                                                                     "level":  -99,
+                                                                                     "color_range":  "pc",
+                                                                                     "color_space":  "gbr",
+                                                                                     "r_frame_rate":  "25/1",
+                                                                                     "avg_frame_rate":  "25/1",
+                                                                                     "time_base":  "1/25",
+                                                                                     "disposition":  {
+                                                                                                         "default":  0,
+                                                                                                         "dub":  0,
+                                                                                                         "original":  0,
+                                                                                                         "comment":  0,
+                                                                                                         "lyrics":  0,
+                                                                                                         "karaoke":  0,
+                                                                                                         "forced":  0,
+                                                                                                         "hearing_impaired":  0,
+                                                                                                         "visual_impaired":  0,
+                                                                                                         "clean_effects":  0,
+                                                                                                         "attached_pic":  0,
+                                                                                                         "timed_thumbnails":  0,
+                                                                                                         "non_diegetic":  0,
+                                                                                                         "captions":  0,
+                                                                                                         "descriptions":  0,
+                                                                                                         "metadata":  0,
+                                                                                                         "dependent":  0,
+                                                                                                         "still_image":  0,
+                                                                                                         "multilayer":  0
+                                                                                                     }
+                                                                                 }
+                                                                             ],
+                                                                 "format":  {
+                                                                                "filename":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\MiniMax_H3_R2V_ren_reference_sheet.png",
+                                                                                "nb_streams":  1,
+                                                                                "nb_programs":  0,
+                                                                                "nb_stream_groups":  0,
+                                                                                "format_name":  "png_pipe",
+                                                                                "format_long_name":  "piped png sequence",
+                                                                                "size":  "1967565",
+                                                                                "probe_score":  99
+                                                                            }
+                                                             }
+                                             }
+                                         ],
+                        "model_hashes_skipped":  false
+                    },
+    "comfyui_log":  "h3-4090-1  | 2026-08-08T12:16:39.213619109Z \u001b[32m[INFO]\u001b[0m \u001b[32mPrompt executed in 44.42 seconds\u001b[0m",
+    "history_status":  {
+                           "status_str":  "error",
+                           "completed":  false,
+                           "messages":  [
+                                            [
+                                                "execution_start",
+                                                {
+                                                    "prompt_id":  "20be94c0-3ca6-4f9a-ac7d-62dd09896d9c",
+                                                    "timestamp":  1786191354796
+                                                }
+                                            ],
+                                            [
+                                                "execution_cached",
+                                                {
+                                                    "nodes":  [
+
+                                                              ],
+                                                    "prompt_id":  "20be94c0-3ca6-4f9a-ac7d-62dd09896d9c",
+                                                    "timestamp":  1786191354847
+                                                }
+                                            ],
+                                            [
+                                                "execution_error",
+                                                {
+                                                    "prompt_id":  "20be94c0-3ca6-4f9a-ac7d-62dd09896d9c",
+                                                    "node_id":  "13",
+                                                    "node_type":  "SamplerCustomAdvanced",
+                                                    "executed":  [
+                                                                     "19",
+                                                                     "11",
+                                                                     "12",
+                                                                     "1",
+                                                                     "20",
+                                                                     "9",
+                                                                     "3",
+                                                                     "2",
+                                                                     "10",
+                                                                     "4",
+                                                                     "5",
+                                                                     "8",
+                                                                     "6",
+                                                                     "7",
+                                                                     "18"
+                                                                 ],
+                                                    "exception_message":  "CUDA error: unspecified launch failure\nSearch for `cudaErrorLaunchFailure\u0027 in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n",
+                                                    "exception_type":  "torch.AcceleratorError",
+                                                    "traceback":  [
+                                                                      "  File \"/opt/ComfyUI/execution.py\", line 545, in execute\n    output_data, output_ui, has_subgraph, has_pending_tasks = await get_output_data(prompt_id, unique_id, obj, input_data_all, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)\n                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/execution.py\", line 344, in get_output_data\n    return_values = await _async_map_node_over_list(prompt_id, unique_id, obj, input_data_all, obj.FUNCTION, allow_interrupt=True, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/execution.py\", line 318, in _async_map_node_over_list\n    await process_inputs(input_dict, i)\n",
+                                                                      "  File \"/opt/ComfyUI/execution.py\", line 306, in process_inputs\n    result = f(**inputs)\n             ^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_api/internal/__init__.py\", line 149, in wrapped_func\n    return method(locked_class, **inputs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_api/latest/_io.py\", line 1935, in EXECUTE_NORMALIZED\n    to_return = cls.execute(*args, **kwargs)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_extras/nodes_custom_sampler.py\", line 1049, in execute\n    samples = guider.sample(noise.generate_noise(latent), latent_image, sampler, sigmas, denoise_mask=noise_mask, callback=callback, disable_pbar=disable_pbar, seed=noise.seed)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1333, in sample\n    output = executor.execute(noise, latent_image, sampler, sigmas, denoise_mask, callback, disable_pbar, seed, latent_shapes=latent_shapes)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 114, in execute\n    return self.wrappers[self.idx](self, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_extras/nodes_easycache.py\", line 177, in easycache_sample_wrapper\n    return executor(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 106, in __call__\n    return new_executor.execute(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1260, in outer_sample\n    output = self.inner_sample(noise, latent_image, device, sampler, sigmas, denoise_mask, callback, disable_pbar, seed, latent_shapes=latent_shapes)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1235, in inner_sample\n    samples = executor.execute(self, sigmas, extra_args, callback, noise, latent_image, denoise_mask, disable_pbar)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1005, in sample\n    samples = self.sampler_function(model_k, noise, sigmas, extra_args=extra_args, callback=k_callback, disable=disable_pbar, **self.extra_options)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/k_diffusion/sampling.py\", line 1460, in sample_res_multistep\n    return res_multistep(model, x, sigmas, extra_args=extra_args, callback=callback, disable=disable, s_noise=s_noise, noise_sampler=noise_sampler, eta=0., cfg_pp=False)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/k_diffusion/sampling.py\", line 1418, in res_multistep\n    denoised = model(x, sigmas[i] * s_in, **extra_args)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 640, in __call__\n    out = self.inner_model(x, sigma, model_options=model_options, seed=seed)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1208, in __call__\n    return self.outer_predict_noise(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1215, in outer_predict_noise\n    ).execute(x, timestep, model_options, seed)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1218, in predict_noise\n    return sampling_function(self.inner_model, x, timestep, self.conds.get(\"negative\", None), self.conds.get(\"positive\", None), self.cfg, model_options=model_options, seed=seed)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 620, in sampling_function\n    out = calc_cond_batch(model, conds, x, timestep, model_options)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 211, in calc_cond_batch\n    return _calc_cond_batch_outer(model, conds, x_in, timestep, model_options)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 219, in _calc_cond_batch_outer\n    return executor.execute(model, conds, x_in, timestep, model_options)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 114, in execute\n    return self.wrappers[self.idx](self, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_extras/nodes_easycache.py\", line 163, in easycache_calc_cond_batch_wrapper\n    return executor(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 106, in __call__\n    return new_executor.execute(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/samplers.py\", line 335, in _calc_cond_batch\n    output = model.apply_model(input_x, timestep_, **c).chunk(batch_chunks)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/model_base.py\", line 196, in apply_model\n    return comfy.patcher_extension.WrapperExecutor.new_class_executor(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/model_base.py\", line 240, in _apply_model\n    model_output = self.diffusion_model(xc, t, context=context, control=control, transformer_options=transformer_options, **extra_conds)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ldm/minimax/model.py\", line 499, in forward\n    return comfy.patcher_extension.WrapperExecutor.new_class_executor(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 114, in execute\n    return self.wrappers[self.idx](self, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy_extras/nodes_easycache.py\", line 76, in easycache_forward_wrapper\n    full_output: torch.Tensor = executor(*args, **kwargs)\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 106, in __call__\n    return new_executor.execute(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/custom_nodes/ComfyUI-SolAttn_triton/_morton_h3.py\", line 129, in _forward\n    return original_forward(x, timestep, context,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ldm/minimax/model.py\", line 629, in _forward\n    h = block(h, t_emb, mod_segments, rope_freqs, transformer_options=transformer_options)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1885, in _call_impl\n    return inner()\n           ^^^^^^^\n",
+                                                                      "  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1833, in inner\n    result = forward_call(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ldm/minimax/model.py\", line 270, in forward\n    x = _mod_gate(x, gate_msa, self.attn(h, rope_freqs=rope_freqs, transformer_options=transformer_options), mod_segments)\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/custom_nodes/ComfyUI-SolAttn_triton/__init__.py\", line 382, in forward\n    return patched_forward(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/custom_nodes/ComfyUI-KJNodes/nodes/ltxv_nodes.py\", line 2107, in minimax_sageattn_forward\n    return self.out_proj(o.view(s, self.heads * self.head_dim))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ops.py\", line 1405, in forward\n    output = self.forward_comfy_cast_weights(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ops.py\", line 1323, in forward_comfy_cast_weights\n    weight, bias, offload_stream = cast_bias_weight(\n                                   ^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/ops.py\", line 387, in cast_bias_weight\n    offload_stream = comfy.model_management.get_offload_stream(device)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/opt/ComfyUI/comfy/model_management.py\", line 1453, in get_offload_stream\n    ss[stream_counter].wait_stream(current_stream(device))\n",
+                                                                      "  File \"/usr/local/lib/python3.12/dist-packages/torch/cuda/streams.py\", line 77, in wait_stream\n    self.wait_event(stream.record_event())\n                    ^^^^^^^^^^^^^^^^^^^^^\n",
+                                                                      "  File \"/usr/local/lib/python3.12/dist-packages/torch/cuda/streams.py\", line 91, in record_event\n    event.record(self)\n",
+                                                                      "  File \"/usr/local/lib/python3.12/dist-packages/torch/cuda/streams.py\", line 209, in record\n    super().record(stream)\n"
+                                                                  ],
+                                                    "current_inputs":  {
+                                                                           "noise":  [
+                                                                                         "\u003c/opt/ComfyUI/comfy_extras/nodes_custom_sampler.Noise_RandomNoise object at 0x7839b7c5ff20\u003e"
+                                                                                     ],
+                                                                           "guider":  [
+                                                                                          "\u003c/opt/ComfyUI/comfy_extras/nodes_custom_sampler.Guider_Basic object at 0x783a044fd790\u003e"
+                                                                                      ],
+                                                                           "sampler":  [
+                                                                                           "\u003ccomfy.samplers.KSAMPLER object at 0x783a044ffda0\u003e"
+                                                                                       ],
+                                                                           "sigmas":  [
+                                                                                          "tensor([1.0000, 0.9956, 0.9908, 0.9855, 0.9796, 0.9730, 0.9655, 0.9571, 0.9474,\n        0.9362, 0.9231, 0.9076, 0.8889, 0.8660, 0.8372, 0.8000, 0.7500, 0.6792,\n        0.5714, 0.3871, 0.0000])"
+                                                                                      ],
+                                                                           "latent_image":  [
+                                                                                                "{\u0027samples\u0027: \u003ccomfy.nested_tensor.NestedTensor object at 0x783a0551f050\u003e}"
+                                                                                            ]
+                                                                       },
+                                                    "current_outputs":  [
+                                                                            "1",
+                                                                            "12",
+                                                                            "20",
+                                                                            "3",
+                                                                            "6",
+                                                                            "10",
+                                                                            "14",
+                                                                            "2",
+                                                                            "18",
+                                                                            "11",
+                                                                            "16",
+                                                                            "13",
+                                                                            "5",
+                                                                            "4",
+                                                                            "19",
+                                                                            "9",
+                                                                            "8",
+                                                                            "7",
+                                                                            "15",
+                                                                            "17"
+                                                                        ],
+                                                    "timestamp":  1786191399212
+                                                }
+                                            ]
+                                        ]
+                       },
+    "output_files":  [
+
+                     ],
+    "media_evidence":  [
+
+                       ]
+}

@@ -1,0 +1,80 @@
+{
+  "experiment": "MiniMax-H3 Motion Context Japanese synth-pop MV",
+  "sourceRepository": "https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context",
+  "sourceCommit": "15fc6a7bf7b78efb27f33d7eef3818e7ed0e118a",
+  "gpuService": "h3-4090",
+  "resolution": [
+    1280,
+    704
+  ],
+  "fps": 24,
+  "steps": 20,
+  "sampler": "res_multistep",
+  "scheduler": "simple",
+  "seed": 2026080911,
+  "contextLength": 22,
+  "audioContextLength": 22,
+  "encodeMode": "video",
+  "anchorMode": "head",
+  "audioMode": "timeline",
+  "optimizerIsolation": "generic FP16 CUDA SageAttention only; EasyCache/Spectrum/Sol-Attn disabled",
+  "music": {
+    "style": "original Japanese synth-pop / alt-pop",
+    "lyrics": [
+      "夜を越えて　光を探す",
+      "君となら　まだ飛べる",
+      "雨の向こう　夢が見える",
+      "この瞬間を　抱きしめて",
+      "明日へ行こう　また会おう"
+    ],
+    "lyricsArePlannedText": true,
+    "source": "MiniMax-H3 generated audio carried through Motion Context"
+  },
+  "segments": [
+    {
+      "segment": 1,
+      "rawFrames": 158,
+      "contextFrames": 0,
+      "lyric": "夜を越えて　光を探す",
+      "prompt": "A cinematic live-action Japanese pop music video at night. A non-specific Japanese woman in her mid-20s is the singer, with shoulder-length black hair, one silver hair clip, a black satin jacket over a deep red dress, and a small silver ear cuff. She performs on a rain-wet Tokyo rooftop surrounded by amber and crimson neon, then starts walking toward a stairway as the camera makes a smooth backward dolly. Original upbeat synth-pop and alt-pop instrumental, steady tempo, female Japanese vocals singing exactly 「夜を越えて　光を探す」, no spoken dialogue. Preserve the singer, outfit, melody, tempo, lighting and cinematic color grade for every segment. Realistic music-video cinematography, expressive performance, no subtitles, no on-screen text, no logos.",
+      "workflow": "segment_01_api.json",
+      "previousInput": null
+    },
+    {
+      "segment": 2,
+      "rawFrames": 158,
+      "contextFrames": 22,
+      "lyric": "君となら　まだ飛べる",
+      "prompt": "Continue directly from the previous Japanese pop music video segment with the exact same singer, black hair, silver hair clip, black satin jacket, deep red dress, ear cuff, vocal tone, synth-pop melody and camera direction. She descends the neon stairway into a rain-soaked Tokyo alley, singing and moving with confident choreography while the camera tracks beside her. Keep the same amber-crimson lighting, wet reflections, beat, instrumental texture and vocal continuity with no reset. Female Japanese vocals sing exactly 「君となら　まだ飛べる」, no spoken dialogue, no subtitles, no on-screen text, no logos, realistic live-action music-video style.",
+      "workflow": "segment_02_api.json",
+      "previousInput": "h3_mv/segment_01.mp4"
+    },
+    {
+      "segment": 3,
+      "rawFrames": 158,
+      "contextFrames": 22,
+      "lyric": "雨の向こう　夢が見える",
+      "prompt": "Continue seamlessly from the previous segment with no visible reset. The same Japanese singer, outfit, face, hair clip, ear cuff, vocal tone and synth-pop song continue in the same rainy Tokyo night. She reaches a quiet underpass with moving red and gold light, turns toward the camera and sings while the camera makes a slow half-orbit; rain trails and reflections move naturally. Preserve the exact melody, tempo, room tone, reverb and lighting across the join. Female Japanese vocals sing exactly 「雨の向こう　夢が見える」, no spoken dialogue, no subtitles, no on-screen text, no logos.",
+      "workflow": "segment_03_api.json",
+      "previousInput": "h3_mv/segment_02.mp4"
+    },
+    {
+      "segment": 4,
+      "rawFrames": 158,
+      "contextFrames": 22,
+      "lyric": "この瞬間を　抱きしめて",
+      "prompt": "Continue directly from the previous Japanese pop music video segment. Keep the same singer, black hair, silver clip, black satin jacket, deep red dress, ear cuff, song arrangement and vocal performance. She exits the underpass onto a pedestrian bridge above the city, performs a restrained but energetic dance phrase as the camera arcs around her, and the neon city bokeh blooms behind her. Maintain continuous beat, melody, vocal texture, wet-night color and camera energy without a reset. Female Japanese vocals sing exactly 「この瞬間を　抱きしめて」, no spoken dialogue, no subtitles, no on-screen text, no logos.",
+      "workflow": "segment_04_api.json",
+      "previousInput": "h3_mv/segment_03.mp4"
+    },
+    {
+      "segment": 5,
+      "rawFrames": 158,
+      "contextFrames": 22,
+      "lyric": "明日へ行こう　また会おう",
+      "prompt": "Finish the same Japanese pop music video with no visible identity reset. Keep the exact same Japanese singer, outfit, hair, silver clip, ear cuff, vocal tone, synth-pop melody and cinematic grade. The camera follows her from the bridge back to a rooftop as the rain eases and a soft pre-dawn blue mixes with the last amber neon. She faces the camera, sings the final phrase, then lowers her hand as the camera gently pulls back to a glowing city horizon. Preserve the continuous instrumental, beat and reverb. Female Japanese vocals sing exactly 「明日へ行こう　また会おう」, no spoken dialogue, no subtitles, no on-screen text, no logos.",
+      "workflow": "segment_05_api.json",
+      "previousInput": "h3_mv/segment_04.mp4"
+    }
+  ]
+}

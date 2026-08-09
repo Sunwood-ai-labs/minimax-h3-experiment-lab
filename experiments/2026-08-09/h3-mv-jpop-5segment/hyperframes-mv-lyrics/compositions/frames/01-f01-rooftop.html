@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <div id="hf-01-f01-rooftop-root" data-composition-id="01-f01-rooftop" data-start="0" data-duration="6.583" data-width="1280" data-height="704">
+        <style>
+          #hf-01-f01-rooftop-root {
+            --ink: #111111;
+            --ink-alt: #1a1a18;
+            --orange: #e85d26;
+            --cream: #f0ece5;
+            --muted: rgba(240, 236, 229, .68);
+            --pulse: 0;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            container-type: size;
+            color: var(--cream);
+            font-family: "Barlow", "Noto Sans JP", "Yu Gothic", sans-serif;
+          }
+
+          @font-face { font-family: "Barlow"; src: local("Barlow"); }
+          @font-face { font-family: "Noto Sans JP"; src: local("Noto Sans JP"); }
+          @font-face { font-family: "Yu Gothic"; src: local("Yu Gothic"); }
+          @font-face { font-family: "IBM Plex Mono"; src: local("IBM Plex Mono"); }
+
+          #hf-01-f01-rooftop-shell {
+            position: absolute;
+            left: 7.5%;
+            bottom: 10.5%;
+            width: 76%;
+            min-height: 18%;
+            padding: 22px 34px 20px 38px;
+            background: rgba(17, 17, 17, .78);
+            border-left: 5px solid var(--orange);
+            transform: scale(calc(1 + var(--pulse) * .018));
+            transform-origin: left bottom;
+          }
+
+          #hf-01-f01-rooftop-kicker {
+            color: var(--orange);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: .14em;
+            line-height: 1.2;
+            text-transform: uppercase;
+          }
+
+          #hf-01-f01-rooftop-line {
+            display: flex;
+            flex-wrap: nowrap;
+            margin-top: 12px;
+            color: var(--cream);
+            font-size: 55px;
+            font-weight: 700;
+            letter-spacing: .035em;
+            line-height: 1.12;
+            white-space: nowrap;
+          }
+
+          #hf-01-f01-rooftop-line .char {
+            display: inline-block;
+            will-change: transform, opacity;
+          }
+
+          #hf-01-f01-rooftop-line .char-space { width: .52em; }
+
+          #hf-01-f01-rooftop-sub {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 12px;
+            color: var(--muted);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 13px;
+            letter-spacing: .09em;
+            line-height: 1.3;
+            text-transform: uppercase;
+          }
+
+          #hf-01-f01-rooftop-rule {
+            width: 100%;
+            height: 2px;
+            margin-top: 14px;
+            background: var(--orange);
+            transform-origin: left center;
+          }
+        </style>
+
+        <div id="hf-01-f01-rooftop-shell" class="lyric-shell clip" data-start="0" data-duration="6.583" data-track-index="2">
+          <div id="hf-01-f01-rooftop-kicker" class="kicker">H3 / MOTION CONTEXT · ORIGINAL MV · 01</div>
+          <div id="hf-01-f01-rooftop-line" class="lyric-line" aria-label="夜を越えて　光を探す"><span class="char">夜</span><span class="char">を</span><span class="char">越</span><span class="char">え</span><span class="char">て</span><span class="char char-space">　</span><span class="char">光</span><span class="char">を</span><span class="char">探</span><span class="char">す</span></div>
+          <div id="hf-01-f01-rooftop-sub" class="lyric-sub"><span>ROOFTOP / FIRST LIGHT</span><span>PLANNED LYRIC / 30 FPS AUDIO MAP</span></div>
+          <div id="hf-01-f01-rooftop-rule" class="lyric-rule"></div>
+        </div>
+
+        <script>
+          const root = document.getElementById("hf-01-f01-rooftop-root");
+          const shell = document.getElementById("hf-01-f01-rooftop-shell");
+          const kicker = document.getElementById("hf-01-f01-rooftop-kicker");
+          const line = document.getElementById("hf-01-f01-rooftop-line");
+          const sub = document.getElementById("hf-01-f01-rooftop-sub");
+          const rule = document.getElementById("hf-01-f01-rooftop-rule");
+          const timeline = gsap.timeline({ paused: true });
+          const lyricChars = Array.from(line.querySelectorAll(".char"));
+          const AUDIO_DATA = {"fps":30,"frames":[{"t":0.0,"rms":0.3877,"bass":0.0991,"mid":0.1366},{"t":0.0333,"rms":0.2865,"bass":0.0661,"mid":0.1212},{"t":0.0667,"rms":0.245,"bass":0.0249,"mid":0.1001},{"t":0.1,"rms":0.2916,"bass":0.101,"mid":0.1665},{"t":0.1333,"rms":0.749,"bass":0.2208,"mid":0.226},{"t":0.1667,"rms":0.6621,"bass":0.3598,"mid":0.264},{"t":0.2,"rms":0.5953,"bass":0.3494,"mid":0.6504},{"t":0.2333,"rms":0.6269,"bass":0.2114,"mid":0.5879},{"t":0.2667,"rms":0.6905,"bass":0.178,"mid":0.3747},{"t":0.3,"rms":0.6111,"bass":0.1483,"mid":0.3678},{"t":0.3333,"rms":0.5477,"bass":0.069,"mid":0.3244},{"t":0.3667,"rms":0.6004,"bass":0.0384,"mid":0.4543},{"t":0.4,"rms":0.5811,"bass":0.0371,"mid":0.4331},{"t":0.4333,"rms":0.5727,"bass":0.0518,"mid":0.4197},{"t":0.4667,"rms":0.5903,"bass":0.0827,"mid":0.3149},{"t":0.5,"rms":0.6042,"bass":0.0837,"mid":0.2433},{"t":0.5333,"rms":0.6418,"bass":0.0626,"mid":0.2668},{"t":0.5667,"rms":0.649,"bass":0.1557,"mid":0.2274},{"t":0.6,"rms":0.649,"bass":0.0693,"mid":0.2172},{"t":0.6333,"rms":0.5972,"bass":0.0747,"mid":0.3917},{"t":0.6667,"rms":0.5612,"bass":0.0469,"mid":0.2499},{"t":0.7,"rms":0.5584,"bass":0.0681,"mid":0.4374},{"t":0.7333,"rms":0.6636,"bass":0.0434,"mid":0.2427},{"t":0.7667,"rms":0.5827,"bass":0.0204,"mid":0.3574},{"t":0.8,"rms":0.6151,"bass":0.0284,"mid":0.2396},{"t":0.8333,"rms":0.6378,"bass":0.0518,"mid":0.3142},{"t":0.8667,"rms":0.4091,"bass":0.103,"mid":0.3605},{"t":0.9,"rms":0.3993,"bass":0.0246,"mid":0.3438},{"t":0.9333,"rms":0.4325,"bass":0.0166,"mid":0.3684},{"t":0.9667,"rms":0.4041,"bass":0.0471,"mid":0.3164},{"t":1.0,"rms":0.5199,"bass":0.0507,"mid":0.6796},{"t":1.0333,"rms":0.6166,"bass":0.0248,"mid":1.0},{"t":1.0667,"rms":0.6159,"bass":0.0315,"mid":0.5378},{"t":1.1,"rms":0.598,"bass":0.0681,"mid":0.486},{"t":1.1333,"rms":0.5832,"bass":0.0571,"mid":0.6063},{"t":1.1667,"rms":0.6084,"bass":0.0375,"mid":0.6264},{"t":1.2,"rms":0.665,"bass":0.0442,"mid":0.5892},{"t":1.2333,"rms":0.623,"bass":0.0233,"mid":0.4974},{"t":1.2667,"rms":0.6335,"bass":0.12,"mid":0.4802},{"t":1.3,"rms":0.6183,"bass":0.0455,"mid":0.4043},{"t":1.3333,"rms":0.6421,"bass":0.042,"mid":0.3755},{"t":1.3667,"rms":0.6342,"bass":0.0375,"mid":0.3224},{"t":1.4,"rms":0.6016,"bass":0.055,"mid":0.1268},{"t":1.4333,"rms":0.5646,"bass":0.0308,"mid":0.168},{"t":1.4667,"rms":0.661,"bass":0.0643,"mid":0.1768},{"t":1.5,"rms":0.6483,"bass":0.0494,"mid":0.2672},{"t":1.5333,"rms":0.6051,"bass":0.0698,"mid":0.1467},{"t":1.5667,"rms":0.6084,"bass":0.0627,"mid":0.2573},{"t":1.6,"rms":0.5543,"bass":0.0623,"mid":0.2146},{"t":1.6333,"rms":0.7007,"bass":0.0631,"mid":0.1087},{"t":1.6667,"rms":0.6151,"bass":0.0272,"mid":0.1936},{"t":1.7,"rms":0.6214,"bass":0.0616,"mid":0.1908},{"t":1.7333,"rms":0.6133,"bass":0.0568,"mid":0.2209},{"t":1.7667,"rms":0.6236,"bass":0.0328,"mid":0.1463},{"t":1.8,"rms":0.4565,"bass":0.025,"mid":0.2098},{"t":1.8333,"rms":0.379,"bass":0.0287,"mid":0.2218},{"t":1.8667,"rms":0.3864,"bass":0.049,"mid":0.3298},{"t":1.9,"rms":0.4755,"bass":0.0492,"mid":0.2754},{"t":1.9333,"rms":0.6487,"bass":0.0907,"mid":0.3586},{"t":1.9667,"rms":0.6639,"bass":0.1075,"mid":0.2149},{"t":2.0,"rms":0.5989,"bass":0.045,"mid":0.3543},{"t":2.0333,"rms":0.5682,"bass":0.0276,"mid":0.2518},{"t":2.0667,"rms":0.6048,"bass":0.1266,"mid":0.3322},{"t":2.1,"rms":0.5375,"bass":0.1158,"mid":0.298},{"t":2.1333,"rms":0.5508,"bass":0.0549,"mid":0.3009},{"t":2.1667,"rms":0.5523,"bass":0.053,"mid":0.2754},{"t":2.2,"rms":0.503,"bass":0.0575,"mid":0.2555},{"t":2.2333,"rms":0.4659,"bass":0.0742,"mid":0.234},{"t":2.2667,"rms":0.491,"bass":0.0414,"mid":0.1724},{"t":2.3,"rms":0.5252,"bass":0.0375,"mid":0.1607},{"t":2.3333,"rms":0.509,"bass":0.0467,"mid":0.198},{"t":2.3667,"rms":0.5539,"bass":0.052,"mid":0.2592},{"t":2.4,"rms":0.6792,"bass":0.0956,"mid":0.3294},{"t":2.4333,"rms":0.7166,"bass":0.1705,"mid":0.2866},{"t":2.4667,"rms":0.7563,"bass":0.5648,"mid":0.3394},{"t":2.5,"rms":0.5937,"bass":0.5014,"mid":0.3767},{"t":2.5333,"rms":0.516,"bass":0.3805,"mid":0.3867},{"t":2.5667,"rms":0.442,"bass":0.2926,"mid":0.2217},{"t":2.6,"rms":0.3118,"bass":0.0399,"mid":0.1725},{"t":2.6333,"rms":0.2324,"bass":0.0616,"mid":0.1818},{"t":2.6667,"rms":0.1927,"bass":0.0221,"mid":0.1408},{"t":2.7,"rms":0.1875,"bass":0.0328,"mid":0.1655},{"t":2.7333,"rms":0.2097,"bass":0.0244,"mid":0.2426},{"t":2.7667,"rms":0.195,"bass":0.0112,"mid":0.2592},{"t":2.8,"rms":0.2028,"bass":0.0248,"mid":0.2773},{"t":2.8333,"rms":0.5445,"bass":0.0497,"mid":0.3627},{"t":2.8667,"rms":0.5728,"bass":0.0434,"mid":0.2967},{"t":2.9,"rms":0.5556,"bass":0.0124,"mid":0.4737},{"t":2.9333,"rms":0.5021,"bass":0.0262,"mid":0.4725},{"t":2.9667,"rms":0.3676,"bass":0.0241,"mid":0.4448},{"t":3.0,"rms":0.5252,"bass":0.0342,"mid":0.3915},{"t":3.0333,"rms":0.4526,"bass":0.0912,"mid":0.3534},{"t":3.0667,"rms":0.5627,"bass":0.0736,"mid":0.418},{"t":3.1,"rms":0.509,"bass":0.0536,"mid":0.6},{"t":3.1333,"rms":0.5365,"bass":0.0612,"mid":0.6317},{"t":3.1667,"rms":0.5533,"bass":0.0246,"mid":0.6497},{"t":3.2,"rms":0.5464,"bass":0.0839,"mid":0.6366},{"t":3.2333,"rms":0.5302,"bass":0.0986,"mid":0.5556},{"t":3.2667,"rms":0.54,"bass":0.0313,"mid":0.5237},{"t":3.3,"rms":0.5455,"bass":0.0388,"mid":0.4736},{"t":3.3333,"rms":0.4957,"bass":0.0311,"mid":0.3982},{"t":3.3667,"rms":0.4234,"bass":0.0429,"mid":0.3713},{"t":3.4,"rms":0.4713,"bass":0.0291,"mid":0.3043},{"t":3.4333,"rms":0.5147,"bass":0.0308,"mid":0.2108},{"t":3.4667,"rms":0.6028,"bass":0.1129,"mid":0.1709},{"t":3.5,"rms":0.5696,"bass":0.1205,"mid":0.1528},{"t":3.5333,"rms":0.5553,"bass":0.1113,"mid":0.2176},{"t":3.5667,"rms":0.5555,"bass":0.1673,"mid":0.2226},{"t":3.6,"rms":0.5317,"bass":0.0553,"mid":0.1976},{"t":3.6333,"rms":0.5312,"bass":0.0616,"mid":0.1683},{"t":3.6667,"rms":0.5401,"bass":0.0598,"mid":0.1597},{"t":3.7,"rms":0.5753,"bass":0.0634,"mid":0.1259},{"t":3.7333,"rms":0.537,"bass":0.1915,"mid":0.0657},{"t":3.7667,"rms":0.575,"bass":0.2171,"mid":0.0773},{"t":3.8,"rms":0.6972,"bass":0.1011,"mid":0.1149},{"t":3.8333,"rms":0.6194,"bass":0.0929,"mid":0.1582},{"t":3.8667,"rms":0.54,"bass":0.0715,"mid":0.1748},{"t":3.9,"rms":0.6095,"bass":0.0326,"mid":0.2661},{"t":3.9333,"rms":0.5852,"bass":0.0671,"mid":0.2933},{"t":3.9667,"rms":0.546,"bass":0.049,"mid":0.244},{"t":4.0,"rms":0.5598,"bass":0.0187,"mid":0.2274},{"t":4.0333,"rms":0.5821,"bass":0.0364,"mid":0.2072},{"t":4.0667,"rms":0.5942,"bass":0.0083,"mid":0.1703},{"t":4.1,"rms":0.5872,"bass":0.0268,"mid":0.1888},{"t":4.1333,"rms":0.5862,"bass":0.019,"mid":0.1421},{"t":4.1667,"rms":0.5983,"bass":0.0233,"mid":0.1514},{"t":4.2,"rms":0.6293,"bass":0.0096,"mid":0.1054},{"t":4.2333,"rms":0.5497,"bass":0.0179,"mid":0.0752},{"t":4.2667,"rms":0.551,"bass":0.0625,"mid":0.092},{"t":4.3,"rms":0.5567,"bass":0.0269,"mid":0.0864},{"t":4.3333,"rms":0.5589,"bass":0.035,"mid":0.1012},{"t":4.3667,"rms":0.5965,"bass":0.0558,"mid":0.1473},{"t":4.4,"rms":0.6443,"bass":0.022,"mid":0.0913},{"t":4.4333,"rms":0.574,"bass":0.065,"mid":0.1105},{"t":4.4667,"rms":0.5603,"bass":0.0413,"mid":0.1048},{"t":4.5,"rms":0.5385,"bass":0.0261,"mid":0.2029},{"t":4.5333,"rms":0.4546,"bass":0.0166,"mid":0.2248},{"t":4.5667,"rms":0.4588,"bass":0.0257,"mid":0.2271},{"t":4.6,"rms":0.4566,"bass":0.0278,"mid":0.1609},{"t":4.6333,"rms":0.427,"bass":0.0267,"mid":0.1393},{"t":4.6667,"rms":0.4176,"bass":0.0287,"mid":0.1444},{"t":4.7,"rms":0.5022,"bass":0.0289,"mid":0.4686},{"t":4.7333,"rms":0.5202,"bass":0.0187,"mid":0.5145},{"t":4.7667,"rms":0.5724,"bass":0.0435,"mid":0.3176},{"t":4.8,"rms":0.5575,"bass":0.0409,"mid":0.4721},{"t":4.8333,"rms":0.658,"bass":0.0414,"mid":0.524},{"t":4.8667,"rms":0.6285,"bass":0.0303,"mid":0.557},{"t":4.9,"rms":0.6107,"bass":0.0619,"mid":0.4667},{"t":4.9333,"rms":0.6514,"bass":0.0704,"mid":0.2334},{"t":4.9667,"rms":0.5481,"bass":0.1041,"mid":0.2178},{"t":5.0,"rms":0.5773,"bass":0.0518,"mid":0.2271},{"t":5.0333,"rms":0.5763,"bass":0.0643,"mid":0.3477},{"t":5.0667,"rms":0.5196,"bass":0.1023,"mid":0.4421},{"t":5.1,"rms":0.4624,"bass":0.0748,"mid":0.201},{"t":5.1333,"rms":0.5342,"bass":0.1032,"mid":0.2301},{"t":5.1667,"rms":0.585,"bass":0.0495,"mid":0.3087},{"t":5.2,"rms":0.5217,"bass":0.0538,"mid":0.2178},{"t":5.2333,"rms":0.4567,"bass":0.0507,"mid":0.1913},{"t":5.2667,"rms":0.6101,"bass":0.0207,"mid":0.2312},{"t":5.3,"rms":0.5962,"bass":0.125,"mid":0.2062},{"t":5.3333,"rms":0.6166,"bass":0.2158,"mid":0.142},{"t":5.3667,"rms":0.5919,"bass":0.1343,"mid":0.1607},{"t":5.4,"rms":0.4558,"bass":0.0955,"mid":0.2132},{"t":5.4333,"rms":0.4646,"bass":0.0352,"mid":0.1389},{"t":5.4667,"rms":0.489,"bass":0.017,"mid":0.0797},{"t":5.5,"rms":0.4896,"bass":0.0205,"mid":0.0592},{"t":5.5333,"rms":0.4901,"bass":0.0258,"mid":0.0532},{"t":5.5667,"rms":0.5181,"bass":0.0323,"mid":0.0912},{"t":5.6,"rms":0.5452,"bass":0.0461,"mid":0.1624},{"t":5.6333,"rms":0.6577,"bass":0.1674,"mid":0.1674},{"t":5.6667,"rms":0.5693,"bass":0.1683,"mid":0.156},{"t":5.7,"rms":0.5755,"bass":0.0629,"mid":0.1807},{"t":5.7333,"rms":0.581,"bass":0.0588,"mid":0.2924},{"t":5.7667,"rms":0.4782,"bass":0.0921,"mid":0.318},{"t":5.8,"rms":0.4705,"bass":0.0947,"mid":0.2568},{"t":5.8333,"rms":0.5018,"bass":0.0695,"mid":0.2978},{"t":5.8667,"rms":0.4867,"bass":0.0365,"mid":0.326},{"t":5.9,"rms":0.501,"bass":0.0615,"mid":0.3179},{"t":5.9333,"rms":0.4928,"bass":0.0303,"mid":0.2941},{"t":5.9667,"rms":0.4387,"bass":0.0431,"mid":0.282},{"t":6.0,"rms":0.4706,"bass":0.0517,"mid":0.2801},{"t":6.0333,"rms":0.6266,"bass":0.0605,"mid":0.2792},{"t":6.0667,"rms":0.6562,"bass":0.0931,"mid":0.2618},{"t":6.1,"rms":0.8695,"bass":0.0791,"mid":0.1943},{"t":6.1333,"rms":0.7426,"bass":0.2576,"mid":0.2242},{"t":6.1667,"rms":0.5252,"bass":0.6599,"mid":0.2393},{"t":6.2,"rms":0.4873,"bass":0.5988,"mid":0.287},{"t":6.2333,"rms":0.4937,"bass":0.3917,"mid":0.3144},{"t":6.2667,"rms":0.443,"bass":0.0955,"mid":0.332},{"t":6.3,"rms":0.4228,"bass":0.077,"mid":0.3383},{"t":6.3333,"rms":0.428,"bass":0.0633,"mid":0.329},{"t":6.3667,"rms":0.4428,"bass":0.0486,"mid":0.3454},{"t":6.4,"rms":0.4082,"bass":0.0535,"mid":0.3383},{"t":6.4333,"rms":0.3854,"bass":0.0463,"mid":0.3127},{"t":6.4667,"rms":0.3618,"bass":0.014,"mid":0.282},{"t":6.5,"rms":0.3865,"bass":0.0474,"mid":0.2877},{"t":6.5333,"rms":1.0,"bass":0.2002,"mid":0.3978},{"t":6.5667,"rms":0.3507,"bass":0.4671,"mid":0.4036}]};
+
+          timeline.fromTo(shell, { x: -42, opacity: 0 }, { x: 0, opacity: 1, duration: .48, ease: "power3.out" }, 0);
+          timeline.fromTo(kicker, { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: .34, ease: "power2.out" }, .14);
+          lyricChars.forEach((char, index) => {
+            timeline.fromTo(char,
+              { y: 30, opacity: 0, rotation: index % 2 ? 2 : -2 },
+              { y: 0, opacity: 1, rotation: 0, duration: .38, ease: "back.out(1.35)" },
+              .26 + Math.min(index * .055, .72)
+            );
+          });
+          timeline.fromTo(sub, { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: .3, ease: "power2.out" }, .72);
+          timeline.fromTo(rule, { scaleX: 0 }, { scaleX: 1, duration: .72, ease: "power2.out" }, .72);
+
+          // Deterministic audio-reactive pulse from pre-extracted FFT bands.
+          AUDIO_DATA.frames.forEach((frame) => {
+            timeline.to(root, { "--pulse": frame.rms, duration: 1 / AUDIO_DATA.fps, ease: "none" }, Math.max(0, frame.t));
+          });
+
+          window.__timelines = window.__timelines || {};
+          window.__timelines["01-f01-rooftop"] = timeline;
+        </script>
+      </div>
+    </template>
+  </body>
+</html>

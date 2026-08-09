@@ -1,0 +1,225 @@
+{
+  "targetAccount": "@hAru_mAki_ch",
+  "project": "MiniMax-H3 Experiment Lab",
+  "series": "MiniMax-H3 ref2va multi-reference R2V — 4 scenes × about 7 seconds",
+  "postMode": "progress",
+  "simulationOnly": true,
+  "experimentRecord": "experiments/2026-08-08/kijai-r2v-multi-reference-4scenes-7s/README.md",
+  "main": {
+    "label": "概要投稿",
+    "text": "MiniMax-H3、複数リファレンスR2Vの続編やってみた！！！\n\n背景シート＋人物2人のキャラクターシートを同時入力。\n同じ3枚を使い回して、4シーン生成したぞ。\n\n1280×704 · 175 frames · 24fps · 20 steps\n4本とも成功、OOMなし、blackdetect=0。\n1本約12分、、、背景の影響もかなり強い🔥",
+    "media": [
+      "montage"
+    ]
+  },
+  "replies": [
+    {
+      "label": "入力構成",
+      "filter": "setup",
+      "text": "【今回の入力】\n\n<Picture 1> 背景・ロケーション\n<Picture 2> Mina\n<Picture 3> Ren\n\n3枚ともImage Genで作成したリファレンスシートを使用。\nMiniMaxH3ReferenceToVideo / ref2va\n同じ順番・同じ3枚を4シーンすべてに接続したぞ。\n\n共通:\nRTX 4090 · h3-4090 · 1280×704 · 175 frames · 24fps · 7.292 sec\n20 steps · res_multistep · simple · denoise 1.0\nLoRAなし · EasyCacheなし · ref_image_size=match",
+      "media": [
+        "background",
+        "mina",
+        "ren"
+      ]
+    },
+    {
+      "label": "シーン1",
+      "filter": "experiments",
+      "text": "【シーン1｜夕暮れの屋上ミーティング】\n\nPrompt:\n<Picture 1> is the same near-future Tokyo rooftop greenhouse and observation deck environment. <Picture 2> is Mina, and <Picture 3> is Ren. At sunset, Mina steps out onto the wet rooftop deck and looks over the city. Ren enters from the glass greenhouse behind her and stops beside her. The camera makes a slow cinematic dolly from a wide establishing view toward the two characters. Preserve their exact identities, hairstyles, scars, earpiece, outfits and colors from the reference sheets. Keep the greenhouse architecture and orange-blue sunset consistent. Natural wind moves Mina's rust-red scarf and Ren's long coat. Quiet serious mood, realistic live-action motion, no dialogue, no text, no subtitles.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nBase: minimax_h3_ref2va_pruned_int8_convrot.safetensors\nReference images: <Picture 1> background / <Picture 2> Mina / <Picture 3> Ren\nReference sizing: match\nResolution: 1280×704 · 175 frames · 24fps · 7.292 sec\nSteps: 20 / Sampler: res_multistep / Scheduler: simple / Denoise: 1.0\nSeed: 2026080813\n\nResult:\nComfyUI 738.494 sec / log 00:12:18\nH.264 + AAC / blackdetect 0 / OOMなし\nPrompt ID: daab53e0-6304-461a-9eec-89ce70de33a1\nOutput SHA-256: 2C742EB70CB873B8D67E140AF83F781C228DADAC6B105502DB81E6899A01D898",
+      "media": [
+        "scene1"
+      ]
+    },
+    {
+      "label": "シーン2",
+      "filter": "experiments",
+      "text": "【シーン2｜雨の外階段】\n\nPrompt:\n<Picture 1> is the same near-future Tokyo rooftop greenhouse and observation deck environment. <Picture 2> is Mina, and <Picture 3> is Ren. A sudden rain begins. Mina leads Ren down the exterior stairs from the rooftop greenhouse, moving quickly but naturally, while Ren looks back once toward the city lights. The camera tracks backward down the wet stairs at shoulder height, with rain streaks, reflections and realistic footwork. Preserve their exact identities, hairstyles, scar, earpiece, outfits and colors from the reference sheets. Keep the same glass greenhouse architecture and city skyline. Mina's rust-red scarf and Ren's long coat move in the wind. Tense but controlled live-action action, no dialogue, no text, no subtitles.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nBase: minimax_h3_ref2va_pruned_int8_convrot.safetensors\nReference images: <Picture 1> background / <Picture 2> Mina / <Picture 3> Ren\nReference sizing: match\nResolution: 1280×704 · 175 frames · 24fps · 7.292 sec\nSteps: 20 / Sampler: res_multistep / Scheduler: simple / Denoise: 1.0\nSeed: 2026080814\n\nResult:\nComfyUI 738.442 sec / log 00:12:18\nH.264 + AAC / blackdetect 0 / OOMなし\nPrompt ID: 59fcae98-2947-4454-a5b0-9f8ad5c42f44\nOutput SHA-256: 096768A3CFD2C917120BCCFDC2E5B366BFD035FD5CFA80ED30F0262E9BF3474A",
+      "media": [
+        "scene2"
+      ]
+    },
+    {
+      "label": "シーン3",
+      "filter": "experiments",
+      "text": "【シーン3｜温室内の会話】\n\nPrompt:\n<Picture 1> is the same glass rooftop greenhouse overlooking Tokyo. <Picture 2> is Mina, and <Picture 3> is Ren. Inside the greenhouse at blue hour, Mina and Ren face each other between rows of plants. Mina slowly removes one glove and Ren takes a cautious step closer. The camera makes a slow half-orbit around them, showing the glass structure, wet leaves, distant city lights and reflections. Preserve their exact identities, hairstyles, scar, earpiece, outfits and colors from the reference sheets. Keep both characters visible and anatomically stable. Subtle wind moves the scarf and coat, quiet dramatic live-action cinematography, no dialogue, no text, no subtitles.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nBase: minimax_h3_ref2va_pruned_int8_convrot.safetensors\nReference images: <Picture 1> background / <Picture 2> Mina / <Picture 3> Ren\nReference sizing: match\nResolution: 1280×704 · 175 frames · 24fps · 7.292 sec\nSteps: 20 / Sampler: res_multistep / Scheduler: simple / Denoise: 1.0\nSeed: 2026080815\n\nResult:\nComfyUI 739.257 sec / log 00:12:19\nH.264 + AAC / blackdetect 0 / OOMなし\nPrompt ID: 0eab4e9a-b288-4a41-bd1e-e39dc08c481c\nOutput SHA-256: 4E77DEDEE84278A773DAA43B7B57A5A2CED0A9DC1DBC28F369C4F729E46AA9E5",
+      "media": [
+        "scene3"
+      ]
+    },
+    {
+      "label": "シーン4",
+      "filter": "experiments",
+      "text": "【シーン4｜屋上からのプルバック】\n\nPrompt:\n<Picture 1> is the same Tokyo rooftop greenhouse and observation deck. <Picture 2> is Mina, and <Picture 3> is Ren. At night after the rain, Mina and Ren stand side by side at the rooftop edge, looking toward the glowing city. Mina turns slightly toward Ren, then both look forward as the camera slowly pulls far back through the greenhouse doorway to reveal the entire rooftop and skyline. Preserve their exact identities, hairstyles, scar, earpiece, outfits and colors from the reference sheets. Keep the same architecture, wet reflective floor, plants and city composition. Natural coat and scarf movement, restrained hopeful mood, realistic live-action cinematography, no dialogue, no text, no subtitles.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nBase: minimax_h3_ref2va_pruned_int8_convrot.safetensors\nReference images: <Picture 1> background / <Picture 2> Mina / <Picture 3> Ren\nReference sizing: match\nResolution: 1280×704 · 175 frames · 24fps · 7.292 sec\nSteps: 20 / Sampler: res_multistep / Scheduler: simple / Denoise: 1.0\nSeed: 2026080816\n\nResult:\nComfyUI 738.981 sec / log 00:12:19\nH.264 + AAC / blackdetect 0 / OOMなし\nPrompt ID: 1ff91445-428f-4675-85e6-058d393fde4b\nOutput SHA-256: F485BD71F7F2748A929F74EAF7669D25417CB0BD29A07E9B6B3F0E44F1EFBF62",
+      "media": [
+        "scene4"
+      ]
+    },
+    {
+      "label": "結果と制限",
+      "filter": "results",
+      "text": "【今回の結果】\n\n4本とも生成成功、OOMなし、blackdetect=0。\nScene 1: 738.494秒\nScene 2: 738.442秒\nScene 3: 739.257秒\nScene 4: 738.981秒\n\n4本とも 1280×704 · 175 frames · 24fps · 7.292 sec\n同じ背景＋Mina＋Renの3枚を使い回して、夕暮れ・雨・温室・屋上の4シーンを成立させたぞ！！！\n\n大枠の背景と2人の外見は反映された。\nただしScene 4は夜指定でも夕焼け寄り、、、背景リファレンスの影響が強い結果になった。\n\n詳細な環境・workflow・SHA-256・再現コマンドは実験記録に保存済み。",
+      "media": [
+        "contact"
+      ]
+    },
+    {
+      "label": "前回の実験",
+      "filter": "context",
+      "text": "【前回の実験スレッド】\n\n前回はref2va + LightX2VでT2V / I2Vを6 stepsと20 stepsで比較。\n今回はR2Vに背景＋人物2人の複数リファレンスを入れて続編検証したぞ。\nhttps://x.com/hAru_mAki_ch/status/2086019982308352292",
+      "media": []
+    },
+    {
+      "label": "関連公開リポジトリ",
+      "filter": "context",
+      "text": "【参考サイト｜関連公開リポジトリ】\n\nMiniMax-H3をDocker / ComfyUIで扱うときに参照した関連実装。\n今回のMiniMax-H3 Experiment Lab自体はローカルリポジトリで管理している。\nhttps://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo",
+      "media": []
+    },
+    {
+      "label": "公式workflow",
+      "filter": "context",
+      "text": "【参考サイト｜公式ComfyUI workflow】\n\n今回の複数リファレンスR2Vで確認した公式テンプレート。\nhttps://github.com/Comfy-Org/workflow_templates/blob/main/templates/video_minimax_h3_r2v.json",
+      "media": []
+    },
+    {
+      "label": "Kijai出典",
+      "filter": "context",
+      "text": "【参考サイト｜Kijai MiniMax-H3_comfy】\n\n今回のComfyUI向け実装・モデル配置を確認した出典。\nhttps://huggingface.co/Kijai/MiniMax-H3_comfy",
+      "media": []
+    },
+    {
+      "label": "ref2vaモデル出典",
+      "filter": "context",
+      "text": "【参考サイト｜今回のref2vaモデル】\n\n実験でロードしたpruned int8 convrotファイルの取得元。モデルSHA-256は実験記録に固定している。\nhttps://huggingface.co/Comfy-Org/MiniMax-H3",
+      "media": []
+    },
+    {
+      "label": "関連X参照",
+      "filter": "context",
+      "text": "【参考サイト｜関連X投稿】\n\nMiniMax-H3 / Kijai関連の参照投稿。\n今回の複数リファレンスR2V実験は、公式workflowとローカル検証で確認した。\nhttps://x.com/sd_tutorial/status/2085760369612783646?s=46",
+      "media": []
+    }
+  ],
+  "media": {
+    "montage": {
+      "id": "montage",
+      "src": "assets/r2v-4scene-montage.mp4",
+      "title": "4シーン概要モンタージュ",
+      "info": "2×2 · 1280×704 · 175 frames · 24fps · 7.291667 sec",
+      "provenance": "証拠由来。4本の実生成MP4をFFmpegで2×2配置。Scene 1の音声トラックのみ概要用に保持。",
+      "sourcePath": "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-r2v-multi-reference-4scenes-7s\\outputs\\r2v-4scene-montage.mp4",
+      "sha256": "487B252240CDB98211E7F13234396931E1148015DC093CB05E0FFE88057B1B3B",
+      "bytes": 4931033
+    },
+    "background": {
+      "id": "background",
+      "src": "assets/background-reference-preview.png",
+      "title": "背景リファレンスシート",
+      "info": "投稿表示用 3:2 preview · 元入力 1672×941",
+      "provenance": "Image Genで作成した実験入力の表示用コピー。元の16:9 PNGを上下87px白パディングして3:2化。R2Vの実入力は元PNG。",
+      "sourcePath": "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-r2v-multi-reference-4scenes-7s\\references\\MiniMax_H3_R2V_background_reference_sheet.png",
+      "sourceSha256": "5DA392A5655261637B1932CA5A6D6762A2ECF5682A01F1409063831981221038",
+      "sha256": "6C97E278CABDE67455A2B40B210FC2AF0AC7591D098C61255D372A2243934CE2",
+      "bytes": 2588516,
+      "edit": "Social preview only: padded from 1672×941 to 1672×1115; no content cropped."
+    },
+    "mina": {
+      "id": "mina",
+      "src": "assets/mina-reference-preview.png",
+      "title": "Mina リファレンスシート",
+      "info": "投稿表示用 3:2 preview · 元入力 1672×941",
+      "provenance": "Image Genで作成した実験入力の表示用コピー。元の16:9 PNGを上下87px白パディングして3:2化。R2Vの実入力は元PNG。",
+      "sourcePath": "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-r2v-multi-reference-4scenes-7s\\references\\MiniMax_H3_R2V_mina_reference_sheet.png",
+      "sourceSha256": "0D46C441160B8E7768F55D65926EB859D3500C21FD6472182FAEEB8AE09D4D6B",
+      "sha256": "8D1ED863773AF1FC77F5DD85614F0B28446DC84A25C75BA7CABE6EC5ACDD82DB",
+      "bytes": 2186418,
+      "edit": "Social preview only: padded from 1672×941 to 1672×1115; no content cropped."
+    },
+    "ren": {
+      "id": "ren",
+      "src": "assets/ren-reference-preview.png",
+      "title": "Ren リファレンスシート",
+      "info": "投稿表示用 3:2 preview · 元入力 1672×941",
+      "provenance": "Image Genで作成した実験入力の表示用コピー。元の16:9 PNGを上下87px白パディングして3:2化。R2Vの実入力は元PNG。",
+      "sourcePath": "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-r2v-multi-reference-4scenes-7s\\references\\MiniMax_H3_R2V_ren_reference_sheet.png",
+      "sourceSha256": "3449B9DEF4C05694ACC7C84EDF6DFD06A08F625CE7D094CBC8B195128A90FF36",
+      "sha256": "7315A31A2A6EED3AA4A54A8852E91047B3411CFCEB002A71349C19D7BAD576AD",
+      "bytes": 1964751,
+      "edit": "Social preview only: padded from 1672×941 to 1672×1115; no content cropped."
+    },
+    "scene1": {
+      "id": "scene1",
+      "src": "assets/scene-01-sunset-meeting.mp4",
+      "title": "Scene 1 · sunset meeting",
+      "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
+      "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / MiniMaxH3ReferenceToVideo。",
+      "sourcePath": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_R2V_multi_ref_scene_01_sunset_meeting_00001_.mp4",
+      "sha256": "2C742EB70CB873B8D67E140AF83F781C228DADAC6B105502DB81E6899A01D898",
+      "bytes": 1934071
+    },
+    "scene2": {
+      "id": "scene2",
+      "src": "assets/scene-02-rainy-stairs.mp4",
+      "title": "Scene 2 · rainy stairs",
+      "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
+      "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / MiniMaxH3ReferenceToVideo。",
+      "sourcePath": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_R2V_multi_ref_scene_02_rainy_stairs_00001_.mp4",
+      "sha256": "096768A3CFD2C917120BCCFDC2E5B366BFD035FD5CFA80ED30F0262E9BF3474A",
+      "bytes": 2194117
+    },
+    "scene3": {
+      "id": "scene3",
+      "src": "assets/scene-03-glasshouse-orbit.mp4",
+      "title": "Scene 3 · glasshouse orbit",
+      "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
+      "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / MiniMaxH3ReferenceToVideo。",
+      "sourcePath": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_R2V_multi_ref_scene_03_glasshouse_orbit_00001_.mp4",
+      "sha256": "4E77DEDEE84278A773DAA43B7B57A5A2CED0A9DC1DBC28F369C4F729E46AA9E5",
+      "bytes": 2438065
+    },
+    "scene4": {
+      "id": "scene4",
+      "src": "assets/scene-04-rooftop-pullback.mp4",
+      "title": "Scene 4 · rooftop pullback",
+      "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
+      "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / MiniMaxH3ReferenceToVideo。",
+      "sourcePath": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_R2V_multi_ref_scene_04_rooftop_pullback_00001_.mp4",
+      "sha256": "F485BD71F7F2748A929F74EAF7669D25417CB0BD29A07E9B6B3F0E44F1EFBF62",
+      "bytes": 2697353
+    },
+        "contact": {
+      "id": "contact",
+    "src": "assets/r2v-4scene-contact-preview.jpg",
+      "title": "4シーン確認用コンタクトシート",
+    "info": "投稿表示用 3:2 preview · 4シーン一覧",
+    "provenance": "実生成出力4本の中間フレームから作成した確認用コンタクトシートの表示用コピー。結果カードではなく、出力の視覚確認用。",
+      "sourcePath": "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-08\\kijai-r2v-multi-reference-4scenes-7s\\outputs\\r2v-4scene-contact.jpg",
+    "sha256": "0738CC024E150026D7665524A796DE36B576529984BE707D300BF90BA26BB330",
+    "bytes": 147034,
+    "edit": "Social preview only: padded from 1280×704 to 1280×854; no content cropped."
+    }
+  },
+  "commonConditions": {
+    "gpu": "RTX 4090",
+    "composeService": "h3-4090",
+    "node": "MiniMaxH3ReferenceToVideo",
+    "model": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+    "resolution": "1280×704",
+    "frames": 175,
+    "fps": 24,
+    "durationSeconds": 7.292,
+    "steps": 20,
+    "sampler": "res_multistep",
+    "scheduler": "simple",
+    "denoise": 1,
+    "refImageSize": "match",
+    "lora": null,
+    "easyCache": false
+  },
+  "provenance": {
+    "montage": "evidence-derived FFmpeg montage from four real generated outputs",
+    "referenceSheets": "Image Gen-created inputs; exact original PNGs stored in the experiment directory",
+    "sceneVideos": "real generated RTX 4090 Docker Compose outputs",
+    "socialPreviewEdit": "reference sheets padded vertically to 3:2 for the simulator/preflight; no content cropped"
+  }
+}

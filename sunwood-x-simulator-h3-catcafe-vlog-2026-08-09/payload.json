@@ -1,0 +1,140 @@
+{
+  "targetAccount": "@hAru_mAki_ch",
+  "project": "MiniMax-H3 Experiment Lab",
+  "series": "MiniMax-H3 Japanese cat-cafe vlog",
+  "postMode": "retrospective",
+  "simulationOnly": true,
+  "experimentRecord": "experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment/README.md",
+  "repositoryOrigin": null,
+  "localHistoryMatches": 0,
+  "continuity": {
+    "previousPostUrl": null,
+    "reason": "Local Sunwood post history is empty; no prior URL was invented."
+  },
+  "commonConditions": {
+    "gpu": "RTX 4090",
+    "composeService": "h3-4090",
+    "endpoint": "http://127.0.0.1:8188",
+    "resolution": "1280×704",
+    "fps": 24,
+    "steps": 20,
+    "seed": 2026080910,
+    "motionContext": "context_length=22 · audio_context_length=22 · video/audio latent carry-over",
+    "promptLanguage": "English",
+    "dialogueLanguage": "Japanese",
+    "attention": "generic FP16 CUDA SageAttention",
+    "disabledOptimizations": "EasyCache / Sol-Attn / Spectrum"
+  },
+  "main": {
+    "label": "概要投稿",
+    "filter": "all",
+    "text": "MiniMax-H3で、日本人インフルエンサー風の猫カフェVlogを約30秒にしてみた！！！\n\n英語プロンプト＋日本語セリフで、同じ女性・茶トラ猫・店内の雰囲気を固定する設計。\n5セグメントに分割して、Motion Contextで映像＋音声＋latentを22フレーム引き継いで連結したぞ🔥\n\n1280×704・24fps・RTX 4090\n5本すべてsuccess / OOMなし / blackdetect=0",
+    "media": ["merged"]
+  },
+  "replies": [
+    {
+      "label": "今回の条件",
+      "filter": "setup",
+      "text": "【今回の条件】\n\nT2V / RTX 4090 / Docker Compose h3-4090\n1280×704 · 24fps · 20 steps\nSeed: 2026080910（全セグメント共通）\n\nPromptは英語、セリフは日本語。\ncontext_length=22 / audio_context_length=22\nencode_mode=video / anchor_mode=head\naudio_mode=timeline / match_tail=true\n\n1本158 framesで生成。\n2〜5本目は22 framesを引き継いでTrim、136 framesを出力。\nEasyCache・Sol-Attn・Spectrumは無効。",
+      "media": []
+    },
+    {
+      "label": "実験1｜導入",
+      "filter": "experiments",
+      "text": "【実験1｜導入】\n\nPrompt（英語）:\nA realistic handheld Japanese lifestyle vlog at a cozy Tokyo cat cafe in the late afternoon. A cheerful Japanese woman in her mid-20s is a non-specific social-media influencer, with shoulder-length warm brown hair, a cream cardigan over a pastel blue T-shirt, a small cat-shaped tote bag, and natural makeup. Keep her identity, outfit, voice, camera style and color grade consistent across every segment. She films herself at arm's length with a phone-sized vlog camera, then turns toward the cafe entrance. Warm wood, soft window light, several calm cats, realistic handheld motion, natural room tone, soft acoustic background music. She smiles and speaks naturally in Japanese: 「今日は東京の猫カフェに来ました！たっぷり癒やされてきます」.\n\nParameters:\n1280×704 · 158 frames · 24fps · 20 steps\nres_multistep / simple / denoise 1.0\nSeed: 2026080910\n\nResult:\n464.903秒 / 出力6.583秒\nH.264 + AAC / blackdetect 0 / OOMなし",
+      "media": ["segment1"]
+    },
+    {
+      "label": "実験2｜猫がお出迎え",
+      "filter": "experiments",
+      "text": "【実験2｜猫がお出迎え】\n\nPrompt（英語）:\nContinue directly from the previous cat-cafe vlog clip with the exact same Japanese woman, warm brown hair, cream cardigan, pastel blue T-shirt, tote bag, voice, handheld camera and late-afternoon lighting. She enters the same Tokyo cat cafe, sanitizes her hands, and a friendly orange tabby cat with white paws and a small blue collar walks up to greet her. Keep the same room layout and natural handheld rhythm with no visible reset. She speaks naturally in Japanese: 「入ってすぐ、この子が来てくれた！めちゃくちゃ人懐っこい」. Include soft cat meows and purring, clear Japanese speech.\n\nParameters:\n1280×704 · raw 158 frames · context 22 frames\nTrim後136 frames / 24fps · 20 steps\nSeed: 2026080910\n\nResult:\n556.262秒 / 出力5.667秒\n音声AAC / blackdetect 0 / OOMなし",
+      "media": ["segment2"]
+    },
+    {
+      "label": "実験3｜ゴロゴロ音",
+      "filter": "experiments",
+      "text": "【実験3｜ゴロゴロ音】\n\nPrompt（英語）:\nContinue directly from the previous clip with no reset. The same Japanese influencer, outfit, voice, orange tabby cat with white paws and blue collar, Tokyo cat cafe, warm wood interior, window light, handheld phone-vlog camera and acoustic background music remain consistent. She sits on a low sofa and slowly pets the tabby while the camera moves into a close selfie-and-cat shot. The cat relaxes and purrs. She whispers happily in Japanese: 「見て、このゴロゴロ音。かわいすぎて動けない」. Keep Japanese speech understandable, include purring and soft cafe ambience.\n\nParameters:\n1280×704 · raw 158 frames · context 22 frames\nTrim後136 frames / 24fps · 20 steps\nSeed: 2026080910\n\nResult:\n555.960秒 / 出力5.667秒\n音声AAC / blackdetect 0 / OOMなし",
+      "media": ["segment3"]
+    },
+    {
+      "label": "実験4｜おやつタイム",
+      "filter": "experiments",
+      "text": "【実験4｜おやつタイム】\n\nPrompt（英語）:\nContinue seamlessly from the previous cat-cafe vlog segment with the same Japanese woman, same clothes, same voice, same orange tabby cat with white paws and blue collar, same warm Tokyo cafe and handheld camera. A staff member offers a small cat treat. The influencer holds it carefully and the tabby eats from her hand; she laughs softly while the camera makes a small playful push-in. Keep lighting, room tone, cat behavior and vlog color grade continuous. She says in Japanese: 「おやつタイムです。食べ方までかわいいんだけど！」. Include a quiet laugh, tiny cat sounds and clear Japanese speech.\n\nParameters:\n1280×704 · raw 158 frames · context 22 frames\nTrim後136 frames / 24fps · 20 steps\nSeed: 2026080910\n\nResult:\n556.361秒 / 出力5.667秒\n音声AAC / blackdetect 0 / OOMなし",
+      "media": ["segment4"]
+    },
+    {
+      "label": "実験5｜エンディング",
+      "filter": "experiments",
+      "text": "【実験5｜エンディング】\n\nPrompt（英語）:\nContinue directly from the previous clip and finish the same Japanese influencer cat-cafe vlog without a visible reset. Keep the exact same woman, warm brown hair, cream cardigan, pastel blue T-shirt, tote bag, voice, orange tabby cat with white paws and blue collar, warm window light, cafe ambience and handheld phone camera. She plays briefly with a feather toy, then returns to selfie view near the entrance as the cat sits beside her. She waves to the camera and smiles. She gives a friendly Japanese outro: 「今日は本当に癒やされました。またこの子に会いに来ます！」. End with soft purring and a natural handheld stop.\n\nParameters:\n1280×704 · raw 158 frames · context 22 frames\nTrim後136 frames / 24fps · 20 steps\nSeed: 2026080910\n\nResult:\n554.413秒 / 出力5.667秒\n音声AAC / blackdetect 0 / OOMなし",
+      "media": ["segment5"]
+    },
+    {
+      "label": "今回の結果",
+      "filter": "results",
+      "text": "【今回の結果】\n\n生成時間合計: 2687.899秒（44分47.899秒）\n連結後: 702 frames・29.256秒\n解像度: 1280×704・24fps\n\n5本ともComfyUI success、OOMなし、blackdetect=0。\n映像・音声・latentを引き継ぐ約30秒Vlogは作れたぞ🔥\n\n⚠️音声の日本語発話はASR未照合。\n⚠️字幕なしを指定したが、一部フレームに日本語キャプション風の文字が生成された。\n\n次は日本語音声のASR照合と、意図しない画面文字の抑制を確認する、、、",
+      "media": []
+    },
+    {
+      "label": "実装元",
+      "filter": "sources",
+      "text": "【実装元】\n\n今回Docker Composeへ組み込んだMotion Contextノード。\n使用revision: 15fc6a7bf7b78efb27f33d7eef3818e7ed0e118a\n\nhttps://github.com/NikoDemon80/ComfyUI-H3-Motion-Context",
+      "media": []
+    }
+  ],
+  "media": {
+    "merged": {
+      "src": "assets/h3-catcafe-vlog-5segment-merged.mp4",
+      "poster": "assets/poster-merged.jpg",
+      "title": "完成版 · 猫カフェVlog約30秒",
+      "info": "1280×704 · 702 frames · 24fps · 29.256 sec",
+      "provenance": "5本の実生成出力をFFmpeg concat filterで連結した実験結果。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment/outputs/h3_cat_cafe_vlog_5segment_merged.mp4",
+      "sha256": "73200CA4577C710BCADB41FD23451EBE01BDDE3E30D8E4E3A734F5A9A88E10DC"
+    },
+    "segment1": {
+      "src": "assets/segment-01-intro.mp4",
+      "poster": "assets/poster-segment-01.jpg",
+      "title": "実験1 · 導入",
+      "info": "1280×704 · 158 frames · 6.583 sec",
+      "provenance": "RTX 4090 / Docker Compose h3-4090で実生成。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/h3_cat_cafe_vlog/segment_01_00001_.mp4",
+      "sha256": "3111BD6478094C1015C01691D7C485C0A59E42E1B244E838075BA0E9BB74D4F8"
+    },
+    "segment2": {
+      "src": "assets/segment-02-cat-greeting.mp4",
+      "poster": "assets/poster-segment-02.jpg",
+      "title": "実験2 · 猫がお出迎え",
+      "info": "1280×704 · 136 frames · 5.667 sec",
+      "provenance": "前セグメントの映像・音声・latentを22 frames引き継いだ実生成。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/h3_cat_cafe_vlog/segment_02_00001_.mp4",
+      "sha256": "F093788DD228F68802F8AD3F86F5EF0243EC4E91B63C7514CB11F483FBDF5A24"
+    },
+    "segment3": {
+      "src": "assets/segment-03-purring.mp4",
+      "poster": "assets/poster-segment-03.jpg",
+      "title": "実験3 · ゴロゴロ音",
+      "info": "1280×704 · 136 frames · 5.667 sec",
+      "provenance": "前セグメントの映像・音声・latentを22 frames引き継いだ実生成。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/h3_cat_cafe_vlog/segment_03_00001_.mp4",
+      "sha256": "D013D2D26EBD9AFC585139D0DB918BC42187F2F0296A5EBA391615E6D01BB97C"
+    },
+    "segment4": {
+      "src": "assets/segment-04-treat.mp4",
+      "poster": "assets/poster-segment-04.jpg",
+      "title": "実験4 · おやつタイム",
+      "info": "1280×704 · 136 frames · 5.667 sec",
+      "provenance": "前セグメントの映像・音声・latentを22 frames引き継いだ実生成。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/h3_cat_cafe_vlog/segment_04_00001_.mp4",
+      "sha256": "F741DAA70C7FE69B399026EB353F8115057D30E002284C41AC9DD32AD5918761"
+    },
+    "segment5": {
+      "src": "assets/segment-05-outro.mp4",
+      "poster": "assets/poster-segment-05.jpg",
+      "title": "実験5 · エンディング",
+      "info": "1280×704 · 136 frames · 5.667 sec",
+      "provenance": "前セグメントの映像・音声・latentを22 frames引き継いだ実生成。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/h3_cat_cafe_vlog/segment_05_00001_.mp4",
+      "sha256": "E271965D47915F2868172E69AF326DCE6F497D45BB253B885A8C5983E0C7F4E9"
+    }
+  }
+}

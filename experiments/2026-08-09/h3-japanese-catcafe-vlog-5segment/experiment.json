@@ -1,0 +1,260 @@
+{
+  "id": "h3-japanese-catcafe-vlog-5segment",
+  "date": "2026-08-09",
+  "status": "verified",
+  "scope": "MiniMax-H3 Japanese dialogue cat-cafe influencer-style vlog using a five-segment Motion Context T2V chain",
+  "language_design": {
+    "prompt_language": "English",
+    "spoken_dialogue_language": "Japanese",
+    "dialogue_transcription_verified": false,
+    "prompt_round_trip": {
+      "transport": "UTF-8 encoded request bytes",
+      "japanese_characters_preserved": true,
+      "question_mark_replacement_detected": false
+    }
+  },
+  "sources": [
+    {
+      "type": "github",
+      "url": "https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context",
+      "revision": "15fc6a7bf7b78efb27f33d7eef3818e7ed0e118a",
+      "role": "Motion Context custom node and reference implementation"
+    },
+    {
+      "type": "local_experiment",
+      "path": "experiments/2026-08-09/niko-h3-motion-context-3segment",
+      "role": "base Docker Compose integration and three-segment workflow"
+    }
+  ],
+  "host": {
+    "platform": "Windows host with WSL2 Ubuntu",
+    "wsl_kernel": "6.6.114.1-microsoft-standard-WSL2",
+    "docker_engine": "29.4.3",
+    "docker_compose": "v5.1.3",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_uuid": "GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa",
+    "driver": "591.86",
+    "vram_mib": 24564
+  },
+  "container": {
+    "service": "h3-4090",
+    "endpoint": "http://127.0.0.1:8188",
+    "image": "local/minimax-h3-comfyui:v0.30.0",
+    "image_digest": "sha256:8611a4bdaf00f565811cde2fd9d9e04fa0ad7648ce819111ae1d1573f55bff60",
+    "comfyui": "0.30.0",
+    "python": "3.12.3",
+    "pytorch": "2.11.0+cu130",
+    "argv": [
+      "--listen", "0.0.0.0", "--port", "8188",
+      "--disable-pinned-memory", "--disable-async-offload",
+      "--fp16-intermediates", "--preview-method", "none"
+    ],
+    "motion_context_ref": "15fc6a7bf7b78efb27f33d7eef3818e7ed0e118a"
+  },
+  "models": {
+    "diffusion": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+    "text_encoder": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+    "video_vae": "minimax_h3_video_vae_fp16.safetensors",
+    "audio_vae": "minimax_h3_audio_vae_fp32.safetensors"
+  },
+  "conditions": {
+    "mode": "T2V",
+    "resolution": [1280, 704],
+    "fps": 24,
+    "steps": 20,
+    "sampler": "res_multistep",
+    "scheduler": "simple",
+    "denoise": 1.0,
+    "seed": 2026080910,
+    "context_length": 22,
+    "audio_context_length": 22,
+    "encode_mode": "video",
+    "anchor_mode": "head",
+    "audio_mode": "timeline",
+    "trim_match_tail": true,
+    "sage_attention": "sageattn_qk_int8_pv_fp16_cuda",
+    "sage_allow_compile": false,
+    "easycache": false,
+    "sol_attn": false,
+    "spectrum": false,
+    "optimizer_isolation": "generic FP16 CUDA SageAttention only; EasyCache, Sol-Attn and Spectrum disabled"
+  },
+  "design": {
+    "raw_frames_per_segment": 158,
+    "context_frames_after_segment_1": 22,
+    "expected_chain_frames": 702,
+    "expected_chain_seconds": 29.25,
+    "actual_chain_seconds": 29.256,
+    "chain_formula": "158 + 4 * (158 - 22)"
+  },
+  "scripts": {
+    "workflow_builder": "scripts/build-h3-catcafe-vlog-workflows.py",
+    "runner": "scripts/run-h3-catcafe-vlog.ps1",
+    "merger": "scripts/merge-h3-catcafe-vlog.ps1",
+    "workflow_files": [
+      "experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment/segment_01_api.json",
+      "experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment/segment_02_api.json",
+      "experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment/segment_03_api.json",
+      "experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment/segment_04_api.json",
+      "experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment/segment_05_api.json"
+    ]
+  },
+  "prompts": [
+    {
+      "segment": 1,
+      "dialogue": "今日は東京の猫カフェに来ました！たっぷり癒やされてきます",
+      "prompt": "A realistic handheld Japanese lifestyle vlog at a cozy Tokyo cat cafe in the late afternoon. A cheerful Japanese woman in her mid-20s is a non-specific social-media influencer, with shoulder-length warm brown hair, a cream cardigan over a pastel blue T-shirt, a small cat-shaped tote bag, and natural makeup. Keep her identity, outfit, voice, camera style and color grade consistent across every segment. She films herself at arm's length with a phone-sized vlog camera, then turns toward the cafe entrance. Warm wood, soft window light, several calm cats, realistic handheld motion, natural room tone, soft royalty-free acoustic background music. She smiles and speaks naturally in Japanese: 「今日は東京の猫カフェに来ました！たっぷり癒やされてきます」. Preserve clear Japanese speech, no subtitles, no on-screen text, no logos."
+    },
+    {
+      "segment": 2,
+      "dialogue": "入ってすぐ、この子が来てくれた！めちゃくちゃ人懐っこい",
+      "prompt": "Continue directly from the previous cat-cafe vlog clip with the exact same Japanese woman, warm brown hair, cream cardigan, pastel blue T-shirt, tote bag, voice, handheld camera and late-afternoon lighting. She enters the same Tokyo cat cafe, sanitizes her hands, and a friendly orange tabby cat with white paws and a small blue collar walks up to greet her. The camera follows from selfie view to a gentle over-the-shoulder view. Keep the same room layout, acoustic music, cafe ambience and natural handheld rhythm with no visible reset. She speaks naturally in Japanese: 「入ってすぐ、この子が来てくれた！めちゃくちゃ人懐っこい」. Include soft cat meows and purring, clear Japanese speech, no subtitles, no on-screen text, no logos."
+    },
+    {
+      "segment": 3,
+      "dialogue": "見て、このゴロゴロ音。かわいすぎて動けない",
+      "prompt": "Continue directly from the previous clip with no reset. The same Japanese influencer, outfit, voice, orange tabby cat with white paws and blue collar, Tokyo cat cafe, warm wood interior, window light, handheld phone-vlog camera and acoustic background music remain consistent. She sits on a low sofa and slowly pets the tabby while the camera moves into a close but natural selfie-and-cat shot. The cat relaxes and purrs, its tail moving gently. Preserve continuous body motion, realistic fur, stable face and matching room tone. She whispers happily in Japanese: 「見て、このゴロゴロ音。かわいすぎて動けない」. Keep Japanese speech understandable, include purring and soft cafe ambience, no subtitles, no on-screen text, no logos."
+    },
+    {
+      "segment": 4,
+      "dialogue": "おやつタイムです。食べ方までかわいいんだけど！",
+      "prompt": "Continue seamlessly from the previous cat-cafe vlog segment with the same Japanese woman, same clothes, same voice, same orange tabby cat with white paws and blue collar, same warm Tokyo cafe and handheld camera. A staff member offers a small cat treat. The influencer holds it carefully and the tabby eats from her hand; she laughs softly while the camera makes a small playful push-in. Keep the background music, lighting, room tone, cat behavior and vlog color grade continuous, with realistic hands and natural motion. She says in Japanese: 「おやつタイムです。食べ方までかわいいんだけど！」. Include a quiet laugh, tiny cat sounds and clear Japanese speech, no subtitles, no on-screen text, no logos."
+    },
+    {
+      "segment": 5,
+      "dialogue": "今日は本当に癒やされました。またこの子に会いに来ます！",
+      "prompt": "Continue directly from the previous clip and finish the same Japanese influencer cat-cafe vlog without a visible reset. Keep the exact same woman, warm brown hair, cream cardigan, pastel blue T-shirt, tote bag, voice, orange tabby cat with white paws and blue collar, warm window light, cafe ambience and handheld phone camera. She plays briefly with a feather toy, then returns to selfie view near the entrance as the cat sits beside her. She waves to the camera, smiles with a relaxed satisfied expression, and the camera gently pulls back. Preserve continuous acoustic music and natural room tone. She gives a friendly Japanese outro: 「今日は本当に癒やされました。またこの子に会いに来ます！」. End with soft purring and a natural handheld stop, clear Japanese speech, no subtitles, no on-screen text, no logos."
+    }
+  ],
+  "runs": [
+    {
+      "segment": 1,
+      "prompt_id": "40bc8f28-fcf9-41ec-9f5c-a98f71ad7b3d",
+      "status": "success",
+      "raw_frames": 158,
+      "context_frames": 0,
+      "output_frames": 158,
+      "output_seconds": 6.583008,
+      "wall_seconds": 464.903,
+      "output": "runtime/4090/output/video/h3_cat_cafe_vlog/segment_01_00001_.mp4",
+      "bytes": 1813877,
+      "sha256": "3111BD6478094C1015C01691D7C485C0A59E42E1B244E838075BA0E9BB74D4F8",
+      "blackdetect_intervals": 0,
+      "ffprobe": {"video": "h264", "audio": "aac", "width": 1280, "height": 704, "fps": 24, "audio_sample_rate": 32000, "audio_channels": 2}
+    },
+    {
+      "segment": 2,
+      "prompt_id": "9ea36b47-769b-45d1-a38b-8d412509e69b",
+      "status": "success",
+      "raw_frames": 158,
+      "context_frames": 22,
+      "output_frames": 136,
+      "output_seconds": 5.666667,
+      "wall_seconds": 556.262,
+      "output": "runtime/4090/output/video/h3_cat_cafe_vlog/segment_02_00001_.mp4",
+      "bytes": 1866529,
+      "sha256": "F093788DD228F68802F8AD3F86F5EF0243EC4E91B63C7514CB11F483FBDF5A24",
+      "blackdetect_intervals": 0,
+      "ffprobe": {"video": "h264", "audio": "aac", "width": 1280, "height": 704, "fps": 24, "audio_sample_rate": 32000, "audio_channels": 2}
+    },
+    {
+      "segment": 3,
+      "prompt_id": "6095947a-5701-443c-9ceb-184e38a992fb",
+      "status": "success",
+      "raw_frames": 158,
+      "context_frames": 22,
+      "output_frames": 136,
+      "output_seconds": 5.666667,
+      "wall_seconds": 555.960,
+      "output": "runtime/4090/output/video/h3_cat_cafe_vlog/segment_03_00001_.mp4",
+      "bytes": 1413609,
+      "sha256": "D013D2D26EBD9AFC585139D0DB918BC42187F2F0296A5EBA391615E6D01BB97C",
+      "blackdetect_intervals": 0,
+      "ffprobe": {"video": "h264", "audio": "aac", "width": 1280, "height": 704, "fps": 24, "audio_sample_rate": 32000, "audio_channels": 2}
+    },
+    {
+      "segment": 4,
+      "prompt_id": "28ac5017-3a0e-468f-a6b1-3b5d07d1d8b2",
+      "status": "success",
+      "raw_frames": 158,
+      "context_frames": 22,
+      "output_frames": 136,
+      "output_seconds": 5.666667,
+      "wall_seconds": 556.361,
+      "output": "runtime/4090/output/video/h3_cat_cafe_vlog/segment_04_00001_.mp4",
+      "bytes": 1282981,
+      "sha256": "F741DAA70C7FE69B399026EB353F8115057D30E002284C41AC9DD32AD5918761",
+      "blackdetect_intervals": 0,
+      "ffprobe": {"video": "h264", "audio": "aac", "width": 1280, "height": 704, "fps": 24, "audio_sample_rate": 32000, "audio_channels": 2}
+    },
+    {
+      "segment": 5,
+      "prompt_id": "32ecf88e-b487-45bc-a762-aac7486ded7f",
+      "status": "success",
+      "raw_frames": 158,
+      "context_frames": 22,
+      "output_frames": 136,
+      "output_seconds": 5.666667,
+      "wall_seconds": 554.413,
+      "output": "runtime/4090/output/video/h3_cat_cafe_vlog/segment_05_00001_.mp4",
+      "bytes": 1252937,
+      "sha256": "E271965D47915F2868172E69AF326DCE6F497D45BB253B885A8C5983E0C7F4E9",
+      "blackdetect_intervals": 0,
+      "ffprobe": {"video": "h264", "audio": "aac", "width": 1280, "height": 704, "fps": 24, "audio_sample_rate": 32000, "audio_channels": 2}
+    }
+  ],
+  "merged_output": {
+    "path": "experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment/outputs/h3_cat_cafe_vlog_5segment_merged.mp4",
+    "method": "ffmpeg concat filter; libx264 crf 18; AAC 192k; faststart",
+    "width": 1280,
+    "height": 704,
+    "fps": 24,
+    "frames": 702,
+    "duration_seconds": 29.256,
+    "bytes": 11404834,
+    "sha256": "73200CA4577C710BCADB41FD23451EBE01BDDE3E30D8E4E3A734F5A9A88E10DC",
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "audio_sample_rate": 32000,
+    "audio_channels": 2,
+    "blackdetect_intervals": 0
+  },
+  "validation": {
+    "comfyui_success_runs": 5,
+    "node_errors": false,
+    "oom": false,
+    "cuda_runtime_error": false,
+    "blackdetect": "no black interval in all five segment outputs and merged output",
+    "audio_stream_present": true,
+    "visual_review_frames": [
+      "experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment/frames/frame-00.png",
+      "experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment/frames/frame-07.png",
+      "experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment/frames/frame-14.png",
+      "experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment/frames/frame-21.png",
+      "experiments/2026-08-09/h3-japanese-catcafe-vlog-5segment/frames/frame-28.png"
+    ],
+    "visual_review": "Japanese woman influencer-style selfie vlog, orange tabby cat, warm cat cafe and five-part narrative are visible; some frames unexpectedly contain Japanese caption-like generated text despite the no-subtitles instruction",
+    "dialogue_asr": "not run",
+    "identity_continuity_metric": "not run",
+    "audio_seam_metric": "not run"
+  },
+  "timing": {
+    "total_generation_wall_seconds": 2687.899,
+    "total_generation_wall_human": "44m 47.899s"
+  },
+  "interpretation": {
+    "verified": [
+      "English prompts with Japanese dialogue text were transmitted without UTF-8 replacement",
+      "five-segment T2V Motion Context chain at 1280x704 on RTX 4090",
+      "video/audio latent carry-over and 22-frame context trimming",
+      "approximately 30-second H.264/AAC merged output",
+      "no OOM, CUDA runtime error or black output in this run"
+    ],
+    "not_verified": [
+      "exact spoken Japanese transcript and pronunciation",
+      "quantitative identity and audio continuity scores",
+      "same experiment on RTX 3060",
+      "speed comparison with EasyCache, Sol-Attn or Spectrum enabled"
+    ]
+  }
+}

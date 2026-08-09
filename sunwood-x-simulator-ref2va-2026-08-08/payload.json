@@ -1,0 +1,28 @@
+{
+  "targetAccount": "@hAru_mAki_ch",
+  "mainText": "MiniMax-H3 × Kijai LightX2V、ref2vaの6 steps検証やってみた！！！\n\nスクショで見た\nref2va + LoRA 0.8 + er_sde。\nT2V / I2Vを6 stepsと20 stepsで比較したぞ。\n\nRTX 4090 · Docker Compose · 1344×768 · 158 frames\n4本とも生成成功、OOMなし、blackdetect=0。\n6 stepsは速い、、、でも画質は本当に遜色ないのか？🔥",
+  "replies": [
+    "【実験1｜T2V / 6 steps】\n\nPrompt:\nA calm cinematic sunrise over a quiet Japanese mountain lake, gentle mist drifting across the water, slow camera movement, natural ambient birds and soft wind, no text, five seconds.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nBase: minimax_h3_ref2va_pruned_int8_convrot.safetensors\nLoRA: minimax_h3_fl2v_lightx2v_turbo_4step_v0.1_comfy.safetensors / strength 0.8\nResolution: 1344×768 · 158 frames · 24fps\nSteps: 6 / Sampler: er_sde / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080807\n\nResult:\nComfyUI 459.42 sec / runner wall 460.953 sec\nH.264 + AAC / blackdetect 0 / OOMなし\nPrompt ID: 976ed634-fad0-41be-bb2b-865637bb2758\nOutput SHA-256: 3A8B7EDA3B2F01EB3DC8635A1D7CFFBC7A7F8C9B3DE2D240BBC1145984075551",
+    "【実験2｜T2V / 20 steps】\n\nPrompt:\nA calm cinematic sunrise over a quiet Japanese mountain lake, gentle mist drifting across the water, slow camera movement, natural ambient birds and soft wind, no text, five seconds.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nBase: minimax_h3_ref2va_pruned_int8_convrot.safetensors\nLoRA: minimax_h3_fl2v_lightx2v_turbo_4step_v0.1_comfy.safetensors / strength 0.8\nResolution: 1344×768 · 158 frames · 24fps\nSteps: 20 / Sampler: er_sde / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080807\n\nResult:\nComfyUI 00:10:59 / runner wall 661.217 sec\nH.264 + AAC / blackdetect 0 / OOMなし\nPrompt ID: 23229ad1-a1da-4aa3-83e6-1d04eb74b926\nOutput SHA-256: A9B8DA655BE3EB76660C034EBA04AA6A499845EABC1B877743404AF23975F39E",
+    "【実験3｜I2V / 6 steps】\n\nPrompt:\nAnimate the supplied sunrise lake start frame into a calm cinematic shot. Preserve the mountain silhouette and composition, add gentle camera movement, natural mist drifting over the water, subtle ripples and ambient birds and soft wind, no text.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nBase: minimax_h3_ref2va_pruned_int8_convrot.safetensors\nLoRA: minimax_h3_fl2v_lightx2v_turbo_4step_v0.1_comfy.safetensors / strength 0.8\nResolution: 1344×768 · 158 frames · 24fps\nSteps: 6 / Sampler: er_sde / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080808\nStart frame SHA-256: 9E5893D7C5A9919726E7E60FF2BF4F19E77F746342D38E5FE3217FD2288A3D0F\n\nResult:\nComfyUI 294.42 sec / runner wall 295.606 sec\nH.264 + AAC / blackdetect 0 / OOMなし\nPrompt ID: 40c56bb7-d5a3-489b-ad4a-08b59db84175\nOutput SHA-256: 228B82712E1849EA8E06CD90753F7E378515166EBF24A1711BB34C7A4C29BDEA",
+    "【実験4｜I2V / 20 steps】\n\nPrompt:\nAnimate the supplied sunrise lake start frame into a calm cinematic shot. Preserve the mountain silhouette and composition, add gentle camera movement, natural mist drifting over the water, subtle ripples and ambient birds and soft wind, no text.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nBase: minimax_h3_ref2va_pruned_int8_convrot.safetensors\nLoRA: minimax_h3_fl2v_lightx2v_turbo_4step_v0.1_comfy.safetensors / strength 0.8\nResolution: 1344×768 · 158 frames · 24fps\nSteps: 20 / Sampler: er_sde / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080808\nStart frame SHA-256: 9E5893D7C5A9919726E7E60FF2BF4F19E77F746342D38E5FE3217FD2288A3D0F\n\nResult:\nComfyUI 00:11:31 / runner wall 696.292 sec\nH.264 + AAC / blackdetect 0 / OOMなし\nPrompt ID: e6a6708a-0e2e-418d-9f5f-21709cc2e5cf\nOutput SHA-256: 8952D5E1D639C58A9FE35F52BA94AB10E341F43EE2F4E0EE40104DE2432666E6",
+    "【比較結果】\n\n6 stepsでもT2V/I2Vとも正常に動画生成できたぞ！！！\n\nT2V: 6 steps 460.953秒、20 steps 661.217秒\nI2V: 6 steps 295.606秒、20 steps 696.292秒\n\n4本とも 1344×768 · 158 frames · 24fps · H.264/AAC\nblackdetect=0 / OOMなし。\n\n6 stepsと20 stepsを同じseedで比較したSSIMは、T2V 0.683275、I2V 0.684799。\n大枠のシーンは成立したけど、同一フレームではない。\nSSIM/PSNRは画質スコアではないので、「完全に遜色なし」とは断定しないぞ、、、\n\n詳細な環境・workflow・SHA-256・再現コマンドは実験記録に保存済み。",
+    "【前回の実験スレッド】\n\n前回はKijai LightX2V 4-stepをT2V / I2V × er_sde / sa_solverで比較。\n今回はref2vaの6 stepsと20 stepsへ続けて検証したぞ。\nhttps://x.com/hAru_mAki_ch/status/2085955887575990468",
+    "【参考サイト｜関連公開リポジトリ】\n\nMiniMax-H3をDocker / ComfyUIで扱うときに参照した関連実装。\n今回の実験ラボ自体はローカルリポジトリで管理している。\nhttps://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo",
+    "【参考サイト｜Kijai MiniMax-H3_comfy】\n\n今回使ったLightX2V turbo LoRAとComfyUI向けworkflowの出典。\nhttps://huggingface.co/Kijai/MiniMax-H3_comfy",
+    "【参考サイト｜Comfy-Org MiniMax-H3】\n\n今回実際にロードしたref2va pruned int8 convrotモデルの取得元。\nhttps://huggingface.co/Comfy-Org/MiniMax-H3",
+    "【参考サイト｜関連X投稿】\n\nKijai / LightX2V関連の参照投稿。\n添付スクリーンショットと完全に同一の元ポストURLとは断定していない。\nhttps://x.com/sd_tutorial/status/2085760369612783646?s=46"
+  ],
+  "media": [
+    "sunwood-x-simulator-ref2va-2026-08-08/assets/MiniMax_H3_ref2va_6v20_montage.mp4",
+    "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_T2V_1344x768_6step_er_sde_lora080_00001_.mp4",
+    "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_T2V_1344x768_20step_er_sde_lora080_00001_.mp4",
+    "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_I2V_1344x768_6step_er_sde_lora080_00001_.mp4",
+    "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_I2V_1344x768_20step_er_sde_lora080_00001_.mp4"
+  ],
+  "simulatorUrl": "https://madesk.tail8be30.ts.net:8885/",
+  "provenance": {
+    "montage": "evidence-derived FFmpeg 2x2 montage from four real RTX 4090 Docker Compose outputs",
+    "experimentVideos": "real generated outputs; no replacement media"
+  }
+}

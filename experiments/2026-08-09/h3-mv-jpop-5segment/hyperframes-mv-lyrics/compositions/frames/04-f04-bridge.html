@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <div id="hf-04-f04-bridge-root" data-composition-id="04-f04-bridge" data-start="0" data-duration="5.666" data-width="1280" data-height="704">
+        <style>
+          #hf-04-f04-bridge-root {
+            --ink: #111111;
+            --ink-alt: #1a1a18;
+            --orange: #e85d26;
+            --cream: #f0ece5;
+            --muted: rgba(240, 236, 229, .68);
+            --pulse: 0;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            container-type: size;
+            color: var(--cream);
+            font-family: "Barlow", "Noto Sans JP", "Yu Gothic", sans-serif;
+          }
+
+          @font-face { font-family: "Barlow"; src: local("Barlow"); }
+          @font-face { font-family: "Noto Sans JP"; src: local("Noto Sans JP"); }
+          @font-face { font-family: "Yu Gothic"; src: local("Yu Gothic"); }
+          @font-face { font-family: "IBM Plex Mono"; src: local("IBM Plex Mono"); }
+
+          #hf-04-f04-bridge-shell {
+            position: absolute;
+            left: 7.5%;
+            bottom: 10.5%;
+            width: 76%;
+            min-height: 18%;
+            padding: 22px 34px 20px 38px;
+            background: rgba(17, 17, 17, .78);
+            border-left: 5px solid var(--orange);
+            transform: scale(calc(1 + var(--pulse) * .018));
+            transform-origin: left bottom;
+          }
+
+          #hf-04-f04-bridge-kicker {
+            color: var(--orange);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: .14em;
+            line-height: 1.2;
+            text-transform: uppercase;
+          }
+
+          #hf-04-f04-bridge-line {
+            display: flex;
+            flex-wrap: nowrap;
+            margin-top: 12px;
+            color: var(--cream);
+            font-size: 55px;
+            font-weight: 700;
+            letter-spacing: .035em;
+            line-height: 1.12;
+            white-space: nowrap;
+          }
+
+          #hf-04-f04-bridge-line .char {
+            display: inline-block;
+            will-change: transform, opacity;
+          }
+
+          #hf-04-f04-bridge-line .char-space { width: .52em; }
+
+          #hf-04-f04-bridge-sub {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 12px;
+            color: var(--muted);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 13px;
+            letter-spacing: .09em;
+            line-height: 1.3;
+            text-transform: uppercase;
+          }
+
+          #hf-04-f04-bridge-rule {
+            width: 100%;
+            height: 2px;
+            margin-top: 14px;
+            background: var(--orange);
+            transform-origin: left center;
+          }
+        </style>
+
+        <div id="hf-04-f04-bridge-shell" class="lyric-shell clip" data-start="0" data-duration="5.666" data-track-index="2">
+          <div id="hf-04-f04-bridge-kicker" class="kicker">H3 / MOTION CONTEXT · ORIGINAL MV · 04</div>
+          <div id="hf-04-f04-bridge-line" class="lyric-line" aria-label="この瞬間を　抱きしめて"><span class="char">こ</span><span class="char">の</span><span class="char">瞬</span><span class="char">間</span><span class="char">を</span><span class="char char-space">　</span><span class="char">抱</span><span class="char">き</span><span class="char">し</span><span class="char">め</span><span class="char">て</span></div>
+          <div id="hf-04-f04-bridge-sub" class="lyric-sub"><span>BRIDGE / PERFORMANCE PEAK</span><span>PLANNED LYRIC / 30 FPS AUDIO MAP</span></div>
+          <div id="hf-04-f04-bridge-rule" class="lyric-rule"></div>
+        </div>
+
+        <script>
+          const root = document.getElementById("hf-04-f04-bridge-root");
+          const shell = document.getElementById("hf-04-f04-bridge-shell");
+          const kicker = document.getElementById("hf-04-f04-bridge-kicker");
+          const line = document.getElementById("hf-04-f04-bridge-line");
+          const sub = document.getElementById("hf-04-f04-bridge-sub");
+          const rule = document.getElementById("hf-04-f04-bridge-rule");
+          const timeline = gsap.timeline({ paused: true });
+          const lyricChars = Array.from(line.querySelectorAll(".char"));
+          const AUDIO_DATA = {"fps":30,"frames":[{"t":0.0163,"rms":0.7205,"bass":0.1192,"mid":0.3199},{"t":0.0497,"rms":0.6021,"bass":0.126,"mid":0.1432},{"t":0.083,"rms":0.5195,"bass":0.1472,"mid":0.2207},{"t":0.1163,"rms":0.5695,"bass":0.0692,"mid":0.2663},{"t":0.1497,"rms":0.4686,"bass":0.1846,"mid":0.2782},{"t":0.183,"rms":0.5618,"bass":0.1344,"mid":0.3543},{"t":0.2163,"rms":0.5063,"bass":0.1993,"mid":0.2835},{"t":0.2497,"rms":0.4179,"bass":0.1565,"mid":0.1481},{"t":0.283,"rms":0.5241,"bass":0.1607,"mid":0.1819},{"t":0.3163,"rms":0.4266,"bass":0.2377,"mid":0.1862},{"t":0.3497,"rms":0.4232,"bass":0.0705,"mid":0.1822},{"t":0.383,"rms":0.4949,"bass":0.0748,"mid":0.2701},{"t":0.4163,"rms":0.5554,"bass":0.0949,"mid":0.2617},{"t":0.4497,"rms":0.6482,"bass":0.1092,"mid":0.1203},{"t":0.483,"rms":0.6301,"bass":0.0672,"mid":0.13},{"t":0.5163,"rms":0.5328,"bass":0.0365,"mid":0.2048},{"t":0.5497,"rms":0.4932,"bass":0.1224,"mid":0.2786},{"t":0.583,"rms":0.5848,"bass":0.2459,"mid":0.5064},{"t":0.6163,"rms":0.4618,"bass":0.1061,"mid":0.4772},{"t":0.6497,"rms":0.513,"bass":0.0813,"mid":0.3275},{"t":0.683,"rms":0.477,"bass":0.0951,"mid":0.2363},{"t":0.7163,"rms":0.5113,"bass":0.102,"mid":0.2489},{"t":0.7497,"rms":0.3435,"bass":0.0905,"mid":0.174},{"t":0.783,"rms":0.368,"bass":0.0492,"mid":0.2638},{"t":0.8163,"rms":0.5204,"bass":0.0945,"mid":0.2427},{"t":0.8497,"rms":0.5761,"bass":0.09,"mid":0.1688},{"t":0.883,"rms":0.7522,"bass":0.217,"mid":0.1495},{"t":0.9163,"rms":0.6373,"bass":0.4637,"mid":0.2551},{"t":0.9497,"rms":0.4241,"bass":0.3741,"mid":0.4175},{"t":0.983,"rms":0.4811,"bass":0.2235,"mid":0.388},{"t":1.0163,"rms":0.5651,"bass":0.1797,"mid":0.5129},{"t":1.0497,"rms":0.4291,"bass":0.1455,"mid":0.2786},{"t":1.083,"rms":0.4611,"bass":0.0973,"mid":0.4682},{"t":1.1163,"rms":0.458,"bass":0.1027,"mid":0.3845},{"t":1.1497,"rms":0.3168,"bass":0.1082,"mid":0.4162},{"t":1.183,"rms":0.4259,"bass":0.1083,"mid":0.284},{"t":1.2163,"rms":0.538,"bass":0.1465,"mid":0.2521},{"t":1.2497,"rms":0.5053,"bass":0.0768,"mid":0.3408},{"t":1.283,"rms":0.4906,"bass":0.0434,"mid":0.3659},{"t":1.3163,"rms":0.4762,"bass":0.0988,"mid":0.4009},{"t":1.3497,"rms":0.5408,"bass":0.1801,"mid":0.3575},{"t":1.383,"rms":0.5672,"bass":0.3758,"mid":0.292},{"t":1.4163,"rms":0.5823,"bass":0.1542,"mid":0.2502},{"t":1.4497,"rms":0.5523,"bass":0.1319,"mid":0.2068},{"t":1.483,"rms":0.5353,"bass":0.1651,"mid":0.2352},{"t":1.5163,"rms":0.5136,"bass":0.1796,"mid":0.2747},{"t":1.5497,"rms":0.5248,"bass":0.4977,"mid":0.2447},{"t":1.583,"rms":0.543,"bass":0.1645,"mid":0.2892},{"t":1.6163,"rms":0.5172,"bass":0.2758,"mid":0.3032},{"t":1.6497,"rms":0.5571,"bass":0.1402,"mid":0.1998},{"t":1.683,"rms":0.6305,"bass":0.1295,"mid":0.1811},{"t":1.7163,"rms":0.5249,"bass":0.1181,"mid":0.1173},{"t":1.7497,"rms":0.491,"bass":0.0667,"mid":0.0916},{"t":1.783,"rms":0.4562,"bass":0.0463,"mid":0.1051},{"t":1.8163,"rms":0.4562,"bass":0.1484,"mid":0.1445},{"t":1.8497,"rms":0.4558,"bass":0.0855,"mid":0.1626},{"t":1.883,"rms":0.5066,"bass":0.1144,"mid":0.1243},{"t":1.9163,"rms":0.5287,"bass":0.0315,"mid":0.1111},{"t":1.9497,"rms":0.5822,"bass":0.0971,"mid":0.1008},{"t":1.983,"rms":0.5718,"bass":0.0602,"mid":0.0901},{"t":2.0163,"rms":0.6103,"bass":0.0477,"mid":0.0662},{"t":2.0497,"rms":0.7428,"bass":0.2467,"mid":0.1174},{"t":2.083,"rms":0.6203,"bass":0.3247,"mid":0.1282},{"t":2.1163,"rms":0.6242,"bass":0.3572,"mid":0.1165},{"t":2.1497,"rms":0.6239,"bass":0.1493,"mid":0.1416},{"t":2.183,"rms":0.6176,"bass":0.061,"mid":0.4111},{"t":2.2163,"rms":0.5694,"bass":0.1634,"mid":0.5584},{"t":2.2497,"rms":0.5904,"bass":0.1864,"mid":0.6024},{"t":2.283,"rms":0.5723,"bass":0.0903,"mid":0.5971},{"t":2.3163,"rms":0.5964,"bass":0.105,"mid":0.5516},{"t":2.3497,"rms":0.6137,"bass":0.0621,"mid":0.4795},{"t":2.383,"rms":0.6056,"bass":0.0804,"mid":0.4218},{"t":2.4163,"rms":0.6037,"bass":0.0582,"mid":0.3411},{"t":2.4497,"rms":0.5991,"bass":0.0603,"mid":0.3032},{"t":2.483,"rms":0.6142,"bass":0.0695,"mid":0.2953},{"t":2.5163,"rms":0.6701,"bass":0.0974,"mid":0.1826},{"t":2.5497,"rms":0.697,"bass":0.3377,"mid":0.0995},{"t":2.583,"rms":0.5588,"bass":0.4919,"mid":0.1103},{"t":2.6163,"rms":0.4587,"bass":0.3811,"mid":0.1631},{"t":2.6497,"rms":0.5218,"bass":0.2906,"mid":0.1608},{"t":2.683,"rms":0.3806,"bass":0.2268,"mid":0.1561},{"t":2.7163,"rms":0.2747,"bass":0.216,"mid":0.1392},{"t":2.7497,"rms":0.3313,"bass":0.1973,"mid":0.2339},{"t":2.783,"rms":0.5948,"bass":0.0984,"mid":0.1688},{"t":2.8163,"rms":0.5014,"bass":0.3724,"mid":0.0747},{"t":2.8497,"rms":0.4145,"bass":0.5091,"mid":0.0813},{"t":2.883,"rms":0.4289,"bass":0.2808,"mid":0.1054},{"t":2.9163,"rms":0.487,"bass":0.2095,"mid":0.234},{"t":2.9497,"rms":0.4608,"bass":0.1761,"mid":0.2254},{"t":2.983,"rms":0.519,"bass":0.1859,"mid":0.2515},{"t":3.0163,"rms":0.5215,"bass":0.1798,"mid":0.2017},{"t":3.0497,"rms":0.5833,"bass":0.1249,"mid":0.1622},{"t":3.083,"rms":0.5575,"bass":0.0973,"mid":0.1459},{"t":3.1163,"rms":0.5357,"bass":0.1248,"mid":0.0985},{"t":3.1497,"rms":0.5476,"bass":0.11,"mid":0.0849},{"t":3.183,"rms":0.5606,"bass":0.1788,"mid":0.096},{"t":3.2163,"rms":0.5589,"bass":0.1654,"mid":0.1366},{"t":3.2497,"rms":0.5084,"bass":0.1203,"mid":0.0805},{"t":3.283,"rms":0.331,"bass":0.074,"mid":0.1938},{"t":3.3163,"rms":0.2209,"bass":0.0809,"mid":0.1763},{"t":3.3497,"rms":0.4526,"bass":0.1111,"mid":0.1525},{"t":3.383,"rms":0.6622,"bass":0.1264,"mid":0.1764},{"t":3.4163,"rms":0.5849,"bass":0.043,"mid":0.3167},{"t":3.4497,"rms":0.5034,"bass":0.045,"mid":0.4946},{"t":3.483,"rms":0.4807,"bass":0.1057,"mid":0.3068},{"t":3.5163,"rms":0.565,"bass":0.1941,"mid":0.2639},{"t":3.5497,"rms":0.7872,"bass":0.2563,"mid":0.1362},{"t":3.583,"rms":0.7183,"bass":0.4046,"mid":0.0842},{"t":3.6163,"rms":0.5742,"bass":0.3318,"mid":0.0955},{"t":3.6497,"rms":0.5975,"bass":0.2498,"mid":0.1447},{"t":3.683,"rms":0.5688,"bass":0.2174,"mid":0.1312},{"t":3.7163,"rms":0.6104,"bass":0.0419,"mid":0.1311},{"t":3.7497,"rms":0.531,"bass":0.1041,"mid":0.1904},{"t":3.783,"rms":0.3347,"bass":0.0857,"mid":0.167},{"t":3.8163,"rms":0.4074,"bass":0.1628,"mid":0.2084},{"t":3.8497,"rms":0.4997,"bass":0.0621,"mid":0.1851},{"t":3.883,"rms":0.5194,"bass":0.1648,"mid":0.1315},{"t":3.9163,"rms":0.5828,"bass":0.1321,"mid":0.1417},{"t":3.9497,"rms":0.5674,"bass":0.0736,"mid":0.304},{"t":3.983,"rms":0.5398,"bass":0.114,"mid":0.3133},{"t":4.0163,"rms":0.6595,"bass":0.3381,"mid":0.2888},{"t":4.0497,"rms":0.3953,"bass":0.3127,"mid":0.3109},{"t":4.083,"rms":0.4095,"bass":0.1833,"mid":0.2803},{"t":4.1163,"rms":0.5122,"bass":0.0961,"mid":0.2338},{"t":4.1497,"rms":0.5434,"bass":0.0936,"mid":0.1904},{"t":4.183,"rms":0.555,"bass":0.1067,"mid":0.2107},{"t":4.2163,"rms":0.5768,"bass":0.2258,"mid":0.2793},{"t":4.2497,"rms":0.5279,"bass":0.1433,"mid":0.2214},{"t":4.283,"rms":0.5404,"bass":0.1202,"mid":0.1453},{"t":4.3163,"rms":0.5323,"bass":0.0954,"mid":0.0986},{"t":4.3497,"rms":0.5155,"bass":0.0237,"mid":0.225},{"t":4.383,"rms":0.4644,"bass":0.1348,"mid":0.3098},{"t":4.4163,"rms":0.4247,"bass":0.1854,"mid":0.1982},{"t":4.4497,"rms":0.4451,"bass":0.081,"mid":0.1673},{"t":4.483,"rms":0.4233,"bass":0.1134,"mid":0.2573},{"t":4.5163,"rms":0.4015,"bass":0.0967,"mid":0.3248},{"t":4.5497,"rms":0.5022,"bass":0.0231,"mid":0.1555},{"t":4.583,"rms":0.5982,"bass":0.0442,"mid":0.1336},{"t":4.6163,"rms":0.5796,"bass":0.0552,"mid":0.1962},{"t":4.6497,"rms":0.4532,"bass":0.1343,"mid":0.3126},{"t":4.683,"rms":0.5305,"bass":0.1718,"mid":0.2598},{"t":4.7163,"rms":0.5407,"bass":0.1661,"mid":0.2222},{"t":4.7497,"rms":0.5618,"bass":0.4548,"mid":0.2106},{"t":4.783,"rms":0.4433,"bass":0.1754,"mid":0.1907},{"t":4.8163,"rms":0.4788,"bass":0.2041,"mid":0.2484},{"t":4.8497,"rms":0.4227,"bass":0.2262,"mid":0.3063},{"t":4.883,"rms":0.3965,"bass":0.4078,"mid":0.2618},{"t":4.9163,"rms":0.3699,"bass":0.3235,"mid":0.2324},{"t":4.9497,"rms":0.298,"bass":0.1324,"mid":0.3703},{"t":4.983,"rms":0.4136,"bass":0.1722,"mid":0.491},{"t":5.0163,"rms":0.4286,"bass":0.0951,"mid":0.3164},{"t":5.0497,"rms":0.321,"bass":0.0947,"mid":0.3365},{"t":5.083,"rms":0.3442,"bass":0.1511,"mid":0.2815},{"t":5.1163,"rms":0.6134,"bass":0.208,"mid":0.3326},{"t":5.1497,"rms":0.61,"bass":0.0842,"mid":0.334},{"t":5.183,"rms":0.8534,"bass":0.1662,"mid":0.1945},{"t":5.2163,"rms":0.9089,"bass":0.4256,"mid":0.1535},{"t":5.2497,"rms":0.7342,"bass":0.8558,"mid":0.2308},{"t":5.283,"rms":0.4598,"bass":0.7569,"mid":0.268},{"t":5.3163,"rms":0.5844,"bass":0.4136,"mid":0.2208},{"t":5.3497,"rms":0.5768,"bass":0.2848,"mid":0.219},{"t":5.383,"rms":0.5027,"bass":0.2188,"mid":0.2085},{"t":5.4163,"rms":0.4648,"bass":0.1801,"mid":0.2315},{"t":5.4497,"rms":0.4148,"bass":0.0526,"mid":0.2801},{"t":5.483,"rms":0.4741,"bass":0.0708,"mid":0.3469},{"t":5.5163,"rms":0.4481,"bass":0.0292,"mid":0.27},{"t":5.5497,"rms":0.456,"bass":0.0241,"mid":0.3217},{"t":5.583,"rms":0.4171,"bass":0.0882,"mid":0.3414},{"t":5.6163,"rms":0.7329,"bass":0.1924,"mid":0.3466},{"t":5.6497,"rms":0.7354,"bass":0.3871,"mid":0.5858}]};
+
+          timeline.fromTo(shell, { x: -42, opacity: 0 }, { x: 0, opacity: 1, duration: .48, ease: "power3.out" }, 0);
+          timeline.fromTo(kicker, { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: .34, ease: "power2.out" }, .14);
+          lyricChars.forEach((char, index) => {
+            timeline.fromTo(char,
+              { y: 30, opacity: 0, rotation: index % 2 ? 2 : -2 },
+              { y: 0, opacity: 1, rotation: 0, duration: .38, ease: "back.out(1.35)" },
+              .26 + Math.min(index * .055, .72)
+            );
+          });
+          timeline.fromTo(sub, { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: .3, ease: "power2.out" }, .72);
+          timeline.fromTo(rule, { scaleX: 0 }, { scaleX: 1, duration: .72, ease: "power2.out" }, .72);
+
+          // Deterministic audio-reactive pulse from pre-extracted FFT bands.
+          AUDIO_DATA.frames.forEach((frame) => {
+            timeline.to(root, { "--pulse": frame.rms, duration: 1 / AUDIO_DATA.fps, ease: "none" }, Math.max(0, frame.t));
+          });
+
+          window.__timelines = window.__timelines || {};
+          window.__timelines["04-f04-bridge"] = timeline;
+        </script>
+      </div>
+    </template>
+  </body>
+</html>

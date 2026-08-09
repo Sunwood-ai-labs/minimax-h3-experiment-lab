@@ -1,0 +1,95 @@
+{
+  "targetAccount": "@hAru_mAki_ch",
+  "project": "MiniMax-H3 Experiment Lab",
+  "series": "MiniMax-H3 Japanese synth-pop MV",
+  "seriesNumber": null,
+  "postMode": "retrospective",
+  "simulationOnly": true,
+  "experimentRecord": "experiments/2026-08-09/h3-mv-jpop-5segment/README.md",
+  "repositoryOrigin": null,
+  "localHistoryMatches": 10,
+  "continuity": {
+    "previousPostUrl": "https://x.com/hAru_mAki_ch/status/2086296391702438041",
+    "reason": "前回のMiniMax-H3猫カフェVlog投稿をローカル履歴で確認済み。今回は音楽MVへの展開。"
+  },
+  "commonConditions": {
+    "gpu": "RTX 4090",
+    "composeService": "h3-4090",
+    "endpoint": "http://127.0.0.1:8188",
+    "resolution": "1280×704",
+    "fps": 24,
+    "steps": 20,
+    "seed": 2026080911,
+    "motionContext": "context_length=22 · audio_context_length=22 · video/audio latent carry-over",
+    "promptLanguage": "English",
+    "lyricPlanLanguage": "Japanese",
+    "attention": "generic FP16 CUDA SageAttention",
+    "disabledOptimizations": "EasyCache / Sol-Attn / Spectrum"
+  },
+  "main": {
+    "label": "概要投稿",
+    "filter": "all",
+    "text": "MiniMax-H3で、音楽まで含めたMVを作ってみた！！！\n\n5つのシーンをMotion Contextで連鎖生成。\nH3が生成した音声を曲として使い、HyperFramesでビート同期のリリックモーションを重ねたぞ🔥\n\n雨の東京を進む女性シンガー。\n歌詞が一文字ずつ現れ、音の密度に合わせて動く約29秒のMVになった！",
+    "media": ["final"]
+  },
+  "replies": [
+    {
+      "label": "音楽解析",
+      "filter": "setup",
+      "text": "【音楽をどう使ったか】\n\n別BGMを後付けしたのではなく、H3が生成した音声をそのまま音楽トラックとして使用。\n\n123 BPM / 56 beats / 14 bars\n30fpsでRMS＋16帯域FFTを解析。\n\n音の密度とエネルギー区間を、歌詞の出現・保持・パルスの強さへ反映した。\n\n映像生成と音楽演出を別々に作らず、同じタイムラインで扱えるかを確認している🔥",
+      "media": ["raw"]
+    },
+    {
+      "label": "リリックモーション",
+      "filter": "experiments",
+      "text": "【リリックモーション】\n\n歌詞をただ字幕として置くのではなく、MVの画面構成として設計。\n\n❶ 導入：一文字ずつタイプライター表示＋ネオンのフリッカー\n❷ 移動：マスクと横方向のスイープ\n❸ 余韻：ブラー解除＋中央でホールド\n❹ ピーク：キネティックイン＋強いオーバーレイ\n❺ エンディング：夜明けに向かって広がるように解決\n\n歌詞の表示タイミングと、音量・帯域の動きを同じ30fpsタイムラインで制御した。",
+      "media": []
+    },
+    {
+      "label": "H3生成条件",
+      "filter": "results",
+      "text": "【H3の生成条件】\n\nT2V / RTX 4090 / Docker Compose h3-4090\n1280×704 · 24fps · 20 steps\nres_multistep / simple / denoise 1.0\nSeed: 2026080911（全セグメント共通）\n\n1本158 raw framesで生成。\n2〜5本目は映像・音声コンテキスト22 framesとlatentを引き継ぎ、Trim後136 framesにした。\n\nPromptは英語、歌唱指示とリリックは日本語。\nMotion Context単体の連続性を見たいため、EasyCache・Sol-Attn・Spectrumは無効。",
+      "media": []
+    },
+    {
+      "label": "結果と限界",
+      "filter": "results",
+      "text": "【結果と限界】\n\nH3の5セグメント生成時間は合計2681.885秒（約44分42秒）。\nH3生素材は29.256秒、HyperFrames完成版は30fpsで29.266667秒。\n\n映像・音声を引き継いだMV素材に、音楽連動の歌詞演出まで重ねられたぞ🔥\n\n⚠️歌詞はプロンプトで指定した計画テキストで、実際の日本語発声とのASR照合は未実施。\n⚠️人物同一性と音声シームも今回は定量評価していない。\n\n次はASR照合と、歌詞の意味に合わせたカット編集を試す、、、",
+      "media": []
+    },
+    {
+      "label": "前回からの続き",
+      "filter": "sources",
+      "text": "【前回からの続き】\n\n前回はMiniMax-H3で日本語セリフ入りの約30秒猫カフェVlogを作った。\n今回は同じMotion Contextの考え方を、生成音声を活かすMVへ展開。\n\nhttps://x.com/hAru_mAki_ch/status/2086296391702438041",
+      "media": []
+    },
+    {
+      "label": "実装元",
+      "filter": "sources",
+      "text": "【実装元】\n\nDocker Composeへ組み込んだMotion Contextノード。\n使用revision: 15fc6a7bf7b78efb27f33d7eef3818e7ed0e118a\n\nhttps://github.com/NikoDemon80/ComfyUI-H3-Motion-Context",
+      "media": []
+    }
+  ],
+  "media": {
+    "final": {
+      "type": "video",
+      "src": "assets/h3-jpop-mv-lyric-motion.mp4",
+      "poster": "assets/poster-final.jpg",
+      "title": "完成版 · リリックモーション付きMV",
+      "info": "1280×704 · 878 frames · 30fps · 29.267 sec",
+      "provenance": "H3生成音声＋H3 5セグメント映像へHyperFramesのリリックモーションを合成した実レンダー。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/experiments/2026-08-09/h3-mv-jpop-5segment/hyperframes-mv-lyrics/renders/h3_jpop_mv_lyric_motion.mp4",
+      "sha256": "097EBE221189EE2726319DDC555E57B813483BCA9FD48640E18E75830B179050"
+    },
+    "raw": {
+      "type": "video",
+      "src": "assets/h3-jpop-mv-raw.mp4",
+      "poster": "assets/poster-raw.jpg",
+      "title": "H3生素材 · リリック合成前",
+      "info": "1280×704 · 702 frames · 24fps · 29.256 sec",
+      "provenance": "RTX 4090 / Docker Compose h3-4090で生成したH3 5セグメント連結素材。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/experiments/2026-08-09/h3-mv-jpop-5segment/outputs/h3_jpop_mv_5segment_merged.mp4",
+      "sha256": "28F1921260CF45A710E7C1BB8D64E72A91889379F0495C5BDB91217F2E6EF92E"
+    }
+  }
+}

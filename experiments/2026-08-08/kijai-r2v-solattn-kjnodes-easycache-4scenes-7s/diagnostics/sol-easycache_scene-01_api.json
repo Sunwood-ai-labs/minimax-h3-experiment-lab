@@ -1,0 +1,229 @@
+{
+    "1":  {
+              "class_type":  "UNETLoader",
+              "inputs":  {
+                             "unet_name":  "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+                             "weight_dtype":  "default"
+                         }
+          },
+    "2":  {
+              "class_type":  "CLIPLoader",
+              "inputs":  {
+                             "clip_name":  "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+                             "type":  "minimax",
+                             "device":  "default"
+                         }
+          },
+    "3":  {
+              "class_type":  "VAELoader",
+              "inputs":  {
+                             "vae_name":  "minimax_h3_video_vae_fp16.safetensors"
+                         }
+          },
+    "4":  {
+              "class_type":  "VAELoader",
+              "inputs":  {
+                             "vae_name":  "minimax_h3_audio_vae_fp32.safetensors"
+                         }
+          },
+    "5":  {
+              "class_type":  "MiniMaxH3ReferenceToVideo",
+              "inputs":  {
+                             "clip":  [
+                                          "2",
+                                          0
+                                      ],
+                             "vae":  [
+                                         "3",
+                                         0
+                                     ],
+                             "audio_vae":  [
+                                               "4",
+                                               0
+                                           ],
+                             "ref_images.ref_image_0":  [
+                                                            "10",
+                                                            0
+                                                        ],
+                             "ref_images.ref_image_1":  [
+                                                            "11",
+                                                            0
+                                                        ],
+                             "ref_images.ref_image_2":  [
+                                                            "12",
+                                                            0
+                                                        ],
+                             "prompt":  "\u003cPicture 1\u003e is the same near-future Tokyo rooftop greenhouse and observation deck environment. \u003cPicture 2\u003e is Mina, and \u003cPicture 3\u003e is Ren. At sunset, Mina steps out onto the wet rooftop deck and looks over the city. Ren enters from the glass greenhouse behind her and stops beside her. The camera makes a slow cinematic dolly from a wide establishing view toward the two characters. Preserve their exact identities, hairstyles, scars, earpiece, outfits and colors from the reference sheets. Keep the greenhouse architecture and orange-blue sunset consistent. Natural wind moves Mina\u0027s rust-red scarf and Ren\u0027s long coat. Quiet serious mood, realistic live-action motion, no dialogue, no text, no subtitles.",
+                             "width":  1280,
+                             "height":  704,
+                             "length":  175,
+                             "ref_image_size":  "match"
+                         }
+          },
+    "6":  {
+              "class_type":  "BasicGuider",
+              "inputs":  {
+                             "model":  [
+                                           "19",
+                                           0
+                                       ],
+                             "conditioning":  [
+                                                  "5",
+                                                  0
+                                              ]
+                         }
+          },
+    "7":  {
+              "class_type":  "KSamplerSelect",
+              "inputs":  {
+                             "sampler_name":  "res_multistep"
+                         }
+          },
+    "8":  {
+              "class_type":  "BasicScheduler",
+              "inputs":  {
+                             "model":  [
+                                           "19",
+                                           0
+                                       ],
+                             "scheduler":  "simple",
+                             "steps":  20,
+                             "denoise":  1.0
+                         }
+          },
+    "9":  {
+              "class_type":  "RandomNoise",
+              "inputs":  {
+                             "noise_seed":  2026080813
+                         }
+          },
+    "10":  {
+               "class_type":  "LoadImage",
+               "inputs":  {
+                              "image":  "MiniMax_H3_R2V_background_reference_sheet.png"
+                          }
+           },
+    "11":  {
+               "class_type":  "LoadImage",
+               "inputs":  {
+                              "image":  "MiniMax_H3_R2V_mina_reference_sheet.png"
+                          }
+           },
+    "12":  {
+               "class_type":  "LoadImage",
+               "inputs":  {
+                              "image":  "MiniMax_H3_R2V_ren_reference_sheet.png"
+                          }
+           },
+    "13":  {
+               "class_type":  "SamplerCustomAdvanced",
+               "inputs":  {
+                              "noise":  [
+                                            "9",
+                                            0
+                                        ],
+                              "guider":  [
+                                             "6",
+                                             0
+                                         ],
+                              "sampler":  [
+                                              "7",
+                                              0
+                                          ],
+                              "sigmas":  [
+                                             "8",
+                                             0
+                                         ],
+                              "latent_image":  [
+                                                   "5",
+                                                   1
+                                               ]
+                          }
+           },
+    "14":  {
+               "class_type":  "VAEDecode",
+               "inputs":  {
+                              "samples":  [
+                                              "13",
+                                              0
+                                          ],
+                              "vae":  [
+                                          "3",
+                                          0
+                                      ]
+                          }
+           },
+    "15":  {
+               "class_type":  "VAEDecodeAudio",
+               "inputs":  {
+                              "samples":  [
+                                              "13",
+                                              1
+                                          ],
+                              "vae":  [
+                                          "4",
+                                          0
+                                      ]
+                          }
+           },
+    "16":  {
+               "class_type":  "CreateVideo",
+               "inputs":  {
+                              "images":  [
+                                             "14",
+                                             0
+                                         ],
+                              "audio":  [
+                                            "15",
+                                            0
+                                        ],
+                              "fps":  24.0
+                          }
+           },
+    "17":  {
+               "class_type":  "SaveVideo",
+               "inputs":  {
+                              "video":  [
+                                            "16",
+                                            0
+                                        ],
+                              "filename_prefix":  "video/MiniMax_H3_R2V_diag_sol_easycache",
+                              "format":  "mp4",
+                              "codec":  "auto"
+                          }
+           },
+    "18":  {
+               "class_type":  "EasyCache",
+               "inputs":  {
+                              "model":  [
+                                            "1",
+                                            0
+                                        ],
+                              "reuse_threshold":  0.3,
+                              "start_percent":  0.2,
+                              "end_percent":  0.9,
+                              "verbose":  false
+                          }
+           },
+    "19":  {
+               "class_type":  "SolAttnPatch",
+               "inputs":  {
+                              "model":  [
+                                            "18",
+                                            0
+                                        ],
+                              "tau":  1.3,
+                              "start_percent":  0.2,
+                              "end_percent":  0.9,
+                              "min_tokens":  4096,
+                              "int8_qk":  true,
+                              "sink_conditioning":  "exact_kv_and_rows",
+                              "morton":  false,
+                              "morton_curve":  "2d_frame",
+                              "int8_pv":  true,
+                              "verbose":  true,
+                              "use_tma":  false,
+                              "dense_blocks":  ""
+                          }
+           }
+}

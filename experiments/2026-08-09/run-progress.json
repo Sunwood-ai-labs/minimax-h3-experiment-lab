@@ -1,0 +1,10 @@
+﻿{
+    "status":  "running",
+    "startedAt":  "2026-08-09T11:01:45.7446489+09:00",
+    "endpoint":  "http://127.0.0.1:8188",
+    "workflowDir":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-09\\h3-japanese-catcafe-vlog-5segment",
+    "gpuService":  "h3-4090",
+    "segments":  [
+
+                 ]
+}

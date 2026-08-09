@@ -1,0 +1,163 @@
+{
+  "targetAccount": "@hAru_mAki_ch",
+  "status": "simulation_only",
+  "project": "MiniMax-H3 Experiment Lab",
+  "series": "MiniMax-H3 Kijai LightX2V scene expansion",
+  "simulatorUrl": "https://madesk.tail8be30.ts.net:8882/",
+  "threadStructure": "parent overview -> montage -> four scene experiment replies -> previous thread -> four reference replies",
+  "parent": {
+    "text": "MiniMax-H3 × Kijai LightX2V、シーン展開やってみた！！！\n\nImageGenで作った開始フレームを使って、車・スポーツ・イラスト・バトルを同じI2V条件で生成。\nRTX 4090 · Docker Compose · 1344×768 · 4 steps · LoRA 0.75。\n\n4本とも成功、OOMなし、blackdetect=0。概要動画にまとめたぞ🔥",
+    "media": [
+      {
+        "path": "D:\\Prj\\minimax-h3-compose\\hyperframes-kijai-scenes-2026-08-08\\renders\\MiniMax_H3_Kijai_LightX2V_scene_montage_1920x1080_24fps.mp4",
+        "simulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_scene_montage_1920x1080_24fps.mp4",
+        "posterSimulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_scene_montage_1920x1080_24fps_poster.png",
+        "provenance": "HyperFrames render from four real RTX 4090 Docker Compose outputs; no replacement media",
+        "sha256": "DFB7BE39E79A943EF9D3F194B4362FAE9EDE89B9B029F652B9D04BC362E8B513",
+        "bytes": 11406878,
+        "dimensions": "1920x1080",
+        "fps": 24,
+        "frames": 158,
+        "durationSeconds": 6.583333,
+        "codec": "H.264 + AAC stereo",
+        "composition": "hyperframes-kijai-scenes-2026-08-08/index.html"
+      }
+    ]
+  },
+  "replies": [
+    {
+      "id": "scene-car",
+      "kind": "experiment",
+      "text": "【Scene 1｜車 / I2V】\n\nPrompt:\nAnimate the supplied sports car start frame into a cinematic high-speed mountain-road shot. Preserve the car design, road composition, and mountain background, add controlled forward camera movement, subtle wheel rotation, realistic reflections, and natural road motion, no text.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nResolution: 1344×768, 158 frames, 24fps\nBase: minimax_h3_fl2va_pruned_int8_convrot.safetensors\nText encoder: qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\nVAE: official FP16 video + FP32 audio\nKijai full LoRA: strength 0.75\nSteps: 4 / Sampler: sa_solver / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080803\nInput: MiniMax_H3_I2V_scene_car_imagegen_start.png (AA18AB747483D6761E897456EED5F12CFB82402CC891B64484893D1AEF5A8B0A)\n\nResult:\nComfy execution 209.579 sec / runner wall 210.402 sec\nOutput 6.583333 sec / H.264 + AAC stereo\nOOMなし / blackdetect 0\nOutput SHA-256: 468D9FB859757B6AEB141950A97737D7C3F713FDD426122A40560A2920EBB062\nBenchmark: h3-38166d06-cdd1-4f48-94fc-4fa381cc7d32.md",
+      "media": [
+        {
+          "path": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_car_00001_.mp4",
+          "simulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_car_00001_.mp4",
+          "posterSimulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/scene-car-poster.png",
+          "provenance": "real generated output from verified RTX 4090 Docker Compose run",
+          "sha256": "468D9FB859757B6AEB141950A97737D7C3F713FDD426122A40560A2920EBB062",
+          "bytes": 2896740,
+          "dimensions": "1344x768",
+          "fps": 24,
+          "frames": 158,
+          "durationSeconds": 6.583333,
+          "inferenceSeconds": 209.579,
+          "runnerWallSeconds": 210.402,
+          "blackdetectIntervalCount": 0,
+          "promptId": "38166d06-cdd1-4f48-94fc-4fa381cc7d32",
+          "report": "runtime/4090/benchmark/h3-38166d06-cdd1-4f48-94fc-4fa381cc7d32.md"
+        }
+      ]
+    },
+    {
+      "id": "scene-sports",
+      "kind": "experiment",
+      "text": "【Scene 2｜スポーツ / I2V】\n\nPrompt:\nAnimate the supplied sprint start frame into a cinematic sports shot. Preserve the athlete's anatomy, starting pose, lane, and stadium composition, add a powerful launch into the sprint, subtle camera tracking, realistic fabric movement, and natural stadium atmosphere, no text.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nResolution: 1344×768, 158 frames, 24fps\nBase: minimax_h3_fl2va_pruned_int8_convrot.safetensors\nText encoder: qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\nVAE: official FP16 video + FP32 audio\nKijai full LoRA: strength 0.75\nSteps: 4 / Sampler: sa_solver / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080804\nInput: MiniMax_H3_I2V_scene_sports_imagegen_start.png (33B52086889F97ADE8FB2EA8F23C3F25214498A5015881D33B9E8E42F3D3130C)\n\nResult:\nComfy execution 208.834 sec / runner wall 210.409 sec\nOutput 6.583333 sec / H.264 + AAC stereo\nOOMなし / blackdetect 0\nOutput SHA-256: 0B9C76D2373473B258C9899B6127A8C22792C867714BF09FBF425360F83BB9E5\nBenchmark: h3-31b250ab-c2cf-472e-a843-118ffa7f6f98.md",
+      "media": [
+        {
+          "path": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_sports_00001_.mp4",
+          "simulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_sports_00001_.mp4",
+          "posterSimulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/scene-sports-poster.png",
+          "provenance": "real generated output from verified RTX 4090 Docker Compose run",
+          "sha256": "0B9C76D2373473B258C9899B6127A8C22792C867714BF09FBF425360F83BB9E5",
+          "bytes": 2241947,
+          "dimensions": "1344x768",
+          "fps": 24,
+          "frames": 158,
+          "durationSeconds": 6.583333,
+          "inferenceSeconds": 208.834,
+          "runnerWallSeconds": 210.409,
+          "blackdetectIntervalCount": 0,
+          "promptId": "31b250ab-c2cf-472e-a843-118ffa7f6f98",
+          "report": "runtime/4090/benchmark/h3-31b250ab-c2cf-472e-a843-118ffa7f6f98.md"
+        }
+      ]
+    },
+    {
+      "id": "scene-illustration",
+      "kind": "experiment",
+      "text": "【Scene 3｜イラスト / I2V】\n\nPrompt:\nAnimate the supplied floating-island illustration start frame while preserving its hand-painted style, character silhouette, lantern, path, and luminous ruin composition. Add gentle forward camera movement, drifting clouds, a subtle cape and lantern motion, and soft atmospheric light, no text.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nResolution: 1344×768, 158 frames, 24fps\nBase: minimax_h3_fl2va_pruned_int8_convrot.safetensors\nText encoder: qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\nVAE: official FP16 video + FP32 audio\nKijai full LoRA: strength 0.75\nSteps: 4 / Sampler: sa_solver / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080805\nInput: MiniMax_H3_I2V_scene_illustration_imagegen_start.png (09D56EF3CD1947CE66E5BC9F019FA4DED2A636A14D42947022268134546D7A6F)\n\nResult:\nComfy execution 208.941 sec / runner wall 210.505 sec\nOutput 6.583333 sec / H.264 + AAC stereo\nOOMなし / blackdetect 0\nOutput SHA-256: 6ADC0B80614773902A2E2392B0965F2B9C945F086596D25523B43836349A293A\nBenchmark: h3-acec67b0-578d-4b26-9ee4-0022a399b686.md",
+      "media": [
+        {
+          "path": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration_00001_.mp4",
+          "simulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration_00001_.mp4",
+          "posterSimulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/scene-illustration-poster.png",
+          "provenance": "real generated output from verified RTX 4090 Docker Compose run",
+          "sha256": "6ADC0B80614773902A2E2392B0965F2B9C945F086596D25523B43836349A293A",
+          "bytes": 2328790,
+          "dimensions": "1344x768",
+          "fps": 24,
+          "frames": 158,
+          "durationSeconds": 6.583333,
+          "inferenceSeconds": 208.941,
+          "runnerWallSeconds": 210.505,
+          "blackdetectIntervalCount": 0,
+          "promptId": "acec67b0-578d-4b26-9ee4-0022a399b686",
+          "report": "runtime/4090/benchmark/h3-acec67b0-578d-4b26-9ee4-0022a399b686.md"
+        }
+      ]
+    },
+    {
+      "id": "scene-battle",
+      "kind": "experiment",
+      "text": "【Scene 4｜バトル / I2V】\n\nPrompt:\nAnimate the supplied fantasy battle start frame into a cinematic pre-clash shot. Preserve both original warriors, their armor, weapons, positions, and ruined arena composition, add a slow camera push-in, controlled cape movement, drifting dust, sparks, and distant lightning, no gore and no text.\n\nParameters:\nGPU: RTX 4090 / Compose: h3-4090\nResolution: 1344×768, 158 frames, 24fps\nBase: minimax_h3_fl2va_pruned_int8_convrot.safetensors\nText encoder: qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\nVAE: official FP16 video + FP32 audio\nKijai full LoRA: strength 0.75\nSteps: 4 / Sampler: sa_solver / Scheduler: simple\nEasyCache: reuse 0.3 / start 0.2 / end 0.9\nSeed: 2026080806\nInput: MiniMax_H3_I2V_scene_battle_imagegen_start.png (80D12E69F6E8B629D91A7E1F490C620A77D6CEC37D63B559CBADFDC497E9421A)\n\nResult:\nComfy execution 210.609 sec / runner wall 215.453 sec\nOutput 6.583333 sec / H.264 + AAC stereo\nOOMなし / blackdetect 0\nOutput SHA-256: 5A0BECA0A21423F86F6280AAA72ED06359423C4A878CB2BCB17543443C3A8E2D\nBenchmark: h3-1bdb13fd-e452-415c-8a69-38d795d9ae98.md",
+      "media": [
+        {
+          "path": "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_battle_00001_.mp4",
+          "simulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_battle_00001_.mp4",
+          "posterSimulatorPath": "sunwood-x-simulator-kijai-scenes-2026-08-08/assets/scene-battle-poster.png",
+          "provenance": "real generated output from verified RTX 4090 Docker Compose run",
+          "sha256": "5A0BECA0A21423F86F6280AAA72ED06359423C4A878CB2BCB17543443C3A8E2D",
+          "bytes": 2804264,
+          "dimensions": "1344x768",
+          "fps": 24,
+          "frames": 158,
+          "durationSeconds": 6.583333,
+          "inferenceSeconds": 210.609,
+          "runnerWallSeconds": 215.453,
+          "blackdetectIntervalCount": 0,
+          "promptId": "1bdb13fd-e452-415c-8a69-38d795d9ae98",
+          "report": "runtime/4090/benchmark/h3-1bdb13fd-e452-415c-8a69-38d795d9ae98.md"
+        }
+      ]
+    },
+    {
+      "id": "previous-thread",
+      "kind": "previous",
+      "text": "【前回の実験スレッド】\n\n前回のKijai LightX2V 4-step基礎実験。T2V / I2V × er_sde / sa_solverの比較はこちら。\nhttps://x.com/hAru_mAki_ch/status/2085926432086307010",
+      "media": []
+    },
+    {
+      "id": "reference-kijai",
+      "kind": "reference",
+      "text": "【参考サイト｜Kijai MiniMax-H3_comfy】\n\n今回使った4-step LightX2V LoRAとComfyUI向けworkflowの出典。\nhttps://huggingface.co/Kijai/MiniMax-H3_comfy",
+      "media": []
+    },
+    {
+      "id": "reference-x",
+      "kind": "reference",
+      "text": "【参考サイト｜実験対象のX投稿】\n\n公開メディア条件と投稿内容を確認した元ポスト。\nhttps://x.com/sd_tutorial/status/2085760369612783646?s=46",
+      "media": []
+    },
+    {
+      "id": "reference-lightx2v",
+      "kind": "reference",
+      "text": "【参考サイト｜LightX2V公式配布】\n\nMiniMax-H3 Turboモデルの公開ファイル。\nhttps://huggingface.co/lightx2v/Minimax-h3-Turbo/tree/main",
+      "media": []
+    },
+    {
+      "id": "reference-repo",
+      "kind": "reference",
+      "text": "【参考サイト｜関連公開リポジトリ】\n\nDocker / ComfyUI実装を比較するときの関連リポジトリ。今回の実験ラボ本体はローカル管理。\nhttps://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo",
+      "media": []
+    }
+  ],
+  "evidence": {
+    "experimentReadme": "experiments/2026-08-08/kijai-scenes/README.md",
+    "experimentJson": "experiments/2026-08-08/kijai-scenes/experiment.json",
+    "imagegenPrompts": "experiments/2026-08-08/kijai-scenes/imagegen-prompts.md",
+    "composition": "hyperframes-kijai-scenes-2026-08-08/index.html",
+    "mediaProvenance": "real generated outputs; montage is evidence-derived HyperFrames composition; no replacement media",
+    "preflight": "ok: true; exact payload and five landscape MP4 attachments checked before review"
+  }
+}

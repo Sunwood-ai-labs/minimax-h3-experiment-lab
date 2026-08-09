@@ -1,0 +1,45 @@
+{
+  "id": "minimax-h3-ref2va-6v20-2026-08-08",
+  "status": "simulated_not_posted",
+  "targetAccount": "@hAru_mAki_ch",
+  "postMode": "progress",
+  "threadShape": "1 parent + 10 linear replies",
+  "simulator": {
+    "localPath": "sunwood-x-simulator-ref2va-2026-08-08/index.html",
+    "url": "https://madesk.tail8be30.ts.net:8885/",
+    "httpStatus": 200,
+    "payload": "sunwood-x-simulator-ref2va-2026-08-08/payload.json"
+  },
+  "attachments": {
+    "count": 5,
+    "order": [
+      "sunwood-x-simulator-ref2va-2026-08-08/assets/MiniMax_H3_ref2va_6v20_montage.mp4",
+      "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_T2V_1344x768_6step_er_sde_lora080_00001_.mp4",
+      "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_T2V_1344x768_20step_er_sde_lora080_00001_.mp4",
+      "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_I2V_1344x768_6step_er_sde_lora080_00001_.mp4",
+      "runtime/4090/output/video/MiniMax_H3_Kijai_LightX2V_Ref2VA_I2V_1344x768_20step_er_sde_lora080_00001_.mp4"
+    ],
+    "montageSha256": "02E59CFA5A0A0B44B602770BA48E304054751F2EF1912604D8C53BF735BFD0CA",
+    "montageProvenance": "FFmpeg evidence-derived 2x2 montage made from the four verified RTX 4090 Docker Compose outputs"
+  },
+  "preflight": {
+    "ok": true,
+    "replyCount": 10,
+    "attachmentCount": 5,
+    "mainHasUrl": false,
+    "checkedWith": "sunwood-build-in-public/scripts/preflight.ps1"
+  },
+  "evidence": [
+    "experiments/2026-08-08/kijai-ref2va-6v20/README.md",
+    "experiments/2026-08-08/kijai-ref2va-6v20/experiment.json",
+    "runtime/4090/benchmark/h3-976ed634-fad0-41be-bb2b-865637bb2758.md",
+    "runtime/4090/benchmark/h3-23229ad1-a1da-4aa3-83e6-1d04eb74b926.md",
+    "runtime/4090/benchmark/h3-40c56bb7-d5a3-489b-ad4a-08b59db84175.md",
+    "runtime/4090/benchmark/h3-e6a6708a-0e2e-418d-9f5f-21709cc2e5cf.md"
+  ],
+  "publication": {
+    "sentToX": false,
+    "finalUserApprovalRequired": true,
+    "note": "The local lab repository has no verified origin URL; the thread uses the related public ComfyUI repository as a separate reference reply."
+  }
+}

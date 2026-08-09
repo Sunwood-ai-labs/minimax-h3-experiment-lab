@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sunwood X Post Simulator — MiniMax-H3 Scene Expansion</title>
+  <style>
+    :root{color-scheme:dark;--bg:#080b11;--panel:#141b27ee;--line:#ffffff20;--muted:#9aa7ba;--text:#f5f7fb;--orange:#ff8a5c;--yellow:#ffd166;--green:#7be3ac;--blue:#85caff}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--text);background:radial-gradient(circle at 5% 0%,#ff8a5c2c,transparent 30rem),radial-gradient(circle at 95% 8%,#4285f42a,transparent 32rem),var(--bg);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}a{color:var(--blue);overflow-wrap:anywhere}.wrap{width:min(1220px,calc(100% - 34px));margin:0 auto}header{display:flex;justify-content:space-between;gap:24px;align-items:end;padding:34px 0 22px}.eyebrow,.label{margin:0;color:var(--yellow);letter-spacing:.15em;text-transform:uppercase;font-size:11px;font-weight:800}h1{margin:5px 0 0;font-size:clamp(29px,4vw,48px);line-height:1.03;letter-spacing:-.045em}.subtitle{max-width:820px;margin:11px 0 0;color:var(--muted)}.status{padding:7px 12px;color:var(--yellow);border:1px solid #ffd16666;border-radius:999px;white-space:nowrap;font-size:12px}.status::before{content:"";display:inline-block;width:7px;height:7px;margin-right:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 12px var(--yellow)}.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:15px;border:1px solid var(--line);border-radius:16px;background:#111722b8}.toolbar-label{margin-right:auto;color:var(--muted);font-size:13px}.tab{cursor:pointer;padding:9px 14px;color:var(--muted);background:#10151e;border:1px solid var(--line);border-radius:999px;font:inherit}.tab:hover,.tab.active{color:#11151d;background:var(--yellow);border-color:var(--yellow)}.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:22px;align-items:start;margin:22px 0 54px}.thread-heading{display:flex;justify-content:space-between;gap:16px;align-items:start;margin:0 0 12px}h2{margin:0;font-size:21px}.thread-heading p{margin:4px 0 0;color:var(--muted);font-size:13px}.badge{padding:4px 9px;color:var(--blue);border:1px solid #85caff66;border-radius:999px;white-space:nowrap;font-size:11px}.thread-flow{position:relative;padding-left:24px}.thread-flow::before{content:"";position:absolute;left:7px;top:24px;bottom:24px;width:2px;background:linear-gradient(var(--orange),#85caff66)}.post{position:relative;display:grid;grid-template-columns:46px minmax(0,1fr);gap:13px;padding:18px;margin-bottom:12px;border:1px solid var(--line);border-radius:18px;background:var(--panel);box-shadow:0 18px 55px #0000002b}.post::before{content:"";position:absolute;left:-21px;top:28px;width:12px;height:12px;border:3px solid var(--bg);border-radius:50%;background:var(--orange);box-shadow:0 0 0 1px var(--orange)}.post.reply::before{background:var(--blue);box-shadow:0 0 0 1px var(--blue)}.avatar{display:grid;place-items:center;width:42px;height:42px;color:#131923;background:linear-gradient(135deg,var(--yellow),var(--orange));border-radius:50%;font-weight:900}.avatar.small{width:34px;height:34px;font-size:13px}.identity{display:flex;flex-wrap:wrap;gap:7px;align-items:baseline;font-size:13px}.identity strong{font-size:14px}.handle,.replying,.meta{color:var(--muted);font-size:12px}.replying{margin-bottom:5px}.replying span{color:var(--blue)}.post-text{margin:12px 0 15px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:15px;line-height:1.58}.main .post-text{font-size:17px}.media-shell{overflow:hidden;border:1px solid #ffffff24;border-radius:14px;background:#05070a}video{display:block;width:100%;aspect-ratio:1344/768;background:#05070a}.parent-montage video{aspect-ratio:1920/1080}.media-info{padding:11px 12px 12px;background:#ffffff0b}.media-top{display:flex;justify-content:space-between;gap:10px;font-size:12px}.media-top strong{color:var(--green)}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.chip{padding:3px 7px;color:var(--muted);border:1px solid var(--line);border-radius:999px;font-size:11px}.provenance{margin:8px 0 0;color:var(--muted);font-size:11px;overflow-wrap:anywhere}.meta{display:flex;justify-content:space-between;gap:8px;margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}.review{position:sticky;top:18px;padding:18px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}.review h3{margin:4px 0 14px;font-size:18px}.review ul{display:grid;gap:10px;margin:0;padding:0;list-style:none}.review li{display:grid;grid-template-columns:22px 1fr;gap:8px;color:#dbe2ed;font-size:13px}.ok{color:var(--green);font-weight:900}.note{margin-top:18px;padding:12px;border-left:3px solid var(--orange);background:#ff8a5c12;color:#e4e9f2;font-size:12px}.manifest{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}.manifest p{margin:6px 0;color:var(--muted);font-size:12px}.manifest code{overflow-wrap:anywhere;color:#e7edf8;font-size:10px}footer{padding:0 0 30px;color:var(--muted);font-size:12px}@media(max-width:850px){header{display:block}.status{display:inline-block;margin-top:16px}.layout{grid-template-columns:1fr}.review{position:static}}@media(max-width:560px){.wrap{width:min(100% - 22px,1220px)}.post{grid-template-columns:36px minmax(0,1fr);gap:10px;padding:14px}.avatar{width:34px;height:34px;font-size:12px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <p class="eyebrow">SUNWOOD BUILD IN PUBLIC / SIMULATION ONLY</p>
+        <h1>MiniMax-H3 × Kijai LightX2V</h1>
+        <p class="subtitle">概要動画1本＋車・スポーツ・イラスト・バトルの実験返信4件＋前回スレッド＋参考サイト。各返信には実生成動画、I2V prompt、入力画像、全パラメータ、処理時間、検査結果を表示する。</p>
+      </div>
+      <div class="status">投稿前シミュレーション</div>
+    </header>
+
+    <nav class="toolbar" aria-label="返信切り替え">
+      <span class="toolbar-label">対象: <strong>@hAru_mAki_ch</strong> / 1 parent + 9 replies / long thread</span>
+      <button class="tab active" data-filter="all">全体</button>
+      <button class="tab" data-filter="experiments">4実験</button>
+      <button class="tab" data-filter="car">車</button>
+      <button class="tab" data-filter="sports">スポーツ</button>
+      <button class="tab" data-filter="illustration">イラスト</button>
+      <button class="tab" data-filter="battle">バトル</button>
+      <button class="tab" data-filter="context">前回・参考</button>
+    </nav>
+
+    <div class="layout">
+      <main id="feed"></main>
+      <aside class="review">
+        <p class="label">PRE-PUBLISH REVIEW</p>
+        <h3>投稿チェック</h3>
+        <ul>
+          <li><span class="ok">✓</span><span>対象は <strong>@hAru_mAki_ch</strong></span></li>
+          <li><span class="ok">✓</span><span>親投稿1件＋概要動画1本＋実験返信4件</span></li>
+          <li><span class="ok">✓</span><span>各実験返信は実生成動画を1本だけ添付</span></li>
+          <li><span class="ok">✓</span><span>prompt / params / result / SHA-256を各返信に記載</span></li>
+          <li><span class="ok">✓</span><span>ImageGen開始フレームの出所と記録を明示</span></li>
+          <li><span class="ok">✓</span><span>URLは各返信1個に分離</span></li>
+          <li><span class="ok">✓</span><span>動画は実際のRTX 4090 Docker Compose生成物</span></li>
+        </ul>
+        <div class="note">シミュレーションのみ。Xへは送信していない。親投稿→実験1〜4→前回スレッド→参考サイトの順に、長い1スレッドとして確認する。</div>
+        <div class="manifest"><p>共通環境</p><p><code>RTX 4090 · h3-4090 · Docker Compose · ComfyUI 0.30.0 · PyTorch 2.11.0+cu130 · 1344×768 · 158 frames · 24fps · 4 steps · LoRA 0.75</code></p><p>実験記録</p><p><code>experiments/2026-08-08/kijai-scenes/README.md</code></p><p><code>experiments/2026-08-08/kijai-scenes/imagegen-prompts.md</code></p></div>
+      </aside>
+    </div>
+    <footer>MiniMax-H3 Experiment Lab · Kijai LightX2V scene expansion · actual generated media · simulation only</footer>
+  </div>
+  <script>
+    const parentText = `MiniMax-H3 × Kijai LightX2V、シーン展開やってみた！！！
+
+ImageGenで作った開始フレームを使って、車・スポーツ・イラスト・バトルを同じI2V条件で生成。
+RTX 4090 · Docker Compose · 1344×768 · 4 steps · LoRA 0.75。
+
+4本とも成功、OOMなし、blackdetect=0。概要動画にまとめたぞ🔥`;
+    const runs = [
+      {
+        id:'car',label:'CAR / I2V',title:'【Scene 1｜車 / I2V】',seed:'2026080803',input:'MiniMax_H3_I2V_scene_car_imagegen_start.png',inputSha:'AA18AB747483D6761E897456EED5F12CFB82402CC891B64484893D1AEF5A8B0A',promptId:'38166d06-cdd1-4f48-94fc-4fa381cc7d32',inference:'209.579',wall:'210.402',bytes:'2,896,740',sha:'468D9FB859757B6AEB141950A97737D7C3F713FDD426122A40560A2920EBB062',workflow:'minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_car_1344x768_api.json',report:'h3-38166d06-cdd1-4f48-94fc-4fa381cc7d32.md',video:'assets/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_car_00001_.mp4',poster:'assets/scene-car-poster.png',prompt:'Animate the supplied sports car start frame into a cinematic high-speed mountain-road shot. Preserve the car design, road composition, and mountain background, add controlled forward camera movement, subtle wheel rotation, realistic reflections, and natural road motion, no text.'
+      },
+      {
+        id:'sports',label:'SPORTS / I2V',title:'【Scene 2｜スポーツ / I2V】',seed:'2026080804',input:'MiniMax_H3_I2V_scene_sports_imagegen_start.png',inputSha:'33B52086889F97ADE8FB2EA8F23C3F25214498A5015881D33B9E8E42F3D3130C',promptId:'31b250ab-c2cf-472e-a843-118ffa7f6f98',inference:'208.834',wall:'210.409',bytes:'2,241,947',sha:'0B9C76D2373473B258C9899B6127A8C22792C867714BF09FBF425360F83BB9E5',workflow:'minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_sports_1344x768_api.json',report:'h3-31b250ab-c2cf-472e-a843-118ffa7f6f98.md',video:'assets/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_sports_00001_.mp4',poster:'assets/scene-sports-poster.png',prompt:`Animate the supplied sprint start frame into a cinematic sports shot. Preserve the athlete's anatomy, starting pose, lane, and stadium composition, add a powerful launch into the sprint, subtle camera tracking, realistic fabric movement, and natural stadium atmosphere, no text.`
+      },
+      {
+        id:'illustration',label:'ILLUSTRATION / I2V',title:'【Scene 3｜イラスト / I2V】',seed:'2026080805',input:'MiniMax_H3_I2V_scene_illustration_imagegen_start.png',inputSha:'09D56EF3CD1947CE66E5BC9F019FA4DED2A636A14D42947022268134546D7A6F',promptId:'acec67b0-578d-4b26-9ee4-0022a399b686',inference:'208.941',wall:'210.505',bytes:'2,328,790',sha:'6ADC0B80614773902A2E2392B0965F2B9C945F086596D25523B43836349A293A',workflow:'minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_illustration_1344x768_api.json',report:'h3-acec67b0-578d-4b26-9ee4-0022a399b686.md',video:'assets/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_illustration_00001_.mp4',poster:'assets/scene-illustration-poster.png',prompt:'Animate the supplied floating-island illustration start frame while preserving its hand-painted style, character silhouette, lantern, path, and luminous ruin composition. Add gentle forward camera movement, drifting clouds, a subtle cape and lantern motion, and soft atmospheric light, no text.'
+      },
+      {
+        id:'battle',label:'BATTLE / I2V',title:'【Scene 4｜バトル / I2V】',seed:'2026080806',input:'MiniMax_H3_I2V_scene_battle_imagegen_start.png',inputSha:'80D12E69F6E8B629D91A7E1F490C620A77D6CEC37D63B559CBADFDC497E9421A',promptId:'1bdb13fd-e452-415c-8a69-38d795d9ae98',inference:'210.609',wall:'215.453',bytes:'2,804,264',sha:'5A0BECA0A21423F86F6280AAA72ED06359423C4A878CB2BCB17543443C3A8E2D',workflow:'minimax_h3_kijai_lightx2v_4step_i2v_sa_solver_battle_1344x768_api.json',report:'h3-1bdb13fd-e452-415c-8a69-38d795d9ae98.md',video:'assets/MiniMax_H3_Kijai_LightX2V_I2V_1344x768_4step_sa_solver_scene_battle_00001_.mp4',poster:'assets/scene-battle-poster.png',prompt:'Animate the supplied fantasy battle start frame into a cinematic pre-clash shot. Preserve both original warriors, their armor, weapons, positions, and ruined arena composition, add a slow camera push-in, controlled cape movement, drifting dust, sparks, and distant lightning, no gore and no text.'
+      }
+    ];
+    const contextPosts = [
+      {id:'previous',label:'前回の実験スレッド',text:`【前回の実験スレッド】
+
+前回のKijai LightX2V 4-step基礎実験。T2V / I2V × er_sde / sa_solverの比較はこちら。
+https://x.com/hAru_mAki_ch/status/2085926432086307010`},
+      {id:'kijai',label:'参考サイト / Kijai MiniMax-H3_comfy',text:`【参考サイト｜Kijai MiniMax-H3_comfy】
+
+今回使った4-step LightX2V LoRAとComfyUI向けworkflowの出典。
+https://huggingface.co/Kijai/MiniMax-H3_comfy`},
+      {id:'source-x',label:'参考サイト / 実験対象のX投稿',text:`【参考サイト｜実験対象のX投稿】
+
+公開メディア条件と投稿内容を確認した元ポスト。
+https://x.com/sd_tutorial/status/2085760369612783646?s=46`},
+      {id:'lightx2v',label:'参考サイト / LightX2V公式配布',text:`【参考サイト｜LightX2V公式配布】
+
+MiniMax-H3 Turboモデルの公開ファイル。
+https://huggingface.co/lightx2v/Minimax-h3-Turbo/tree/main`},
+      {id:'repo',label:'参考サイト / 関連公開リポジトリ',text:`【参考サイト｜関連公開リポジトリ】
+
+Docker / ComfyUI実装を比較するときの関連リポジトリ。今回の実験ラボ本体はローカル管理。
+https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo`}
+    ];
+    const montage = {video:'assets/MiniMax_H3_Kijai_LightX2V_scene_montage_1920x1080_24fps.mp4',poster:'assets/MiniMax_H3_Kijai_LightX2V_scene_montage_1920x1080_24fps_poster.png',bytes:'11,406,878',sha:'DFB7BE39E79A943EF9D3F194B4362FAE9EDE89B9B029F652B9D04BC362E8B513'};
+    const escapeHtml = (value) => value.replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const richText = (value) => escapeHtml(value).replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noreferrer">$1</a>');
+    function renderMontage(){return `<div class="media-shell parent-montage"><video controls preload="metadata" poster="${montage.poster}"><source src="${montage.video}" type="video/mp4"></video><div class="media-info"><div class="media-top"><strong>概要比較動画 · 4 scene I2V</strong><span>HyperFrames · 1920×1080</span></div><div class="chips"><span class="chip">CAR</span><span class="chip">SPORTS</span><span class="chip">ILLUSTRATION</span><span class="chip">BATTLE</span><span class="chip">6.583 sec</span><span class="chip">24 fps</span><span class="chip">4/4 success</span></div><p class="provenance">実生成動画4本を2×2で合成 · SHA-256: ${montage.sha}</p></div></div>`}
+    function renderParent(){return `<article class="post main"><div class="avatar">M</div><div><div class="identity"><strong>makimaki</strong><span class="handle">@hAru_mAki_ch</span><span class="handle">· parent post</span></div><div class="post-text">${richText(parentText)}</div>${renderMontage()}<div class="meta"><span>MiniMax-H3 Experiment Lab</span><span>parent 1 of 10</span></div></div></article>`}
+    function renderRun(run,index){const text=`${run.title}
+
+Prompt:
+${run.prompt}
+
+Parameters:
+GPU: RTX 4090 / Compose: h3-4090
+Resolution: 1344×768, 158 frames, 24fps
+Base: minimax_h3_fl2va_pruned_int8_convrot.safetensors
+Text encoder: qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors
+VAE: official FP16 video + FP32 audio
+Kijai full LoRA: strength 0.75
+Steps: 4 / Sampler: sa_solver / Scheduler: simple
+EasyCache: reuse 0.3 / start 0.2 / end 0.9
+Seed: ${run.seed}
+Input: ${run.input} (${run.inputSha})
+
+Result:
+Comfy execution ${run.inference} sec / runner wall ${run.wall} sec
+Output 6.583333 sec / H.264 + AAC stereo
+OOMなし / blackdetect 0
+Output SHA-256: ${run.sha}
+Benchmark: ${run.report}`;return `<article class="post reply"><div class="avatar small">M</div><div><div class="replying">返信先: <span>直前の投稿</span></div><div class="identity"><strong>makimaki</strong><span class="handle">@hAru_mAki_ch</span><span class="handle">· scene ${index+1} / 4</span></div><div class="post-text">${richText(text)}</div><div class="media-shell"><video controls preload="metadata" poster="${run.poster}"><source src="${run.video}" type="video/mp4"></video><div class="media-info"><div class="media-top"><strong>実生成動画 · 1/1</strong><span>RTX 4090 · ${run.label}</span></div><div class="chips"><span class="chip">1344×768</span><span class="chip">24 fps</span><span class="chip">158 frames</span><span class="chip">6.583 sec</span><span class="chip">4 steps</span><span class="chip">sa_solver</span><span class="chip">OOMなし</span><span class="chip">blackdetect 0</span></div><p class="provenance">wall: ${run.wall} sec · output: ${run.bytes} bytes · SHA-256: ${run.sha} · prompt ID: ${run.promptId}</p></div></div><div class="meta"><span>実験動画 1本</span><span>${run.label}</span></div></div></article>`}
+    function renderContext(post,index){return `<article class="post reply"><div class="avatar small">M</div><div><div class="replying">返信先: <span>直前の投稿</span></div><div class="identity"><strong>makimaki</strong><span class="handle">@hAru_mAki_ch</span><span class="handle">· context ${index+1}</span></div><div class="post-text">${richText(post.text)}</div><div class="meta"><span>${post.label}</span><span>one URL in this reply</span></div></div></article>`}
+    function render(filter){const selectedRuns=filter==='all'||filter==='experiments'?runs:(runs.filter((run)=>run.id===filter));const selectedContext=filter==='all'||filter==='context'?contextPosts:[];const cards=[renderParent(),...selectedRuns.map((run)=>renderRun(run,runs.indexOf(run))),...selectedContext.map((post,index)=>renderContext(post,index))].join('');document.querySelector('#feed').innerHTML=`<section><div class="thread-heading"><div><h2>MiniMax-H3 × Kijai LightX2V — Scene Expansion</h2><p>親投稿 → 概要動画 → 車・スポーツ・イラスト・バトル → 前回・参考サイト</p></div><span class="badge">simulation</span></div><div class="thread-flow">${cards}</div></section>`}
+    document.querySelectorAll('.tab').forEach((tab)=>tab.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach((item)=>item.classList.toggle('active',item===tab));render(tab.dataset.filter)}));
+    render('all');
+  </script>
+</body>
+</html>

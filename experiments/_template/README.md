@@ -5,6 +5,8 @@
 - GPU: `<RTX ...>`
 - Owner: `MiniMax-H3 Experiment Lab`
 
+このREADMEと同じディレクトリの`experiment.json`を機械可読な正本にします。出典にない値を推測で補完せず、検証用に固定した値と分けて記録します。
+
 ## 仮説
 
 何を検証し、何と比較するか。
@@ -42,3 +44,9 @@
 - 結論:
 - 再現範囲:
 - 未検証:
+
+## 追加後の確認
+
+```powershell
+.\scripts\validate-experiment-lab.ps1
+```

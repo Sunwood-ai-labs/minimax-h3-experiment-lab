@@ -31,3 +31,22 @@ workflows/*
 *.pt
 *.pth
 hyperframes-kijai-parent-montage-2026-08-08/renders/*
+
+# Local experiment scratch and tool caches
+/.experiments*.log
+**/__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+
+# Generated video/audio is retained locally; metadata, workflows, posters and contact sheets remain trackable.
+experiments/**/outputs/*.mp4
+experiments/**/renders/*.mp4
+experiments/**/assets/*.mp4
+experiments/**/assets/*.mp3
+experiments/**/hyperframes-mv-lyrics/assets/*.mp4
+hyperframes-*/assets/*.mp4
+hyperframes-*/renders/*.mp4
+sunwood-x-simulator-*/assets/*.mp4

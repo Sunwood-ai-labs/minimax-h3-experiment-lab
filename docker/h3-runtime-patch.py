@@ -8,7 +8,9 @@ all H3 VAE tensors after the normal model-loader pass.
 """
 
 import logging
+import os
 import types
+from pathlib import Path
 
 import torch
 import comfy.sd
@@ -120,3 +122,33 @@ def _load_models_gpu_with_h3_vae_fix(models, *args, **kwargs):
 comfy.model_management.load_models_gpu = _load_models_gpu_with_h3_vae_fix
 comfy.sd.VAE.__init__ = _vae_init_with_h3_decode_fix
 logging.warning("[H3RuntimePatch] installed for MiniMax-H3 Video/Audio VAE")
+
+
+def _install_kj_sage_debug():
+    if os.environ.get("H3_DEBUG_KJ_SAGE", "0").lower() not in {"1", "true", "yes"}:
+        return
+    path = Path("/opt/ComfyUI/custom_nodes/ComfyUI-KJNodes/nodes/ltxv_nodes.py")
+    if not path.exists():
+        logging.warning("[H3RuntimePatch] KJNodes source not found; Sage debug skipped")
+        return
+    source = path.read_text(encoding="utf-8")
+    marker = "[H3RuntimePatch] KJ Sage input"
+    if marker in source:
+        return
+    needle = "    q, k, v = qkv\n    qkv.clear()"
+    replacement = (
+        "    q, k, v = qkv\n"
+        "    logging.warning(\"[H3RuntimePatch] KJ Sage input shape=%s dtype=%s strides=%s finite=%s qabs=%.5g kabs=%.5g vabs=%.5g\", "
+        "tuple(q.shape), q.dtype, q.stride(), bool(torch.isfinite(q).all()), "
+        "float(q.detach().float().abs().amax()), float(k.detach().float().abs().amax()), "
+        "float(v.detach().float().abs().amax()))\n"
+        "    qkv.clear()"
+    )
+    if needle not in source:
+        logging.warning("[H3RuntimePatch] KJ Sage function marker not found; debug skipped")
+        return
+    path.write_text(source.replace(needle, replacement, 1), encoding="utf-8")
+    logging.warning("[H3RuntimePatch] KJ Sage input diagnostics enabled")
+
+
+_install_kj_sage_debug()

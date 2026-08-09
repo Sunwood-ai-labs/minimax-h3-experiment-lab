@@ -1,0 +1,106 @@
+{
+  "targetAccount": "@hAru_mAki_ch",
+  "project": "MiniMax-H3 Experiment Lab",
+  "series": "MiniMax-H3 Motion Context continuation",
+  "postMode": "retrospective",
+  "simulationOnly": true,
+  "experimentRecord": "experiments/2026-08-09/niko-h3-motion-context-3segment/README.md",
+  "previousPostUrl": "https://x.com/hAru_mAki_ch/status/2086223412129902756",
+  "commonConditions": {
+    "gpu": "RTX 4090",
+    "composeService": "h3-4090",
+    "resolution": "1280×704",
+    "fps": 24,
+    "steps": 20,
+    "motionContext": "context_length=22 · video/audio latent carry-over"
+  },
+  "main": {
+    "label": "概要投稿",
+    "text": "MiniMax-H3 × Motion Context、3セグメント連鎖やってみた！！！\n\n前セグメントの映像＋音声＋latentを22フレーム引き継ぎ、夜のカフェを約14.4秒に連結。\n\n女性が店内を歩き、最後はカウンターへ。\n3本とも成功、OOMなし、blackdetect=0、音声ドリフト0.00ms・0.01ms🔥\n\nRTX 4090・1280×704・24fps・固定seed",
+    "media": ["merged"]
+  },
+  "replies": [
+    {
+      "label": "今回の条件",
+      "filter": "setup",
+      "text": "【今回の条件】\n\nT2V / RTX 4090 / h3-4090\n1280×704 · 24fps · 20 steps\nSeed: 2026080909（全セグメント共通）\n\ncontext_length=22\nencode_mode=video / anchor_mode=head\naudio_mode=timeline / audio_context_length=22\nSave/Load Latentでvideo/audio latentを引き継ぎ。\n\nEasyCache・Sol-Attn・Spectrumは無効。\nMotion Contextの連続性を分離検証したぞ。",
+      "media": []
+    },
+    {
+      "label": "実験1｜カフェを歩く",
+      "filter": "experiments",
+      "text": "【実験1｜カフェを歩く】\n\nPrompt:\nA cinematic live-action shot in a warm Japanese cafe at night. A young woman in a floral dress walks slowly between wooden tables while the camera tracks backward at eye level. Natural cafe ambience, soft music, subtle conversations and room tone, realistic motion, consistent lighting, no dialogue, no text, no subtitles.\n\nParameters:\nRTX 4090 / h3-4090 / T2V\n1280×704 · 124 frames · 24fps\n20 steps · res_multistep · simple · denoise 1.0\nSeed: 2026080909\n\nResult:\n555.138秒 / 出力5.167秒\nH.264 + AAC / blackdetect 0 / OOMなし",
+      "media": ["segment1"]
+    },
+    {
+      "label": "実験2｜コンテキスト継続",
+      "filter": "experiments",
+      "text": "【実験2｜コンテキスト継続】\n\nPrompt:\nContinue directly from the previous clip with the exact same woman, cafe, lighting, camera direction and soundtrack. She keeps walking forward between the tables, passing a waiter and turning slightly toward the counter. Preserve continuous body motion, tempo and audio without a reset, realistic live-action cinematography, no dialogue, no text, no subtitles.\n\nParameters:\nRTX 4090 / h3-4090 / T2V\n1280×704 · raw 124 frames · context 22 frames\n20 steps · res_multistep · simple · denoise 1.0\nSeed: 2026080909\nTrim: 22 frames / match_tail=true\n\nResult:\n438.387秒 / 出力4.250秒\n音声ドリフト0.00ms / blackdetect 0 / OOMなし",
+      "media": ["segment2"]
+    },
+    {
+      "label": "実験3｜カウンターで停止",
+      "filter": "experiments",
+      "text": "【実験3｜カウンターで停止】\n\nPrompt:\nContinue directly from the previous clip with no visible reset. The same woman reaches the cafe counter, slows, and looks toward the warm window while the camera eases to a gentle stop. Preserve the exact motion direction, ambience, music waveform and lighting across the join, realistic live-action cinematography, no dialogue, no text, no subtitles.\n\nParameters:\nRTX 4090 / h3-4090 / T2V\n1280×704 · raw 141 frames · context 22 frames\n20 steps · res_multistep · simple · denoise 1.0\nSeed: 2026080909\nTrim: 22 frames / match_tail=true\n\nResult:\n493.080秒 / 出力4.959秒\n音声ドリフト0.01ms / blackdetect 0 / OOMなし",
+      "media": ["segment3"]
+    },
+    {
+      "label": "今回の結果",
+      "filter": "results",
+      "text": "【今回の結果】\n\nSegment 1: 555.138秒 / 5.167秒\nSegment 2: 438.387秒 / 4.250秒\nSegment 3: 493.080秒 / 4.959秒\n\n生成時間合計: 1486.605秒\n連結後: 345 frames / 14.4167秒\n\n3本ともComfyUI success、OOMなし、blackdetect=0。\nMotion Contextの映像＋音声＋latent引き継ぎは4090・1280×704で再現できたぞ🔥\n\n1920×1088と元投稿の完全同一条件は、次の検証に残す、、、",
+      "media": []
+    },
+    {
+      "label": "前回の実験スレッド",
+      "filter": "sources",
+      "text": "【前回の実験スレッド】\n\n前回はref2va R2VへSol-Attn・SageAttention・EasyCacheを組み込み、4シーンの高速化を検証。\n今回は速度ではなく、Motion Contextで映像と音声をつないだぞ。\n\nhttps://x.com/hAru_mAki_ch/status/2086223412129902756",
+      "media": []
+    },
+    {
+      "label": "実装元",
+      "filter": "sources",
+      "text": "【実装元】\n\n今回Dockerへ組み込んだH3 Motion Contextノード。\n使用revision: 15fc6a7bf7b78efb27f33d7eef3818e7ed0e118a\n\nhttps://github.com/NikoDemon80/ComfyUI-H3-Motion-Context",
+      "media": []
+    },
+    {
+      "label": "参考にした投稿",
+      "filter": "sources",
+      "text": "【参考にした投稿】\n\n固定seed・3セグメント・音声付き連結の報告を参考にした。\n今回はその考え方を、Docker Composeの4090環境で1280×704にして検証。\n\nhttps://x.com/photogenicweeke/status/2085848283138891926?s=46",
+      "media": []
+    }
+  ],
+  "media": {
+    "merged": {
+      "src": "assets/h3-motion-context-3segment-merged.mp4",
+      "title": "3セグメント連結動画",
+      "info": "1280×704 · 345 frames · 24fps · 14.4167 sec",
+      "provenance": "実生成出力3本をFFmpeg concat filterで連結した確認用動画。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/experiments/2026-08-09/niko-h3-motion-context-3segment/outputs/h3_motion_context_3segment_merged.mp4",
+      "sha256": "24EAAF2B1F5F9965BD4FD887FBA1BF8CA4675A0E0EE53F6543E28996760D8598"
+    },
+    "segment1": {
+      "src": "assets/segment-01-cafe-entry.mp4",
+      "title": "実験1 · カフェを歩く",
+      "info": "1280×704 · 124 frames · 24fps · 5.167 sec",
+      "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / Motion Context chain。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/h3_motion_context/segment_01_00001_.mp4",
+      "sha256": "23C3D5A200CE954080E9CB04E409FA43B30300DB84B37A2EAA44149FDEDEC7AE"
+    },
+    "segment2": {
+      "src": "assets/segment-02-cafe-walk.mp4",
+      "title": "実験2 · コンテキスト継続",
+      "info": "1280×704 · 102 frames · 24fps · 4.250 sec",
+      "provenance": "実生成出力。前セグメントの映像・音声・latentを22フレーム引き継ぎ。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/h3_motion_context/segment_02_00001_.mp4",
+      "sha256": "31FEEBD5B08F1ADBA59DF41F3FDD49B0A86E237819FDE34174C6D9594528B64D"
+    },
+    "segment3": {
+      "src": "assets/segment-03-counter-stop.mp4",
+      "title": "実験3 · カウンターで停止",
+      "info": "1280×704 · 119 frames · 24fps · 4.959 sec",
+      "provenance": "実生成出力。前セグメントの映像・音声・latentを22フレーム引き継ぎ。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/h3_motion_context/segment_03_00001_.mp4",
+      "sha256": "870788B9C68B4D80D314AB374E6348B34C63A408CEBFA7C936CFB9310E5CC93F"
+    }
+  }
+}

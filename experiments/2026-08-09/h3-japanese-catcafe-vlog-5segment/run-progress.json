@@ -1,0 +1,203 @@
+﻿{
+    "status":  "verified",
+    "startedAt":  "2026-08-09T11:01:45.8370000+09:00",
+    "endpoint":  "http://127.0.0.1:8188",
+    "workflowDir":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-09\\h3-japanese-catcafe-vlog-5segment",
+    "gpuService":  "h3-4090",
+    "resumeFromSegment":  2,
+    "segments":  [
+                     {
+                         "segment":  1,
+                         "promptId":  "40bc8f28-fcf9-41ec-9f5c-a98f71ad7b3d",
+                         "status":  "success",
+                         "submittedAt":  "2026-08-09T11:01:45.8370000+09:00",
+                         "queueWallSeconds":  464.903,
+                         "timing":  {
+                                        "executionStart":  "2026-08-09T11:01:45.8370000+09:00",
+                                        "executionEnd":  "2026-08-09T11:09:30.7400000+09:00",
+                                        "executionSeconds":  464.903
+                                    },
+                         "output":  {
+                                        "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_01_00001_.mp4",
+                                        "bytes":  1813877,
+                                        "sha256":  "3111BD6478094C1015C01691D7C485C0A59E42E1B244E838075BA0E9BB74D4F8",
+                                        "ffprobe":  {
+                                                        "videoCodec":  "h264",
+                                                        "audioCodec":  "aac",
+                                                        "width":  1280,
+                                                        "height":  704,
+                                                        "frames":  158,
+                                                        "durationSeconds":  6.583008,
+                                                        "fps":  "24/1",
+                                                        "audioSampleRate":  32000,
+                                                        "audioChannels":  2
+                                                    },
+                                        "blackdetectIntervals":  0,
+                                        "blackdetectRaw":  [
+
+                                                           ]
+                                    },
+                         "contextInput":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\h3_cat_cafe_vlog\\segment_01.mp4"
+                     },
+                     {
+                         "segment":  2,
+                         "promptId":  "9ea36b47-769b-45d1-a38b-8d412509e69b",
+                         "status":  "success",
+                         "submittedAt":  "2026-08-09T11:11:01.4512221+09:00",
+                         "queueWallSeconds":  561.19,
+                         "timing":  {
+                                        "executionStart":  "2026-08-09T11:11:01.5020000+09:00",
+                                        "executionEnd":  "2026-08-09T11:20:17.7640000+09:00",
+                                        "executionSeconds":  556.262
+                                    },
+                         "output":  {
+                                        "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_02_00001_.mp4",
+                                        "bytes":  1866529,
+                                        "sha256":  "F093788DD228F68802F8AD3F86F5EF0243EC4E91B63C7514CB11F483FBDF5A24",
+                                        "ffprobe":  {
+                                                        "videoCodec":  "h264",
+                                                        "audioCodec":  "aac",
+                                                        "width":  1280,
+                                                        "height":  704,
+                                                        "frames":  136,
+                                                        "durationSeconds":  5.666667,
+                                                        "fps":  "24/1",
+                                                        "audioSampleRate":  32000,
+                                                        "audioChannels":  2
+                                                    },
+                                        "blackdetectIntervals":  0,
+                                        "blackdetectRaw":  [
+
+                                                           ]
+                                    },
+                         "contextInput":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\h3_cat_cafe_vlog\\segment_02.mp4"
+                     },
+                     {
+                         "segment":  3,
+                         "promptId":  "6095947a-5701-443c-9ceb-184e38a992fb",
+                         "status":  "success",
+                         "submittedAt":  "2026-08-09T11:20:22.8487612+09:00",
+                         "queueWallSeconds":  556.244,
+                         "timing":  {
+                                        "executionStart":  "2026-08-09T11:20:22.8970000+09:00",
+                                        "executionEnd":  "2026-08-09T11:29:38.8570000+09:00",
+                                        "executionSeconds":  555.96
+                                    },
+                         "output":  {
+                                        "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_03_00001_.mp4",
+                                        "bytes":  1413609,
+                                        "sha256":  "D013D2D26EBD9AFC585139D0DB918BC42187F2F0296A5EBA391615E6D01BB97C",
+                                        "ffprobe":  {
+                                                        "videoCodec":  "h264",
+                                                        "audioCodec":  "aac",
+                                                        "width":  1280,
+                                                        "height":  704,
+                                                        "frames":  136,
+                                                        "durationSeconds":  5.666667,
+                                                        "fps":  "24/1",
+                                                        "audioSampleRate":  32000,
+                                                        "audioChannels":  2
+                                                    },
+                                        "blackdetectIntervals":  0,
+                                        "blackdetectRaw":  [
+
+                                                           ]
+                                    },
+                         "contextInput":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\h3_cat_cafe_vlog\\segment_03.mp4"
+                     },
+                     {
+                         "segment":  4,
+                         "promptId":  "28ac5017-3a0e-468f-a6b1-3b5d07d1d8b2",
+                         "status":  "success",
+                         "submittedAt":  "2026-08-09T11:29:39.2244299+09:00",
+                         "queueWallSeconds":  561.052,
+                         "timing":  {
+                                        "executionStart":  "2026-08-09T11:29:39.2460000+09:00",
+                                        "executionEnd":  "2026-08-09T11:38:55.6070000+09:00",
+                                        "executionSeconds":  556.361
+                                    },
+                         "output":  {
+                                        "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_04_00001_.mp4",
+                                        "bytes":  1282981,
+                                        "sha256":  "F741DAA70C7FE69B399026EB353F8115057D30E002284C41AC9DD32AD5918761",
+                                        "ffprobe":  {
+                                                        "videoCodec":  "h264",
+                                                        "audioCodec":  "aac",
+                                                        "width":  1280,
+                                                        "height":  704,
+                                                        "frames":  136,
+                                                        "durationSeconds":  5.666667,
+                                                        "fps":  "24/1",
+                                                        "audioSampleRate":  32000,
+                                                        "audioChannels":  2
+                                                    },
+                                        "blackdetectIntervals":  0,
+                                        "blackdetectRaw":  [
+
+                                                           ]
+                                    },
+                         "contextInput":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\input\\h3_cat_cafe_vlog\\segment_04.mp4"
+                     },
+                     {
+                         "segment":  5,
+                         "promptId":  "32ecf88e-b487-45bc-a762-aac7486ded7f",
+                         "status":  "success",
+                         "submittedAt":  "2026-08-09T11:39:00.4223946+09:00",
+                         "queueWallSeconds":  556.137,
+                         "timing":  {
+                                        "executionStart":  "2026-08-09T11:39:00.4440000+09:00",
+                                        "executionEnd":  "2026-08-09T11:48:14.8570000+09:00",
+                                        "executionSeconds":  554.413
+                                    },
+                         "output":  {
+                                        "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_05_00001_.mp4",
+                                        "bytes":  1252937,
+                                        "sha256":  "E271965D47915F2868172E69AF326DCE6F497D45BB253B885A8C5983E0C7F4E9",
+                                        "ffprobe":  {
+                                                        "videoCodec":  "h264",
+                                                        "audioCodec":  "aac",
+                                                        "width":  1280,
+                                                        "height":  704,
+                                                        "frames":  136,
+                                                        "durationSeconds":  5.666667,
+                                                        "fps":  "24/1",
+                                                        "audioSampleRate":  32000,
+                                                        "audioChannels":  2
+                                                    },
+                                        "blackdetectIntervals":  0,
+                                        "blackdetectRaw":  [
+
+                                                           ]
+                                    }
+                     }
+                 ],
+    "mergedOutput":  {
+                         "path":  "D:\\Prj\\minimax-h3-compose\\experiments\\2026-08-09\\h3-japanese-catcafe-vlog-5segment\\outputs\\h3_cat_cafe_vlog_5segment_merged.mp4",
+                         "inputs":  [
+                                        "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_01_00001_.mp4",
+                                        "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_02_00001_.mp4",
+                                        "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_03_00001_.mp4",
+                                        "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_04_00001_.mp4",
+                                        "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\h3_cat_cafe_vlog\\segment_05_00001_.mp4"
+                                    ],
+                         "bytes":  11404834,
+                         "sha256":  "73200CA4577C710BCADB41FD23451EBE01BDDE3E30D8E4E3A734F5A9A88E10DC",
+                         "method":  "ffmpeg concat filter; libx264 crf 18; AAC 192k; faststart",
+                         "ffprobe":  {
+                                         "videoCodec":  "h264",
+                                         "audioCodec":  "aac",
+                                         "width":  1280,
+                                         "height":  704,
+                                         "frames":  702,
+                                         "durationSeconds":  29.256,
+                                         "fps":  "24/1",
+                                         "audioSampleRate":  32000,
+                                         "audioChannels":  2
+                                     },
+                         "blackdetectIntervals":  0,
+                         "blackdetectRaw":  [
+
+                                            ]
+                     },
+    "completedAt":  "2026-08-09T11:49:06.1313049+09:00"
+}

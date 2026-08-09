@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1280, height=704" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js" integrity="sha384-sG0Hv1tP1lZCk9KQmrIbY/XNwi+OY84GQqhMscbnsoBFqAz8KNCil1kvfL3Hbbk2" crossorigin="anonymous"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1280px; height: 704px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1280px; height: 704px; overflow: hidden; }
+      .bg-video { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; }
+      .frame { position: absolute; inset: 0; width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="29.256"
+      data-width="1280"
+      data-height="704"
+    >
+      <video
+        id="h3-mv-plate"
+        class="bg-video clip"
+        src="assets/h3_jpop_mv_5segment_keyint30.mp4"
+        data-start="0"
+        data-duration="29.256"
+        data-track-index="0"
+        muted
+        playsinline
+        preload="auto"
+      ></video>
+
+      <div
+        id="el-01-f01-rooftop"
+        class="frame"
+        data-composition-id="01-f01-rooftop"
+        data-composition-src="compositions/frames/01-f01-rooftop.html"
+        data-start="0"
+        data-duration="6.583"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-02-f02-alley"
+        class="frame"
+        data-composition-id="02-f02-alley"
+        data-composition-src="compositions/frames/02-f02-alley.html"
+        data-start="6.583"
+        data-duration="5.667"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-03-f03-underpass"
+        class="frame"
+        data-composition-id="03-f03-underpass"
+        data-composition-src="compositions/frames/03-f03-underpass.html"
+        data-start="12.25"
+        data-duration="5.667"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-04-f04-bridge"
+        class="frame"
+        data-composition-id="04-f04-bridge"
+        data-composition-src="compositions/frames/04-f04-bridge.html"
+        data-start="17.917"
+        data-duration="5.666"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-05-f05-dawn"
+        class="frame"
+        data-composition-id="05-f05-dawn"
+        data-composition-src="compositions/frames/05-f05-dawn.html"
+        data-start="23.583"
+        data-duration="5.673"
+        data-track-index="1"
+      ></div>
+
+      <!-- BGM -->
+      <audio id="el-bgm" src="assets/bgm.mp3" data-start="0" data-duration="29.256"
+        data-track-index="11" data-volume="0.9"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

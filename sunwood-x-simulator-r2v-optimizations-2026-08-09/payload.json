@@ -1,0 +1,168 @@
+{
+  "targetAccount": "@hAru_mAki_ch",
+  "project": "MiniMax-H3 Experiment Lab",
+  "series": "MiniMax-H3 ref2va R2V optimization continuation",
+  "postMode": "progress",
+  "simulationOnly": true,
+  "experimentRecord": "experiments/2026-08-08/kijai-r2v-sol-generic-fp16-sage-easycache-4scenes-7s/README.md",
+  "previousPostUrl": "https://x.com/hAru_mAki_ch/status/2086051398735847471",
+  "main": {
+    "label": "概要投稿",
+    "text": "MiniMax-H3、ref2va R2Vの高速化続編やってみた！！！\n\n前回と同じ背景＋人物2人の3枚、同じ4シーン、同じ20 steps。\nSol-Attn × SageAttention × EasyCacheを組み込んで比較したぞ。\n\n平均 738.794秒 → 353.145秒\n2.092倍高速化！！！\n4本とも成功、OOMなし、blackdetect=0🔥",
+    "media": ["montage"]
+  },
+  "replies": [
+    {
+      "label": "今回の構成",
+      "filter": "setup",
+      "text": "【今回の構成】\n\nUNETLoader\n→ EasyCache\n  reuse_threshold 0.3 / start 0.2 / end 0.9\n→ PathchSageAttentionKJ\n  sageattn_qk_int8_pv_fp16_cuda\n→ SolAttnPatch\n  tau 1.3 / int8 QK+PV / exact_kv_and_rows\n\nRTX 4090 · h3-4090\n1280×704 · 175 frames · 24fps · 7.292 sec\n20 steps · res_multistep · simple · denoise 1.0\n同じ3枚のref_image_size=match\n\nH3専用FP8経路ではなく、今回安定した汎用KJ Sage FP16 CUDA経路を採用したぞ。",
+      "media": []
+    },
+    {
+      "label": "シーン1｜夕暮れの屋上",
+      "filter": "experiments",
+      "text": "【シーン1｜夕暮れの屋上ミーティング】\n\nPrompt:\n<Picture 1> is the same near-future Tokyo rooftop greenhouse and observation deck environment. <Picture 2> is Mina, and <Picture 3> is Ren. At sunset, Mina steps out onto the wet rooftop deck and looks over the city. Ren enters from the glass greenhouse behind her and stops beside her. The camera makes a slow cinematic dolly from a wide establishing view toward the two characters. Preserve their exact identities, hairstyles, scars, earpiece, outfits and colors from the reference sheets. Keep the greenhouse architecture and orange-blue sunset consistent. Natural wind moves Mina's rust-red scarf and Ren's long coat. Quiet serious mood, realistic live-action motion, no dialogue, no text, no subtitles.\n\nParameters:\nRTX 4090 / h3-4090 / ref2va\n1280×704 · 175 frames · 24fps · 7.292 sec\n20 steps · res_multistep · simple · denoise 1.0\nSeed: 2026080813\n\nResult:\nBaseline 738.494 sec → Optimized 349.394 sec\n2.114× faster · EasyCache 7 of 20 skipped\nH.264 + AAC / blackdetect 0 / OOMなし",
+      "media": ["scene1"]
+    },
+    {
+      "label": "シーン2｜雨の外階段",
+      "filter": "experiments",
+      "text": "【シーン2｜雨の外階段】\n\nPrompt:\n<Picture 1> is the same near-future Tokyo rooftop greenhouse and observation deck environment. <Picture 2> is Mina, and <Picture 3> is Ren. A sudden rain begins. Mina leads Ren down the exterior stairs from the rooftop greenhouse, moving quickly but naturally, while Ren looks back once toward the city lights. The camera tracks backward down the wet stairs at shoulder height, with rain streaks, reflections and realistic footwork. Preserve their exact identities, hairstyles, scar, earpiece, outfits and colors from the reference sheets. Keep the same glass greenhouse architecture and city skyline. Mina's rust-red scarf and Ren's long coat move in the wind. Tense but controlled live-action action, no dialogue, no text, no subtitles.\n\nParameters:\nRTX 4090 / h3-4090 / ref2va\n1280×704 · 175 frames · 24fps · 7.292 sec\n20 steps · res_multistep · simple · denoise 1.0\nSeed: 2026080814\n\nResult:\nBaseline 738.442 sec → Optimized 365.705 sec\n2.019× faster · EasyCache 7 of 20 skipped\nH.264 + AAC / blackdetect 0 / OOMなし",
+      "media": ["scene2"]
+    },
+    {
+      "label": "シーン3｜温室内の会話",
+      "filter": "experiments",
+      "text": "【シーン3｜温室内の会話】\n\nPrompt:\n<Picture 1> is the same glass rooftop greenhouse overlooking Tokyo. <Picture 2> is Mina, and <Picture 3> is Ren. Inside the greenhouse at blue hour, Mina and Ren face each other between rows of plants. Mina slowly removes one glove and Ren takes a cautious step closer. The camera makes a slow half-orbit around them, showing the glass structure, wet leaves, distant city lights and reflections. Preserve their exact identities, hairstyles, scar, earpiece, outfits and colors from the reference sheets. Keep both characters visible and anatomically stable. Subtle wind moves the scarf and coat, quiet dramatic live-action cinematography, no dialogue, no text, no subtitles.\n\nParameters:\nRTX 4090 / h3-4090 / ref2va\n1280×704 · 175 frames · 24fps · 7.292 sec\n20 steps · res_multistep · simple · denoise 1.0\nSeed: 2026080815\n\nResult:\nBaseline 739.257 sec → Optimized 352.304 sec\n2.098× faster · EasyCache 8 of 20 skipped\nH.264 + AAC / blackdetect 0 / OOMなし",
+      "media": ["scene3"]
+    },
+    {
+      "label": "シーン4｜屋上プルバック",
+      "filter": "experiments",
+      "text": "【シーン4｜屋上からのプルバック】\n\nPrompt:\n<Picture 1> is the same Tokyo rooftop greenhouse and observation deck. <Picture 2> is Mina, and <Picture 3> is Ren. At night after the rain, Mina and Ren stand side by side at the rooftop edge, looking toward the glowing city. Mina turns slightly toward Ren, then both look forward as the camera slowly pulls far back through the greenhouse doorway to reveal the entire rooftop and skyline. Preserve their exact identities, hairstyles, scar, earpiece, outfits and colors from the reference sheets. Keep the same architecture, wet reflective floor, plants and city composition. Natural coat and scarf movement, restrained hopeful mood, realistic live-action cinematography, no dialogue, no text, no subtitles.\n\nParameters:\nRTX 4090 / h3-4090 / ref2va\n1280×704 · 175 frames · 24fps · 7.292 sec\n20 steps · res_multistep · simple · denoise 1.0\nSeed: 2026080816\n\nResult:\nBaseline 738.981 sec → Optimized 345.178 sec\n2.141× faster · EasyCache 8 of 20 skipped\nH.264 + AAC / blackdetect 0 / OOMなし",
+      "media": ["scene4"]
+    },
+    {
+      "label": "比較結果",
+      "filter": "results",
+      "text": "【今回の結果】\n\nScene 1: 738.494秒 → 349.394秒 / 2.114倍\nScene 2: 738.442秒 → 365.705秒 / 2.019倍\nScene 3: 739.257秒 → 352.304秒 / 2.098倍\nScene 4: 738.981秒 → 345.178秒 / 2.141倍\n\n平均: 738.794秒 → 353.145秒\n平均2.092倍高速化 / 約52.2%短縮\n\n4本中4本成功、OOMなし、blackdetect=0。\nただし、投稿で見た最大3.2倍はこの同一ref2va条件では再現していない、、、",
+      "media": []
+    },
+    {
+      "label": "互換性メモ",
+      "filter": "results",
+      "text": "【互換性メモ】\n\n最初はH3専用のMiniMaxH3MemoryEfficientSageAttentionPatchとauto/FP8経路も試した。\n\n結果はCUDA unspecified launch failure、、、\n\nランダムテンソルとH3と同じshape/strideの単体テストは通ったので、今回のH3実行コンテキストとの相性問題と判断。\n\n汎用KJ Sageのsageattn_qk_int8_pv_fp16_cudaへ切り替えたら安定して完走。\n\n速さだけでなく、どの経路が実際に動くかも記録しておくぞ。",
+      "media": []
+    },
+    {
+      "label": "前回の実験",
+      "filter": "context",
+      "text": "【前回の実験スレッド】\n\n前回は背景リファレンス＋人物2人の3枚を使い回して、ref2va R2Vで4シーンを生成。\n今回は同じ4シーン・同じseed・同じ20 stepsのまま、高速化ノードを組み込んで比較したぞ。\nhttps://x.com/hAru_mAki_ch/status/2086051398735847471",
+      "media": []
+    },
+    {
+      "label": "関連公開リポジトリ",
+      "filter": "context",
+      "text": "【関連公開リポジトリ】\n\nMiniMax-H3をDocker / ComfyUIで扱うときに参照した公開実装。\n今回の実験記録はMiniMax-H3 Experiment Labへ保存している。\nhttps://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo",
+      "media": []
+    },
+    {
+      "label": "参考｜Sol-Attn",
+      "filter": "context",
+      "text": "【参考｜Sol-Attn】\n\n今回組み込んだSol-Attnの実装。\nhttps://github.com/kijai/ComfyUI-SolAttn_triton",
+      "media": []
+    },
+    {
+      "label": "参考｜KJNodes",
+      "filter": "context",
+      "text": "【参考｜KJNodes】\n\nEasyCacheとSageAttentionノードを確認した実装。\nhttps://github.com/kijai/ComfyUI-KJNodes",
+      "media": []
+    },
+    {
+      "label": "参考｜SageAttention",
+      "filter": "context",
+      "text": "【参考｜SageAttention】\n\n今回のFP16 CUDA経路で使った公式実装。\nhttps://github.com/thu-ml/SageAttention",
+      "media": []
+    },
+    {
+      "label": "参考｜元ツイート",
+      "filter": "context",
+      "text": "【参考｜元ツイート】\n\nSol-Attn・SageAttention・EasyCacheでMiniMax-H3を高速化した報告。今回のref2va実験では、同じ考え方を組み込み、実際に安定動作した構成と再現できなかった速度を切り分けたぞ。\nhttps://x.com/sunbaolong_2001/status/2085689404031672372?s=46",
+      "media": []
+    }
+  ],
+  "media": {
+    "montage": {
+      "id": "montage",
+      "src": "assets/optimized-r2v-speedup-montage.mp4",
+      "title": "高速化後 4シーン概要モンタージュ",
+      "info": "2×2 · 1280×704 · 175 frames · 24fps · 7.292 sec",
+      "provenance": "証拠由来。4本の最終実生成MP4をFFmpegで2×2配置。Scene 1の音声トラックのみ概要用に保持。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video",
+      "sha256": "2F0730E05F6CB500E66852F864F633846D9A9EE0E8476E26712E15C2DD49E32F",
+      "bytes": 2618074
+    },
+    "scene1": {
+      "id": "scene1",
+      "src": "assets/optimized-scene-01-sunset-meeting.mp4",
+      "title": "Scene 1 · optimized sunset meeting",
+      "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
+      "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / Sol-Attn + SageAttention + EasyCache。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_01_sunset_meeting_00001_.mp4",
+      "sha256": "B1497DF7FBBD50FE4558A8EECE0B611EABBAD4FC35340497A1FCF4B921D07D8A",
+      "bytes": 2029750
+    },
+    "scene2": {
+      "id": "scene2",
+      "src": "assets/optimized-scene-02-rainy-stairs.mp4",
+      "title": "Scene 2 · optimized rainy stairs",
+      "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
+      "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / Sol-Attn + SageAttention + EasyCache。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_02_rainy_stairs_00001_.mp4",
+      "sha256": "054E3E26EE9819CA163FDDCF92C63F091A27F993645A85BE695B2A845C8212C8",
+      "bytes": 2255836
+    },
+    "scene3": {
+      "id": "scene3",
+      "src": "assets/optimized-scene-03-glasshouse-orbit.mp4",
+      "title": "Scene 3 · optimized glasshouse orbit",
+      "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
+      "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / Sol-Attn + SageAttention + EasyCache。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_03_glasshouse_orbit_00001_.mp4",
+      "sha256": "951DF63B8E7F0AF9DBA14C6FE15B0B0C09D10080CBA4EC9BCAD2D12EEC719C39",
+      "bytes": 2473041
+    },
+    "scene4": {
+      "id": "scene4",
+      "src": "assets/optimized-scene-04-rooftop-pullback.mp4",
+      "title": "Scene 4 · optimized rooftop pullback",
+      "info": "1280×704 · 175 frames · 24fps · 7.292 sec",
+      "provenance": "実生成出力。RTX 4090 Docker Compose / h3-4090 / Sol-Attn + SageAttention + EasyCache。",
+      "sourcePath": "D:/Prj/minimax-h3-compose/runtime/4090/output/video/MiniMax_H3_R2V_sol_fp16_scene_04_rooftop_pullback_00001_.mp4",
+      "sha256": "9C2297798EF326B114703E969E4F5CE6BC63D6554C8D6E53BC6E234712D110B7",
+      "bytes": 2691547
+    }
+  },
+  "commonConditions": {
+    "gpu": "RTX 4090",
+    "composeService": "h3-4090",
+    "node": "MiniMaxH3ReferenceToVideo / ref2va",
+    "resolution": "1280×704",
+    "frames": 175,
+    "fps": 24,
+    "durationSeconds": 7.292,
+    "steps": 20,
+    "sampler": "res_multistep",
+    "scheduler": "simple",
+    "denoise": 1,
+    "refImageSize": "match",
+    "model": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+    "optimizer": "Sol-Attn + generic KJ Sage FP16 CUDA + EasyCache",
+    "easyCache": "reuse 0.3 / start 0.2 / end 0.9"
+  },
+  "provenance": {
+    "montage": "evidence-derived FFmpeg montage from four final optimized generated outputs",
+    "sceneVideos": "real generated RTX 4090 Docker Compose outputs",
+    "simulation": "exact payload is simulation-only; no X write performed"
+  }
+}

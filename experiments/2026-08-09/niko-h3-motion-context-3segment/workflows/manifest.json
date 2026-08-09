@@ -1,0 +1,52 @@
+{
+  "experiment": "MiniMax-H3 Motion Context three-segment chain",
+  "sourceRepository": "https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context",
+  "sourceCommit": "15fc6a7bf7b78efb27f33d7eef3818e7ed0e118a",
+  "sourcePost": "https://x.com/photogenicweeke/status/2085848283138891926?s=46",
+  "gpuService": "h3-4090",
+  "resolution": [
+    1280,
+    704
+  ],
+  "fps": 24,
+  "steps": 20,
+  "seed": 2026080909,
+  "contextLength": 22,
+  "audioContextLength": 22,
+  "encodeMode": "video",
+  "anchorMode": "head",
+  "audioMode": "timeline",
+  "optimizerIsolation": "generic FP16 CUDA SageAttention only; EasyCache/Spectrum/Sol-Attn disabled",
+  "segments": [
+    {
+      "segment": 1,
+      "generatedFrames": 124,
+      "generatedSeconds": 5.166667,
+      "contextFrames": 0,
+      "expectedTrimmedFrames": 124,
+      "inputVideo": null,
+      "workflow": "segment_01_api.json",
+      "prompt": "A cinematic live-action shot in a warm Japanese cafe at night. A young woman in a floral dress walks slowly between wooden tables while the camera tracks backward at eye level. Natural cafe ambience, soft music, subtle conversations and room tone, realistic motion, consistent lighting, no dialogue, no text, no subtitles."
+    },
+    {
+      "segment": 2,
+      "generatedFrames": 124,
+      "generatedSeconds": 5.166667,
+      "contextFrames": 22,
+      "expectedTrimmedFrames": 102,
+      "inputVideo": "h3_motion_context/segment_01.mp4",
+      "workflow": "segment_02_api.json",
+      "prompt": "Continue directly from the previous clip with the exact same woman, cafe, lighting, camera direction and soundtrack. She keeps walking forward between the tables, passing a waiter and turning slightly toward the counter. Preserve continuous body motion, tempo and audio without a reset, realistic live-action cinematography, no dialogue, no text, no subtitles."
+    },
+    {
+      "segment": 3,
+      "generatedFrames": 141,
+      "generatedSeconds": 5.875,
+      "contextFrames": 22,
+      "expectedTrimmedFrames": 119,
+      "inputVideo": "h3_motion_context/segment_02.mp4",
+      "workflow": "segment_03_api.json",
+      "prompt": "Continue directly from the previous clip with no visible reset. The same woman reaches the cafe counter, slows, and looks toward the warm window while the camera eases to a gentle stop. Preserve the exact motion direction, ambience, music waveform and lighting across the join, realistic live-action cinematography, no dialogue, no text, no subtitles."
+    }
+  ]
+}

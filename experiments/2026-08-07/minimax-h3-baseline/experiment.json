@@ -1,0 +1,58 @@
+{
+  "id": "2026-08-07-gpu-baseline",
+  "date": "2026-08-07",
+  "status": "verified",
+  "hypothesis": "RTX 3060とRTX 4090を個別Compose serviceで動かし、投稿・recipe条件と約720p級T2V/I2Vの実行可能性を確認する。",
+  "sources": [
+    {
+      "type": "x",
+      "url": "https://x.com/TlanoAI/status/2084940455809286397",
+      "role": "RTX 3060 reference conditions"
+    },
+    {
+      "type": "x",
+      "url": "https://x.com/yume_arasaki/status/2084766655331360999",
+      "role": "RTX 4090 reference post"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/yume-arasaki/RTX-4090-3090-Minimax-H3-15s",
+      "role": "RTX 4090 linked recipe"
+    },
+    {
+      "type": "local",
+      "path": "verification-log.md",
+      "role": "detailed run log"
+    }
+  ],
+  "conditions": {
+    "host": "Windows 11 + WSL2 + Docker Desktop",
+    "container": "PyTorch 2.11.0 + CUDA 13.0 + cuDNN 9",
+    "gpuServices": ["h3-3060", "h3-4090"],
+    "resolution720pClass": [1280, 704],
+    "fps": 24,
+    "frames": 124
+  },
+  "runs": [
+    {"id": "3060-tlanoai-cold", "gpu": "RTX 3060", "resolution": "864x480", "steps": 25, "wallSeconds": 425.526, "status": "success", "blackdetectIntervals": 0},
+    {"id": "3060-tlanoai-warm", "gpu": "RTX 3060", "resolution": "864x480", "steps": 25, "wallSeconds": 270.289, "status": "success", "blackdetectIntervals": 0},
+    {"id": "4090-yume-recipe", "gpu": "RTX 4090", "resolution": "832x480", "steps": 20, "wallSeconds": 255.35, "status": "success", "blackdetectIntervals": 0},
+    {"id": "4090-t2v-720p-class", "gpu": "RTX 4090", "resolution": "1280x704", "steps": 25, "wallSeconds": 290.337, "status": "success", "blackdetectIntervals": 0},
+    {"id": "4090-i2v-720p-class", "gpu": "RTX 4090", "resolution": "1280x704", "steps": 25, "wallSeconds": 275.309, "status": "success", "blackdetectIntervals": 0},
+    {"id": "3060-i2v-864x480", "gpu": "RTX 3060", "resolution": "864x480", "steps": 25, "wallSeconds": 375.399, "status": "success", "blackdetectIntervals": 0},
+    {"id": "3060-t2v-720p-class-wsl-restart", "gpu": "RTX 3060", "resolution": "1280x704", "steps": 25, "wallSeconds": 961.655, "status": "success", "blackdetectIntervals": 0, "oom": false},
+    {"id": "3060-i2v-720p-class-wsl-restart", "gpu": "RTX 3060", "resolution": "1280x704", "steps": 25, "wallSeconds": 800.84, "status": "success", "blackdetectIntervals": 0, "oom": false}
+  ],
+  "artifacts": {
+    "benchmark3060": "runtime/3060/benchmark/index.md",
+    "benchmark4090": "runtime/4090/benchmark/index.md",
+    "detailedLog": "verification-log.md",
+    "research": "research-notes.md"
+  },
+  "conclusion": "正しいVAEとPyTorch/CUDA条件へ切り替えた後、RTX 3060/4090の基準および約720p級T2V/I2Vを検証した。",
+  "limitations": [
+    "3060と4090のwall timeは投稿・recipe・解像度・stepsが異なるため、単一の速度倍率として比較しない。",
+    "4090のX本文842x480とlinked recipe832x480は一致しない。",
+    "初期のTurbo/full-int8黒画は別のfailedレコードで扱う。"
+  ]
+}

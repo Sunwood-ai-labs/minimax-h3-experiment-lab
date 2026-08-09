@@ -2,6 +2,9 @@ FROM pytorch/pytorch:2.11.0-cuda13.0-cudnn9-runtime
 
 ARG COMFYUI_REF=v0.30.0
 ARG H3_TURBO_REF=a7624b4c00626a8ae7e78860769389d706565190
+ARG SOL_ATTN_REF=0e334dc981cfe3b0ed926ee13ad43f64914b7f5b
+ARG KJNODES_REF=60cd6bc1870db94c6eeb05fbe455147a8e91c4e9
+ARG H3_MOTION_CONTEXT_REF=15fc6a7bf7b78efb27f33d7eef3818e7ed0e118a
 ARG SAGEATTENTION_WHEEL_URL=https://github.com/Comfy-Org/wheels/releases/download/sageattention-latest/sageattention-2.2.0%2Bcu130torch2.11-cp312-cp312-manylinux_2_34_x86_64.manylinux_2_35_x86_64.whl
 
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -32,13 +35,32 @@ RUN mkdir -p /opt/ComfyUI/custom_nodes \
     && tar -xzf /tmp/h3-turbo.tar.gz -C /tmp \
     && mv "/tmp/ComfyUI-MiniMax-H3-Turbo-${H3_TURBO_REF}" \
         /opt/ComfyUI/custom_nodes/ComfyUI-MiniMax-H3-Turbo \
-    && rm -f /tmp/h3-turbo.tar.gz
+    && curl -fsSL --retry 5 --retry-delay 3 \
+        "https://github.com/kijai/ComfyUI-SolAttn_triton/archive/${SOL_ATTN_REF}.tar.gz" \
+        -o /tmp/sol-attn.tar.gz \
+    && tar -xzf /tmp/sol-attn.tar.gz -C /tmp \
+    && mv "/tmp/ComfyUI-SolAttn_triton-${SOL_ATTN_REF}" \
+        /opt/ComfyUI/custom_nodes/ComfyUI-SolAttn_triton \
+    && curl -fsSL --retry 5 --retry-delay 3 \
+        "https://github.com/kijai/ComfyUI-KJNodes/archive/${KJNODES_REF}.tar.gz" \
+        -o /tmp/kjnodes.tar.gz \
+    && tar -xzf /tmp/kjnodes.tar.gz -C /tmp \
+    && mv "/tmp/ComfyUI-KJNodes-${KJNODES_REF}" \
+        /opt/ComfyUI/custom_nodes/ComfyUI-KJNodes \
+    && curl -fsSL --retry 5 --retry-delay 3 \
+        "https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context/archive/${H3_MOTION_CONTEXT_REF}.tar.gz" \
+        -o /tmp/h3-motion-context.tar.gz \
+    && tar -xzf /tmp/h3-motion-context.tar.gz -C /tmp \
+    && mv "/tmp/ComfyUI-H3-Motion-Context-${H3_MOTION_CONTEXT_REF}" \
+        /opt/ComfyUI/custom_nodes/ComfyUI-H3-Motion-Context \
+    && rm -f /tmp/h3-turbo.tar.gz /tmp/sol-attn.tar.gz /tmp/kjnodes.tar.gz /tmp/h3-motion-context.tar.gz
 
 WORKDIR /opt/ComfyUI
 
 RUN python -m pip install --upgrade pip \
     && python -m pip install -r requirements.txt \
     && python -m pip install "huggingface_hub[cli]" \
+    && python -m pip install -r custom_nodes/ComfyUI-KJNodes/requirements.txt \
     && python -m pip install --no-deps "${SAGEATTENTION_WHEEL_URL}"
 
 COPY docker/entrypoint.sh /usr/local/bin/minimax-h3-entrypoint
