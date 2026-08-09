@@ -14,7 +14,7 @@
 | 生成MP4・音声 | 通常なし（`local-only`） | パス、media情報、SHA-256は記録に残す |
 | モデル重み・依存キャッシュ | なし | 起動・ダウンロード手順で取得 |
 
-まず挙動を見るなら[実験ギャラリー](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/experiments/README.md)、全件を辿るなら[実験台帳](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/experiments/index.md)を使います。
+まず挙動を見るなら[実験ギャラリー](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/experiments/README.md)、全件を辿るなら[実験台帳](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/experiments/index.md)を使います。
 
 ## なぜタイルを正本にするのか
 

@@ -100,7 +100,7 @@
     "composeFile": "../../../compose.yaml",
     "commandArgs": ["--listen", "0.0.0.0", "--port", "8188", "--disable-pinned-memory", "--fp16-intermediates", "--preview-method", "none"],
     "gitCommit": "66bb2e0",
-    "gitBranch": "master"
+    "gitBranch": "main"
   },
   "runs": [
     {

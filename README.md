@@ -1,12 +1,12 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Sunwood-ai-labs/minimax-h3-experiment-lab/master/docs/public/icon.svg" alt="MiniMax-H3 Experiment Lab" width="112">
+  <img src="https://raw.githubusercontent.com/Sunwood-ai-labs/minimax-h3-experiment-lab/main/docs/public/icon.svg" alt="MiniMax-H3 Experiment Lab" width="112">
   <h1>MiniMax-H3 Experiment Lab</h1>
   <p>Reproducible Docker Compose + ComfyUI experiments for MiniMax-H3 video generation.</p>
 </div>
 
 <p align="center">
   <a href="https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/actions/workflows/ci.yml"><img src="https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <a href="https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-5b8def.svg" alt="MIT License"></a>
+  <a href="https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-5b8def.svg" alt="MIT License"></a>
   <a href="https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/"><img src="https://img.shields.io/badge/docs-GitHub%20Pages-6f42c1.svg" alt="Documentation"></a>
 </p>
 

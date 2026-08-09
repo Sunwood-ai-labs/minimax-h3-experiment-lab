@@ -32,14 +32,14 @@ features:
 
 The lab currently covers baseline GPU comparisons, 4-step generation, ref2va and multi-reference R2V, attention/cache acceleration, Motion Context, and Japanese Vlog/MV production experiments.
 
-The repository is organized by function rather than by date, distributor, or person name. Start with the [visual experiment gallery](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/experiments/README.md) to scan the tracked tiles, then use the [experiment ledger](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/experiments/index.md) as the canonical machine-readable index.
+The repository is organized by function rather than by date, distributor, or person name. Start with the [visual experiment gallery](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/experiments/README.md) to scan the tracked tiles, then use the [experiment ledger](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/experiments/index.md) as the canonical machine-readable index.
 
-- [Visual gallery with frame tiles](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/experiments/README.md)
-- [Full experiment ledger](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/experiments/index.md)
-- [X simulator and payload index](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/social/README.md)
+- [Visual gallery with frame tiles](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/experiments/README.md)
+- [Full experiment ledger](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/experiments/index.md)
+- [X simulator and payload index](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/social/README.md)
 
 ## Language
 
 - [日本語ドキュメント](/ja/)
-- [English README](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/README.md)
-- [日本語README](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/README.ja.md)
+- [English README](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/README.md)
+- [日本語README](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/README.ja.md)

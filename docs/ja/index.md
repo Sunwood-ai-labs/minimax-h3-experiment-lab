@@ -32,10 +32,10 @@ features:
 
 基準GPU比較、4-step生成、ref2va・複数リファレンスR2V、attention/cache高速化、Motion Context、日本語Vlog/MV制作を検証しています。
 
-実験は日付・配布元・人物名ではなく、検証した機能で分類しています。[実験台帳](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/experiments/index.md)が正本で、このサイトは導入用の短い入口です。
+実験は日付・配布元・人物名ではなく、検証した機能で分類しています。[実験台帳](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/experiments/index.md)が正本で、このサイトは導入用の短い入口です。
 
 ## 言語
 
 - [English documentation](/)
-- [日本語README](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/README.ja.md)
-- [English README](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/README.md)
+- [日本語README](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/README.ja.md)
+- [English README](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/README.md)

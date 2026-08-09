@@ -18,7 +18,7 @@ docker compose --profile 4090 build h3-4090
 docker compose --profile download run --rm model-downloader
 ```
 
-モデルは`models/`へ取得します。このディレクトリはGit管理外です。`.env`の`H3_PROFILE`で`fl2va`（既定）、`ref2va`、`fl2va-lightx2v`、`ref2va-lightx2v`、`legacy-turbo`を選択できます。Git管理された[`models/manifest.json`](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/models/manifest.json)にモデル名、upstream revision、bytes、SHA-256を固定し、取得後にdownload scriptが検証します。モデルとcustom nodeのupstreamライセンスが適用されます。
+モデルは`models/`へ取得します。このディレクトリはGit管理外です。`.env`の`H3_PROFILE`で`fl2va`（既定）、`ref2va`、`fl2va-lightx2v`、`ref2va-lightx2v`、`legacy-turbo`を選択できます。Git管理された[`models/manifest.json`](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/models/manifest.json)にモデル名、upstream revision、bytes、SHA-256を固定し、取得後にdownload scriptが検証します。モデルとcustom nodeのupstreamライセンスが適用されます。
 
 ## 3. GPUサービスを起動する
 
@@ -36,7 +36,7 @@ docker compose --profile 3060 up -d h3-3060
 
 実行前に実験READMEと`experiment.json`を開きます。記録されたworkflow、seed、解像度、frames、steps、sampler、model revision、attention/cache条件を使います。出典にない値を推測で埋めず、ローカル固定値として明記します。
 
-再現キットの正本はGit管理されています。[`compose.yaml`](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/compose.yaml)、[`Dockerfile`](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/Dockerfile)、[`.env.example`](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/.env.example)、[`docker/download-h3-model.sh`](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/docker/download-h3-model.sh)、[`models/manifest.json`](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/master/models/manifest.json)、各記録のworkflow JSONを使用します。DockerfileはPyTorch base imageをdigestで固定し、SageAttention wheelのhashも検証します。Compose serviceは`workflows/`と`experiments/`を読み取り専用でcontainerへmountするため、同じグラフをhost API runnerとcontainer内の両方から参照できます。
+再現キットの正本はGit管理されています。[`compose.yaml`](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/compose.yaml)、[`Dockerfile`](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/Dockerfile)、[`.env.example`](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/.env.example)、[`docker/download-h3-model.sh`](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/docker/download-h3-model.sh)、[`models/manifest.json`](https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/models/manifest.json)、各記録のworkflow JSONを使用します。DockerfileはPyTorch base imageをdigestで固定し、SageAttention wheelのhashも検証します。Compose serviceは`workflows/`と`experiments/`を読み取り専用でcontainerへmountするため、同じグラフをhost API runnerとcontainer内の両方から参照できます。
 
 GPU実行の前に、workflowと入力の導線を確認します。
 
