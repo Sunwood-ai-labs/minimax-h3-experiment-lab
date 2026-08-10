@@ -1,0 +1,8 @@
+=== 1080p segment 0 start=0 duration=0.75 ===
+Prompt ID: 3940e251-a8c8-4419-88ff-1bc6578c7c73
+Status: success
+Status: success
+Wall seconds: 751.483
+Report: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_1080p_seg00.json
+Markdown: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_1080p_seg00.md
+Manifest: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_1080p_segments_manifest.json

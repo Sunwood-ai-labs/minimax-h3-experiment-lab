@@ -1,0 +1,51 @@
+{
+  "schema": "minimax-h3-image-contact-sheet/v1",
+  "generatedAt": "2026-08-10T10:26:00+09:00",
+  "sources": [
+    {
+      "column": 1,
+      "label": "720p baseline",
+      "path": "runtime/4090/output/image/seedvr2_portrait_vlog_720p_source_00001_.png",
+      "bytes": 1445393,
+      "sha256": "C89A249352F32C952730109FD2EB0DA296163F595E0EB4F7D3EAEC0866182929",
+      "width": 720,
+      "height": 1280,
+      "samplingNote": "Lanczos center-cropped baseline derived from the Image Gen source."
+    },
+    {
+      "column": 2,
+      "label": "1080p SeedVR2",
+      "path": "runtime/4090/output/image/seedvr2_portrait_vlog_1080p_00001_.png",
+      "bytes": 2970656,
+      "sha256": "2494CBCD4A5969F9C77E37D8FCD4BEA78D14A57E3F48C65EF410CEE968C95030",
+      "width": 1080,
+      "height": 1920,
+      "samplingNote": "Single-image SeedVR2 output from the common 720p input."
+    },
+    {
+      "column": 3,
+      "label": "4K SeedVR2",
+      "path": "runtime/4090/output/image/seedvr2_portrait_vlog_4k_00001_.png",
+      "bytes": 13757456,
+      "sha256": "8FD9E71E688C4C6E359B9B39CAB4B968F21C31368B7B37C15CF114A9A9F2F25B",
+      "width": 2160,
+      "height": 3840,
+      "samplingNote": "Single-image SeedVR2 output from the common 720p input."
+    }
+  ],
+  "sampling": {
+    "columns": 3,
+    "rows": 1,
+    "tileWidth": 420,
+    "tileHeight": 747,
+    "order": "720p baseline, 1080p SeedVR2, 4K SeedVR2 from left to right."
+  },
+  "output": {
+    "path": "experiments/07-upscaling/seedvr2-portrait-vlog-720p-1080p-4k/previews/contact-sheet.jpg",
+    "bytes": 322788,
+    "sha256": "4045408365EA03B031F8F1759039566DFBA83FF0ECF7869E4C63F7BC84ADDB6B",
+    "format": "jpg",
+    "width": 1356,
+    "height": 911
+  }
+}

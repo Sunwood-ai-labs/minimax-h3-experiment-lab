@@ -1,0 +1,50 @@
+=== 1080p 7s segment 3 start=2.25 duration=0.75 ===
+Prompt ID: 75055907-d61e-448e-982c-f169298e1572
+Status: success
+Status: success
+Wall seconds: 55.278
+Report: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_7s_1080p_seg03.json
+Markdown: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_7s_1080p_seg03.md
+=== 1080p 7s segment 4 start=3 duration=0.75 ===
+Prompt ID: cd3e35c3-4f79-48cd-ada3-cb6a025c314a
+Status: success
+Status: success
+Wall seconds: 35.113
+Report: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_7s_1080p_seg04.json
+Markdown: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_7s_1080p_seg04.md
+=== 1080p 7s segment 5 start=3.75 duration=0.75 ===
+Prompt ID: cc1467c9-3446-412c-9034-f75578e16863
+Status: success
+Status: success
+Wall seconds: 35.087
+Report: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_7s_1080p_seg05.json
+Markdown: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_7s_1080p_seg05.md
+=== 1080p 7s segment 6 start=4.5 duration=0.75 ===
+Prompt ID: b5cf65ef-c894-471e-9846-267239376ecb
+Status: success
+Status: success
+Wall seconds: 35.125
+Report: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_7s_1080p_seg06.json
+Markdown: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_7s_1080p_seg06.md
+=== 1080p 7s segment 7 start=5.25 duration=0.75 ===
+Prompt ID: 218f3449-0606-43ed-a635-4d882e0f84eb
+Status: success
+Status: success
+Wall seconds: 35.089
+Report: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_7s_1080p_seg07.json
+Markdown: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_7s_1080p_seg07.md
+=== 1080p 7s segment 8 start=6 duration=0.75 ===
+Prompt ID: eac935e4-c620-4d6a-8552-e81b4f3bd9c0
+Status: success
+Status: success
+Wall seconds: 35.128
+Report: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_7s_1080p_seg08.json
+Markdown: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_7s_1080p_seg08.md
+=== 1080p 7s segment 9 start=6.75 duration=0.541667 ===
+Prompt ID: 6ebff911-3bb9-478d-837e-69beb8dda53a
+Status: success
+Status: success
+Wall seconds: 20.073
+Report: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_7s_1080p_seg09.json
+Markdown: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_7s_1080p_seg09.md
+Manifest: D:\Prj\minimax-h3-compose\experiments\07-upscaling\seedvr2-portrait-vlog-720p-1080p-4k\runs\seedvr2_portrait_vlog_7s_1080p_segments_manifest.json

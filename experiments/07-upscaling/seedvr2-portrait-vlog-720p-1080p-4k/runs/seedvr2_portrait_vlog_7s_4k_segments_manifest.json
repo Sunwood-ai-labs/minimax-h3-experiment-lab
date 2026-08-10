@@ -1,0 +1,82 @@
+﻿[
+    {
+        "target":  "4k",
+        "segment":  0,
+        "start_time":  0,
+        "duration":  0.75,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_4k_seg00.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_4k_seg00"
+    },
+    {
+        "target":  "4k",
+        "segment":  1,
+        "start_time":  0.75,
+        "duration":  0.75,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_4k_seg01.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_4k_seg01"
+    },
+    {
+        "target":  "4k",
+        "segment":  2,
+        "start_time":  1.5,
+        "duration":  0.75,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_4k_seg02.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_4k_seg02"
+    },
+    {
+        "target":  "4k",
+        "segment":  3,
+        "start_time":  2.25,
+        "duration":  0.75,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_4k_seg03.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_4k_seg03"
+    },
+    {
+        "target":  "4k",
+        "segment":  4,
+        "start_time":  3,
+        "duration":  0.75,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_4k_seg04.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_4k_seg04"
+    },
+    {
+        "target":  "4k",
+        "segment":  5,
+        "start_time":  3.75,
+        "duration":  0.75,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_4k_seg05.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_4k_seg05"
+    },
+    {
+        "target":  "4k",
+        "segment":  6,
+        "start_time":  4.5,
+        "duration":  0.75,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_4k_seg06.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_4k_seg06"
+    },
+    {
+        "target":  "4k",
+        "segment":  7,
+        "start_time":  5.25,
+        "duration":  0.75,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_4k_seg07.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_4k_seg07"
+    },
+    {
+        "target":  "4k",
+        "segment":  8,
+        "start_time":  6,
+        "duration":  0.75,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_4k_seg08.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_4k_seg08"
+    },
+    {
+        "target":  "4k",
+        "segment":  9,
+        "start_time":  6.75,
+        "duration":  0.541667,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_4k_seg09.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_4k_seg09"
+    }
+]

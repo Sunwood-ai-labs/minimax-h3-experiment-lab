@@ -1,0 +1,264 @@
+{
+  "id": "seedvr2-portrait-vlog-720p-1080p-4k",
+  "date": "2026-08-10",
+  "category": "07-upscaling",
+  "status": "verified",
+  "purpose": "Compare a vertical Image Gen selfie-vlog asset at a 720p baseline, SeedVR2 1080p, and SeedVR2 4K on an RTX 4090.",
+  "scope": "Continuation of seedvr2-rtx4090-fhd-4k-segmented. This record covers a single generated portrait image; it does not regenerate MiniMax-H3 video.",
+  "hypothesis": "A common 720p portrait input should upscale to 1080p and 4K in one image pass on a 24 GB RTX 4090, while preserving the selfie composition and enough texture for a clear side-by-side comparison.",
+  "sources": [
+    {
+      "type": "huggingface",
+      "url": "https://huggingface.co/Comfy-Org/SeedVR2",
+      "role": "official SeedVR2 model distribution and model naming reference"
+    },
+    {
+      "type": "local-experiment",
+      "path": "../seedvr2-4k-rtx4090/experiment.json",
+      "role": "preceding RTX 4090 SeedVR2 video upscaling experiment"
+    },
+    {
+      "type": "image-generation",
+      "tool": "built-in image_gen",
+      "role": "generated the fictional adult selfie-vlog source image; prompt and constraints are recorded in sources.md"
+    }
+  ],
+  "host": {
+    "platform": "Windows host with WSL2-backed Docker",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "vram_mib": 24564,
+    "driver": "591.86"
+  },
+  "container": {
+    "service": "h3-4090",
+    "endpoint": "http://127.0.0.1:8188",
+    "image": "local/minimax-h3-comfyui:v0.30.0",
+    "comfyui": "0.30.0",
+    "python": "3.12.3",
+    "pytorch": "2.11.0+cu130",
+    "argv": [
+      "--listen",
+      "0.0.0.0",
+      "--port",
+      "8188",
+      "--disable-pinned-memory",
+      "--disable-async-offload",
+      "--fp16-intermediates",
+      "--preview-method",
+      "none"
+    ]
+  },
+  "models": {
+    "diffusion": {
+      "filename": "seedvr2_3b_int8_convrot.safetensors",
+      "local_path": "models/diffusion_models/seedvr2_3b_int8_convrot.safetensors",
+      "bytes": 3458259704,
+      "sha256": "C3DEC8BCC5916843A8A858572970597462E1F2DC598D6DFD818F6CD40F53A157"
+    },
+    "vae": {
+      "filename": "seedvr2_ema_vae_fp16.safetensors",
+      "local_path": "models/vae/seedvr2_ema_vae_fp16.safetensors",
+      "bytes": 501324814,
+      "sha256": "20678548F420D98D26F11442D3528F8B8C94E57EE046EF93DBB7633DA8612CA1"
+    },
+    "source": "https://huggingface.co/Comfy-Org/SeedVR2",
+    "weights_status": "local-only; large model files are not committed"
+  },
+  "conditions": {
+    "mode": "portrait_image_upscale",
+    "aspect_ratio": "9:16",
+    "source_generation": {
+      "tool": "built-in image_gen",
+      "source_path": "runtime/4090/input/seedvr2_portrait_vlog_imagegen_source.png",
+      "source_resolution": [1024, 1536],
+      "source_bytes": 2470410,
+      "source_sha256": "5B80668C03FD2FF362849B7255E279171BABF6DC041AF3BFCEE5599288516980",
+      "prompt_record": "sources.md",
+      "subject": "fictional adult selfie-vlog creator",
+      "style": "photorealistic natural smartphone vlog photography"
+    },
+    "baseline": {
+      "label": "720p",
+      "resolution": [720, 1280],
+      "preprocess": "Lanczos resize with center crop from the 1024x1536 Image Gen source",
+      "path": "runtime/4090/output/image/seedvr2_portrait_vlog_720p_source_00001_.png",
+      "bytes": 1445393,
+      "sha256": "C89A249352F32C952730109FD2EB0DA296163F595E0EB4F7D3EAEC0866182929"
+    },
+    "input_for_upscale": {
+      "path": "runtime/4090/input/seedvr2_portrait_vlog_720p_source_00001_.png",
+      "resolution": [720, 1280],
+      "bytes": 1445393,
+      "sha256": "C89A249352F32C952730109FD2EB0DA296163F595E0EB4F7D3EAEC0866182929"
+    },
+    "targets": [[720, 1280], [1080, 1920], [2160, 3840]],
+    "upscale_preprocess": "Lanczos resize to the target 9:16 canvas, then SeedVR2",
+    "steps": 1,
+    "sampler": "euler",
+    "scheduler": "simple",
+    "cfg": 1.0,
+    "seeds": {
+      "1080p": 2026081002,
+      "4k": 2026081003
+    },
+    "color_correction": false,
+    "vae_tile_size": 512,
+    "vae_overlap": 128,
+    "vae_temporal_size": 64,
+    "vae_temporal_overlap": 8,
+    "temporal_chunking": "auto; single-image input"
+  },
+  "workflows": [
+    "workflows/prepare_portrait_720p_api.json",
+    "workflows/seedvr2_portrait_1080p_api.json",
+    "workflows/seedvr2_portrait_4k_api.json",
+    "run-seedvr2-image-api.ps1"
+  ],
+  "referenceInputs": [
+    {
+      "path": "../../../runtime/4090/input/seedvr2_portrait_vlog_imagegen_source.png",
+      "role": "Image Gen source; local-only"
+    },
+    {
+      "path": "../../../runtime/4090/input/seedvr2_portrait_vlog_720p_source_00001_.png",
+      "role": "720p baseline copied into the ComfyUI input mount for both upscaling runs"
+    }
+  ],
+  "runs": [
+    {
+      "id": "prepare_720p_source",
+      "status": "success",
+      "started_local": "2026-08-10T10:23:23.0079247+09:00",
+      "ended_local": "2026-08-10T10:23:28.1219733+09:00",
+      "wall_seconds": 5.114,
+      "prompt_id": "56954dae-2293-4bbb-a598-5f11bcbcac7c",
+      "workflow": "workflows/prepare_portrait_720p_api.json",
+      "report": "runs/prepare_720p_source.json",
+      "vram_trace": "runs/prepare_720p_source-vram.csv",
+      "output": "runtime/4090/output/image/seedvr2_portrait_vlog_720p_source_00001_.png",
+      "output_bytes": 1445393,
+      "output_sha256": "C89A249352F32C952730109FD2EB0DA296163F595E0EB4F7D3EAEC0866182929",
+      "resolution": [720, 1280],
+      "peak_vram_mib": 841,
+      "max_temperature_c": 37
+    },
+    {
+      "id": "seedvr2_1080p",
+      "status": "success",
+      "started_local": "2026-08-10T10:24:03.4167981+09:00",
+      "ended_local": "2026-08-10T10:24:33.5283611+09:00",
+      "wall_seconds": 30.112,
+      "prompt_id": "4cac1375-e285-4920-96a0-a5d443bc5956",
+      "workflow": "workflows/seedvr2_portrait_1080p_api.json",
+      "report": "runs/seedvr2_1080p.json",
+      "vram_trace": "runs/seedvr2_1080p-vram.csv",
+      "output": "runtime/4090/output/image/seedvr2_portrait_vlog_1080p_00001_.png",
+      "output_bytes": 2970656,
+      "output_sha256": "2494CBCD4A5969F9C77E37D8FCD4BEA78D14A57E3F48C65EF410CEE968C95030",
+      "resolution": [1080, 1920],
+      "peak_vram_mib": 6843,
+      "max_temperature_c": 54
+    },
+    {
+      "id": "seedvr2_4k",
+      "status": "success",
+      "started_local": "2026-08-10T10:24:50.5453832+09:00",
+      "ended_local": "2026-08-10T10:25:05.6614620+09:00",
+      "wall_seconds": 15.116,
+      "prompt_id": "6aa9b8fe-c504-4a86-a88b-b3bd6202a5a2",
+      "workflow": "workflows/seedvr2_portrait_4k_api.json",
+      "report": "runs/seedvr2_4k.json",
+      "vram_trace": "runs/seedvr2_4k-vram.csv",
+      "output": "runtime/4090/output/image/seedvr2_portrait_vlog_4k_00001_.png",
+      "output_bytes": 13757456,
+      "output_sha256": "8FD9E71E688C4C6E359B9B39CAB4B968F21C31368B7B37C15CF114A9A9F2F25B",
+      "resolution": [2160, 3840],
+      "peak_vram_mib": 8651,
+      "max_temperature_c": 63,
+      "comfyui_cached_nodes": ["1", "4", "6"]
+    }
+  ],
+  "artifacts": {
+    "source_images": [
+      {
+        "path": "runtime/4090/input/seedvr2_portrait_vlog_imagegen_source.png",
+        "status": "local-only",
+        "bytes": 2470410,
+        "sha256": "5B80668C03FD2FF362849B7255E279171BABF6DC041AF3BFCEE5599288516980"
+      },
+      {
+        "path": "runtime/4090/input/seedvr2_portrait_vlog_720p_source_00001_.png",
+        "status": "local-only",
+        "bytes": 1445393,
+        "sha256": "C89A249352F32C952730109FD2EB0DA296163F595E0EB4F7D3EAEC0866182929"
+      }
+    ],
+    "outputs": [
+      {
+        "label": "720p baseline",
+        "path": "runtime/4090/output/image/seedvr2_portrait_vlog_720p_source_00001_.png",
+        "status": "local-only",
+        "bytes": 1445393,
+        "sha256": "C89A249352F32C952730109FD2EB0DA296163F595E0EB4F7D3EAEC0866182929",
+        "resolution": [720, 1280]
+      },
+      {
+        "label": "1080p SeedVR2",
+        "path": "runtime/4090/output/image/seedvr2_portrait_vlog_1080p_00001_.png",
+        "status": "local-only",
+        "bytes": 2970656,
+        "sha256": "2494CBCD4A5969F9C77E37D8FCD4BEA78D14A57E3F48C65EF410CEE968C95030",
+        "resolution": [1080, 1920]
+      },
+      {
+        "label": "4K SeedVR2",
+        "path": "runtime/4090/output/image/seedvr2_portrait_vlog_4k_00001_.png",
+        "status": "local-only",
+        "bytes": 13757456,
+        "sha256": "8FD9E71E688C4C6E359B9B39CAB4B968F21C31368B7B37C15CF114A9A9F2F25B",
+        "resolution": [2160, 3840]
+      }
+    ],
+    "workflows": [
+      "workflows/prepare_portrait_720p_api.json",
+      "workflows/seedvr2_portrait_1080p_api.json",
+      "workflows/seedvr2_portrait_4k_api.json",
+      "run-seedvr2-image-api.ps1"
+    ],
+    "reports": [
+      "REPORT.md",
+      "runs/prepare_720p_source.json",
+      "runs/seedvr2_1080p.json",
+      "runs/seedvr2_4k.json"
+    ]
+  },
+  "previews": {
+    "contactSheet": "previews/contact-sheet.jpg",
+    "manifest": "previews/contact-sheet.json",
+    "sourceImages": [
+      "runtime/4090/output/image/seedvr2_portrait_vlog_720p_source_00001_.png",
+      "runtime/4090/output/image/seedvr2_portrait_vlog_1080p_00001_.png",
+      "runtime/4090/output/image/seedvr2_portrait_vlog_4k_00001_.png"
+    ]
+  },
+  "publicEvidence": {
+    "tile": "previews/contact-sheet.jpg",
+    "manifest": "previews/contact-sheet.json",
+    "videoStatus": "not-applicable",
+    "note": "This continuation is an image comparison. The Image Gen source and three PNG outputs remain local-only; the tracked contact sheet, manifest, JSON record, workflows, and raw run logs are the clone-safe evidence."
+  },
+  "publication": {
+    "platform": "x",
+    "status": "not_posted",
+    "videoTweets": [],
+    "note": "No X post has been published for this continuation yet."
+  },
+  "conclusion": "The common 720x1280 portrait baseline was successfully upscaled to 1080x1920 and 2160x3840 with SeedVR2 in single-image passes on the RTX 4090. The 4K run stayed below 9 GiB in the recorded nvidia-smi trace, so temporal segmentation was not needed for this still-image workload.",
+  "limitations": [
+    "The 720p baseline is a Lanczos center-crop from the 1024x1536 Image Gen source; it is not a native 720x1280 capture.",
+    "The Image Gen source is fictional and generated for this experiment; it is not a real person or a MiniMax-H3 frame.",
+    "Only the 1080p and 4K outputs use SeedVR2; 720p is the common input baseline.",
+    "No quantitative perceptual score, face-identity score, or local-detail metric was computed.",
+    "Source images, generated outputs, and model weights remain local-only under the clone-safe experiment convention."
+  ]
+}

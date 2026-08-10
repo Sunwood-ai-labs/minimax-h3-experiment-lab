@@ -1,0 +1,57 @@
+﻿{
+    "experiment":  "MiniMax-H3 4090 SeedVR2 upscale",
+    "captured_local":  "2026-08-10T12:40:20.5113646+09:00",
+    "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\workflows\\seedvr2_portrait_vlog_7s_1080p_segment_api.json",
+    "port":  8188,
+    "prompt_id":  "eac935e4-c620-4d6a-8552-e81b4f3bd9c0",
+    "status":  "success",
+    "started_local":  "2026-08-10T12:39:45.3798965+09:00",
+    "ended_local":  "2026-08-10T12:40:20.5081853+09:00",
+    "wall_seconds":  35.128,
+    "error_message":  null,
+    "history_status":  {
+                           "status_str":  "success",
+                           "completed":  true,
+                           "messages":  [
+                                            [
+                                                "execution_start",
+                                                {
+                                                    "prompt_id":  "eac935e4-c620-4d6a-8552-e81b4f3bd9c0",
+                                                    "timestamp":  1786333185436
+                                                }
+                                            ],
+                                            [
+                                                "execution_cached",
+                                                {
+                                                    "nodes":  [
+                                                                  "1",
+                                                                  "6",
+                                                                  "8"
+                                                              ],
+                                                    "prompt_id":  "eac935e4-c620-4d6a-8552-e81b4f3bd9c0",
+                                                    "timestamp":  1786333185447
+                                                }
+                                            ],
+                                            [
+                                                "execution_success",
+                                                {
+                                                    "prompt_id":  "eac935e4-c620-4d6a-8552-e81b4f3bd9c0",
+                                                    "timestamp":  1786333216558
+                                                }
+                                            ]
+                                        ]
+                       },
+    "output_files":  [
+                         {
+                             "FullName":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\seedvr2_portrait_vlog_7s_seedvr2_1080p_seg08_00001_.mp4",
+                             "Length":  975725,
+                             "LastWriteTime":  "\/Date(1786333216552)\/"
+                         }
+                     ],
+    "vram_trace":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_1080p_seg08-vram.csv",
+    "parameters":  {
+                       "start_time":  6,
+                       "duration":  0.75,
+                       "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_1080p_seg08"
+                   }
+}

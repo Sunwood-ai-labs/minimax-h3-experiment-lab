@@ -1,0 +1,8 @@
+Invoke-RestMethod : 500 Internal Server Error
+Server got itself in trouble
+At D:\Prj\minimax-h3-compose\scripts\run-h3-post-condition.ps1:58 char:17
++ ... $response = Invoke-RestMethod -Method Post -Uri "$baseUrl/prompt" -Co ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-RestMethod], WebExc 
+   eption
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeRestMethodCommand

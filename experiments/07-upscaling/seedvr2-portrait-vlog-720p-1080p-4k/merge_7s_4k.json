@@ -1,0 +1,28 @@
+﻿{
+    "target":  "4k",
+    "path":  "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\seedvr2_portrait_vlog_7s_4k.mp4",
+    "inputs":  [
+                   "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\seedvr2_portrait_vlog_7s_seedvr2_4k_seg00_00001_.mp4",
+                   "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\seedvr2_portrait_vlog_7s_seedvr2_4k_seg01_00001_.mp4",
+                   "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\seedvr2_portrait_vlog_7s_seedvr2_4k_seg02_00001_.mp4",
+                   "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\seedvr2_portrait_vlog_7s_seedvr2_4k_seg03_00001_.mp4",
+                   "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\seedvr2_portrait_vlog_7s_seedvr2_4k_seg04_00001_.mp4",
+                   "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\seedvr2_portrait_vlog_7s_seedvr2_4k_seg05_00001_.mp4",
+                   "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\seedvr2_portrait_vlog_7s_seedvr2_4k_seg06_00001_.mp4",
+                   "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\seedvr2_portrait_vlog_7s_seedvr2_4k_seg07_00001_.mp4",
+                   "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\seedvr2_portrait_vlog_7s_seedvr2_4k_seg08_00001_.mp4",
+                   "D:\\Prj\\minimax-h3-compose\\runtime\\4090\\output\\video\\seedvr2_portrait_vlog_7s_seedvr2_4k_seg09_00001_.mp4"
+               ],
+    "bytes":  48318200,
+    "sha256":  "7721AC5EE9FB8108A474D67D49DEEAB10F254F4543310AD6DA1AB62516C2B1F5",
+    "method":  "ffmpeg concat filter over ten SeedVR2 temporal segments; libx264 crf 18; AAC 192k; faststart",
+    "ffprobe":  {
+                    "videoCodec":  "h264",
+                    "audioCodec":  "aac",
+                    "width":  2160,
+                    "height":  3840,
+                    "frames":  175,
+                    "durationSeconds":  7.458333,
+                    "fps":  "24/1"
+                }
+}

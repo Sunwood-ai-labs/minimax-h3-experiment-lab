@@ -1,0 +1,6 @@
+D:\Prj\minimax-h3-compose\scripts\run-h3-post-condition.ps1 : Cannot process argument transformation on parameter 'LowV
+ram'. Cannot convert value "System.String" to type "System.Boolean". Boolean parameters accept only Boolean values and 
+numbers, such as $True, $False, 1 or 0.
+    + CategoryInfo          : InvalidData: (:) [run-h3-post-condition.ps1], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : ParameterArgumentTransformationError,run-h3-post-condition.ps1
+ 

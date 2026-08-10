@@ -1,0 +1,58 @@
+﻿[
+    {
+        "target":  "1080p",
+        "segment":  3,
+        "start_time":  2.25,
+        "duration":  0.75,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_1080p_seg03.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_1080p_seg03"
+    },
+    {
+        "target":  "1080p",
+        "segment":  4,
+        "start_time":  3,
+        "duration":  0.75,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_1080p_seg04.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_1080p_seg04"
+    },
+    {
+        "target":  "1080p",
+        "segment":  5,
+        "start_time":  3.75,
+        "duration":  0.75,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_1080p_seg05.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_1080p_seg05"
+    },
+    {
+        "target":  "1080p",
+        "segment":  6,
+        "start_time":  4.5,
+        "duration":  0.75,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_1080p_seg06.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_1080p_seg06"
+    },
+    {
+        "target":  "1080p",
+        "segment":  7,
+        "start_time":  5.25,
+        "duration":  0.75,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_1080p_seg07.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_1080p_seg07"
+    },
+    {
+        "target":  "1080p",
+        "segment":  8,
+        "start_time":  6,
+        "duration":  0.75,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_1080p_seg08.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_1080p_seg08"
+    },
+    {
+        "target":  "1080p",
+        "segment":  9,
+        "start_time":  6.75,
+        "duration":  0.541667,
+        "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_7s_1080p_seg09.json",
+        "output_prefix":  "video/seedvr2_portrait_vlog_7s_seedvr2_1080p_seg09"
+    }
+]

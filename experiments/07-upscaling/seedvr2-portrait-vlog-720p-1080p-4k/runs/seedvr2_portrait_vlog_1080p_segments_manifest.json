@@ -1,0 +1,8 @@
+﻿{
+    "target":  "1080p",
+    "segment":  0,
+    "start_time":  0,
+    "duration":  0.75,
+    "report":  "D:\\Prj\\minimax-h3-compose\\experiments\\07-upscaling\\seedvr2-portrait-vlog-720p-1080p-4k\\runs\\seedvr2_portrait_vlog_1080p_seg00.json",
+    "output_prefix":  "video/seedvr2_portrait_vlog_seedvr2_1080p_seg00"
+}
