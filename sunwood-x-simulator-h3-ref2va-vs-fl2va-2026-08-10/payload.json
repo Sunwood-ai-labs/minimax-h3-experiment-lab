@@ -5,68 +5,32 @@
     "mode": "retrospective",
     "status": "simulation-only",
     "createdAt": "2026-08-10",
-    "postCount": 9,
-    "chain": "main → reply × 8",
+    "postCount": 3,
+    "chain": "main → reply × 2",
     "publicGitHubArtifact": true,
-    "note": "主投稿に比較タイル、固定条件・入力アセット・各モデル動画・再現手順・制限・出典・公開実験フォルダを直列返信。Xへの送信は行っていません。"
+    "note": "動画を添付できる3ポストだけで構成。本文に改行コードは入れていません。Xへの送信は行っていません。"
   },
   "posts": [
     {
       "id": "main",
       "kind": "main",
-      "label": "主投稿",
-      "text": "MiniMax-H3のRef2VA × FL2VA、同じ条件で縦に並べてみた！！！\n\nimage genで作った同じ参照画像3枚を使って、\n4090・同じseed・同じR2Vワークフローで\nモデルだけ差し替え。\n\n上がRef2VA、下がFL2VA。\n\n良さそうな気もする！\nさらに検証してみる🔥\n\n次はref_image_size=maxで切り分ける、、、",
+      "label": "主投稿｜比較動画",
+      "text": "MiniMax-H3のRef2VA × FL2VA、同じ条件で縦に並べてみた！！！ image genで新規生成した同じ参照画像3枚、RTX 4090・同じseed・同じR2VワークフローでUNETだけ差し替え。上がRef2VA、下がFL2VA。良さそうな気もする！さらに検証してみる🔥",
       "media": ["ref2va-fl2va-tile"]
-    },
-    {
-      "id": "reply-conditions",
-      "kind": "reply",
-      "label": "返信 1｜固定条件・参照アセット",
-      "text": "固定条件：RTX 4090 / ComfyUI 0.30.0\n1280×704 / 175f / 24fps / 20 steps / res_multistep / simple\nref_image_size=match / seed=2026081011 / LoRA・EasyCacheなし\n同じprompt・参照PNG 3枚、UNETのみ差し替え。詳細：https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10"
-    },
-    {
-      "id": "reply-inputs",
-      "kind": "reply",
-      "label": "返信 2｜全文プロンプト・参照PNG",
-      "text": "参照入力：image genで新規生成した環境・portrait・fullbody。\\n全文prompt、PNG直リンク、bytes、SHA-256、役割：\\nhttps://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10"
     },
     {
       "id": "reply-ref2va",
       "kind": "reply",
-      "label": "返信 3｜Ref2VA 実測動画",
-      "text": "Ref2VA 実測動画🎥\nUNET: Ref2VA pruned-int8\n生成: 898.216秒（14分58秒）\n1280×704 / 175f / 24fps / 7.292秒\nMP4 2,461,614B\nOOMなし / blackdetect 0\noutput SHA-256: 6D68CD21D203B7D47727D84D106DD35AE311000DF72B9F0CB5B014BE7420DE6E\n詳細：https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/experiment.json",
+      "label": "返信 1｜Ref2VA実測動画",
+      "text": "Ref2VA実測動画🎥 生成:898.216秒（約14分58秒） 1280×704 / 175f / 24fps / 7.292秒 MP4:2,461,614B OOMなし / blackdetect 0 output SHA-256:6D68CD21D203B7D47727D84D106DD35AE311000DF72B9F0CB5B014BE7420DE6E モデル名・workflow・prompt ID・model SHA:https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/experiment.json",
       "media": ["ref2va-source"]
     },
     {
       "id": "reply-fl2va",
       "kind": "reply",
-      "label": "返信 4｜FL2VA 実測動画",
-      "text": "FL2VA 実測動画🎥\nUNET: FL2VA pruned-int8\n生成: 980.446秒（16分20秒）\n1280×704 / 175f / 24fps / 7.292秒\nMP4 2,165,866B\nOOMなし / blackdetect 0\noutput SHA-256: 96E80AB2D5E1CC54B63E3FBC6F124C426EC15BDBF6226FB51AA1863DFCBA9E3A\n詳細：https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/experiment.json",
+      "label": "返信 2｜FL2VA実測動画",
+      "text": "FL2VA実測動画🎥 生成:980.446秒（約16分20秒） 1280×704 / 175f / 24fps / 7.292秒 MP4:2,165,866B OOMなし / blackdetect 0 output SHA-256:96E80AB2D5E1CC54B63E3FBC6F124C426EC15BDBF6226FB51AA1863DFCBA9E3A モデル名・workflow・prompt ID・model SHA:https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/experiment.json",
       "media": ["fl2va-source"]
-    },
-    {
-      "id": "reply-reproduction",
-      "kind": "reply",
-      "label": "返信 5｜再現手順",
-      "text": "再現手順はREADMEにコピペ可能なPowerShellを掲載。\nref2va → fl2vaをdownload、PNGをinputへコピー、同じseedで2 workflowをrunner実行。必要容量約59.1GiB。\nhttps://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10"
-    },
-    {
-      "id": "reply-limitations",
-      "kind": "reply",
-      "label": "返信 6｜今回の読み方",
-      "text": "ここまでが1シーン・1seed・1つの新規imagegen参照セットの結果。\n\nRef2VAは環境→人物の流れが見えやすく、FL2VAは人物が早めに入る印象だった。\nただし、画質の優劣を決める検証ではない。\n\n次は複数シーン・複数seed・ref_image_size=maxで、さらに検証してみる🔥"
-    },
-    {
-      "id": "reply-reference",
-      "kind": "reply",
-      "label": "返信 7｜参考にした投稿",
-      "text": "今回の検証のきっかけになった参考投稿はこちら。\nRef2VAとFL2VAを同じReference-to-Video条件で比較する発想を追試した。\nhttps://x.com/umiyuki_ai/status/2086621244234039651?s=46"
-    },
-    {
-      "id": "reply-repository",
-      "kind": "reply",
-      "label": "返信 8｜実験記録・再現ファイル",
-      "text": "公開正本：README / experiment.json / 全文prompt / 参照PNG / workflows / 抽出フレーム / model SHA-256\\nhttps://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10"
     }
   ],
   "media": [
