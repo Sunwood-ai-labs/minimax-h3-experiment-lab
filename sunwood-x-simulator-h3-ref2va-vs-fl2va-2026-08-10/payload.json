@@ -8,28 +8,28 @@
     "postCount": 3,
     "chain": "main → reply × 2",
     "publicGitHubArtifact": true,
-    "note": "動画を添付できる3ポストだけで構成。本文に改行コードは入れていません。Xへの送信は行っていません。"
+    "note": "動画添付の3ポストのみで構成。動画返信は箇条書きで整理。Xへの送信は行っていません。"
   },
   "posts": [
     {
       "id": "main",
       "kind": "main",
       "label": "主投稿｜比較動画",
-      "text": "MiniMax-H3のRef2VA × FL2VA、同じ条件で縦に並べてみた！！！ image genで新規生成した同じ参照画像3枚、RTX 4090・同じseed・同じR2VワークフローでUNETだけ差し替え。上がRef2VA、下がFL2VA。良さそうな気もする！さらに検証してみる🔥",
+      "text": "MiniMax-H3のRef2VA × FL2VAを同条件で比較。\n\n・同じ参照画像3枚（image gen新規生成）\n・RTX 4090 / 同じSeed / 同じR2V workflow\n・UNETだけ差し替え\n\n上：Ref2VA\n下：FL2VA\n\n良さそうな気もする！さらに検証してみる🔥",
       "media": ["ref2va-fl2va-tile"]
     },
     {
       "id": "reply-ref2va",
       "kind": "reply",
       "label": "返信 1｜Ref2VA実測動画",
-      "text": "Ref2VA実測動画🎥 生成:898.216秒（約14分58秒） 1280×704 / 175f / 24fps / 7.292秒 元出力:2,461,614B seed:2026081011 ref_image_size:match OOMなし / blackdetect 0 UNET:minimax_h3_ref2va_pruned_int8_convrot.safetensors 詳細:https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/experiment.json",
+      "text": "Ref2VA実測動画🎥\n\n・生成：898.216秒（約14分58秒）\n・出力：1280×704 / 175f / 24fps\n・Seed：2026081011\n・参照画像：match\n・判定：OOMなし / blackdetect 0\n・モデル：Ref2VA pruned-int8\n\n条件・prompt・workflow・モデル名：\nhttps://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/experiment.json",
       "media": ["ref2va-source"]
     },
     {
       "id": "reply-fl2va",
       "kind": "reply",
       "label": "返信 2｜FL2VA実測動画",
-      "text": "FL2VA実測動画🎥 生成:980.446秒（約16分20秒） 1280×704 / 175f / 24fps / 7.292秒 元出力:2,165,866B seed:2026081011 ref_image_size:match OOMなし / blackdetect 0 UNET:minimax_h3_fl2va_pruned_int8_convrot.safetensors 詳細:https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/experiment.json",
+      "text": "FL2VA実測動画🎥\n\n・生成：980.446秒（約16分20秒）\n・出力：1280×704 / 175f / 24fps\n・Seed：2026081011\n・参照画像：match\n・判定：OOMなし / blackdetect 0\n・モデル：FL2VA pruned-int8\n\n条件・prompt・workflow・モデル名：\nhttps://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/experiment.json",
       "media": ["fl2va-source"]
     }
   ],
