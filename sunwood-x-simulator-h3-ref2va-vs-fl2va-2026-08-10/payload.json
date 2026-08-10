@@ -3,7 +3,13 @@
     "title": "MiniMax-H3 Ref2VA × FL2VA 再現情報付き縦積み比較 — X投稿シミュレーター",
     "targetAccount": "@hAru_mAki_ch",
     "mode": "retrospective",
-    "status": "simulation-only",
+    "status": "posted",
+    "publicThread": "https://x.com/i/web/status/2086692867284840681",
+    "postUrls": {
+      "main": "https://x.com/i/web/status/2086692867284840681",
+      "reply-ref2va": "https://x.com/i/web/status/2086692885009981647",
+      "reply-fl2va": "https://x.com/i/web/status/2086692904622592005"
+    },
     "createdAt": "2026-08-10",
     "postCount": 3,
     "chain": "main → reply × 2",
