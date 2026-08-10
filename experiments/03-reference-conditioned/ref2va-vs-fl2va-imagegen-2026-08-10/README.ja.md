@@ -4,6 +4,12 @@
 >
 > `reference-prompts.ja.md`、参照PNG 3枚、2本のAPI workflow、`experiment.json`、抽出フレームは上記フォルダから直接取得できる。生成MP4はリポジトリの生成物管理ルールでGitには含めず、X返信に実測動画を添付している。
 
+## X投稿
+
+- [主投稿｜Ref2VA × FL2VA比較動画](https://x.com/hAru_mAki_ch/status/2086695817826672706)
+- [Ref2VA実測動画返信](https://x.com/hAru_mAki_ch/status/2086695843747487753)
+- [FL2VA実測動画返信](https://x.com/hAru_mAki_ch/status/2086695868137435325)
+
 ## 結論
 
 同じ新規参照画像3枚、同じSeed、同じ`MiniMaxH3ReferenceToVideo`ワークフローで、UNETだけをRef2VA/FL2VAに差し替えて比較した。

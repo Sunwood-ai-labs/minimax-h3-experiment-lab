@@ -33,7 +33,15 @@
     "path": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10",
     "url": "https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10",
     "commit": "589a257",
-    "publishedAt": "2026-08-10"
+    "publishedAt": "2026-08-10",
+    "xThread": {
+      "account": "@hAru_mAki_ch",
+      "main": "https://x.com/hAru_mAki_ch/status/2086695817826672706",
+      "replies": [
+        "https://x.com/hAru_mAki_ch/status/2086695843747487753",
+        "https://x.com/hAru_mAki_ch/status/2086695868137435325"
+      ]
+    }
   },
   "referenceInputs": [
     {

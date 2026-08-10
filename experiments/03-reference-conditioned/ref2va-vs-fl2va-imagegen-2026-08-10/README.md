@@ -4,6 +4,12 @@
 >
 > The folder contains the full reference prompts, three reference PNGs, both API workflows, `experiment.json`, and extracted frames. Generated MP4s are kept out of Git by repository policy and were attached to the X replies.
 
+## X thread
+
+- [Main post — Ref2VA × FL2VA comparison](https://x.com/hAru_mAki_ch/status/2086695817826672706)
+- [Ref2VA measured-video reply](https://x.com/hAru_mAki_ch/status/2086695843747487753)
+- [FL2VA measured-video reply](https://x.com/hAru_mAki_ch/status/2086695868137435325)
+
 ## Result
 
 The same three newly generated reference images, prompt, seed, sampler, scheduler, resolution, and frame count were used for both runs. Only the `UNETLoader` checkpoint changed.
