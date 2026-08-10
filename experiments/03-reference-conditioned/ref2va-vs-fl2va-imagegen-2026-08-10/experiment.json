@@ -32,7 +32,7 @@
     "repository": "https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab",
     "path": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10",
     "url": "https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10",
-    "commit": "8e27a72",
+    "commit": "589a257",
     "publishedAt": "2026-08-10"
   },
   "referenceInputs": [
