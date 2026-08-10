@@ -1,0 +1,136 @@
+{
+  "simulation": {
+    "title": "MiniMax-H3 Ref2VA × FL2VA 再現情報付き縦積み比較 — X投稿シミュレーター",
+    "targetAccount": "@hAru_mAki_ch",
+    "mode": "retrospective",
+    "status": "simulation-only",
+    "createdAt": "2026-08-10",
+    "postCount": 7,
+    "chain": "main → reply × 6",
+    "publicGitHubArtifact": false,
+    "note": "主投稿に比較タイル、各モデル動画を個別返信。再現条件・生成時間・SHA-256まで記録した視覚シミュレーション。Xへの送信は行っていません。"
+  },
+  "posts": [
+    {
+      "id": "main",
+      "kind": "main",
+      "label": "主投稿",
+      "text": "MiniMax-H3のRef2VA × FL2VA、同じ条件で縦に並べてみた！！！\n\nimage genで作った同じ参照画像3枚を使って、\n4090・同じseed・同じR2Vワークフローで\nモデルだけ差し替え。\n\n上がRef2VA、下がFL2VA。\n\n良さそうな気もする！\nさらに検証してみる🔥\n\n次はref_image_size=maxで切り分ける、、、",
+      "media": ["ref2va-fl2va-tile"]
+    },
+    {
+      "id": "reply-conditions",
+      "kind": "reply",
+      "label": "返信 1｜固定条件・参照アセット",
+      "text": "再現用の固定条件をまとめる。\n\nGPU：RTX 4090 / service：h3-4090\nComfyUI：0.30.0\nDocker：local/minimax-h3-comfyui:v0.30.0\nPython：3.12.3 / PyTorch：2.11.0+cu130\nNode：MiniMaxH3ReferenceToVideo\n\n解像度：1280×704、175 frames、24fps、7.292秒\nsteps：20 / sampler：res_multistep / scheduler：simple\nref_image_size：match / seed：2026081011 / denoise：1.0\nLoRA：なし / EasyCache：なし\n\n起動引数：--listen 0.0.0.0 --port 8188 --disable-pinned-memory --disable-async-offload --fp16-intermediates --preview-method none\n共有モデル：qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors / minimax_h3_video_vae_fp16.safetensors / minimax_h3_audio_vae_fp32.safetensors\n参照プロンプト全文：reference-prompts.ja.md\n\n同じプロンプト・参照画像・Seedを使い、UNETLoaderのモデルだけ差し替えた。\n参照画像はimage genで新規生成。\nbackground：D2B78530E74067BB6AD54870773F79CF6B400CFA3E27071B42C03D49CF444F6D\nportrait：996A78F617EA135D295E2E3EB26976288DCFE7CAD143E4E7FD6DB24B61D3FDB5\nfullbody：9CAB808EFEA401662A4F7800C07927E7C0636A18B69255D3FA80DA6F497A1B84"
+    },
+    {
+      "id": "reply-ref2va",
+      "kind": "reply",
+      "label": "返信 2｜Ref2VA 実測動画",
+      "text": "Ref2VAの実測動画。元の音声付き出力をそのまま添付。\n\nモデル：minimax_h3_ref2va_pruned_int8_convrot.safetensors\nモデルSHA-256：9255F52B6677845AD238F20DFAAFA94727053694127AB7F255C048F0F9365779\nworkflow：workflows/a-ref2va-api.json\nprompt ID：4b0407a0-b8ff-492f-82b8-1603e4259065\n\nComfyUI実行時間：898.216秒（約14分58秒）\n出力：1280×704、175 frames、24fps、7.292秒\nMP4：2,461,614 bytes\nvideo bitrate：2,556,907bps / audio bitrate：132,012bps\naudio mean / max：-46.5 / -16.3 dB\nOOMなし / blackdetect区間なし\n\n出力SHA-256：6D68CD21D203B7D47727D84D106DD35AE311000DF72B9F0CB5B014BE7420DE6E\n比較タイル版だけ、音声の重なりを避けるためミュートしている。",
+      "media": ["ref2va-source"]
+    },
+    {
+      "id": "reply-fl2va",
+      "kind": "reply",
+      "label": "返信 3｜FL2VA 実測動画",
+      "text": "FL2VAの実測動画。元の音声付き出力をそのまま添付。\n\nモデル：minimax_h3_fl2va_pruned_int8_convrot.safetensors\nモデルSHA-256：E889202C41DAFB67B10D67B97F0D8541508036A6090AF23425A5C2615D03C47A\nworkflow：workflows/b-fl2va-api.json\nprompt ID：9df4ed26-696f-49ef-9285-5933ea9fc4c8\n\nComfyUI実行時間：980.446秒（約16分20秒）\n出力：1280×704、175 frames、24fps、7.292秒\nMP4：2,165,866 bytes\nvideo bitrate：2,232,987bps / audio bitrate：131,507bps\naudio mean / max：-39.1 / -14.9 dB\nOOMなし / blackdetect区間なし\n\n出力SHA-256：96E80AB2D5E1CC54B63E3FBC6F124C426EC15BDBF6226FB51AA1863DFCBA9E3A\n比較タイル版だけ、音声の重なりを避けるためミュートしている。",
+      "media": ["fl2va-source"]
+    },
+    {
+      "id": "reply-limitations",
+      "kind": "reply",
+      "label": "返信 4｜今回の読み方",
+      "text": "ここまでが1シーン・1seed・1つの新規imagegen参照セットの結果。\n\nRef2VAは環境→人物の流れが見えやすく、FL2VAは人物が早めに入る印象だった。\nただし、画質の優劣を決める検証ではない。\n\n次は複数シーン・複数seed・ref_image_size=maxで、さらに検証してみる🔥"
+    },
+    {
+      "id": "reply-reference",
+      "kind": "reply",
+      "label": "返信 5｜参考にした投稿",
+      "text": "今回の検証のきっかけになった参考投稿はこちら。\nRef2VAとFL2VAを同じReference-to-Video条件で比較する発想を追試した。\nhttps://x.com/umiyuki_ai/status/2086621244234039651?s=46"
+    },
+    {
+      "id": "reply-repository",
+      "kind": "reply",
+      "label": "返信 6｜実験記録・再現ファイル",
+      "text": "実験条件・参照プロンプト・workflows・モデルSHA-256・出力SHA-256・比較フレームはここに記録。\n今回の実験フォルダはローカル記録で、GitHub公開反映はまだ行っていない。\nhttps://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab"
+    }
+  ],
+  "media": [
+    {
+      "id": "ref2va-fl2va-tile",
+      "file": "assets/ref2va-vs-fl2va-tile-vertical-fullwidth.mp4",
+      "poster": "assets/ref2va-vs-fl2va-tile-vertical-fullwidth-first.jpg",
+      "label": "上：Ref2VA / 下：FL2VA（横幅ぴったり・音声ミュート）",
+      "stack": "RTX 4090 / ComfyUI / MiniMax-H3 Reference-to-Video",
+      "dimensions": "1280×1408 / 24 fps / 7.292秒",
+      "streams": "映像のみ（比較用に音声ミュート）",
+      "promptId": "Ref2VA 4b0407a0… / FL2VA 9df4ed26…",
+      "sha256": "761F284D793D9ACDDAB3F9B17E07DDF4CCDF7F27035ABB559259F05D5DA6F322",
+      "source": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/outputs/ref2va-vs-fl2va-tile-vertical-fullwidth.mp4",
+      "provenance": "evidence-derived full-width vertical tile video; top Ref2VA, bottom FL2VA; audio muted for comparison"
+    },
+    {
+      "id": "ref2va-source",
+      "file": "assets/ref2va.mp4",
+      "poster": "assets/ref2va-t000.jpg",
+      "label": "Ref2VA 実測出力（音声付き）",
+      "stack": "RTX 4090 / ComfyUI 0.30.0 / MiniMaxH3ReferenceToVideo",
+      "dimensions": "1280×704 / 24 fps / 7.292秒",
+      "streams": "映像＋音声 / video 2.56Mbps / audio 132.012kbps",
+      "promptId": "4b0407a0-b8ff-492f-82b8-1603e4259065",
+      "sha256": "6D68CD21D203B7D47727D84D106DD35AE311000DF72B9F0CB5B014BE7420DE6E",
+      "source": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/outputs/ref2va.mp4",
+      "provenance": "real ComfyUI execution output; evidence-derived attachment"
+    },
+    {
+      "id": "fl2va-source",
+      "file": "assets/fl2va.mp4",
+      "poster": "assets/fl2va-t000.jpg",
+      "label": "FL2VA 実測出力（音声付き）",
+      "stack": "RTX 4090 / ComfyUI 0.30.0 / MiniMaxH3ReferenceToVideo",
+      "dimensions": "1280×704 / 24 fps / 7.292秒",
+      "streams": "映像＋音声 / video 2.23Mbps / audio 131.507kbps",
+      "promptId": "9df4ed26-696f-49ef-9285-5933ea9fc4c8",
+      "sha256": "96E80AB2D5E1CC54B63E3FBC6F124C426EC15BDBF6226FB51AA1863DFCBA9E3A",
+      "source": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/outputs/fl2va.mp4",
+      "provenance": "real ComfyUI execution output; evidence-derived attachment"
+    }
+  ],
+  "previewVariants": [
+    {
+      "id": "ref2va-fl2va-tile-vertical-landscape",
+      "file": "assets/ref2va-vs-fl2va-tile-vertical.mp4",
+      "poster": "assets/ref2va-vs-fl2va-tile-vertical-first.jpg",
+      "label": "X preflight通過版（比較プレビュー）",
+      "stack": "上：Ref2VA / 下：FL2VA / evidence-derived",
+      "dimensions": "1280×1080 / 24 fps / 7.292秒",
+      "streams": "映像のみ（比較用に音声ミュート）",
+      "promptId": "Ref2VA 4b0407a0… / FL2VA 9df4ed26…",
+      "sha256": "66D9BF2EC32273B613BB816923416D9B17CFF7F00DD27C10669D05A89EBEFAAE",
+      "source": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/outputs/ref2va-vs-fl2va-tile-vertical.mp4",
+      "provenance": "evidence-derived vertical tile video with centered panels; top Ref2VA, bottom FL2VA; audio muted for comparison"
+    }
+  ],
+  "sources": [
+    {
+      "label": "参考にしたX投稿",
+      "kind": "X / reference",
+      "url": "https://x.com/umiyuki_ai/status/2086621244234039651?s=46"
+    },
+    {
+      "label": "公式実験リポジトリ",
+      "kind": "GitHub / repository",
+      "url": "https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab"
+    }
+  ],
+  "evidence": {
+    "experiment": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/README.ja.md",
+    "manifest": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/experiment.json",
+    "workflowRef2va": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/workflows/a-ref2va-api.json",
+    "workflowFl2va": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/workflows/b-fl2va-api.json",
+    "referencePrompts": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/reference-prompts.ja.md",
+    "commit": "fb91ab7 (capture時点のHEAD。今回の実験フォルダは未コミット)"
+  }
+}

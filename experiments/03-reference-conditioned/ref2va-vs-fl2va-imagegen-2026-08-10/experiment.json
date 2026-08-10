@@ -1,0 +1,209 @@
+{
+  "id": "2026-08-10-reference-imagegen-ref2va-vs-fl2va",
+  "date": "2026-08-10",
+  "category": "03-reference-conditioned",
+  "status": "verified",
+  "purpose": "Test the public Ref2VA-versus-FL2VA model-swap hypothesis with newly generated reference assets in the same MiniMaxH3ReferenceToVideo workflow.",
+  "hypothesis": "FL2VA may produce a sharper-looking video while still accepting reference conditioning, but Ref2VA may preserve reference and environment adherence more reliably.",
+  "conclusion": "Both checkpoints completed the same 7.292-second R2V job without OOM or black output. In this one-seed test, FL2VA was not visibly superior overall: Ref2VA more clearly staged the environment-first entrance and had higher encoded video bitrate, while FL2VA showed the subject earlier and produced louder audio. This is a single-scene observation, not a universal quality claim.",
+  "sources": [
+    {
+      "type": "x-post",
+      "url": "https://x.com/umiyuki_ai/status/2086621244234039651",
+      "note": "Public post relaying the Ref2VA/FL2VA model-swap observation."
+    },
+    {
+      "type": "reddit-thread",
+      "url": "https://www.reddit.com/r/StableDiffusion/comments/1vk6j2w/anyone_figure_out_how_to_get_fl2va_quality_with/",
+      "note": "Original anecdotal comparison report."
+    },
+    {
+      "type": "official-comfyui-workflow",
+      "url": "https://github.com/Comfy-Org/workflow_templates/blob/main/templates/video_minimax_h3_r2v.json",
+      "note": "Official R2V workflow and Ref2VA model usage."
+    },
+    {
+      "type": "official-comfyui-pr",
+      "url": "https://github.com/Comfy-Org/ComfyUI/pull/15224",
+      "note": "Official MiniMax-H3 T2V/FL2VA/Ref2VA support."
+    }
+  ],
+  "referenceInputs": [
+    {
+      "index": 1,
+      "tag": "<Picture 1>",
+      "role": "empty rooftop greenhouse and environment",
+      "path": "references/ref-imagegen-rooftop-background.png",
+      "runtimePath": "runtime/4090/input/ref-imagegen-rooftop-background.png",
+      "bytes": 2164065,
+      "sha256": "D2B78530E74067BB6AD54870773F79CF6B400CFA3E27071B42C03D49CF444F6D"
+    },
+    {
+      "index": 2,
+      "tag": "<Picture 2>",
+      "role": "Aoi identity portrait",
+      "path": "references/ref-imagegen-aoi-portrait.png",
+      "runtimePath": "runtime/4090/input/ref-imagegen-aoi-portrait.png",
+      "bytes": 2101325,
+      "sha256": "996A78F617EA135D295E2E3EB26976288DCFE7CAD143E4E7FD6DB24B61D3FDB5"
+    },
+    {
+      "index": 3,
+      "tag": "<Picture 3>",
+      "role": "Aoi full-body profile",
+      "path": "references/ref-imagegen-aoi-fullbody.png",
+      "runtimePath": "runtime/4090/input/ref-imagegen-aoi-fullbody.png",
+      "bytes": 2372287,
+      "sha256": "9CAB808EFEA401662A4F7800C07927E7C0636A18B69255D3FA80DA6F497A1B84"
+    }
+  ],
+  "conditions": {
+    "gpu": "RTX 4090",
+    "composeService": "h3-4090",
+    "port": 8188,
+    "comfyUi": "0.30.0",
+    "dockerImage": "local/minimax-h3-comfyui:v0.30.0",
+    "python": "3.12.3",
+    "pytorch": "2.11.0+cu130",
+    "node": "MiniMaxH3ReferenceToVideo",
+    "width": 1280,
+    "height": 704,
+    "frames": 175,
+    "fps": 24,
+    "durationSeconds": 7.292,
+    "steps": 20,
+    "sampler": "res_multistep",
+    "scheduler": "simple",
+    "refImageSize": "match",
+    "seed": 2026081011,
+    "denoise": 1.0,
+    "lora": null,
+    "easyCache": false,
+    "comfyArgs": ["--listen", "0.0.0.0", "--port", "8188", "--disable-pinned-memory", "--disable-async-offload", "--fp16-intermediates", "--preview-method", "none"],
+    "sharedModels": {
+      "textEncoder": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "videoVae": "minimax_h3_video_vae_fp16.safetensors",
+      "audioVae": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "modelFiles": {
+      "ref2va": {
+        "file": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "bytes": 20970379616,
+        "sha256": "9255F52B6677845AD238F20DFAAFA94727053694127AB7F255C048F0F9365779"
+      },
+      "fl2va": {
+        "file": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "bytes": 20970379616,
+        "sha256": "E889202C41DAFB67B10D67B97F0D8541508036A6090AF23425A5C2615D03C47A"
+      }
+    }
+  },
+  "runs": [
+    {
+      "id": "A-ref2va",
+      "model": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "workflow": "workflows/a-ref2va-api.json",
+      "promptId": "4b0407a0-b8ff-492f-82b8-1603e4259065",
+      "status": "success",
+      "comfyUiSeconds": 898.216,
+      "output": "outputs/ref2va.mp4",
+      "outputSha256": "6D68CD21D203B7D47727D84D106DD35AE311000DF72B9F0CB5B014BE7420DE6E",
+      "outputBytes": 2461614,
+      "media": {
+        "width": 1280,
+        "height": 704,
+        "frames": 175,
+        "fps": 24,
+        "durationSeconds": 7.292,
+        "videoBitrateBps": 2556907,
+        "audioBitrateBps": 132012,
+        "totalBitrateBps": 2700618,
+        "audioMeanDb": -46.5,
+        "audioMaxDb": -16.3,
+        "blackdetect": {
+          "filter": "blackdetect=d=0.1:pix_th=0.10",
+          "intervalCount": 0
+        },
+        "oom": false
+      }
+    },
+    {
+      "id": "B-fl2va",
+      "model": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+      "workflow": "workflows/b-fl2va-api.json",
+      "promptId": "9df4ed26-696f-49ef-9285-5933ea9fc4c8",
+      "status": "success",
+      "comfyUiSeconds": 980.446,
+      "output": "outputs/fl2va.mp4",
+      "outputSha256": "96E80AB2D5E1CC54B63E3FBC6F124C426EC15BDBF6226FB51AA1863DFCBA9E3A",
+      "outputBytes": 2165866,
+      "media": {
+        "width": 1280,
+        "height": 704,
+        "frames": 175,
+        "fps": 24,
+        "durationSeconds": 7.292,
+        "videoBitrateBps": 2232987,
+        "audioBitrateBps": 131507,
+        "totalBitrateBps": 2376155,
+        "audioMeanDb": -39.1,
+        "audioMaxDb": -14.9,
+        "blackdetect": {
+          "filter": "blackdetect=d=0.1:pix_th=0.10",
+          "intervalCount": 0
+        },
+        "oom": false
+      }
+    }
+  ],
+  "visualAssessment": [
+    "Both variants preserve the rooftop greenhouse, skyline, short dark-brown bob, yellow raincoat, and blue sweater well enough for a coherent scene.",
+    "Ref2VA begins with a clearer environment-first establishing shot and then introduces the subject, matching the requested staging more closely.",
+    "FL2VA brings the subject into frame earlier and maintains a profile-oriented close-up, but it was not visibly sharper overall in this pair.",
+    "The bitrate difference is a secondary encoding observation, not a quality metric; Ref2VA was higher in this run, contrary to the Reddit anecdote.",
+    "FL2VA audio was louder than Ref2VA in this pair; audio was not otherwise scored."
+  ],
+  "artifacts": {
+    "readme": "README.md",
+    "readmeJa": "README.ja.md",
+    "referencePrompts": "reference-prompts.md",
+    "contactSheet": "previews/contact-sheet.jpg",
+    "workflows": ["workflows/a-ref2va-api.json", "workflows/b-fl2va-api.json"],
+    "videos": ["outputs/ref2va.mp4", "outputs/fl2va.mp4"],
+    "comparisonTile": {
+      "path": "outputs/ref2va-vs-fl2va-tile.mp4",
+      "poster": "outputs/ref2va-vs-fl2va-tile-first.jpg",
+      "sha256": "6CD279238B75225086812F5F063FDFFB0FFA6B50C44252B01808CDF41F1CE7C6",
+      "provenance": "evidence-derived tile video; left Ref2VA, right FL2VA; audio muted for comparison"
+    },
+    "verticalComparisonTile": {
+      "path": "outputs/ref2va-vs-fl2va-tile-vertical.mp4",
+      "poster": "outputs/ref2va-vs-fl2va-tile-vertical-first.jpg",
+      "sha256": "66D9BF2EC32273B613BB816923416D9B17CFF7F00DD27C10669D05A89EBEFAAE",
+      "dimensions": "1280x1080",
+      "provenance": "evidence-derived vertical tile video; top Ref2VA, bottom FL2VA; audio muted for comparison"
+    },
+    "fullWidthVerticalComparisonTile": {
+      "path": "outputs/ref2va-vs-fl2va-tile-vertical-fullwidth.mp4",
+      "poster": "outputs/ref2va-vs-fl2va-tile-vertical-fullwidth-first.jpg",
+      "sha256": "761F284D793D9ACDDAB3F9B17E07DDF4CCDF7F27035ABB559259F05D5DA6F322",
+      "dimensions": "1280x1408",
+      "provenance": "evidence-derived full-width vertical tile video; top Ref2VA, bottom FL2VA; audio muted for comparison"
+    },
+    "sampleFrames": [
+      "outputs/ref2va-t000.jpg",
+      "outputs/ref2va-t350.jpg",
+      "outputs/ref2va-t690.jpg",
+      "outputs/fl2va-t000.jpg",
+      "outputs/fl2va-t350.jpg",
+      "outputs/fl2va-t690.jpg"
+    ]
+  },
+  "limitations": [
+    "One scene, one seed, and one newly generated reference set were tested.",
+    "No blind human preference test or automated identity/semantic score was run.",
+    "ref_image_size=max was not tested; this experiment isolates the model checkpoint swap under match.",
+    "The model swap is technically accepted by the node but is not the official R2V checkpoint pairing.",
+    "The reference assets were generated with imagegen, so they are intentionally new and not byte-identical to the earlier R2V experiment."
+  ]
+}
