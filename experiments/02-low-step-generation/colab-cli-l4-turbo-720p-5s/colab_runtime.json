@@ -1,0 +1,23 @@
+{
+  "comfyui": {
+    "repository": "https://github.com/Comfy-Org/ComfyUI.git",
+    "revision": "v0.30.0"
+  },
+  "turboNode": {
+    "repository": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo.git",
+    "revision": "a7624b4c00626a8ae7e78860769389d706565190"
+  },
+  "modelProfile": "legacy-turbo",
+  "modelManifest": "/content/models_manifest.json",
+  "modelRoot": "/content/ComfyUI/models",
+  "workflow": "/content/colab_h3_turbo_l4_1280x704_api.json",
+  "runtimeFlags": [
+    "--disable-pinned-memory",
+    "--disable-async-offload",
+    "--disable-dynamic-vram",
+    "--novram",
+    "--fp16-intermediates",
+    "--preview-method",
+    "none"
+  ]
+}

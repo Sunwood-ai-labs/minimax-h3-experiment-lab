@@ -60,6 +60,7 @@ yarn-error.log*
 # Generated video/audio is retained locally; metadata, workflows, posters and contact sheets remain trackable.
 experiments/**/outputs/*.mp4
 experiments/**/renders/*.mp4
+experiments/**/previews/*.mp4
 experiments/**/assets/*.mp4
 experiments/**/assets/*.mp3
 experiments/**/assets/*.mov

@@ -1,0 +1,21 @@
+{
+  "type": "single-frame-video-preview",
+  "sources": [
+    {
+      "path": "local-only: colab_l4_turbo_720p_5s_exact.mp4",
+      "status": "local-only",
+      "sha256": "35BA074D0008B03852A6B3D371ED04570148273DC53033ECF16E3A635D48EE01",
+      "width": 1280,
+      "height": 704,
+      "frames": 120,
+      "fps": 24,
+      "durationSeconds": 5.0,
+      "sampleTimestamps": [0.0]
+    }
+  ],
+  "output": {
+    "path": "experiments/02-low-step-generation/colab-cli-l4-turbo-720p-5s/previews/contact-sheet.jpg",
+    "sha256": "F4CE39F2240A14BD8F48EE8DDD4888C8DF3E06BAEC48F22A569DA15E0B1E7177"
+  },
+  "note": "The tracked frame is a first-frame poster for the generated 5.00-second L4 output; the full MP4 remains outside the repository for X attachment."
+}

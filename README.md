@@ -17,7 +17,8 @@ This repository is a growing experiment lab rather than a model mirror. It keeps
 ## 🧭 Start here
 
 - [Browse the visual experiment gallery](./experiments/README.md)
-- [See all ten tile previews on this page](#🖼️-experiment-tile-previews)
+- [Open the Google Colab CLI L4 reproduction record](./experiments/02-low-step-generation/colab-cli-l4-turbo-720p-5s/README.md)
+- [See the tile previews on this page](#🖼️-experiment-tile-previews)
 - [Open the English machine-readable experiment ledger](./experiments/index.en.md)
 - [Read the English reproducibility contract](./LAB.en.md)
 - [Open the documentation site](https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/)
@@ -26,12 +27,15 @@ This repository is a growing experiment lab rather than a model mirror. It keeps
 
 ## 🖼️ Experiment tile previews
 
-These tracked contact sheets are the fastest way to compare temporal behavior from a fresh clone. Click a tile to open the full experiment record; each card also links to the corresponding video thread or source post on X. Generated MP4s remain local-only, so the tiles are the public visual evidence.
+These tracked contact sheets are the fastest way to compare temporal behavior from a fresh clone. Click a tile to open the full experiment record; each card also links to the corresponding video thread or source post on X. Generated MP4s are local-only; the public visual evidence is the tracked tile and manifest.
 
 <table>
   <tr>
     <td width="50%" valign="top"><a href="./experiments/01-baseline/gpu-baseline/README.md"><img src="./experiments/01-baseline/gpu-baseline/previews/contact-sheet.jpg" alt="GPU baseline contact sheet" width="480"></a><br><strong>GPU baseline</strong><br>RTX 3060 / 4090 · T2V + I2V<br><a href="./experiments/01-baseline/gpu-baseline/README.md">Record</a> · <a href="https://x.com/hAru_mAki_ch/status/2085730512677855266">3060 T2V</a> · <a href="https://x.com/hAru_mAki_ch/status/2085731260169953315">3060 I2V</a> · <a href="https://x.com/hAru_mAki_ch/status/2085738947553185852">4090 T2V</a> · <a href="https://x.com/hAru_mAki_ch/status/2085738981866811714">4090 I2V</a></td>
     <td width="50%" valign="top"><a href="./experiments/01-baseline/3060-black-output/README.md"><img src="./experiments/01-baseline/3060-black-output/previews/contact-sheet.jpg" alt="3060 black-output contact sheet" width="480"></a><br><strong>3060 black-output failure</strong><br>Retained failure evidence · not a success baseline<br><a href="./experiments/01-baseline/3060-black-output/README.md">Record</a> · <a href="https://x.com/TlanoAI/status/2084940455809286397">source video post</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="./experiments/02-low-step-generation/colab-cli-l4-turbo-720p-5s/README.md"><img src="./experiments/02-low-step-generation/colab-cli-l4-turbo-720p-5s/previews/contact-sheet.jpg" alt="Google Colab CLI L4 Turbo contact sheet" width="480"></a><br><strong>Google Colab CLI L4 Turbo</strong><br>Windows → WSL2 → Colab · 1280×704 · exact 5 seconds<br><a href="./experiments/02-low-step-generation/colab-cli-l4-turbo-720p-5s/README.md">Record</a> · <a href="https://github.com/googlecolab/google-colab-cli">Colab CLI source</a></td>
   </tr>
   <tr>
     <td valign="top"><a href="./experiments/02-low-step-generation/lightx2v-4step/README.md"><img src="./experiments/02-low-step-generation/lightx2v-4step/previews/contact-sheet.jpg" alt="LightX2V low-step contact sheet" width="480"></a><br><strong>LightX2V 4-step</strong><br>T2V / I2V · `er_sde` / `sa_solver`<br><a href="./experiments/02-low-step-generation/lightx2v-4step/README.md">Record</a> · <a href="https://x.com/hAru_mAki_ch/status/2085926432086307010">X thread (attachment uncertain)</a> · <a href="https://x.com/sd_tutorial/status/2085760369612783646">source post</a></td>
@@ -87,8 +91,9 @@ The Compose file pins GPU services separately, mounts models read-only, and sepa
 | Acceleration | Sol-Attn + generic FP16 CUDA SageAttention + EasyCache under the same R2V conditions |
 | Temporal continuity | Motion Context with video/audio latent context carried across segments |
 | Production pipelines | Japanese cat-café Vlog and Japanese synth-pop MV with lyric motion |
+| Google Colab CLI | Windows → WSL2 → Colab CLI 0.6.0, NVIDIA L4, legacy Turbo LoRA v4, 1280×704, exact 5-second output |
 
-The gallery currently contains ten machine-readable experiment records. Each record exposes its README, JSON, tracked contact sheet, and contact-sheet manifest. The failed black-output route remains documented so later experiments do not mistake it for a successful baseline.
+The gallery exposes machine-readable experiment records. Each record exposes its README, JSON, tracked contact sheet, and contact-sheet manifest. The failed black-output route remains documented so later experiments do not mistake it for a successful baseline.
 
 ## 🗂️ Experiment structure
 
@@ -119,9 +124,10 @@ The files needed to rebuild the runtime are committed and linked from the record
 | Model setup | [`docker/download-h3-model.sh`](./docker/download-h3-model.sh) | Profile-aware external model download with size and SHA-256 checks |
 | Model lock | [`models/manifest.json`](./models/manifest.json) and [`models/README.md`](./models/README.md) | Exact model filenames, source revisions, target paths, bytes, and hashes |
 | Workflows | [`workflows/`](./workflows/) and each record's `workflows/` | API-format ComfyUI graphs with recorded hashes |
+| Google Colab CLI | [`run-colab-l4-turbo-720p.ps1`](./experiments/02-low-step-generation/colab-cli-l4-turbo-720p-5s/run-colab-l4-turbo-720p.ps1) | Windows → WSL2 → Colab session orchestration, setup, API run, download, and local 5-second validation |
 | Validation | [`scripts/validate-reproducibility.ps1`](./scripts/validate-reproducibility.ps1) | Confirms the Compose/Docker/workflow/input graph before a run |
 
-The model weights and generated videos are intentionally external/local-only. A fresh clone can reproduce the Docker build inputs, runtime, model inventory, and workflow graph after downloading the upstream model files; it cannot reproduce a generated MP4 until the model download and GPU run are performed. Python/apt dependencies still follow the pinned upstream source files and package indexes at build time, so bit-for-bit output identity is not claimed.
+The model weights and generated videos are intentionally external/local-only. The Colab L4 record keeps the X attachment outside Git and stores only the contact sheet, manifest, workflow, runner, and measured metadata. A fresh clone can reproduce the Docker or Colab build inputs, runtime, model inventory, and workflow graph after downloading the upstream model files; it still needs a GPU run to regenerate the video. Python/apt dependencies follow the pinned upstream source files and package indexes at build time, so bit-for-bit output identity is not claimed.
 
 ## 🖼️ Frame-tile previews
 

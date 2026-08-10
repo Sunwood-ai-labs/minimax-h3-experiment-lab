@@ -1,0 +1,45 @@
+{
+  "runId": "l4-colab-2026-08-10",
+  "recordedAt": "2026-08-10T13:15:58+09:00",
+  "status": "success",
+  "host": "Windows 11 PowerShell → WSL2 Ubuntu",
+  "colabCli": "0.6.0",
+  "session": "h3-l4-turbo-720p",
+  "gpu": {"name": "NVIDIA L4", "vramGiB": 22.56},
+  "runtime": {"comfyui": "0.30.0", "python": "3.12.13", "pytorch": "2.11.0+cu128", "cuda": "12.8"},
+  "model": {
+    "profile": "legacy-turbo",
+    "base": "minimax_h3_fl2va_int8_convrot.safetensors",
+    "textEncoder": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+    "videoVae": "minimax_h3_video_vae_fp16.safetensors",
+    "audioVae": "minimax_h3_audio_vae_fp32.safetensors",
+    "lora": "minimax_h3_turbo_4step_ema_ckpt850.safetensors",
+    "allFiveManifestChecks": "passed"
+  },
+  "conditions": {"width": 1280, "height": 704, "frames": 124, "fps": 24, "steps": 8, "seed": 2026081001},
+  "timing": {
+    "setupSeconds": 748.4,
+    "generationStartedUtc": "2026-08-10T03:52:54.246116+00:00",
+    "generationEndedUtc": "2026-08-10T04:14:49.785009+00:00",
+    "generationWallSeconds": 1315.539,
+    "sessionStartedUtc": "2026-08-10T03:38:39+00:00",
+    "sessionStoppedUtc": "2026-08-10T04:15:51+00:00",
+    "sessionWallSeconds": 2232
+  },
+  "outputs": {
+    "rawColab": {"path": "local-only: D:/Prj/colab_l4_turbo_720p_5s_1280x704.mp4", "bytes": 1084151, "sha256": "8C64503640EB4022C53468718EA7FA5E4E793780B8D217B9994A8D9357111E9F", "durationSeconds": 5.166667, "frames": 124},
+    "exactFiveSecond": {"path": "local-only: D:/Prj/colab_l4_turbo_720p_5s_exact.mp4", "bytes": 1426868, "sha256": "35BA074D0008B03852A6B3D371ED04570148273DC53033ECF16E3A635D48EE01", "durationSeconds": 5.0, "frames": 120}
+  },
+  "verification": {
+    "promptId": "00a20019-a06a-47a6-bbe4-008ac9ce2246",
+    "comfyPromptSeconds": 1315.539,
+    "turboModulesPatched": 259,
+    "loraActive": true,
+    "blackdetectEvents": [],
+    "videoFinite": true,
+    "audioFinite": true,
+    "activeSessionsAfterStop": 0
+  },
+  "cuEstimate": {"generationOnly": 0.62, "sessionTotal": 1.06, "rateCuPerHour": 1.71, "note": "Approximate public rate; use the Colab UI for billing truth."},
+  "provenance": "The successful run used temporary local scripts. The tracked Colab runner in this record is a post-run reproducibility packaging of the same setup/start/API/trim logic, not a byte-for-byte hash claim for the original temporary files."
+}

@@ -1,0 +1,138 @@
+{
+  "id": "2026-08-10-colab-cli-l4-turbo-720p-5s",
+  "date": "2026-08-10",
+  "category": "02-low-step-generation",
+  "status": "verified",
+  "hypothesis": "WindowsからWSL2上のGoogle Colab CLIでL4を起動し、MiniMax-H3のlegacy Turbo LoRA v4を1280×704で8 steps実行できる。",
+  "purpose": "Colab CLI経由のL4実行を、workflow・セットアップ・起動・API runner・5秒整形までリポジトリから再現可能にする。",
+  "scope": "今回の成功runは一時スクリプトで実行した。実験後に同じ処理を追跡可能なrunner一式へ整理したため、追跡runnerのSHA-256は成功runのバイト単位の実行証跡ではなく、再現用パッケージの固定値として扱う。",
+  "sources": [
+    {"type": "github", "url": "https://github.com/googlecolab/google-colab-cli", "role": "Windows WSL2から利用したColab CLI"},
+    {"type": "github", "url": "https://github.com/Comfy-Org/ComfyUI", "revision": "v0.30.0", "role": "Colab側のComfyUI runtime"},
+    {"type": "github", "url": "https://github.com/Larryvrh/ComfyUI-MiniMax-H3-Turbo", "revision": "a7624b4c00626a8ae7e78860769389d706565190", "role": "Turbo sampler / LoRA custom node"},
+    {"type": "huggingface", "url": "https://huggingface.co/Comfy-Org/MiniMax-H3", "revision": "93acf8c91365d40dc32a3abd19af06df6b6f7c65", "role": "H3 base, text encoder, official video/audio VAE"},
+    {"type": "huggingface", "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora", "revision": "43a74557ac3f6539db8e0f2a959d03feb7a81480", "role": "legacy Turbo LoRA v4"}
+  ],
+  "conditions": {
+    "host": "Windows 11 PowerShell → WSL2 Ubuntu",
+    "colabCli": "0.6.0",
+    "gpu": "NVIDIA L4",
+    "vramGiB": 22.56,
+    "comfyui": "0.30.0",
+    "python": "3.12.13",
+    "pytorch": "2.11.0+cu128",
+    "cuda": "12.8 runtime; optimized CUDA warning is expected because the Docker reference uses cu130",
+    "baseModel": "minimax_h3_fl2va_int8_convrot.safetensors",
+    "textEncoder": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+    "videoVae": "minimax_h3_video_vae_fp16.safetensors",
+    "audioVae": "minimax_h3_audio_vae_fp32.safetensors",
+    "lora": "minimax_h3_turbo_4step_ema_ckpt850.safetensors",
+    "loraStrength": 1.0,
+    "resolution": "1280x704",
+    "frames": 124,
+    "fps": 24,
+    "steps": 8,
+    "scheduler": "simple",
+    "seed": 2026081001,
+    "runtimeFlags": ["--disable-pinned-memory", "--disable-async-offload", "--disable-dynamic-vram", "--novram", "--fp16-intermediates", "--preview-method none"],
+    "prompt": "A calm cinematic sunrise over a quiet Japanese mountain lake, gentle mist drifting across the water, slow camera movement, natural ambient birds and soft wind, no text, five seconds.",
+    "modelDownloadGBApprox": 56.3,
+    "modelDownloadGiBApprox": 52.45,
+    "setupSeconds": 748.4,
+    "setupOptimization": "A fresh VM redownloads the model set; -SkipSetup reuses an active session, and Drive caching is the next optimization."
+  },
+  "scripts": {
+    "runner": "run-colab-l4-turbo-720p.ps1",
+    "setup": "scripts/colab_h3_setup.py",
+    "start": "scripts/colab_h3_start.py",
+    "apiRunner": "scripts/colab_h3_run.py",
+    "trim": "scripts/trim-exact-5s.ps1",
+    "workflow_files": ["workflows/minimax_h3_turbo_l4_1280x704_api.json"]
+  },
+  "reproduction": {
+    "colabRunner": "run-colab-l4-turbo-720p.ps1",
+    "modelManifest": "../../../models/manifest.json",
+    "runtimePatch": "../../../docker/h3-runtime-patch.py",
+    "comfyuiReference": "colab_runtime.json"
+  },
+  "runs": [
+    {
+      "id": "l4-colab-2026-08-10",
+      "mode": "T2V",
+      "gpu": "NVIDIA L4",
+      "session": "h3-l4-turbo-720p",
+      "promptId": "00a20019-a06a-47a6-bbe4-008ac9ce2246",
+      "status": "success",
+      "startedUtc": "2026-08-10T03:52:54.246116+00:00",
+      "endedUtc": "2026-08-10T04:14:49.785009+00:00",
+      "generationWallSeconds": 1315.539,
+      "sessionStartedUtc": "2026-08-10T03:38:39+00:00",
+      "sessionStoppedUtc": "2026-08-10T04:15:51+00:00",
+      "sessionWallSeconds": 2232,
+      "workflow": "workflows/minimax_h3_turbo_l4_1280x704_api.json",
+      "output": "local-only: colab_l4_turbo_720p_5s_exact.mp4",
+      "outputBytes": 1426868,
+      "outputSha256": "35BA074D0008B03852A6B3D371ED04570148273DC53033ECF16E3A635D48EE01",
+      "rawGenerated": {
+        "dimensions": "1280x704",
+        "frames": 124,
+        "durationSeconds": 5.166667,
+        "bytes": 1084151,
+        "sha256": "8C64503640EB4022C53468718EA7FA5E4E793780B8D217B9994A8D9357111E9F",
+        "status": "local-only"
+      },
+      "exactFiveSecondDerivative": {
+        "dimensions": "1280x704",
+        "frames": 120,
+        "durationSeconds": 5.0,
+        "videoCodec": "H.264",
+        "audioCodec": "AAC stereo 32000Hz",
+        "status": "local-only X attachment"
+      },
+      "cuEstimate": {
+        "generationOnly": 0.62,
+        "sessionTotal": 1.06,
+        "method": "wall hours × public L4 1.71 CU/h estimate; Colab UI is authoritative"
+      },
+      "verification": {
+        "turboNode": "MiniMaxH3TurboLoRA detected; 259 modules patched; lora ACTIVE",
+        "comfyPrompt": "Prompt executed in 00:21:55",
+        "blackdetectIntervals": 0,
+        "videoVaeFinite": true,
+        "audioVaeFinite": true,
+        "activeColabSessionsAfterStop": 0,
+        "visualInspection": "first frame shows a calm sunrise over a misty Japanese mountain lake"
+      },
+      "report": "runs/l4-colab-2026-08-10.json"
+    }
+  ],
+  "artifacts": {
+    "workflows": ["workflows/minimax_h3_turbo_l4_1280x704_api.json"],
+    "references": ["colab_runtime.json", "scripts/colab_h3_setup.py", "scripts/colab_h3_start.py", "scripts/colab_h3_run.py", "scripts/trim-exact-5s.ps1", "run-colab-l4-turbo-720p.ps1"]
+  },
+  "previews": {
+    "contactSheet": "previews/contact-sheet.jpg",
+    "manifest": "previews/contact-sheet.json",
+    "sourceVideos": ["local-only: colab_l4_turbo_720p_5s_exact.mp4"]
+  },
+  "publicEvidence": {
+    "tile": "previews/contact-sheet.jpg",
+    "manifest": "previews/contact-sheet.json",
+    "videoStatus": "local-only",
+    "note": "The exact 5.00-second derivative is the X attachment and remains outside the repository; the tracked frame tile and manifest are the public visual evidence."
+  },
+  "publication": {
+    "platform": "x",
+    "status": "simulation_only",
+    "videoTweets": [],
+    "note": "A numbered-free X payload was simulated with the local-only MP4 attachment; no X write was performed."
+  },
+  "conclusion": "WindowsからWSL2経由でGoogle Colab CLIを起動し、L4上のMiniMax-H3 Turbo LoRA v4を1280×704・8 stepsで完走できた。元生成はH3標準の124 framesで5.166667秒だったため、120 framesへローカル整形して5.00秒版を作成した。",
+  "limitations": [
+    "Colab CLIはWindowsネイティブではなくWSL2 Ubuntuから実行する。",
+    "新規Colab VMでは約56.3 GB（約52.45 GiB）のモデル取得が必要で、今回のsetup wallは約748秒だった。",
+    "v5 experimental artifactは暗号化コンテナで現行Turbo nodeから生成できないため、この成功runはlegacy v4を使った。",
+    "CPU VAE指定は今回のnodeでunsupportedだったため、追跡workflowはsupported default deviceへ修正した。",
+    "CUは公開L4目安からの概算で、実際のColab UI表示を優先する。"
+  ]
+}

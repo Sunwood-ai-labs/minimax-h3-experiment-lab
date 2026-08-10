@@ -17,7 +17,8 @@
 ## 🧭 まず見る場所
 
 - [実験ギャラリー](./experiments/README.md)
-- [このページで10件のタイルを一覧プレビュー](#🖼️-実験タイルプレビュー)
+- [Google Colab CLI L4の再現記録](./experiments/02-low-step-generation/colab-cli-l4-turbo-720p-5s/README.ja.md)
+- [このページでタイルを一覧プレビュー](#🖼️-実験タイルプレビュー)
 - [機械可読な実験台帳](./experiments/index.md)
 - [再現性・記録の運用ガイド](./LAB.md)
 - [公開ドキュメント](https://sunwood-ai-labs.github.io/minimax-h3-experiment-lab/)
@@ -26,12 +27,15 @@
 
 ## 🖼️ 実験タイルプレビュー
 
-Git clone直後でも挙動を比較できるよう、Git追跡済みのcontact sheetを表紙に直接表示します。タイルをクリックすると実験記録へ移動でき、X動画スレッドまたは参照元投稿も同じカードから開けます。生成MP4は通常ローカルのみとし、公開視覚証跡はタイルです。
+Git clone直後でも挙動を比較できるよう、Git追跡済みのcontact sheetを表紙に直接表示します。タイルをクリックすると実験記録へ移動でき、X動画スレッドまたは参照元投稿も同じカードから開けます。生成MP4はローカルのみとし、公開視覚証跡は追跡済みタイルとmanifestです。
 
 <table>
   <tr>
     <td width="50%" valign="top"><a href="./experiments/01-baseline/gpu-baseline/README.ja.md"><img src="./experiments/01-baseline/gpu-baseline/previews/contact-sheet.jpg" alt="GPU baseline contact sheet" width="480"></a><br><strong>GPU基準比較</strong><br>RTX 3060 / 4090 · T2V + I2V<br><a href="./experiments/01-baseline/gpu-baseline/README.ja.md">記録</a> · <a href="https://x.com/hAru_mAki_ch/status/2085730512677855266">3060 T2V</a> · <a href="https://x.com/hAru_mAki_ch/status/2085731260169953315">3060 I2V</a> · <a href="https://x.com/hAru_mAki_ch/status/2085738947553185852">4090 T2V</a> · <a href="https://x.com/hAru_mAki_ch/status/2085738981866811714">4090 I2V</a></td>
     <td width="50%" valign="top"><a href="./experiments/01-baseline/3060-black-output/README.ja.md"><img src="./experiments/01-baseline/3060-black-output/previews/contact-sheet.jpg" alt="3060 black-output contact sheet" width="480"></a><br><strong>3060黒画失敗</strong><br>成功基準と混同しないための失敗証跡<br><a href="./experiments/01-baseline/3060-black-output/README.ja.md">記録</a> · <a href="https://x.com/TlanoAI/status/2084940455809286397">参照動画投稿</a></td>
+  </tr>
+  <tr>
+    <td valign="top"><a href="./experiments/02-low-step-generation/colab-cli-l4-turbo-720p-5s/README.ja.md"><img src="./experiments/02-low-step-generation/colab-cli-l4-turbo-720p-5s/previews/contact-sheet.jpg" alt="Google Colab CLI L4 Turbo contact sheet" width="480"></a><br><strong>Google Colab CLI L4 Turbo</strong><br>Windows → WSL2 → Colab · 1280×704 · 正確に5秒<br><a href="./experiments/02-low-step-generation/colab-cli-l4-turbo-720p-5s/README.ja.md">記録</a> · <a href="https://github.com/googlecolab/google-colab-cli">Colab CLI source</a></td>
   </tr>
   <tr>
     <td valign="top"><a href="./experiments/02-low-step-generation/lightx2v-4step/README.ja.md"><img src="./experiments/02-low-step-generation/lightx2v-4step/previews/contact-sheet.jpg" alt="LightX2V low-step contact sheet" width="480"></a><br><strong>LightX2V 4-step</strong><br>T2V / I2V · `er_sde` / `sa_solver`<br><a href="./experiments/02-low-step-generation/lightx2v-4step/README.ja.md">記録</a> · <a href="https://x.com/hAru_mAki_ch/status/2085926432086307010">Xスレッド（添付対応は未確定）</a> · <a href="https://x.com/sd_tutorial/status/2085760369612783646">参照投稿</a></td>
@@ -87,8 +91,9 @@ GPUサービスはComposeで分離し、モデルは読み取り専用、runtime
 | 高速化 | 同一R2V条件でのSol-Attn + SageAttention + EasyCache比較 |
 | 時間連続性 | Motion Contextによる映像・音声latentのセグメント連鎖 |
 | 制作パイプライン | 日本語猫カフェVlogと日本語シンセポップMV |
+| Google Colab CLI | Windows → WSL2 → Colab CLI 0.6.0、NVIDIA L4、legacy Turbo LoRA v4、1280×704、正確な5秒出力 |
 
-現在の台帳には機械可読な実験記録が10件あります。各記録からREADME、JSON、Git追跡済みタイル、タイルmanifestへ移動できます。黒画経路も削除せず、成功条件と混同しないための失敗証跡として保存しています。
+台帳には機械可読な実験記録があり、各記録からREADME、JSON、Git追跡済みタイル、タイルmanifestへ移動できます。黒画経路も削除せず、成功条件と混同しないための失敗証跡として保存しています。
 
 ## 🗂️ 実験の構成
 
@@ -119,9 +124,10 @@ experiments/<category>/<slug>/
 | モデル取得 | [`docker/download-h3-model.sh`](./docker/download-h3-model.sh) | profile別にモデルを取得し、サイズとSHA-256を検査 |
 | モデル固定表 | [`models/manifest.json`](./models/manifest.json) と [`models/README.ja.md`](./models/README.ja.md) | モデル名、source revision、配置先、bytes、hash |
 | workflow | [`workflows/`](./workflows/) と各記録の`workflows/` | API形式のComfyUIグラフとhash |
+| Google Colab CLI | [`run-colab-l4-turbo-720p.ps1`](./experiments/02-low-step-generation/colab-cli-l4-turbo-720p-5s/run-colab-l4-turbo-720p.ps1) | Windows → WSL2 → Colab session起動、setup、API実行、download、ローカル5秒検証 |
 | 検証 | [`scripts/validate-reproducibility.ps1`](./scripts/validate-reproducibility.ps1) | Compose / Docker / workflow / 入力の実在性を確認 |
 
-モデル本体と生成動画は意図的に外部・ローカル扱いです。clone直後にDocker build入力、runtime、モデル固定表、workflowの構成は再現できますが、モデル取得とGPU実行なしに生成MP4まで再現できるわけではありません。Python/apt依存は固定したupstream sourceとbuild時のpackage indexに従うため、bit単位の出力一致までは保証しません。
+モデル本体と生成動画は外部・ローカル扱いです。Colab L4記録もX添付MP4をGit外に置き、contact sheet、manifest、workflow、runner、実測metadataだけを保存します。clone直後にDockerまたはColabのbuild入力、runtime、モデル固定表、workflowの構成は再現できますが、動画の再生成にはモデル取得とGPU実行が必要です。Python/apt依存は固定したupstream sourceとbuild時のpackage indexに従うため、bit単位の出力一致までは保証しません。
 
 ## 🖼️ フレームタイル
 

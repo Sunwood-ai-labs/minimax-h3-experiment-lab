@@ -1,0 +1,104 @@
+{
+  "1": {
+    "inputs": {
+      "unet_name": "minimax_h3_fl2va_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {"title": "H3 full int8 base"}
+  },
+  "2": {
+    "inputs": {
+      "model": ["1", 0],
+      "lora_name": "minimax_h3_turbo_4step_ema_ckpt850.safetensors",
+      "strength": 1.0,
+      "low_vram": true
+    },
+    "class_type": "MiniMaxH3TurboLoRA",
+    "_meta": {"title": "Turbo LoRA merge fallback"}
+  },
+  "3": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {"title": "H3 NVFP4 text encoder"}
+  },
+  "4": {
+    "inputs": {"vae_name": "minimax_h3_video_vae_fp16.safetensors"},
+    "class_type": "VAELoader",
+    "_meta": {"title": "Official FP16 video VAE"}
+  },
+  "5": {
+    "inputs": {"vae_name": "minimax_h3_audio_vae_fp32.safetensors"},
+    "class_type": "VAELoader",
+    "_meta": {"title": "Official audio VAE"}
+  },
+  "6": {
+    "inputs": {
+      "clip": ["3", 0],
+      "prompt": "A calm cinematic sunrise over a quiet Japanese mountain lake, gentle mist drifting across the water, slow camera movement, natural ambient birds and soft wind, no text, five seconds.",
+      "width": 1280,
+      "height": 704,
+      "length": 124,
+      "vae": ["4", 0]
+    },
+    "class_type": "MiniMaxH3ImageToVideo",
+    "_meta": {"title": "H3 720p-aligned five-second condition"}
+  },
+  "7": {
+    "inputs": {"model": ["2", 0], "conditioning": ["6", 0]},
+    "class_type": "BasicGuider"
+  },
+  "8": {
+    "inputs": {},
+    "class_type": "MiniMaxH3TurboSampler",
+    "_meta": {"title": "Turbo sampler required by the LoRA"}
+  },
+  "9": {
+    "inputs": {"model": ["2", 0], "steps": 8, "scheduler": "simple", "denoise": 1.0},
+    "class_type": "BasicScheduler"
+  },
+  "10": {
+    "inputs": {"noise_seed": 2026081001},
+    "class_type": "RandomNoise"
+  },
+  "11": {
+    "inputs": {
+      "noise": ["10", 0],
+      "guider": ["7", 0],
+      "sampler": ["8", 0],
+      "sigmas": ["9", 0],
+      "latent_image": ["6", 1]
+    },
+    "class_type": "SamplerCustomAdvanced"
+  },
+  "12": {
+    "inputs": {"samples": ["11", 0], "vae": ["4", 0]},
+    "class_type": "VAEDecode"
+  },
+  "13": {
+    "inputs": {"samples": ["11", 1], "vae": ["16", 0]},
+    "class_type": "VAEDecodeAudio"
+  },
+  "14": {
+    "inputs": {"images": ["12", 0], "audio": ["13", 0], "fps": 24.0, "bit_depth": 8},
+    "class_type": "CreateVideo"
+  },
+  "15": {
+    "inputs": {
+      "filename_prefix": "video/colab_l4_turbo_720p_5s_1280x704",
+      "format": "mp4",
+      "codec": "auto",
+      "video": ["14", 0]
+    },
+    "class_type": "SaveVideo"
+  },
+  "16": {
+    "inputs": {"vae": ["5", 0], "device": "default"},
+    "class_type": "SelectVAEDevice",
+    "_meta": {"title": "Supported default audio VAE device"}
+  }
+}
