@@ -109,6 +109,6 @@
     "workflowRef2va": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/workflows/a-ref2va-api.json",
     "workflowFl2va": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/workflows/b-fl2va-api.json",
     "referencePrompts": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/reference-prompts.ja.md",
-    "commit": "0119f16 (公開実験記録の現行origin/main commit); simulator payload remains local"
+    "commit": "d97fa34 (公開実験記録と投稿記録を含む現行origin/main commit)"
   }
 }
