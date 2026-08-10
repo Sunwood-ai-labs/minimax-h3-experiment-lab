@@ -22,14 +22,14 @@
       "id": "reply-ref2va",
       "kind": "reply",
       "label": "返信 1｜Ref2VA実測動画",
-      "text": "Ref2VA実測動画🎥 生成:898.216秒（約14分58秒） 1280×704 / 175f / 24fps / 7.292秒 MP4:2,461,614B OOMなし / blackdetect 0 output SHA-256:6D68CD21D203B7D47727D84D106DD35AE311000DF72B9F0CB5B014BE7420DE6E モデル名・workflow・prompt ID・model SHA:https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/experiment.json",
+      "text": "Ref2VA実測動画🎥 生成:898.216秒（約14分58秒） 1280×704 / 175f / 24fps / 7.292秒 元出力:2,461,614B seed:2026081011 ref_image_size:match OOMなし / blackdetect 0 UNET:minimax_h3_ref2va_pruned_int8_convrot.safetensors 詳細:https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/experiment.json",
       "media": ["ref2va-source"]
     },
     {
       "id": "reply-fl2va",
       "kind": "reply",
       "label": "返信 2｜FL2VA実測動画",
-      "text": "FL2VA実測動画🎥 生成:980.446秒（約16分20秒） 1280×704 / 175f / 24fps / 7.292秒 MP4:2,165,866B OOMなし / blackdetect 0 output SHA-256:96E80AB2D5E1CC54B63E3FBC6F124C426EC15BDBF6226FB51AA1863DFCBA9E3A モデル名・workflow・prompt ID・model SHA:https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/experiment.json",
+      "text": "FL2VA実測動画🎥 生成:980.446秒（約16分20秒） 1280×704 / 175f / 24fps / 7.292秒 元出力:2,165,866B seed:2026081011 ref_image_size:match OOMなし / blackdetect 0 UNET:minimax_h3_fl2va_pruned_int8_convrot.safetensors 詳細:https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/experiment.json",
       "media": ["fl2va-source"]
     }
   ],
@@ -43,7 +43,6 @@
       "dimensions": "1280×1408 / 24 fps / 7.292秒",
       "streams": "映像のみ（比較用に音声ミュート）",
       "promptId": "Ref2VA 4b0407a0… / FL2VA 9df4ed26…",
-      "sha256": "761F284D793D9ACDDAB3F9B17E07DDF4CCDF7F27035ABB559259F05D5DA6F322",
       "source": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/outputs/ref2va-vs-fl2va-tile-vertical-fullwidth.mp4",
       "provenance": "evidence-derived full-width vertical tile video; top Ref2VA, bottom FL2VA; audio muted for comparison"
     },
@@ -56,7 +55,6 @@
       "dimensions": "1280×704 / 24 fps / 7.292秒",
       "streams": "映像＋音声 / video 2.56Mbps / audio 132.012kbps",
       "promptId": "4b0407a0-b8ff-492f-82b8-1603e4259065",
-      "sha256": "6D68CD21D203B7D47727D84D106DD35AE311000DF72B9F0CB5B014BE7420DE6E",
       "source": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/outputs/ref2va.mp4",
       "provenance": "real ComfyUI execution output; evidence-derived attachment"
     },
@@ -69,7 +67,6 @@
       "dimensions": "1280×704 / 24 fps / 7.292秒",
       "streams": "映像＋音声 / video 2.23Mbps / audio 131.507kbps",
       "promptId": "9df4ed26-696f-49ef-9285-5933ea9fc4c8",
-      "sha256": "96E80AB2D5E1CC54B63E3FBC6F124C426EC15BDBF6226FB51AA1863DFCBA9E3A",
       "source": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/outputs/fl2va.mp4",
       "provenance": "real ComfyUI execution output; evidence-derived attachment"
     }
@@ -84,7 +81,6 @@
       "dimensions": "1280×1080 / 24 fps / 7.292秒",
       "streams": "映像のみ（比較用に音声ミュート）",
       "promptId": "Ref2VA 4b0407a0… / FL2VA 9df4ed26…",
-      "sha256": "66D9BF2EC32273B613BB816923416D9B17CFF7F00DD27C10669D05A89EBEFAAE",
       "source": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/outputs/ref2va-vs-fl2va-tile-vertical.mp4",
       "provenance": "evidence-derived vertical tile video with centered panels; top Ref2VA, bottom FL2VA; audio muted for comparison"
     }
