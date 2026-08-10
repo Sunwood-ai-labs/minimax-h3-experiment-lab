@@ -28,6 +28,13 @@
       "note": "Official MiniMax-H3 T2V/FL2VA/Ref2VA support."
     }
   ],
+  "publication": {
+    "repository": "https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab",
+    "path": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10",
+    "url": "https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10",
+    "commit": "8e27a72",
+    "publishedAt": "2026-08-10"
+  },
   "referenceInputs": [
     {
       "index": 1,
@@ -97,6 +104,21 @@
         "sha256": "E889202C41DAFB67B10D67B97F0D8541508036A6090AF23425A5C2615D03C47A"
       }
     }
+  },
+  "reproduction": {
+    "repositoryClone": "git clone https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab.git",
+    "modelProfiles": ["ref2va", "fl2va"],
+    "modelRevision": "93acf8c91365d40dc32a3abd19af06df6b6f7c65",
+    "referenceCopy": "Copy-Item .\\experiments\\03-reference-conditioned\\ref2va-vs-fl2va-imagegen-2026-08-10\\references\\*.png .\\runtime\\4090\\input\\ -Force",
+    "runner": "scripts/run-h3-post-condition.ps1",
+    "workflows": {
+      "ref2va": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/workflows/a-ref2va-api.json",
+      "fl2va": "experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10/workflows/b-fl2va-api.json"
+    },
+    "seed": 2026081011,
+    "expectedGpu": "RTX 4090",
+    "expectedPort": 8188,
+    "note": "The generated MP4s are not tracked in Git; rerunning the two workflows creates the outputs and the helper writes runtime/4090/benchmark reports."
   },
   "runs": [
     {
