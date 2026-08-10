@@ -54,7 +54,7 @@
       "id": "reply-repository",
       "kind": "reply",
       "label": "返信 6｜実験記録・再現ファイル",
-      "text": "実験条件・参照プロンプト・workflows・モデルSHA-256・出力SHA-256・比較フレームはここに記録。\n今回の実験フォルダはローカル記録で、GitHub公開反映はまだ行っていない。\nhttps://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab"
+      "text": "実験条件・参照プロンプト・workflows・モデルSHA-256・出力SHA-256・比較フレームを、実験フォルダに公開した。\nこの返信のURLからREADME・experiment.json・参照画像・prompt・workflowへ移動できる。\nhttps://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10"
     }
   ],
   "media": [
@@ -120,9 +120,9 @@
       "url": "https://x.com/umiyuki_ai/status/2086621244234039651?s=46"
     },
     {
-      "label": "公式実験リポジトリ",
+      "label": "公開した実験フォルダ",
       "kind": "GitHub / repository",
-      "url": "https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab"
+      "url": "https://github.com/Sunwood-ai-labs/minimax-h3-experiment-lab/tree/main/experiments/03-reference-conditioned/ref2va-vs-fl2va-imagegen-2026-08-10"
     }
   ],
   "evidence": {
