@@ -1,0 +1,34 @@
+{
+  "schema": "minimax-h3-video-contact-sheet/v1",
+  "generatedAt": "2026-08-10T09:03:10.0446938+09:00",
+  "sources": [
+    {
+      "row": 1,
+      "path": "runtime/4090/output/video/seedvr2_experiment_4k_segmented_full_verified2.mp4",
+      "bytes": 22213512,
+      "sha256": "BF4D8E497DD6FC69ED07F5C2256623988ED9E6963C992050A51E6B2CD842FB07",
+      "width": 3840,
+      "height": 2160,
+      "durationSeconds": 6.583333,
+      "fps": "24/1",
+      "frames": 158,
+      "samplingNote": "The tile is a boundary-focused visual proof derived from the nine 4K segment outputs; it is not a claim that the MP4 is tracked."
+    }
+  ],
+  "sampling": {
+    "frameCountPerSource": 18,
+    "columns": 6,
+    "rowsPerSource": 3,
+    "tileWidth": 1600,
+    "tileHeight": 450,
+    "order": "Boundary-focused snapshots arranged left-to-right by time and top-to-bottom by boundary group."
+  },
+  "output": {
+    "path": "experiments/07-upscaling/seedvr2-4k-rtx4090/previews/contact-sheet.jpg",
+    "bytes": 254377,
+    "sha256": "F3CC49B56ACF92A1F2827FB9AA0986456B1904F6266AF2BA39C644A797F5B696",
+    "format": "jpg",
+    "width": 1600,
+    "height": 450
+  }
+}

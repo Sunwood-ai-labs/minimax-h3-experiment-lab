@@ -1,0 +1,53 @@
+﻿{
+    "experiment":  "MiniMax-H3 4090 SeedVR2 upscale",
+    "captured_local":  "2026-08-10T00:40:31.3858448+09:00",
+    "workflow":  "D:\\Prj\\minimax-h3-compose\\experiments\\4090_seedvr2\\seedvr2_upscale_4k_segment_api.json",
+    "port":  8188,
+    "prompt_id":  "c6273f78-d2b8-405e-bb02-3e9f3bc82270",
+    "status":  "success",
+    "started_local":  "2026-08-10T00:38:21.0588670+09:00",
+    "ended_local":  "2026-08-10T00:40:31.3807362+09:00",
+    "wall_seconds":  130.322,
+    "error_message":  null,
+    "history_status":  {
+                           "status_str":  "success",
+                           "completed":  true,
+                           "messages":  [
+                                            [
+                                                "execution_start",
+                                                {
+                                                    "prompt_id":  "c6273f78-d2b8-405e-bb02-3e9f3bc82270",
+                                                    "timestamp":  1786289901116
+                                                }
+                                            ],
+                                            [
+                                                "execution_cached",
+                                                {
+                                                    "nodes":  [
+                                                                  "1",
+                                                                  "6",
+                                                                  "8"
+                                                              ],
+                                                    "prompt_id":  "c6273f78-d2b8-405e-bb02-3e9f3bc82270",
+                                                    "timestamp":  1786289901125
+                                                }
+                                            ],
+                                            [
+                                                "execution_success",
+                                                {
+                                                    "prompt_id":  "c6273f78-d2b8-405e-bb02-3e9f3bc82270",
+                                                    "timestamp":  1786290030847
+                                                }
+                                            ]
+                                        ]
+                       },
+    "output_files":  [
+
+                     ],
+    "vram_trace":  "D:\\Prj\\minimax-h3-compose\\experiments\\4090_seedvr2\\seedvr2_4k_seg02-vram.csv",
+    "parameters":  {
+                       "start_time":  1.5,
+                       "duration":  0.75,
+                       "output_prefix":  "video/seedvr2_experiment_4k_seg02"
+                   }
+}

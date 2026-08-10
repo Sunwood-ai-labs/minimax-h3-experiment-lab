@@ -1,0 +1,65 @@
+[
+  {
+    "segment": 0,
+    "start_time": 0.0,
+    "duration": 0.75,
+    "report": "D:\\Prj\\minimax-h3-compose\\experiments\\4090_seedvr2\\seedvr2_4k_seg00.json",
+    "output_prefix": "video/seedvr2_experiment_4k_seg00"
+  },
+  {
+    "segment": 1,
+    "start_time": 0.75,
+    "duration": 0.75,
+    "report": "D:\\Prj\\minimax-h3-compose\\experiments\\4090_seedvr2\\seedvr2_4k_seg01.json",
+    "output_prefix": "video/seedvr2_experiment_4k_seg01"
+  },
+  {
+    "segment": 2,
+    "start_time": 1.5,
+    "duration": 0.75,
+    "report": "D:\\Prj\\minimax-h3-compose\\experiments\\4090_seedvr2\\seedvr2_4k_seg02.json",
+    "output_prefix": "video/seedvr2_experiment_4k_seg02"
+  },
+  {
+    "segment": 3,
+    "start_time": 2.25,
+    "duration": 0.75,
+    "report": "D:\\Prj\\minimax-h3-compose\\experiments\\4090_seedvr2\\seedvr2_4k_seg03.json",
+    "output_prefix": "video/seedvr2_experiment_4k_seg03"
+  },
+  {
+    "segment": 4,
+    "start_time": 3.0,
+    "duration": 0.75,
+    "report": "D:\\Prj\\minimax-h3-compose\\experiments\\4090_seedvr2\\seedvr2_4k_seg04.json",
+    "output_prefix": "video/seedvr2_experiment_4k_seg04"
+  },
+  {
+    "segment": 5,
+    "start_time": 3.75,
+    "duration": 0.75,
+    "report": "D:\\Prj\\minimax-h3-compose\\experiments\\4090_seedvr2\\seedvr2_4k_seg05.json",
+    "output_prefix": "video/seedvr2_experiment_4k_seg05"
+  },
+  {
+    "segment": 6,
+    "start_time": 4.5,
+    "duration": 0.75,
+    "report": "D:\\Prj\\minimax-h3-compose\\experiments\\4090_seedvr2\\seedvr2_4k_seg06.json",
+    "output_prefix": "video/seedvr2_experiment_4k_seg06"
+  },
+  {
+    "segment": 7,
+    "start_time": 5.25,
+    "duration": 0.75,
+    "report": "D:\\Prj\\minimax-h3-compose\\experiments\\4090_seedvr2\\seedvr2_4k_seg07.json",
+    "output_prefix": "video/seedvr2_experiment_4k_seg07"
+  },
+  {
+    "segment": 8,
+    "start_time": 6.0,
+    "duration": 0.583333,
+    "report": "D:\\Prj\\minimax-h3-compose\\experiments\\4090_seedvr2\\seedvr2_4k_seg08.json",
+    "output_prefix": "video/seedvr2_experiment_4k_seg08"
+  }
+]

@@ -1,0 +1,423 @@
+{
+  "id": "seedvr2-rtx4090-fhd-4k-segmented",
+  "date": "2026-08-10",
+  "category": "07-upscaling",
+  "status": "verified",
+  "purpose": "Measure whether a MiniMax-H3 video generated at 1344x768 can be upscaled to FHD and 4K on an RTX 4090 with SeedVR2, and identify a reproducible VRAM-safe 4K strategy.",
+  "scope": "Post-process upscaling only; the H3 input video is an existing local LightX2V I2V result and is not regenerated in this experiment.",
+  "hypothesis": "FHD should fit in one SeedVR2 pass, while 4K full-length processing may exceed 24 GiB during VAE decode; short temporal segments should bound VRAM enough to finish the full 158-frame clip.",
+  "sources": [
+    {
+      "type": "huggingface",
+      "url": "https://huggingface.co/Comfy-Org/SeedVR2",
+      "role": "official SeedVR2 model distribution and model naming reference"
+    },
+    {
+      "type": "huggingface",
+      "url": "https://huggingface.co/Comfy-Org/MiniMax-H3",
+      "role": "MiniMax-H3 model family context for the local input video"
+    },
+    {
+      "type": "x",
+      "url": "https://x.com/aihonobono2023/status/2086281213334213104?s=46",
+      "role": "user-provided reference post for the continuation/upscale experiment",
+      "content_basis": "Reference post used for motivation; its exact workflow and run conditions are not claimed as reproduced."
+    }
+  ],
+  "host": {
+    "platform": "Windows host with WSL2-backed Docker",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "vram_mib": 24564,
+    "driver": "591.86"
+  },
+  "container": {
+    "service": "h3-4090",
+    "endpoint": "http://127.0.0.1:8188",
+    "image": "local/minimax-h3-comfyui:v0.30.0",
+    "comfyui": "0.30.0",
+    "python": "3.12.3",
+    "pytorch": "2.11.0+cu130",
+    "argv": [
+      "--listen",
+      "0.0.0.0",
+      "--port",
+      "8188",
+      "--disable-pinned-memory",
+      "--disable-async-offload",
+      "--fp16-intermediates",
+      "--preview-method",
+      "none"
+    ]
+  },
+  "models": {
+    "diffusion": {
+      "filename": "seedvr2_3b_int8_convrot.safetensors",
+      "local_path": "models/diffusion_models/seedvr2_3b_int8_convrot.safetensors",
+      "bytes": 3458259704,
+      "sha256": "C3DEC8BCC5916843A8A858572970597462E1F2DC598D6DFD818F6CD40F53A157"
+    },
+    "vae": {
+      "filename": "seedvr2_ema_vae_fp16.safetensors",
+      "local_path": "models/vae/seedvr2_ema_vae_fp16.safetensors",
+      "bytes": 501324814,
+      "sha256": "20678548F420D98D26F11442D3528F8B8C94E57EE046EF93DBB7633DA8612CA1"
+    },
+    "source": "https://huggingface.co/Comfy-Org/SeedVR2",
+    "weights_status": "local-only; large model files are not committed"
+  },
+  "conditions": {
+    "mode": "video_upscale",
+    "input": {
+      "path": "runtime/4090/input/seedvr2_experiment_h3_battle_1344x768.mp4",
+      "resolution": [1344, 768],
+      "frames": 158,
+      "fps": 24,
+      "video_seconds": 6.583333,
+      "audio_seconds": 6.575,
+      "bytes": 2804264,
+      "sha256": "5A0BECA0A21423F86F6280AAA72ED06359423C4A878CB2BCB17543443C3A8E2D"
+    },
+    "targets": [[1920, 1080], [3840, 2160]],
+    "preprocess": "Lanczos resize to target aspect ratio, then center crop",
+    "steps": 1,
+    "sampler": "euler",
+    "scheduler": "simple",
+    "cfg": 1.0,
+    "seed": 2026081001,
+    "color_correction": false,
+    "audio_policy": "retain the source AAC audio; remux it onto the verified 4K video with timestamp correction",
+    "vae_tile_size": 512,
+    "vae_overlap": 128,
+    "vae_temporal_size": 64,
+    "vae_temporal_overlap": 8,
+    "segment_seconds": 0.75,
+    "last_segment_seconds": 0.583333,
+    "segment_count": 9
+  },
+  "workflows": [
+    "workflows/seedvr2_upscale_fhd_api.json",
+    "workflows/seedvr2_upscale_4k_api.json",
+    "workflows/seedvr2_upscale_4k_smoke_api.json",
+    "workflows/seedvr2_upscale_4k_segment_api.json"
+  ],
+  "referenceInputs": [
+    {
+      "path": "../../../runtime/4090/input/seedvr2_experiment_h3_battle_1344x768.mp4",
+      "role": "copied H3 LightX2V I2V baseline input"
+    }
+  ],
+  "runs": [
+    {
+      "id": "fhd_full",
+      "status": "success",
+      "started_local": "2026-08-10T00:06:10.1263699+09:00",
+      "ended_local": "2026-08-10T00:10:30.7266806+09:00",
+      "wall_seconds": 260.6,
+      "prompt_id": "8b01e1ba-84d7-4b42-a463-e082d6c2256f",
+      "workflow": "workflows/seedvr2_upscale_fhd_api.json",
+      "report": "runs/seedvr2_fhd_full.json",
+      "vram_trace": "runs/seedvr2_fhd_full-vram.csv",
+      "output": "runtime/4090/output/video/seedvr2_experiment_fhd_full_00001_.mp4",
+      "output_bytes": 5940003,
+      "output_sha256": "63C030F305D41CDCD8FAF470997C377D7B5B78CD76C0167F71B2FDE92D27E474",
+      "ffprobe": {"video": "h264", "audio": "aac", "width": 1920, "height": 1080, "frames": 158, "fps": "24/1", "video_seconds": 6.583333, "audio_seconds": 6.584},
+      "peak_vram_mib": 13199,
+      "max_temperature_c": 84,
+      "blackdetect_intervals": 0
+    },
+    {
+      "id": "4k_smoke",
+      "status": "success",
+      "started_local": "2026-08-10T00:11:40.3139838+09:00",
+      "ended_local": "2026-08-10T00:12:40.5126465+09:00",
+      "wall_seconds": 60.199,
+      "prompt_id": "bbe92b8c-08fe-4b12-89b4-74913f941a43",
+      "workflow": "workflows/seedvr2_upscale_4k_smoke_api.json",
+      "report": "runs/seedvr2_4k_smoke.json",
+      "vram_trace": "runs/seedvr2_4k_smoke-vram.csv",
+      "output": "runtime/4090/output/video/seedvr2_experiment_4k_smoke_00001_.mp4",
+      "output_bytes": 1618984,
+      "output_sha256": "CDBB7F9AF01DF69AD167701D5B662448355AA5945E7F4D27F2851C30E819C3C7",
+      "ffprobe": {"video": "h264", "audio": "aac", "width": 3840, "height": 2160, "frames": 9, "fps": "24/1", "video_seconds": 0.375, "audio_seconds": 0.375},
+      "peak_vram_mib": 12677,
+      "max_temperature_c": 81,
+      "blackdetect_intervals": 0
+    },
+    {
+      "id": "4k_full_naive",
+      "status": "failed",
+      "started_local": "2026-08-10T00:13:06.2411240+09:00",
+      "ended_local": "2026-08-10T00:29:43.1912584+09:00",
+      "wall_seconds": 996.95,
+      "prompt_id": "4486701f-3208-49b5-98a5-17c00cfa2baa",
+      "workflow": "workflows/seedvr2_upscale_4k_api.json",
+      "report": "runs/seedvr2_4k_full.json",
+      "vram_trace": "runs/seedvr2_4k_full-vram.csv",
+      "error_node": "VAEDecodeTiled",
+      "error_message": "CUDA driver error: out of memory",
+      "peak_vram_mib": 24004,
+      "max_temperature_c": 85,
+      "output": null
+    },
+    {
+      "id": "4k_segment_00",
+      "segment": 0,
+      "status": "success",
+      "start_time": 0.0,
+      "duration": 0.75,
+      "started_local": "2026-08-10T00:31:52.2220991+09:00",
+      "ended_local": "2026-08-10T00:35:17.6338146+09:00",
+      "wall_seconds": 205.412,
+      "prompt_id": "7d2b21f8-be1b-4877-be48-b96689ad5cb6",
+      "workflow": "workflows/seedvr2_upscale_4k_segment_api.json",
+      "report": "runs/seedvr2_4k_seg00.json",
+      "vram_trace": "runs/seedvr2_4k_seg00-vram.csv",
+      "output": "runtime/4090/output/video/seedvr2_experiment_4k_seg00_00001_.mp4",
+      "output_bytes": 2967650,
+      "output_sha256": "088933BCBDC700EEA2D5428C85A95D0B17C5FAC3EC3F216B9B3A3E47410DA8E2",
+      "peak_vram_mib": 16400,
+      "max_temperature_c": 84
+    },
+    {
+      "id": "4k_segment_01",
+      "segment": 1,
+      "status": "success",
+      "start_time": 0.75,
+      "duration": 0.75,
+      "started_local": "2026-08-10T00:35:52.1949942+09:00",
+      "ended_local": "2026-08-10T00:38:02.5034806+09:00",
+      "wall_seconds": 130.308,
+      "prompt_id": "795326fc-24b0-4907-bf57-65fd500fe2ac",
+      "workflow": "workflows/seedvr2_upscale_4k_segment_api.json",
+      "report": "runs/seedvr2_4k_seg01.json",
+      "vram_trace": "runs/seedvr2_4k_seg01-vram.csv",
+      "output": "runtime/4090/output/video/seedvr2_experiment_4k_seg01_00001_.mp4",
+      "output_bytes": 2586740,
+      "output_sha256": "7C12E7FB1DDE4B5CEB22DE8EE06E86E643CDDBA9194916C7877C426B1D283F2A",
+      "peak_vram_mib": 12016,
+      "max_temperature_c": 85
+    },
+    {
+      "id": "4k_segment_02",
+      "segment": 2,
+      "status": "success",
+      "start_time": 1.5,
+      "duration": 0.75,
+      "started_local": "2026-08-10T00:38:21.0588670+09:00",
+      "ended_local": "2026-08-10T00:40:31.3807362+09:00",
+      "wall_seconds": 130.322,
+      "prompt_id": "c6273f78-d2b8-405e-bb02-3e9f3bc82270",
+      "workflow": "workflows/seedvr2_upscale_4k_segment_api.json",
+      "report": "runs/seedvr2_4k_seg02.json",
+      "vram_trace": "runs/seedvr2_4k_seg02-vram.csv",
+      "output": "runtime/4090/output/video/seedvr2_experiment_4k_seg02_00001_.mp4",
+      "output_bytes": 2701737,
+      "output_sha256": "3EB44D43949A896E73BBB590E9C4816D4EBB2DFA066902199CA6EE0FE9AC40D8",
+      "peak_vram_mib": 12016,
+      "max_temperature_c": 86
+    },
+    {
+      "id": "4k_segment_03",
+      "segment": 3,
+      "status": "success",
+      "start_time": 2.25,
+      "duration": 0.75,
+      "started_local": "2026-08-10T00:40:31.4114620+09:00",
+      "ended_local": "2026-08-10T00:42:41.8583644+09:00",
+      "wall_seconds": 130.447,
+      "prompt_id": "57783bda-9839-45bc-838f-cfdd8b1cd274",
+      "workflow": "workflows/seedvr2_upscale_4k_segment_api.json",
+      "report": "runs/seedvr2_4k_seg03.json",
+      "vram_trace": "runs/seedvr2_4k_seg03-vram.csv",
+      "output": "runtime/4090/output/video/seedvr2_experiment_4k_seg03_00001_.mp4",
+      "output_bytes": 2586579,
+      "output_sha256": "78D28A84EB8CAD01B42605D1DC0D85B32CECDBE23511CE47AB1B49134DD3B0D1",
+      "peak_vram_mib": 12016,
+      "max_temperature_c": 85
+    },
+    {
+      "id": "4k_segment_04",
+      "segment": 4,
+      "status": "success",
+      "start_time": 3.0,
+      "duration": 0.75,
+      "started_local": "2026-08-10T00:42:41.8705469+09:00",
+      "ended_local": "2026-08-10T00:44:52.2633706+09:00",
+      "wall_seconds": 130.393,
+      "prompt_id": "61fcdc77-7de1-4bde-8409-12787785cdf6",
+      "workflow": "workflows/seedvr2_upscale_4k_segment_api.json",
+      "report": "runs/seedvr2_4k_seg04.json",
+      "vram_trace": "runs/seedvr2_4k_seg04-vram.csv",
+      "output": "runtime/4090/output/video/seedvr2_experiment_4k_seg04_00001_.mp4",
+      "output_bytes": 2488452,
+      "output_sha256": "6B3F2B6B16498EC0BAC00DAEC79E6261664C2687C27E7A1324F85AD96C8BB68F",
+      "peak_vram_mib": 12016,
+      "max_temperature_c": 86
+    },
+    {
+      "id": "4k_segment_05",
+      "segment": 5,
+      "status": "success",
+      "start_time": 3.75,
+      "duration": 0.75,
+      "started_local": "2026-08-10T00:44:52.2764543+09:00",
+      "ended_local": "2026-08-10T00:47:02.7643478+09:00",
+      "wall_seconds": 130.488,
+      "prompt_id": "70303543-6e9c-4bd8-83ae-5b5317323976",
+      "workflow": "workflows/seedvr2_upscale_4k_segment_api.json",
+      "report": "runs/seedvr2_4k_seg05.json",
+      "vram_trace": "runs/seedvr2_4k_seg05-vram.csv",
+      "output": "runtime/4090/output/video/seedvr2_experiment_4k_seg05_00001_.mp4",
+      "output_bytes": 2293843,
+      "output_sha256": "8413B32CF13CD1E7A42E74C04C3A192404EDE1FCD847073716C5E2E8A6F423CC",
+      "peak_vram_mib": 12016,
+      "max_temperature_c": 86
+    },
+    {
+      "id": "4k_segment_06",
+      "segment": 6,
+      "status": "success",
+      "start_time": 4.5,
+      "duration": 0.75,
+      "started_local": "2026-08-10T00:47:02.7759361+09:00",
+      "ended_local": "2026-08-10T00:49:13.0293122+09:00",
+      "wall_seconds": 130.253,
+      "prompt_id": "a6298154-9d0a-4d97-aa43-0d3392ec92a2",
+      "workflow": "workflows/seedvr2_upscale_4k_segment_api.json",
+      "report": "runs/seedvr2_4k_seg06.json",
+      "vram_trace": "runs/seedvr2_4k_seg06-vram.csv",
+      "output": "runtime/4090/output/video/seedvr2_experiment_4k_seg06_00001_.mp4",
+      "output_bytes": 2426930,
+      "output_sha256": "5C92FB37ECBA9A4E815A6F3019D830CD86E63C4391D9EB17FC63E1BE37F2FAE3",
+      "peak_vram_mib": 12016,
+      "max_temperature_c": 86
+    },
+    {
+      "id": "4k_segment_07",
+      "segment": 7,
+      "status": "success",
+      "start_time": 5.25,
+      "duration": 0.75,
+      "started_local": "2026-08-10T00:49:13.0412741+09:00",
+      "ended_local": "2026-08-10T00:51:23.3033092+09:00",
+      "wall_seconds": 130.262,
+      "prompt_id": "c645a7ef-2033-4a71-b04d-b787b6ff7423",
+      "workflow": "workflows/seedvr2_upscale_4k_segment_api.json",
+      "report": "runs/seedvr2_4k_seg07.json",
+      "vram_trace": "runs/seedvr2_4k_seg07-vram.csv",
+      "output": "runtime/4090/output/video/seedvr2_experiment_4k_seg07_00001_.mp4",
+      "output_bytes": 2351883,
+      "output_sha256": "2B7BB171EDDC5828D367E275C809876C60B422CD5ABA1E13C75AF32DB1DEACCB",
+      "peak_vram_mib": 12016,
+      "max_temperature_c": 86
+    },
+    {
+      "id": "4k_segment_08",
+      "segment": 8,
+      "status": "success",
+      "start_time": 6.0,
+      "duration": 0.583333,
+      "started_local": "2026-08-10T00:51:23.3213464+09:00",
+      "ended_local": "2026-08-10T00:53:13.7536263+09:00",
+      "wall_seconds": 110.432,
+      "prompt_id": "41a36638-46ae-4134-9e18-38870257dbd2",
+      "workflow": "workflows/seedvr2_upscale_4k_segment_api.json",
+      "report": "runs/seedvr2_4k_seg08.json",
+      "vram_trace": "runs/seedvr2_4k_seg08-vram.csv",
+      "output": "runtime/4090/output/video/seedvr2_experiment_4k_seg08_00001_.mp4",
+      "output_bytes": 1841189,
+      "output_sha256": "D654E992797A406F5F8F78AFFB46F0A6E5406BDB9C2593B76A6121107C17BEEE",
+      "peak_vram_mib": 12016,
+      "max_temperature_c": 86
+    }
+  ],
+  "segmentation": {
+    "segment_count": 9,
+    "total_seedvr2_wall_seconds": 1228.317,
+    "concat_method": "ffmpeg concat demuxer over the nine generated segments",
+    "audio_repair": "ffmpeg -itsoffset -0.031006 with the source AAC stream, video/audio stream copy",
+    "final_video": "runtime/4090/output/video/seedvr2_experiment_4k_segmented_full_verified2.mp4"
+  },
+  "artifacts": {
+    "references": [
+      "../../../runtime/4090/input/seedvr2_experiment_h3_battle_1344x768.mp4"
+    ],
+    "workflows": [
+      "workflows/seedvr2_upscale_fhd_api.json",
+      "workflows/seedvr2_upscale_4k_api.json",
+      "workflows/seedvr2_upscale_4k_smoke_api.json",
+      "workflows/seedvr2_upscale_4k_segment_api.json",
+      "workflows/seedvr2_4k_concat_list.txt",
+      "run-seedvr2-api.ps1",
+      "run-seedvr2-4k-segments.ps1"
+    ],
+    "reports": [
+      "REPORT.md",
+      "runs/seedvr2_4k_segments_manifest.json"
+    ],
+    "outputs": [
+      {
+        "path": "runtime/4090/output/video/seedvr2_experiment_fhd_full_00001_.mp4",
+        "status": "local-only",
+        "bytes": 5940003,
+        "sha256": "63C030F305D41CDCD8FAF470997C377D7B5B78CD76C0167F71B2FDE92D27E474"
+      },
+      {
+        "path": "runtime/4090/output/video/seedvr2_experiment_4k_smoke_00001_.mp4",
+        "status": "local-only",
+        "bytes": 1618984,
+        "sha256": "CDBB7F9AF01DF69AD167701D5B662448355AA5945E7F4D27F2851C30E819C3C7"
+      },
+      {
+        "path": "runtime/4090/output/video/seedvr2_experiment_4k_segmented_full_verified2.mp4",
+        "status": "local-only",
+        "bytes": 22213512,
+        "sha256": "BF4D8E497DD6FC69ED07F5C2256623988ED9E6963C992050A51E6B2CD842FB07",
+        "ffprobe": {"width": 3840, "height": 2160, "frames": 158, "fps": "24/1", "video_seconds": 6.583333, "audio_seconds": 6.575, "audio_start_time": 0.0}
+      },
+      {
+        "path": "runtime/4090/output/video/seedvr2_experiment_4k_verified2_frame.png",
+        "status": "local-only",
+        "bytes": 928571,
+        "sha256": "09DA599ECBB7FF27CFE6A8BEE9EDC8A8929D492D1DFFBE31D1F4198DBC6D4695"
+      },
+      {
+        "path": "runtime/4090/output/video/seedvr2_experiment_4k_segmented_boundaries.png",
+        "status": "local-only-source-for-preview",
+        "bytes": 2124896,
+        "sha256": "9AE05FD3CF02B74CD6E0ED23BA13365BB6EB0C7A98D6345E2B667A243B948B72"
+      }
+    ]
+  },
+  "previews": {
+    "contactSheet": "previews/contact-sheet.jpg",
+    "manifest": "previews/contact-sheet.json",
+    "sourceVideos": ["runtime/4090/output/video/seedvr2_experiment_4k_segmented_full_verified2.mp4"]
+  },
+  "publicEvidence": {
+    "tile": "previews/contact-sheet.jpg",
+    "manifest": "previews/contact-sheet.json",
+    "videoStatus": "local-only",
+    "note": "The generated MP4s and model weights stay local-only. The tracked contact sheet, manifest, JSON record, workflows and raw run logs are the clone-safe evidence."
+  },
+  "publication": {
+    "platform": "x",
+    "status": "posted",
+    "videoTweets": [
+      {"runId": "4k_segmented_full", "url": "https://x.com/hAru_mAki_ch/status/2086601484901495018"},
+      {"runId": "experiment_evidence", "url": "https://x.com/hAru_mAki_ch/status/2086601566224814552"}
+    ],
+    "threadUrls": [
+      "https://x.com/hAru_mAki_ch/status/2086601653873168501",
+      "https://x.com/hAru_mAki_ch/status/2086601745233510417"
+    ],
+    "note": "The public thread was posted after the experiment. The X thread is a publication record; the local MP4 hashes and contact sheet remain the technical evidence."
+  },
+  "conclusion": "FHD full-length upscaling succeeded in one pass. A 9-frame 4K smoke test succeeded, but naive 158-frame 4K processing reached 24,004 MiB and failed at VAEDecodeTiled. Splitting the clip into eight 0.75-second segments plus one 0.583333-second tail completed all 158 frames in 1,228.317 seconds, producing a verified 3840x2160 output with 0 blackdetect intervals.",
+  "limitations": [
+    "The exact H3 source workflow and the X reference post's internal settings were not reproduced; the input is a local existing H3 LightX2V I2V output.",
+    "The segmented 4K result is not a single temporal SeedVR2 pass; visual continuity across boundaries was checked with a contact sheet, not with a quantitative seam metric.",
+    "The model revision metadata for the downloaded SeedVR2 files was not captured in the original download session; local byte counts and SHA-256 values are recorded.",
+    "Generated MP4s, source PNGs and model weights are intentionally not committed under the repository's clone-safe experiment convention."
+  ]
+}

@@ -15,7 +15,8 @@ $functionalCategories = @(
     '03-reference-conditioned',
     '04-acceleration',
     '05-temporal-continuity',
-    '06-production-pipelines'
+    '06-production-pipelines',
+    '07-upscaling'
 )
 $records = @()
 $trackedFiles = @(& git -C $repo ls-files)

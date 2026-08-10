@@ -3,7 +3,7 @@
 > 日本語版: [README.ja.md](./README.ja.md)
 
 - ID: `<YYYY-MM-DD-slug>`
-- Category: `<01-baseline|02-low-step-generation|03-reference-conditioned|04-acceleration|05-temporal-continuity|06-production-pipelines>`
+- Category: `<01-baseline|02-low-step-generation|03-reference-conditioned|04-acceleration|05-temporal-continuity|06-production-pipelines|07-upscaling>`
 - Status: `planned`
 - GPU: `<RTX ...>`
 - Owner: `MiniMax-H3 Experiment Lab`

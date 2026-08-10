@@ -14,6 +14,7 @@ The bilingual [visual gallery](./README.md) is the fastest way to inspect tempor
 - [04 — Acceleration](#04--acceleration)
 - [05 — Temporal continuity](#05--temporal-continuity)
 - [06 — Production pipelines](#06--production-pipelines)
+- [07 — Upscaling](#07--upscaling)
 
 ## 01 — Baseline and GPU comparison
 
@@ -54,6 +55,12 @@ The bilingual [visual gallery](./README.md) is the fastest way to inspect tempor
 |---|---|---|---|---|
 | `h3-japanese-catcafe-vlog-5segment` | English prompts + Japanese dialogue; five-segment cat-café Vlog | verified | [English](./06-production-pipelines/catcafe-vlog-5segment/README.md) · [日本語](./06-production-pipelines/catcafe-vlog-5segment/README.ja.md) · [JSON](./06-production-pipelines/catcafe-vlog-5segment/experiment.json) | [contact sheet](./06-production-pipelines/catcafe-vlog-5segment/previews/contact-sheet.jpg) · [manifest](./06-production-pipelines/catcafe-vlog-5segment/previews/contact-sheet.json) |
 | `h3-mv-jpop-5segment` | H3 generated audio, beat analysis, and HyperFrames lyric motion | verified | [English](./06-production-pipelines/jpop-mv-5segment/README.md) · [日本語](./06-production-pipelines/jpop-mv-5segment/README.ja.md) · [JSON](./06-production-pipelines/jpop-mv-5segment/experiment.json) | [contact sheet](./06-production-pipelines/jpop-mv-5segment/previews/contact-sheet.jpg) · [manifest](./06-production-pipelines/jpop-mv-5segment/previews/contact-sheet.json) |
+
+## 07 — Upscaling
+
+| ID | Function | Status | Record | Tile |
+|---|---|---|---|---|
+| `seedvr2-rtx4090-fhd-4k-segmented` | SeedVR2 FHD / 4K upscaling of an H3 1344×768 source; naive 4K OOM and temporal segmentation workaround | verified | [English](./07-upscaling/seedvr2-4k-rtx4090/README.md) · [日本語](./07-upscaling/seedvr2-4k-rtx4090/README.ja.md) · [JSON](./07-upscaling/seedvr2-4k-rtx4090/experiment.json) · [REPORT](./07-upscaling/seedvr2-4k-rtx4090/REPORT.md) | [contact sheet](./07-upscaling/seedvr2-4k-rtx4090/previews/contact-sheet.jpg) · [manifest](./07-upscaling/seedvr2-4k-rtx4090/previews/contact-sheet.json) |
 
 ## Shared entry points
 

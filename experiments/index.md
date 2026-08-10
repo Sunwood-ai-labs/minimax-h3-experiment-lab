@@ -20,6 +20,7 @@
 - [高速化](#04--高速化)
 - [時間連続性](#05--時間連続性)
 - [制作パイプライン](#06--制作パイプライン)
+- [アップスケール](#07--アップスケール)
 
 ## フォルダ契約
 
@@ -93,6 +94,12 @@ RTX 3060は、旧int8経路では黒画になった一方、公式FP16/FP32 VAE�
 |---|---|---|---|---|---|
 | `h3-japanese-catcafe-vlog-5segment` | 2026-08-09 | 英語prompt＋日本語セリフ、約30秒の5セグメントVlog | verified | [English](./06-production-pipelines/catcafe-vlog-5segment/README.md) / [日本語](./06-production-pipelines/catcafe-vlog-5segment/README.ja.md) / [JSON](./06-production-pipelines/catcafe-vlog-5segment/experiment.json) | [contact sheet](./06-production-pipelines/catcafe-vlog-5segment/previews/contact-sheet.jpg) / [manifest](./06-production-pipelines/catcafe-vlog-5segment/previews/contact-sheet.json) |
 | `h3-mv-jpop-5segment` | 2026-08-09 | H3生成音声、123 BPM解析、HyperFramesリリックモーション | verified | [English](./06-production-pipelines/jpop-mv-5segment/README.md) / [日本語](./06-production-pipelines/jpop-mv-5segment/README.ja.md) / [JSON](./06-production-pipelines/jpop-mv-5segment/experiment.json) | [contact sheet](./06-production-pipelines/jpop-mv-5segment/previews/contact-sheet.jpg) / [manifest](./06-production-pipelines/jpop-mv-5segment/previews/contact-sheet.json) |
+
+## 07 — アップスケール
+
+| ID | 実施日 | 機能 | 状態 | 記録 | タイル |
+|---|---|---|---|---|---|
+| `seedvr2-rtx4090-fhd-4k-segmented` | 2026-08-10 | H3生成済み1344×768動画のSeedVR2 FHD / 4Kアップスケール。4K一括OOMと時間分割回避策 | verified | [English](./07-upscaling/seedvr2-4k-rtx4090/README.md) / [日本語](./07-upscaling/seedvr2-4k-rtx4090/README.ja.md) / [JSON](./07-upscaling/seedvr2-4k-rtx4090/experiment.json) / [REPORT](./07-upscaling/seedvr2-4k-rtx4090/REPORT.md) | [contact sheet](./07-upscaling/seedvr2-4k-rtx4090/previews/contact-sheet.jpg) / [manifest](./07-upscaling/seedvr2-4k-rtx4090/previews/contact-sheet.json) |
 
 ## 成果物・再現入口
 
