@@ -1,0 +1,92 @@
+{
+  "id": "2026-08-30-fasth3-comfyui-public-colab",
+  "title": "FastH3 VSA through ComfyUI on a public Google Colab notebook",
+  "status": "unverified",
+  "purpose": "Publish a re-runnable Google Colab notebook that runs the FastVideo-style FastH3 four-step VSA checkpoint through the pinned ComfyUI VSA branch.",
+  "scope": {
+    "included": [
+      "FastH3 VSA checkpoint",
+      "ComfyUI API workflow",
+      "public GitHub-backed Google Colab notebook",
+      "audio VAE path",
+      "bounded readiness and generation polling",
+      "wall time, VRAM samples, media probe, and output hash"
+    ],
+    "excluded": [
+      "native MiniMax-H3 Fast T2V workflow",
+      "Drive or rclone authentication",
+      "tracking generated MP4 files in Git"
+    ]
+  },
+  "notebook": "FastH3_ComfyUI_Colab.ipynb",
+  "pairedSource": "FastH3_ComfyUI_Colab.py",
+  "workflow": "workflows/fasth3_vsa_t2v_832x480_api.json",
+  "runtime": {
+    "comfyRepository": "https://github.com/kijai/ComfyUI.git",
+    "comfyBranch": "vsa",
+    "comfyCommit": "10febb01d7be73d1491cf5e5347b5ab8b6c2c09e",
+    "recommendedGpu": "A100 40GB or larger",
+    "minimumFreeContentGiB": 65,
+    "output": {
+      "width": 832,
+      "height": 480,
+      "frames": 124,
+      "fps": 24,
+      "container": "MP4",
+      "videoCodec": "H.264",
+      "audioCodec": "AAC"
+    }
+  },
+  "models": [
+    {
+      "repoId": "Kijai/MiniMax-H3-experimental",
+      "revision": "f4cac997f880e93cf6940af61ee8d58ef31ff7f3",
+      "filename": "minimax_h3_fastvideo_vsa_datafree_1300step_4step_int8_convrot.safetensors",
+      "target": "models/diffusion_models"
+    },
+    {
+      "repoId": "Comfy-Org/MiniMax-H3",
+      "revision": "4cc1d817b6184899b41293954329f576cb5ae86b",
+      "filename": "text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+      "target": "models/text_encoders"
+    },
+    {
+      "repoId": "Comfy-Org/MiniMax-H3",
+      "revision": "4cc1d817b6184899b41293954329f576cb5ae86b",
+      "filename": "vae/minimax_h3_video_vae_fp16.safetensors",
+      "target": "models/vae"
+    },
+    {
+      "repoId": "Comfy-Org/MiniMax-H3",
+      "revision": "4cc1d817b6184899b41293954329f576cb5ae86b",
+      "filename": "vae/minimax_h3_audio_vae_fp32.safetensors",
+      "target": "models/vae"
+    }
+  ],
+  "fixedCondition": {
+    "sampler": "euler",
+    "sigmas": "0.99991659, 0.972832558, 0.923076923, 0.8, 0",
+    "seed": 20260830,
+    "prompt": "A silver sports coupe performs a controlled four-wheel drift through a wet mountain hairpin at night; realistic motorsport cinematography, coherent car body and wheels, engine, tire squeal, water spray, wind, and restrained cinematic pulse.",
+    "audio": true
+  },
+  "evidence": {
+    "priorLocalComfyRun": {
+      "state": "verified",
+      "promptId": "526b8353-4d1a-4adb-be92-404bb00fe978",
+      "gpu": "NVIDIA A100-SXM4-40GB",
+      "comfyPromptSeconds": 162.64,
+      "wallSeconds": 186.071,
+      "peakVramMiB": 24045,
+      "note": "The separate status wrapper reported a telemetry argument error after the MP4 was found; the ComfyUI history, server log, MP4 media probe, and output hash were valid."
+    },
+    "publicNotebookExecution": {
+      "state": "not_run_in_this_commit",
+      "note": "The notebook source, paired text source, workflow JSON, and public URL must be checked independently from the prior local run."
+    }
+  },
+  "outputs": {
+    "repositoryPolicy": "Generated MP4 and large model files are not tracked.",
+    "publicNotebookUrl": "https://colab.research.google.com/github/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/experiments/02-low-step-generation/fasth3-comfyui-colab-20260830/FastH3_ComfyUI_Colab.ipynb"
+  }
+}
