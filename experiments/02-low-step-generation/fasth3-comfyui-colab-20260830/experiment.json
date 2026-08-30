@@ -1,7 +1,7 @@
 {
   "id": "2026-08-30-fasth3-comfyui-public-colab",
   "title": "FastH3 VSA through ComfyUI on a public Google Colab notebook",
-  "status": "unverified",
+  "status": "verified",
   "purpose": "Publish a re-runnable Google Colab notebook that runs the FastVideo-style FastH3 four-step VSA checkpoint through the pinned ComfyUI VSA branch.",
   "scope": {
     "included": [
@@ -21,6 +21,9 @@
   "notebook": "FastH3_ComfyUI_Colab.ipynb",
   "pairedSource": "FastH3_ComfyUI_Colab.py",
   "workflow": "workflows/fasth3_vsa_t2v_832x480_api.json",
+  "runs": [
+    "runs/public-notebook-a100-r3.json"
+  ],
   "runtime": {
     "comfyRepository": "https://github.com/kijai/ComfyUI.git",
     "comfyBranch": "vsa",
@@ -81,10 +84,32 @@
       "note": "The separate status wrapper reported a telemetry argument error after the MP4 was found; the ComfyUI history, server log, MP4 media probe, and output hash were valid."
     },
     "publicNotebookExecution": {
-      "state": "not_run_in_this_commit",
-      "note": "The notebook source, paired text source, workflow JSON, and public URL must be checked independently from the prior local run."
+      "state": "verified",
+      "repositoryCommit": "ca8645cc8c4e3ac88a06343a74f5f2a294c536f1",
+      "pairedSourceRun": "runs/public-notebook-a100-r3.json",
+      "directIpynbRun": {
+        "sessionName": "fasth3-public-notebook-ipynb-a100-20260830",
+        "method": "download public ipynb, then jupyter nbconvert --execute inside the A100 Colab VM",
+        "exitCode": 0,
+        "sessionTerminated": true
+      },
+      "note": "The public ipynb itself completed with exit code 0. Detailed media and GPU measurements are recorded from the same fixed notebook source executed through its Jupytext paired Python entrypoint."
     }
   },
+  "diagnostics": [
+    {
+      "attempt": "first public run",
+      "state": "stopped_before_inference",
+      "cause": "torchsde imported but its trampoline dependency was absent because requirements were installed with --no-deps",
+      "fixCommit": "f21b4d997dc2667ec5939d42f3b5f8462ff8922d"
+    },
+    {
+      "attempt": "second public run",
+      "state": "generation_succeeded_but_process_failed",
+      "cause": "IPython Video(filename=...) raised a headless-runtime TypeError after the MP4 had been written",
+      "fixCommit": "ca8645cc8c4e3ac88a06343a74f5f2a294c536f1"
+    }
+  ],
   "outputs": {
     "repositoryPolicy": "Generated MP4 and large model files are not tracked.",
     "publicNotebookUrl": "https://colab.research.google.com/github/Sunwood-ai-labs/minimax-h3-experiment-lab/blob/main/experiments/02-low-step-generation/fasth3-comfyui-colab-20260830/FastH3_ComfyUI_Colab.ipynb"

@@ -42,7 +42,9 @@ Review the license and usage terms in the upstream Hugging Face repositories bef
 ## Verification state
 
 - API graph: verified locally with the FastH3 checkpoint on the ComfyUI VSA branch.
-- Public notebook: published as a GitHub-backed Colab reproduction recipe.
+- Public notebook: the public `.ipynb` was executed with `nbconvert --execute` on an A100 and exited with code 0.
+- Observed run: A100-SXM4-40GB, 196.57 seconds in ComfyUI prompt execution, 23,620 MiB observed peak VRAM, H.264/AAC, 832×480, 5.167 seconds.
+- CU estimate: at an assumed 5.37 CU/h, about 0.299 CU for the observed sampling window and 0.607 CU from preflight to output. Colab’s resource meter is authoritative.
 - MP4 output: intentionally not tracked; the notebook creates it in the active Colab runtime.
 
 ## References

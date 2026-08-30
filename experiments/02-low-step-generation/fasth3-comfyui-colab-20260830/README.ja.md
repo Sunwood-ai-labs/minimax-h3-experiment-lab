@@ -42,7 +42,9 @@ FastVideo系のFastH3 4-step checkpointを、ComfyUIのVSAブランチで実行�
 ## 検証状態
 
 - APIグラフ: ローカルのComfyUI VSA環境でFastH3 checkpointを使った実行を確認済み。
-- 公開ノートブック: GitHubからColabで開ける再現手順として公開。
+- 公開ノートブック: A100上で公開`.ipynb`を`nbconvert --execute`し、終了コード0を確認済み。
+- 実測: A100-SXM4-40GB、ComfyUIのprompt処理196.57秒、観測ピークVRAM23,620MiB、H.264/AAC・832×480・5.167秒。
+- CU概算: 仮定レート5.37 CU/hの場合、サンプリング約0.299 CU、セットアップ開始から出力まで約0.607 CU。実際のCUはColabのリソースメーターが正本。
 - MP4: 大容量成果物のため、このリポジトリには含めません。ノートブック実行時にColabランタイムへ生成します。
 
 ## 参考
