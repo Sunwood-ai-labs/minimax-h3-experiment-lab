@@ -580,7 +580,8 @@ try:
 
     from IPython.display import Video, display
 
-    display(Video(filename=str(output_path), embed=True))
+    # `data=` works in both the Colab UI and the headless Colab CLI runtime.
+    display(Video(data=str(output_path), embed=True))
 finally:
     stop_comfy(server_process)
     print("ComfyUI stopped")
