@@ -207,6 +207,11 @@ for line in (COMFY_ROOT / "requirements.txt").read_text(encoding="utf-8").splitl
         continue
     requirements.append(stripped)
 
+# torchsde declares trampoline as a dependency.  The requirements below use
+# --no-deps to protect Colab's CUDA torch, so keep this small non-torch
+# dependency explicit instead of relying on a preinstalled package.
+requirements.append("trampoline==0.1.2")
+
 run_cmd(
     [
         sys.executable,
