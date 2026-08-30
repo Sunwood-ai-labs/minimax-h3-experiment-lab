@@ -61,7 +61,7 @@
   "6": {
     "class_type": "RandomNoise",
     "inputs": {
-      "noise_seed": 20260830
+      "noise_seed": 20260831
     },
     "_meta": {
       "title": "Fixed seed"

@@ -55,11 +55,11 @@ WIDTH = 832
 HEIGHT = 480
 FRAMES = 124
 FPS = 24
-SEED = 20260830
+SEED = 20260831
 SIGMAS = "0.99991659, 0.972832558, 0.923076923, 0.8, 0"
 
 # The file is public and intentionally contains no credential or local path.
-RUN_ID = "fasth3-bay-highway-a100-20260830-r1"
+RUN_ID = "fasth3-bay-highway-a100-20260830-r2"
 PROMPT_SOURCE = "colab-drive-cli-ops/references/h3-operation.md + FastH3 structured prompt contract"
 WORKFLOW_URL = (
     "https://raw.githubusercontent.com/Sunwood-ai-labs/minimax-h3-experiment-lab/"
