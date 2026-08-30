@@ -1,0 +1,63 @@
+{
+  "status": "verified_in_this_runtime",
+  "run_id": "fasth3-bay-highway-a100-20260830-r2",
+  "prompt_id": "7c3fc04d-e549-4907-bfb1-c21a2eb060f4",
+  "prompt_source": "colab-drive-cli-ops/references/h3-operation.md + FastH3 structured prompt contract",
+  "prompt_sha256": "0a1d95053fde758bbe7d0ebd1e405729dc230ab800db1ce90db5c27c10c8a349",
+  "workflow_url": "https://raw.githubusercontent.com/Sunwood-ai-labs/minimax-h3-experiment-lab/main/experiments/02-low-step-generation/fasth3-comfyui-colab-20260830-bay-highway/workflows/fasth3_bay_highway_vsa_t2v_832x480_api.json",
+  "checkpoint": "minimax_h3_fastvideo_vsa_datafree_1300step_4step_int8_convrot.safetensors",
+  "seed": 20260831,
+  "gpu": {
+    "name": "NVIDIA A100-SXM4-40GB",
+    "vram_total_mib": 40960,
+    "peak_memory_used_mib_observed": 23652,
+    "runtime_flags": [
+      "--lowvram",
+      "--use-ck-attention",
+      "--enable-triton-backend",
+      "--disable-async-offload",
+      "--disable-smart-memory",
+      "--cache-none"
+    ]
+  },
+  "timing": {
+    "runner_generation_wall_seconds_observed": 210.671,
+    "comfyui_prompt_executed_seconds": 203.32
+  },
+  "output": {
+    "runtime_path": "/content/fasth3-comfy-output/video/fasth3_bay_highway_a100_vsa_00001_.mp4",
+    "bytes": 1619697,
+    "sha256": "7d69316ce8b4f95fd3cfc93367d9b121147de2811611517488b88205b0fccdad",
+    "storage_mode_for_this_run": "runtime_then_colab_download"
+  },
+  "media": {
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "width": 832,
+    "height": 480,
+    "frames": 124,
+    "fps": 24,
+    "duration_seconds": 5.167,
+    "audio_sample_rate_hz": 32000,
+    "audio_channels": 2
+  },
+  "cu_estimate": {
+    "official_colab_meter_read": false,
+    "estimated_cu_for_runner_generation_seconds": 0.3143,
+    "assumed_rate_cu_per_hour": 5.37,
+    "formula": "210.671 / 3600 * 5.37",
+    "note": "これはアカウントの請求メーター値ではなく、仮定レートによる参考値です。"
+  },
+  "verification": [
+    "workflow prompt was injected and matched the canonical H3 prompt SHA256 before queueing",
+    "ComfyUI history contained outputs for the recorded prompt ID",
+    "downloaded MP4 byte count and SHA256 matched the metrics JSON",
+    "ffprobe confirmed H.264/AAC, 832x480, 124 frames, 24 fps, 5.167 seconds, 32 kHz stereo",
+    "representative frames showed the requested coastal bay expressway, silver coupe, skyline, and drift scene"
+  ],
+  "source_revisions": {
+    "comfy_commit": "10febb01d7be73d1491cf5e5347b5ab8b6c2c09e",
+    "fast_h3_revision": "f4cac997f880e93cf6940af61ee8d58ef31ff7f3",
+    "comfy_h3_revision": "4cc1d817b6184899b41293954329f576cb5ae86b8"
+  }
+}

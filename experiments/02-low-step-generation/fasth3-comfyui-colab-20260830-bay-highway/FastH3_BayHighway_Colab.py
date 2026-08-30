@@ -8,7 +8,8 @@
 # - Sampler: Euler + FastVideo 4-step sigma ladder
 # - Output: H.264/AAC MP4, 832×480, 124 frames, 24 fps（約5.17秒）
 # - Recommended GPU: A100 40GB以上。ColabでそのGPUが割り当てられること自体は保証されません。
-# - このノートブックはDrive/rcloneや秘密トークンを使いません。重いモデルは各自のColabランタイムへ取得します。
+# - 重いモデルはColabランタイムへ取得し、生成MP4とmetricsはマウント済みGoogle Driveへ直接保存します。
+# - Driveがマウントできない場合は、成果物をランタイム内だけに残さないよう生成前に停止します。
 #
 # 上から順に実行してください。GPUが割り当てられていない場合は、モデルをダウンロードする前の
 # preflightセルで停止します。
@@ -33,9 +34,7 @@ from typing import Any
 BASE = Path("/content")
 COMFY_ROOT = BASE / "ComfyUI"
 MODEL_ROOT = COMFY_ROOT / "models"
-OUTPUT_DIR = BASE / "fasth3-comfy-output"
 SERVER_LOG = BASE / "fasth3-comfy-server.log"
-METRICS_PATH = BASE / "fasth3-comfy-metrics.json"
 
 COMFY_REPOSITORY = "https://github.com/kijai/ComfyUI.git"
 COMFY_BRANCH = "vsa"
@@ -61,6 +60,11 @@ SIGMAS = "0.99991659, 0.972832558, 0.923076923, 0.8, 0"
 # The file is public and intentionally contains no credential or local path.
 RUN_ID = "fasth3-bay-highway-a100-20260830-r2"
 PROMPT_SOURCE = "colab-drive-cli-ops/references/h3-operation.md + FastH3 structured prompt contract"
+DRIVE_MOUNT = BASE / "drive"
+DRIVE_ROOT = DRIVE_MOUNT / "MyDrive"
+DRIVE_RUN_DIR = DRIVE_ROOT / "FastH3-runs" / RUN_ID
+OUTPUT_DIR = DRIVE_RUN_DIR / "comfy-output"
+METRICS_PATH = DRIVE_RUN_DIR / "fasth3-comfy-metrics.json"
 WORKFLOW_URL = (
     "https://raw.githubusercontent.com/Sunwood-ai-labs/minimax-h3-experiment-lab/"
     "main/experiments/02-low-step-generation/fasth3-comfyui-colab-20260830-bay-highway/"
@@ -125,7 +129,33 @@ def sample_gpu(event: str) -> dict[str, Any]:
 GPU_SAMPLES: list[dict[str, Any]] = []
 
 # %% [markdown]
-# ## 1. Colab GPU / ストレージの事前確認
+# ## 1. Google Driveをマウント
+#
+# モデルは再取得しやすいようにColabランタイム側へ置きますが、生成物はセッション解放で
+# 消えないよう、Google Drive上のrun専用ディレクトリへ直接書き込みます。認証やマウントに
+# 失敗した場合は、成果物の保存先が不明確なまま生成を始めません。
+
+# %%
+def mount_google_drive() -> None:
+    try:
+        from google.colab import drive
+    except ImportError as exc:
+        raise RuntimeError("Google ColabのDriveマウントAPIが見つかりません") from exc
+
+    drive.mount(str(DRIVE_MOUNT), force_remount=False)
+    if not DRIVE_ROOT.is_dir():
+        raise RuntimeError(f"Google Driveがマウントされていません: {DRIVE_ROOT}")
+    DRIVE_RUN_DIR.mkdir(parents=True, exist_ok=True)
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    print(f"Drive mount: {DRIVE_MOUNT}")
+    print(f"Drive run directory: {DRIVE_RUN_DIR}")
+    print(f"Drive output directory: {OUTPUT_DIR}")
+
+
+mount_google_drive()
+
+# %% [markdown]
+# ## 2. Colab GPU / ストレージの事前確認
 #
 # モデル4ファイルの合計は約52 GiBです。ComfyUI本体、Pythonパッケージ、キャッシュ、出力領域も
 # 必要なので、/content に少なくとも65 GiBの空き容量を要求します。A100 40GBは過去の実測条件で、
@@ -157,7 +187,7 @@ if disk_free_gib < 65:
 print("preflight: OK")
 
 # %% [markdown]
-# ## 2. ComfyUI VSAブランチを固定して取得
+# ## 3. ComfyUI VSAブランチを固定して取得
 #
 # vsa ブランチの特定コミットを使います。これにより、MiniMaxH3ImageToVideo、
 # ManualSigmas、動画+音声の保存ノードが入った実行環境を固定します。
@@ -190,7 +220,7 @@ def ensure_comfy() -> None:
 ensure_comfy()
 
 # %% [markdown]
-# ## 3. 依存パッケージを導入
+# ## 4. 依存パッケージを導入
 #
 # Colabが持つCUDA版PyTorchを置き換えないよう、ComfyUIのrequirementsからtorch系だけを除外します。
 # 依存関係を大きく変える操作なので、セルの実行ログを残しておくと再現時の切り分けに使えます。
@@ -246,7 +276,7 @@ run_cmd(
 print("dependencies: OK")
 
 # %% [markdown]
-# ## 4. FastH3 / H3 VAE / text encoderを公開リビジョンから取得
+# ## 5. FastH3 / H3 VAE / text encoderを公開リビジョンから取得
 #
 # 取得先は公開Hugging Faceリポジトリです。アクセストークンは不要な公開ファイルだけを指定しています。
 # 既存ファイルはサイズを照合し、別リビジョンや途中ファイルを黙って使わないようにします。
@@ -330,7 +360,7 @@ MODEL_RECORDS = download_models()
 print(json.dumps({"models": MODEL_RECORDS}, ensure_ascii=False, indent=2))
 
 # %% [markdown]
-# ## 5. APIワークフローを読み込んで、FastH3固有のノードを確認
+# ## 6. APIワークフローを読み込んで、FastH3固有のノードを確認
 #
 # JSONは同じ公開リポジトリ内のワークフローを正本として読み込みます。重要なのは、
 # UNETLoader がFastH3ファイルを指し、ManualSigmas が4-stepの値を持ち、
@@ -381,7 +411,7 @@ print(f"prompt_source: {PROMPT_SOURCE}")
 print(f"prompt_sha256: {PROMPT_SHA256}")
 
 # %% [markdown]
-# ## 6. ComfyUIを起動し、APIから1回生成
+# ## 7. ComfyUIを起動し、APIから1回生成
 #
 # サーバーはColab VMのloopbackだけで待ち受け、生成終了後に必ず停止します。
 # readinessは最大120回、生成待ちは最大360回（各10秒）という上限を持たせています。
@@ -563,6 +593,9 @@ try:
     generation_seconds = round(time.perf_counter() - sampling_started, 3)
     sample_gpu("output_found")
     output_path = pick_new_mp4(generation_started)
+    if not output_path.is_relative_to(DRIVE_ROOT):
+        raise RuntimeError(f"生成物がGoogle Drive配下ではありません: {output_path}")
+    output_sha256 = sha256(output_path)
     result_record = {
         "status": "verified_in_this_runtime",
         "run_id": RUN_ID,
@@ -572,7 +605,7 @@ try:
         "prompt": PROMPT,
         "output": str(output_path),
         "bytes": output_path.stat().st_size,
-        "sha256": sha256(output_path),
+        "sha256": output_sha256,
         "generation_wall_seconds_observed": generation_seconds,
         "gpu_samples": GPU_SAMPLES,
         "gpu_peak_memory_used_mib_observed": max(
@@ -591,8 +624,22 @@ try:
         "seed": SEED,
         "sigmas": SIGMAS,
         "media": media_probe(output_path),
+        "storage": {
+            "backend": "google_drive",
+            "mountpoint": str(DRIVE_MOUNT),
+            "run_dir": str(DRIVE_RUN_DIR),
+            "output_relative_to_mydrive": str(output_path.relative_to(DRIVE_ROOT)),
+            "metrics_relative_to_mydrive": str(METRICS_PATH.relative_to(DRIVE_ROOT)),
+            "drive_output_hash_verified": True,
+        },
     }
     METRICS_PATH.write_text(json.dumps(result_record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    persisted_record = json.loads(METRICS_PATH.read_text(encoding="utf-8"))
+    if persisted_record.get("sha256") != sha256(output_path):
+        raise RuntimeError("Google Driveへ保存したMP4の再読込ハッシュが一致しません")
+    if persisted_record.get("prompt_sha256") != PROMPT_SHA256:
+        raise RuntimeError("Google Driveへ保存したmetricsのプロンプトハッシュが一致しません")
+    print(f"Drive persistence check: OK ({METRICS_PATH})")
     print(json.dumps(result_record, ensure_ascii=False, indent=2)[:12000])
 
     from IPython.display import Video, display
@@ -608,10 +655,10 @@ finally:
         print("\n".join(log_lines[-80:]))
 
 # %% [markdown]
-# ## 7. 結果の持ち出し
+# ## 8. 結果の持ち出し
 #
-# 生成MP4と fasth3-comfy-metrics.json はColabランタイム内にあります。必要なら下のセルで
-# ローカルへダウンロードできます。ColabのCompute Unitsはアカウント・プラン・時期で変わるため、
+# 生成MP4と fasth3-comfy-metrics.json はGoogle Driveのrun専用ディレクトリに保存されています。
+# 必要なら下のセルでローカルへダウンロードできます。ColabのCompute Unitsはアカウント・プラン・時期で変わるため、
 # このノートブックの経過時間やVRAMサンプルをCUの確定値として扱わないでください。
 
 # %%
@@ -626,7 +673,7 @@ if DOWNLOAD_OUTPUTS:
     files.download(str(output_path))
     files.download(str(METRICS_PATH))
 else:
-    print("Download skipped. Set DOWNLOAD_OUTPUTS=True in the Colab UI to download the MP4 and metrics JSON.")
+    print(f"Download skipped. Drive artifacts: {DRIVE_RUN_DIR}")
 
 # %% [markdown]
 # ## 参考リンク
