@@ -592,13 +592,18 @@ finally:
 # このノートブックの経過時間やVRAMサンプルをCUの確定値として扱わないでください。
 
 # %%
-from google.colab import files
+# Colab UIではTrueに変更するとブラウザのダウンロードが始まります。
+# Colab CLIなどのヘッドレス実行ではFalseのままにしてください。
+DOWNLOAD_OUTPUTS = False
+if DOWNLOAD_OUTPUTS:
+    from google.colab import files
 
-
-if "output_path" not in globals() or not Path(output_path).exists():
-    raise RuntimeError("先に生成セルを成功させてください")
-files.download(str(output_path))
-files.download(str(METRICS_PATH))
+    if "output_path" not in globals() or not Path(output_path).exists():
+        raise RuntimeError("先に生成セルを成功させてください")
+    files.download(str(output_path))
+    files.download(str(METRICS_PATH))
+else:
+    print("Download skipped. Set DOWNLOAD_OUTPUTS=True in the Colab UI to download the MP4 and metrics JSON.")
 
 # %% [markdown]
 # ## 参考リンク
