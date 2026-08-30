@@ -146,8 +146,8 @@ print(f"VRAM: {gpu_total_gib:.2f} GiB")
 print(f"/content free: {disk_free_gib:.2f} GiB")
 print(json.dumps(sample_gpu("preflight"), ensure_ascii=False, indent=2))
 
-if gpu_total_gib < 40:
-    print("WARNING: A100 40GB未満です。セットアップは続けますが、FastH3生成はVRAM不足になる可能性があります。")
+if gpu_total_gib < 38:
+    print("WARNING: VRAMが38 GiB未満です。セットアップは続けますが、FastH3生成はVRAM不足になる可能性があります。")
 if disk_free_gib < 65:
     raise RuntimeError("/contentの空き容量が65 GiB未満です。別ランタイムで再実行してください。")
 
