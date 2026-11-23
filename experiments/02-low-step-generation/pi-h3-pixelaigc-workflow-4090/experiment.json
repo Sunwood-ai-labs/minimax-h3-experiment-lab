@@ -1,0 +1,1144 @@
+{
+  "id": "2026-11-23-pi-h3-pixelaigc-workflow-4090",
+  "date": "2026-11-23",
+  "category": "02-low-step-generation",
+  "status": "verified",
+  "baselineExperiment": "../pi-h3-dwd-spark-4090/experiment.json",
+  "hypothesis": "The pixelaigc/ComfyUI-MiniMax-H3-pi-H3-Workflow (pi-H3-DWD-3060-2.json) runs with zero missing nodes or additional weights on the existing RTX 4090 pi-H3 Docker stack, enables long-duration generation up to 30s at 480p and native 1080p at 5s via Sol-Attn + DWD, and supports 5s/10s/30s FL2VA first-and-last-frame transitions with synchronized stereo audio.",
+  "purpose": "Evaluate pixelaigc/ComfyUI-MiniMax-H3-pi-H3-Workflow on RTX 4090 across Sol-Attn vs Spark-Attn SM89, long durations (5s/8s/10s/30s), native 1080p vs 768p 30s VRAM limits, and FL2VA first/last-frame transitions (5s/10s/30s).",
+  "scope": "ComfyUI v0.46.0 + ComfyUI-piFlow + ComfyUI-SolAttn_triton + Spark-H3 v0.2.0 SM89 inside Docker on RTX 4090 (24GB VRAM).",
+  "sources": [
+    {
+      "title": "pixelaigc/ComfyUI-MiniMax-H3-pi-H3-Workflow",
+      "url": "https://github.com/pixelaigc/ComfyUI-MiniMax-H3-pi-H3-Workflow"
+    },
+    {
+      "title": "Lakonik/pi-H3",
+      "url": "https://huggingface.co/Lakonik/pi-H3"
+    },
+    {
+      "title": "ComfyUI-piFlow",
+      "url": "https://github.com/Lakonik/ComfyUI-piFlow"
+    },
+    {
+      "title": "ComfyUI-SolAttn_triton",
+      "url": "https://github.com/kijai/ComfyUI-SolAttn_triton"
+    }
+  ],
+  "conditions": {
+    "gpu": "NVIDIA GeForce RTX 4090 (24564 MiB VRAM, SM 8.9)",
+    "dockerImage": "local/minimax-h3-comfyui:v0.46.0-pih3",
+    "comfyui": "v0.46.0",
+    "baseModel": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+    "textEncoder": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+    "videoVae": "minimax_h3_video_vae_int8_convrot.safetensors",
+    "audioVae": "minimax_h3_audio_vae_fp32.safetensors",
+    "adapters": [
+      "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+      "pi_h3_4step_dwd_adapter_int8_convrot.safetensors"
+    ],
+    "attentionBackends": [
+      "BlockSparseAttention (sol-attn, tau=1.0, dense_blocks='0, 1', extra_tokens=256, sink_conditioning=exact_kv_and_rows)",
+      "MiniMaxH3SparkAttentionSM89 (mode=speed, topk_ratio=0.2, dense_layers=0, reblock_layout=q_reuse_k)"
+    ],
+    "sampler": "euler",
+    "scheduler": "pi-Flow Scheduler (2-step max_raw_t=0.93, 4-step max_raw_t=0.96, final_step_size_scale=0.6)",
+    "fps": 24
+  },
+  "runs": [
+    {
+      "run_id": "768p_5s_2step_sol_warmup",
+      "workflow": "workflows/768p_5s_2step_sol_warmup_api.json",
+      "workflow_sha256": "4E3F56901ACE3BE66475C7F017FBF20D936A817CFBD3DF1AE8457B3E2D3D51D2",
+      "prompt_id": "6900ec28-60c1-4876-afe3-681e5fae103d",
+      "width": 1344,
+      "height": 768,
+      "length": 124,
+      "steps": 2,
+      "attention": "sol",
+      "seed": 41,
+      "first_frame": null,
+      "last_frame": null,
+      "status": "success",
+      "runner_wall_s": 111.903,
+      "comfy_execution_s": 111.404,
+      "cached_nodes_count": 0,
+      "gpu": {
+        "sample_count": 195,
+        "peak_vram_mib": 23780.0,
+        "min_vram_mib": 2282.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 28.9,
+        "peak_power_w": 410.31,
+        "avg_power_w": 82.48,
+        "peak_temp_c": 69.0
+      },
+      "outputs": [
+        {
+          "filename": "768p_5s_2step_sol_warmup_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "relative_path": "video/pi-h3-sequel/768p_5s_2step_sol_warmup_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_5s_2step_sol_warmup_00001_.mp4",
+          "exists": true,
+          "bytes": 4018837,
+          "sha256": "CB66FDB0E8827EAA45B9DDF31C618DDB6BD7D36363108E378000183CCC1E5269"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "768p_5s_2step_sol_warm",
+      "workflow": "workflows/768p_5s_2step_sol_warm_api.json",
+      "workflow_sha256": "AD0BCB50695FA4145112886009CB23612A8D6A6DE23AD72EF77FE5A5E31CA24B",
+      "prompt_id": "e91c61ef-59cd-4464-bb83-8b92efb1e81c",
+      "width": 1344,
+      "height": 768,
+      "length": 124,
+      "steps": 2,
+      "attention": "sol",
+      "seed": 42,
+      "first_frame": null,
+      "last_frame": null,
+      "status": "success",
+      "runner_wall_s": 31.973,
+      "comfy_execution_s": 31.597,
+      "cached_nodes_count": 11,
+      "gpu": {
+        "sample_count": 56,
+        "peak_vram_mib": 23901.0,
+        "min_vram_mib": 18838.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 68.2,
+        "peak_power_w": 382.7,
+        "avg_power_w": 219.96,
+        "peak_temp_c": 69.0
+      },
+      "outputs": [
+        {
+          "filename": "768p_5s_2step_sol_warm_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "relative_path": "video/pi-h3-sequel/768p_5s_2step_sol_warm_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_5s_2step_sol_warm_00001_.mp4",
+          "exists": true,
+          "bytes": 3702404,
+          "sha256": "12D4352BE5D38C561376C114B2616F59EEB4488D41ED161DF1F1DC38D04AE705"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "768p_8s_2step_sol",
+      "workflow": "workflows/768p_8s_2step_sol_api.json",
+      "workflow_sha256": "4E5B0BD18F5E26FA9B8E7F2CA4902673901A2E5D4CDDD0745050394A1C4C04A1",
+      "prompt_id": "51c68c7b-9cfe-42d8-9c3d-575462cd94bd",
+      "width": 1344,
+      "height": 768,
+      "length": 192,
+      "steps": 2,
+      "attention": "sol",
+      "seed": 42,
+      "first_frame": null,
+      "last_frame": null,
+      "status": "success",
+      "runner_wall_s": 83.684,
+      "comfy_execution_s": 83.414,
+      "cached_nodes_count": 10,
+      "gpu": {
+        "sample_count": 145,
+        "peak_vram_mib": 23877.0,
+        "min_vram_mib": 13021.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 59.8,
+        "peak_power_w": 397.96,
+        "avg_power_w": 174.63,
+        "peak_temp_c": 74.0
+      },
+      "outputs": [
+        {
+          "filename": "768p_8s_2step_sol_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "relative_path": "video/pi-h3-sequel/768p_8s_2step_sol_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_8s_2step_sol_00001_.mp4",
+          "exists": true,
+          "bytes": 6308896,
+          "sha256": "709B054B29E21CEA866B83FDDECB4F1C88E53D7E1BE71A207C94382B41E8BBB3"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "768p_8s_2step_spark",
+      "workflow": "workflows/768p_8s_2step_spark_api.json",
+      "workflow_sha256": "FC979E1D07AEC8D60675ECAA062546717EEDD9C718EDB90EC7E9B4F731DF0D44",
+      "prompt_id": "8b619b4d-5df0-42f4-95cd-c6f1c61ffd88",
+      "width": 1344,
+      "height": 768,
+      "length": 192,
+      "steps": 2,
+      "attention": "spark",
+      "seed": 42,
+      "first_frame": null,
+      "last_frame": null,
+      "status": "success",
+      "runner_wall_s": 61.46,
+      "comfy_execution_s": 61.189,
+      "cached_nodes_count": 8,
+      "gpu": {
+        "sample_count": 107,
+        "peak_vram_mib": 24021.0,
+        "min_vram_mib": 13890.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 62.4,
+        "peak_power_w": 368.22,
+        "avg_power_w": 192.44,
+        "peak_temp_c": 74.0
+      },
+      "outputs": [
+        {
+          "filename": "768p_8s_2step_spark_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "relative_path": "video/pi-h3-sequel/768p_8s_2step_spark_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_8s_2step_spark_00001_.mp4",
+          "exists": true,
+          "bytes": 6819055,
+          "sha256": "F964EF34C3560A49BCEE7C5DA2160B67DEB25094E4BE3194F1C430F040DFEA7C"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "768p_10s_2step_sol",
+      "workflow": "workflows/768p_10s_2step_sol_api.json",
+      "workflow_sha256": "366F5D8E21CAC3836B2F168A47C943B4D30B69925833DFE96C100A86BD3A81A7",
+      "prompt_id": "9c4b986b-a03d-4300-b38f-2871a3810600",
+      "width": 1344,
+      "height": 768,
+      "length": 243,
+      "steps": 2,
+      "attention": "sol",
+      "seed": 42,
+      "first_frame": null,
+      "last_frame": null,
+      "status": "success",
+      "runner_wall_s": 97.736,
+      "comfy_execution_s": 97.273,
+      "cached_nodes_count": 7,
+      "gpu": {
+        "sample_count": 169,
+        "peak_vram_mib": 23554.0,
+        "min_vram_mib": 12674.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 66.0,
+        "peak_power_w": 406.3,
+        "avg_power_w": 195.75,
+        "peak_temp_c": 79.0
+      },
+      "outputs": [
+        {
+          "filename": "768p_10s_2step_sol_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "relative_path": "video/pi-h3-sequel/768p_10s_2step_sol_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_10s_2step_sol_00001_.mp4",
+          "exists": true,
+          "bytes": 8572258,
+          "sha256": "CBC9351997F71FFF22D7AADF02C2F7B4789EF528FD29DF3A9BD715FCE1D96BCC"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "768p_10s_2step_spark",
+      "workflow": "workflows/768p_10s_2step_spark_api.json",
+      "workflow_sha256": "CB076FCC112EC0800EB0312B0025CA23470EAF98D096311CB43F3F9A6A5C586A",
+      "prompt_id": "0880175c-1a3d-489b-b667-5dd033bd8695",
+      "width": 1344,
+      "height": 768,
+      "length": 243,
+      "steps": 2,
+      "attention": "spark",
+      "seed": 42,
+      "first_frame": null,
+      "last_frame": null,
+      "status": "success",
+      "runner_wall_s": 110.805,
+      "comfy_execution_s": 110.485,
+      "cached_nodes_count": 8,
+      "gpu": {
+        "sample_count": 192,
+        "peak_vram_mib": 23634.0,
+        "min_vram_mib": 12212.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 60.4,
+        "peak_power_w": 368.52,
+        "avg_power_w": 150.39,
+        "peak_temp_c": 76.0
+      },
+      "outputs": [
+        {
+          "filename": "768p_10s_2step_spark_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "relative_path": "video/pi-h3-sequel/768p_10s_2step_spark_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_10s_2step_spark_00001_.mp4",
+          "exists": true,
+          "bytes": 8823177,
+          "sha256": "164F6EACBA88504D4483FC0B28A987CDA8D876CF75509391CE28F114A57092D9"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "768p_10s_4step_sol",
+      "workflow": "workflows/768p_10s_4step_sol_api.json",
+      "workflow_sha256": "0C2855FEB32927AE3AB483E4381F80914DC444C68730DFE745551408912D2659",
+      "prompt_id": "a0f30ab3-6fb7-4c07-8f3e-f1f5886ca0a4",
+      "width": 1344,
+      "height": 768,
+      "length": 243,
+      "steps": 4,
+      "attention": "sol",
+      "seed": 42,
+      "first_frame": null,
+      "last_frame": null,
+      "status": "success",
+      "runner_wall_s": 196.354,
+      "comfy_execution_s": 196.042,
+      "cached_nodes_count": 7,
+      "gpu": {
+        "sample_count": 341,
+        "peak_vram_mib": 23540.0,
+        "min_vram_mib": 12212.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 59.8,
+        "peak_power_w": 404.96,
+        "avg_power_w": 171.31,
+        "peak_temp_c": 79.0
+      },
+      "outputs": [
+        {
+          "filename": "768p_10s_4step_sol_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "relative_path": "video/pi-h3-sequel/768p_10s_4step_sol_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_10s_4step_sol_00001_.mp4",
+          "exists": true,
+          "bytes": 8231423,
+          "sha256": "7A43DCEEADF491741B953DAB2133E91484276DFBBD475AEA355FEFB390305B2E"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "768p_10s_4step_spark",
+      "workflow": "workflows/768p_10s_4step_spark_api.json",
+      "workflow_sha256": "354C6F9A4A5C1375D67DFFC07F897D719B899AFA119A551DDBCF67FF1431240E",
+      "prompt_id": "c50849ff-3d42-47c5-895e-3b9d2a419744",
+      "width": 1344,
+      "height": 768,
+      "length": 243,
+      "steps": 4,
+      "attention": "spark",
+      "seed": 42,
+      "first_frame": null,
+      "last_frame": null,
+      "status": "success",
+      "runner_wall_s": 124.977,
+      "comfy_execution_s": 124.703,
+      "cached_nodes_count": 8,
+      "gpu": {
+        "sample_count": 215,
+        "peak_vram_mib": 24004.0,
+        "min_vram_mib": 11141.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 80.0,
+        "peak_power_w": 403.3,
+        "avg_power_w": 241.97,
+        "peak_temp_c": 83.0
+      },
+      "outputs": [
+        {
+          "filename": "768p_10s_4step_spark_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "relative_path": "video/pi-h3-sequel/768p_10s_4step_spark_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_10s_4step_spark_00001_.mp4",
+          "exists": true,
+          "bytes": 8011000,
+          "sha256": "2C3949805612CBF53C4BAC01D16BB82189AF6E3E176ADB5E65D938DD357DADB2"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "480p_30s_2step_sol",
+      "workflow": "workflows/480p_30s_2step_sol_api.json",
+      "workflow_sha256": "C3A2425CA30D34D0DDC677FFC2A71FF58698C2F2E7069AC81EFDC4597AA9144F",
+      "prompt_id": "ee6d5c90-c940-41a3-9864-c63a86cbe635",
+      "width": 864,
+      "height": 480,
+      "length": 719,
+      "steps": 2,
+      "attention": "sol",
+      "seed": 42,
+      "first_frame": null,
+      "last_frame": null,
+      "status": "success",
+      "runner_wall_s": 337.183,
+      "comfy_execution_s": 336.809,
+      "cached_nodes_count": 6,
+      "gpu": {
+        "sample_count": 589,
+        "peak_vram_mib": 22501.0,
+        "min_vram_mib": 11141.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 35.3,
+        "peak_power_w": 424.4,
+        "avg_power_w": 74.6,
+        "peak_temp_c": 83.0
+      },
+      "outputs": [
+        {
+          "filename": "480p_30s_2step_sol_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "relative_path": "video/pi-h3-sequel/480p_30s_2step_sol_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\480p_30s_2step_sol_00001_.mp4",
+          "exists": true,
+          "bytes": 8701547,
+          "sha256": "E47DA3ED4BD488A83097BAD1C399B2BA218416A31180C9AB257F5D6325B10304"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "480p_30s_2step_spark",
+      "workflow": "workflows/480p_30s_2step_spark_api.json",
+      "workflow_sha256": "568D2F03A132231DF024CA7026313A66D6A4F474CFF5EB2C92B118BB85C27C70",
+      "prompt_id": "bea8adf9-fe3c-48f0-9684-bc0124585622",
+      "width": 864,
+      "height": 480,
+      "length": 719,
+      "steps": 2,
+      "attention": "spark",
+      "seed": 42,
+      "first_frame": null,
+      "last_frame": null,
+      "status": "success",
+      "runner_wall_s": 346.399,
+      "comfy_execution_s": 346.028,
+      "cached_nodes_count": 8,
+      "gpu": {
+        "sample_count": 605,
+        "peak_vram_mib": 22693.0,
+        "min_vram_mib": 9103.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 27.3,
+        "peak_power_w": 410.64,
+        "avg_power_w": 63.12,
+        "peak_temp_c": 76.0
+      },
+      "outputs": [
+        {
+          "filename": "480p_30s_2step_spark_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "relative_path": "video/pi-h3-sequel/480p_30s_2step_spark_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\480p_30s_2step_spark_00001_.mp4",
+          "exists": true,
+          "bytes": 9200554,
+          "sha256": "41232D09CD769C3B542237E51F8CB73F9C26728F71EBA42AD60C183FACBB9839"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "fl2va_768p_5s_2step_sol",
+      "workflow": "workflows/fl2va_768p_5s_2step_sol_api.json",
+      "workflow_sha256": "D6ABA78934B098436388992B3704B777A1EC40596412C6479CCDFE37984C2EBA",
+      "prompt_id": "808cc9ed-9fa1-45f6-8fb3-d6381ad56607",
+      "width": 1344,
+      "height": 768,
+      "length": 124,
+      "steps": 2,
+      "attention": "sol",
+      "seed": 42,
+      "first_frame": "fl2va_first_night_rain.png",
+      "last_frame": "fl2va_last_morning_sun.png",
+      "status": "success",
+      "runner_wall_s": 143.623,
+      "comfy_execution_s": 143.16,
+      "cached_nodes_count": 7,
+      "gpu": {
+        "sample_count": 251,
+        "peak_vram_mib": 22493.0,
+        "min_vram_mib": 9519.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 27.8,
+        "peak_power_w": 420.09,
+        "avg_power_w": 84.02,
+        "peak_temp_c": 71.0
+      },
+      "outputs": [
+        {
+          "filename": "fl2va_768p_5s_2step_sol_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "relative_path": "video/pi-h3-sequel/fl2va_768p_5s_2step_sol_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\fl2va_768p_5s_2step_sol_00001_.mp4",
+          "exists": true,
+          "bytes": 6436769,
+          "sha256": "35562C60360DE13FEC30297CF062EDA2BDB54F2154EFA4816620F8BE91039409"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "fl2va_768p_5s_4step_sol",
+      "workflow": "workflows/fl2va_768p_5s_4step_sol_api.json",
+      "workflow_sha256": "CC969ADD4258A86F481DBA1F4DD9E28F081F2CFB1B6255B9A448A2D30F78FBB0",
+      "prompt_id": "b662f50a-a838-4b26-8af1-67748ccf4bea",
+      "width": 1344,
+      "height": 768,
+      "length": 124,
+      "steps": 4,
+      "attention": "sol",
+      "seed": 42,
+      "first_frame": "fl2va_first_night_rain.png",
+      "last_frame": "fl2va_last_morning_sun.png",
+      "status": "success",
+      "runner_wall_s": 72.799,
+      "comfy_execution_s": 72.522,
+      "cached_nodes_count": 11,
+      "gpu": {
+        "sample_count": 126,
+        "peak_vram_mib": 22501.0,
+        "min_vram_mib": 16757.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 57.0,
+        "peak_power_w": 417.84,
+        "avg_power_w": 210.95,
+        "peak_temp_c": 78.0
+      },
+      "outputs": [
+        {
+          "filename": "fl2va_768p_5s_4step_sol_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "relative_path": "video/pi-h3-sequel/fl2va_768p_5s_4step_sol_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\fl2va_768p_5s_4step_sol_00001_.mp4",
+          "exists": true,
+          "bytes": 5113462,
+          "sha256": "71DB50A4E53F5209EA172B7D56BD8012026846B116E72C723E58612F08335F39"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "fl2va_768p_5s_4step_spark",
+      "workflow": "workflows/fl2va_768p_5s_4step_spark_api.json",
+      "workflow_sha256": "64009B91BA6A484922F32BDD609D47C5A7AE473DEB43D45E8942157F22B2A559",
+      "prompt_id": "656bdae2-e183-4d73-b87b-e8b2368bd846",
+      "width": 1344,
+      "height": 768,
+      "length": 124,
+      "steps": 4,
+      "attention": "spark",
+      "seed": 42,
+      "first_frame": "fl2va_first_night_rain.png",
+      "last_frame": "fl2va_last_morning_sun.png",
+      "status": "success",
+      "runner_wall_s": 55.096,
+      "comfy_execution_s": 54.648,
+      "cached_nodes_count": 12,
+      "gpu": {
+        "sample_count": 96,
+        "peak_vram_mib": 22293.0,
+        "min_vram_mib": 14973.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 72.3,
+        "peak_power_w": 415.49,
+        "avg_power_w": 269.97,
+        "peak_temp_c": 79.0
+      },
+      "outputs": [
+        {
+          "filename": "fl2va_768p_5s_4step_spark_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "relative_path": "video/pi-h3-sequel/fl2va_768p_5s_4step_spark_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\fl2va_768p_5s_4step_spark_00001_.mp4",
+          "exists": true,
+          "bytes": 6155081,
+          "sha256": "F238123EADC583BFCB5CA90C35185D6B7992FC2114095E71F6F1EB162F4C46FB"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "1080p_native_5s_2step_sol",
+      "workflow": "workflows/1080p_native_5s_2step_sol_api.json",
+      "workflow_sha256": "A81BCB258818F949D668A618888CAF7E92198F41E501AFF07345FD48C2D2E610",
+      "prompt_id": "296fb5e5-4fe9-4f59-9b42-3fdf2102472a",
+      "width": 1920,
+      "height": 1088,
+      "length": 124,
+      "steps": 2,
+      "attention": "sol",
+      "seed": 42,
+      "first_frame": null,
+      "last_frame": null,
+      "status": "success",
+      "runner_wall_s": 100.565,
+      "comfy_execution_s": 100.232,
+      "cached_nodes_count": 6,
+      "gpu": {
+        "sample_count": 175,
+        "peak_vram_mib": 22518.0,
+        "min_vram_mib": 11654.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 51.7,
+        "peak_power_w": 409.92,
+        "avg_power_w": 178.25,
+        "peak_temp_c": 75.0
+      },
+      "outputs": [
+        {
+          "filename": "1080p_native_5s_2step_sol_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel-partc",
+          "relative_path": "video/pi-h3-sequel-partc/1080p_native_5s_2step_sol_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel-partc\\1080p_native_5s_2step_sol_00001_.mp4",
+          "exists": true,
+          "bytes": 7222517,
+          "sha256": "D667BAFC2A291661B404A79461FD494EA086591FD972A4AB14877FC19613DAF6"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "768p_to_1080p_30s_2step_sol",
+      "workflow": "workflows/768p_to_1080p_30s_2step_sol_api.json",
+      "workflow_sha256": "265FC145A2B3E026C6B909094858537A67F6ECB83DA7FF1CAB5DE1C09F0746F6",
+      "prompt_id": "39f5e6cc-90f9-4497-b632-86ce12e6d65f",
+      "width": 1344,
+      "height": 768,
+      "length": 719,
+      "steps": 2,
+      "attention": "sol",
+      "seed": 42,
+      "first_frame": null,
+      "last_frame": null,
+      "status": "error",
+      "runner_wall_s": 45.418,
+      "comfy_execution_s": 45.068,
+      "cached_nodes_count": 10,
+      "gpu": {
+        "sample_count": 80,
+        "peak_vram_mib": 24020.0,
+        "min_vram_mib": 5949.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 56.0,
+        "peak_power_w": 448.76,
+        "avg_power_w": 190.97,
+        "peak_temp_c": 75.0
+      },
+      "outputs": [],
+      "execution_error": "torch.OutOfMemoryError"
+    },
+    {
+      "run_id": "fl2va_768p_10s_2step_sol",
+      "workflow": "workflows/fl2va_768p_10s_2step_sol_api.json",
+      "workflow_sha256": "E9B588B486EFDB6106E178BEE19CF9270DECB1F6480786A6F1C7C0A6599AE322",
+      "prompt_id": "202f2f56-8754-41e6-9f07-62c59eb511dc",
+      "width": 1344,
+      "height": 768,
+      "length": 243,
+      "steps": 2,
+      "attention": "sol",
+      "seed": 42,
+      "first_frame": "fl2va_first_night_rain.png",
+      "last_frame": "fl2va_last_morning_sun.png",
+      "status": "success",
+      "runner_wall_s": 106.739,
+      "comfy_execution_s": 106.332,
+      "cached_nodes_count": 10,
+      "gpu": {
+        "sample_count": 186,
+        "peak_vram_mib": 22246.0,
+        "min_vram_mib": 1405.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 54.6,
+        "peak_power_w": 412.87,
+        "avg_power_w": 201.51,
+        "peak_temp_c": 80.0
+      },
+      "outputs": [
+        {
+          "filename": "fl2va_768p_10s_2step_sol_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel-partc",
+          "relative_path": "video/pi-h3-sequel-partc/fl2va_768p_10s_2step_sol_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel-partc\\fl2va_768p_10s_2step_sol_00001_.mp4",
+          "exists": true,
+          "bytes": 12881581,
+          "sha256": "E8CDD58558563123AE19D635956AD5E456252CDAB38436F756062E1842845330"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "fl2va_768p_10s_4step_spark",
+      "workflow": "workflows/fl2va_768p_10s_4step_spark_api.json",
+      "workflow_sha256": "530DDDFD3DA5B1B9B2E909E4D6F788032A9AC20E7F70C9DF9F9F5A6C57DAC060",
+      "prompt_id": "ab92014a-5695-467b-8db0-6621beb4d9e1",
+      "width": 1344,
+      "height": 768,
+      "length": 243,
+      "steps": 4,
+      "attention": "spark",
+      "seed": 42,
+      "first_frame": "fl2va_first_night_rain.png",
+      "last_frame": "fl2va_last_morning_sun.png",
+      "status": "success",
+      "runner_wall_s": 133.533,
+      "comfy_execution_s": 133.22,
+      "cached_nodes_count": 11,
+      "gpu": {
+        "sample_count": 232,
+        "peak_vram_mib": 22430.0,
+        "min_vram_mib": 9687.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 67.8,
+        "peak_power_w": 412.29,
+        "avg_power_w": 254.08,
+        "peak_temp_c": 81.0
+      },
+      "outputs": [
+        {
+          "filename": "fl2va_768p_10s_4step_spark_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel-partc",
+          "relative_path": "video/pi-h3-sequel-partc/fl2va_768p_10s_4step_spark_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel-partc\\fl2va_768p_10s_4step_spark_00001_.mp4",
+          "exists": true,
+          "bytes": 13140264,
+          "sha256": "175C77DFE24ED823DA5CAA861C389B30F96B7E3F3DD611B23872436C1B55C2F2"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "fl2va_480p_30s_2step_sol",
+      "workflow": "workflows/fl2va_480p_30s_2step_sol_api.json",
+      "workflow_sha256": "5EF2A4C10432AA600AB8CBB50F66065837CE12F5428FF14B8377A6263B9C8056",
+      "prompt_id": "59584829-95fb-4dc5-9790-87572030d852",
+      "width": 864,
+      "height": 480,
+      "length": 719,
+      "steps": 2,
+      "attention": "sol",
+      "seed": 42,
+      "first_frame": "fl2va_first_night_rain.png",
+      "last_frame": "fl2va_last_morning_sun.png",
+      "status": "success",
+      "runner_wall_s": 347.516,
+      "comfy_execution_s": 347.172,
+      "cached_nodes_count": 8,
+      "gpu": {
+        "sample_count": 606,
+        "peak_vram_mib": 22079.0,
+        "min_vram_mib": 9687.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 31.0,
+        "peak_power_w": 426.52,
+        "avg_power_w": 75.61,
+        "peak_temp_c": 82.0
+      },
+      "outputs": [
+        {
+          "filename": "fl2va_480p_30s_2step_sol_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel-partc",
+          "relative_path": "video/pi-h3-sequel-partc/fl2va_480p_30s_2step_sol_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel-partc\\fl2va_480p_30s_2step_sol_00001_.mp4",
+          "exists": true,
+          "bytes": 11919156,
+          "sha256": "FD4E3744BDE143EB229C6EE431CAAE4251482C417E811DF781D69C1621774490"
+        }
+      ],
+      "execution_error": null
+    }
+  ],
+  "mediaQa": {
+    "768p_5s_2step_sol_warmup": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_5s_2step_sol_warmup_00001_.mp4",
+      "size_mb": 3.83,
+      "duration_s": 5.167,
+      "video": {
+        "codec": "h264",
+        "width": 1344,
+        "height": 768,
+        "nb_frames": 124,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -15.764207,
+        "peak_db_overall": -0.305086
+      },
+      "blackdetect_count": 0
+    },
+    "768p_5s_2step_sol_warm": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_5s_2step_sol_warm_00001_.mp4",
+      "size_mb": 3.53,
+      "duration_s": 5.167,
+      "video": {
+        "codec": "h264",
+        "width": 1344,
+        "height": 768,
+        "nb_frames": 124,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -14.960948,
+        "peak_db_overall": -0.371424
+      },
+      "blackdetect_count": 0
+    },
+    "768p_8s_2step_sol": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_8s_2step_sol_00001_.mp4",
+      "size_mb": 6.02,
+      "duration_s": 8.0,
+      "video": {
+        "codec": "h264",
+        "width": 1344,
+        "height": 768,
+        "nb_frames": 192,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -13.995662,
+        "peak_db_overall": -0.629714
+      },
+      "blackdetect_count": 0
+    },
+    "768p_8s_2step_spark": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_8s_2step_spark_00001_.mp4",
+      "size_mb": 6.5,
+      "duration_s": 8.0,
+      "video": {
+        "codec": "h264",
+        "width": 1344,
+        "height": 768,
+        "nb_frames": 192,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -14.003922,
+        "peak_db_overall": -1.18666
+      },
+      "blackdetect_count": 0
+    },
+    "768p_10s_2step_sol": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_10s_2step_sol_00001_.mp4",
+      "size_mb": 8.18,
+      "duration_s": 10.125,
+      "video": {
+        "codec": "h264",
+        "width": 1344,
+        "height": 768,
+        "nb_frames": 243,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -14.005007,
+        "peak_db_overall": -0.333402
+      },
+      "blackdetect_count": 0
+    },
+    "768p_10s_2step_spark": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_10s_2step_spark_00001_.mp4",
+      "size_mb": 8.41,
+      "duration_s": 10.125,
+      "video": {
+        "codec": "h264",
+        "width": 1344,
+        "height": 768,
+        "nb_frames": 243,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -14.004691,
+        "peak_db_overall": -1.41189
+      },
+      "blackdetect_count": 0
+    },
+    "768p_10s_4step_sol": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_10s_4step_sol_00001_.mp4",
+      "size_mb": 7.85,
+      "duration_s": 10.125,
+      "video": {
+        "codec": "h264",
+        "width": 1344,
+        "height": 768,
+        "nb_frames": 243,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -14.014538,
+        "peak_db_overall": -2.082783
+      },
+      "blackdetect_count": 0
+    },
+    "768p_10s_4step_spark": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_10s_4step_spark_00001_.mp4",
+      "size_mb": 7.64,
+      "duration_s": 10.125,
+      "video": {
+        "codec": "h264",
+        "width": 1344,
+        "height": 768,
+        "nb_frames": 243,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -14.004704,
+        "peak_db_overall": -2.20769
+      },
+      "blackdetect_count": 0
+    },
+    "480p_30s_2step_sol": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\480p_30s_2step_sol_00001_.mp4",
+      "size_mb": 8.3,
+      "duration_s": 29.958,
+      "video": {
+        "codec": "h264",
+        "width": 864,
+        "height": 480,
+        "nb_frames": 719,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -13.783167,
+        "peak_db_overall": -2.416512
+      },
+      "blackdetect_count": 0
+    },
+    "480p_30s_2step_spark": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\480p_30s_2step_spark_00001_.mp4",
+      "size_mb": 8.77,
+      "duration_s": 29.958,
+      "video": {
+        "codec": "h264",
+        "width": 864,
+        "height": 480,
+        "nb_frames": 719,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -13.983973,
+        "peak_db_overall": -2.930332
+      },
+      "blackdetect_count": 0
+    },
+    "fl2va_768p_5s_2step_sol": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\fl2va_768p_5s_2step_sol_00001_.mp4",
+      "size_mb": 6.14,
+      "duration_s": 5.167,
+      "video": {
+        "codec": "h264",
+        "width": 1344,
+        "height": 768,
+        "nb_frames": 124,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -14.114977,
+        "peak_db_overall": -0.923333
+      },
+      "blackdetect_count": 0
+    },
+    "fl2va_768p_5s_4step_sol": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\fl2va_768p_5s_4step_sol_00001_.mp4",
+      "size_mb": 4.88,
+      "duration_s": 5.167,
+      "video": {
+        "codec": "h264",
+        "width": 1344,
+        "height": 768,
+        "nb_frames": 124,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -14.014699,
+        "peak_db_overall": -2.921836
+      },
+      "blackdetect_count": 0
+    },
+    "fl2va_768p_5s_4step_spark": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\fl2va_768p_5s_4step_spark_00001_.mp4",
+      "size_mb": 5.87,
+      "duration_s": 5.167,
+      "video": {
+        "codec": "h264",
+        "width": 1344,
+        "height": 768,
+        "nb_frames": 124,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -14.005456,
+        "peak_db_overall": -3.364511
+      },
+      "blackdetect_count": 0
+    },
+    "1080p_native_5s_2step_sol": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel-partc\\1080p_native_5s_2step_sol_00001_.mp4",
+      "size_mb": 6.89,
+      "duration_s": 5.167,
+      "video": {
+        "codec": "h264",
+        "width": 1920,
+        "height": 1080,
+        "nb_frames": 124,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -14.429955,
+        "peak_db_overall": -0.57563
+      },
+      "blackdetect_count": 0
+    },
+    "fl2va_768p_10s_2step_sol": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel-partc\\fl2va_768p_10s_2step_sol_00001_.mp4",
+      "size_mb": 12.28,
+      "duration_s": 10.125,
+      "video": {
+        "codec": "h264",
+        "width": 1344,
+        "height": 768,
+        "nb_frames": 243,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -14.243873,
+        "peak_db_overall": -0.022963
+      },
+      "blackdetect_count": 0
+    },
+    "fl2va_768p_10s_4step_spark": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel-partc\\fl2va_768p_10s_4step_spark_00001_.mp4",
+      "size_mb": 12.53,
+      "duration_s": 10.125,
+      "video": {
+        "codec": "h264",
+        "width": 1344,
+        "height": 768,
+        "nb_frames": 243,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -14.006403,
+        "peak_db_overall": -2.254328
+      },
+      "blackdetect_count": 0
+    },
+    "fl2va_480p_30s_2step_sol": {
+      "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel-partc\\fl2va_480p_30s_2step_sol_00001_.mp4",
+      "size_mb": 11.37,
+      "duration_s": 29.958,
+      "video": {
+        "codec": "h264",
+        "width": 864,
+        "height": 480,
+        "nb_frames": 719,
+        "r_frame_rate": "24/1"
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": "32000",
+        "channels": 2,
+        "rms_db_overall": -14.00624,
+        "peak_db_overall": -0.849819
+      },
+      "blackdetect_count": 0
+    }
+  },
+  "previews": {
+    "contactSheet": "previews/contact-sheet.jpg",
+    "manifest": "previews/contact-sheet.json",
+    "longComparison": "previews/compare_sol_vs_spark_long.jpg",
+    "fl2va5sComparison": "previews/compare_fl2va_transition.jpg",
+    "native1080pComparison": "previews/compare_1080p_native_sol.jpg",
+    "fl2vaLongComparison": "previews/compare_fl2va_long_10s_30s.jpg"
+  },
+  "publicEvidence": {
+    "tile": "previews/contact-sheet.jpg",
+    "manifest": "previews/contact-sheet.json",
+    "videoStatus": "local-only",
+    "note": "Generated MP4s remain local under runtime/pih3-4090/output/video/pi-h3-sequel* and are excluded from Git; tracked tiles, manifests, and SHA-256 hashes verify all outputs."
+  },
+  "publication": {
+    "platform": "x",
+    "status": "not_posted",
+    "videoTweets": []
+  },
+  "conclusion": "17 of 18 runs succeeded on RTX 4090 with zero dense fallbacks and zero black frames (all with AAC 32kHz stereo audio, RMS -13.78 to -15.76 dB). Sol-Attn unlocked native 1080p (1920x1088->1080) 5s 2-step generation in 100.23s (22.5 GB Peak VRAM) and 30s (719f) 480p T2V/FL2VA in ~337-347s. 768p 30s hit 24GB VRAM OOM, establishing 480p as the practical 30s ceiling on 24GB. For 4-step generation (10s T2V, 5s/10s FL2VA), Spark-Attn SM89 outperformed Sol-Attn by 25-36% (e.g., 54.65s vs 72.52s on 5s FL2VA; 124.70s vs 196.04s on 10s T2V; 133.22s on 10s FL2VA).",
+  "limitations": [
+    "768p 30s (719f) exceeded RTX 4090 24GB VRAM during sampling (torch.OutOfMemoryError).",
+    "Generated MP4 videos are stored locally under runtime/pih3-4090/output/video/pi-h3-sequel* and are not committed to Git."
+  ]
+}

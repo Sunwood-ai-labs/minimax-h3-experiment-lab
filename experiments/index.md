@@ -60,6 +60,8 @@ RTX 3060は、旧int8経路では黒画になった一方、公式FP16/FP32 VAE�
 | ID | 実施日 | 機能 | 状態 | 記録 | タイル |
 |---|---|---|---|---|---|
 | `2026-08-08-low-step-lightx2v-4step` | 2026-08-08 | LoRAによる4-step T2V / I2V、1344×768、`er_sde` / `sa_solver` | verified | [English](./02-low-step-generation/lightx2v-4step/README.md) / [日本語](./02-low-step-generation/lightx2v-4step/README.ja.md) / [JSON](./02-low-step-generation/lightx2v-4step/experiment.json) | [contact sheet](./02-low-step-generation/lightx2v-4step/previews/contact-sheet.jpg) / [manifest](./02-low-step-generation/lightx2v-4step/previews/contact-sheet.json) |
+| `2026-11-23-pi-h3-dwd-spark-4090` | 2026-11-23 | RTX 4090、pi-H3 1.0（DWD + Spark-Attn SM89）、480p/768p/720p/1080p、2/4 steps、5.17秒 | verified | [English](./02-low-step-generation/pi-h3-dwd-spark-4090/README.md) / [日本語](./02-low-step-generation/pi-h3-dwd-spark-4090/README.ja.md) / [JSON](./02-low-step-generation/pi-h3-dwd-spark-4090/experiment.json) | [contact sheet](./02-low-step-generation/pi-h3-dwd-spark-4090/previews/contact-sheet.jpg) / [manifest](./02-low-step-generation/pi-h3-dwd-spark-4090/previews/contact-sheet.json) |
+| `2026-11-23-pi-h3-pixelaigc-workflow-4090` | 2026-11-23 | RTX 4090、pixelaigc pi-H3ワークフロー、Sol vs Spark、5〜30秒長尺、1080pネイティブ、FL2VA（5/10/30秒） | verified | [English](./02-low-step-generation/pi-h3-pixelaigc-workflow-4090/README.md) / [日本語](./02-low-step-generation/pi-h3-pixelaigc-workflow-4090/README.ja.md) / [JSON](./02-low-step-generation/pi-h3-pixelaigc-workflow-4090/experiment.json) | [contact sheet](./02-low-step-generation/pi-h3-pixelaigc-workflow-4090/previews/contact-sheet.jpg) / [manifest](./02-low-step-generation/pi-h3-pixelaigc-workflow-4090/previews/contact-sheet.json) |
 
 配布元・実装元は出典欄に記録し、フォルダは「少ないstepで生成する機能」で分類しています。
 

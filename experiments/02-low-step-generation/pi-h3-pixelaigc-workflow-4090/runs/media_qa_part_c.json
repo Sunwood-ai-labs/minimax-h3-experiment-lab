@@ -1,0 +1,82 @@
+{
+  "1080p_native_5s_2step_sol": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel-partc\\1080p_native_5s_2step_sol_00001_.mp4",
+    "size_mb": 6.89,
+    "duration_s": 5.167,
+    "video": {
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "nb_frames": 124,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -14.429955,
+      "peak_db_overall": -0.57563
+    },
+    "blackdetect_count": 0
+  },
+  "fl2va_768p_10s_2step_sol": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel-partc\\fl2va_768p_10s_2step_sol_00001_.mp4",
+    "size_mb": 12.28,
+    "duration_s": 10.125,
+    "video": {
+      "codec": "h264",
+      "width": 1344,
+      "height": 768,
+      "nb_frames": 243,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -14.243873,
+      "peak_db_overall": -0.022963
+    },
+    "blackdetect_count": 0
+  },
+  "fl2va_768p_10s_4step_spark": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel-partc\\fl2va_768p_10s_4step_spark_00001_.mp4",
+    "size_mb": 12.53,
+    "duration_s": 10.125,
+    "video": {
+      "codec": "h264",
+      "width": 1344,
+      "height": 768,
+      "nb_frames": 243,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -14.006403,
+      "peak_db_overall": -2.254328
+    },
+    "blackdetect_count": 0
+  },
+  "fl2va_480p_30s_2step_sol": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel-partc\\fl2va_480p_30s_2step_sol_00001_.mp4",
+    "size_mb": 11.37,
+    "duration_s": 29.958,
+    "video": {
+      "codec": "h264",
+      "width": 864,
+      "height": 480,
+      "nb_frames": 719,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -14.00624,
+      "peak_db_overall": -0.849819
+    },
+    "blackdetect_count": 0
+  }
+}

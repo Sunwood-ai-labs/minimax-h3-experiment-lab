@@ -1,0 +1,110 @@
+{
+  "720p_2step_warm": {
+    "bytes": 3669723,
+    "sha256": "9A11E553758FAA3EE0A69CCD9F2BEADE8D81CB5ACF96188F4E07FA8A6815A1F6",
+    "video": {
+      "codec": "h264",
+      "width": 1280,
+      "height": 720,
+      "fps": "24/1",
+      "frames": 124,
+      "duration": 5.166688
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 32000,
+      "channels": 2,
+      "duration": 5.166688
+    },
+    "blackdetect": [],
+    "astats": [
+      "[Parsed_astats_0 @ 000002c77b033b00] RMS level dB: -15.008809",
+      "[Parsed_astats_0 @ 000002c77b033b00] Channel: 2",
+      "[Parsed_astats_0 @ 000002c77b033b00] Peak level dB: -1.250049",
+      "[Parsed_astats_0 @ 000002c77b033b00] RMS level dB: -15.015628",
+      "[Parsed_astats_0 @ 000002c77b033b00] Peak level dB: -0.835945",
+      "[Parsed_astats_0 @ 000002c77b033b00] RMS level dB: -15.012217"
+    ]
+  },
+  "720p_4step_warm": {
+    "bytes": 3648082,
+    "sha256": "DBC4415079F9E1986A2B49631BE25B134631736D7EE3FAF45701B183094EFF8C",
+    "video": {
+      "codec": "h264",
+      "width": 1280,
+      "height": 720,
+      "fps": "24/1",
+      "frames": 124,
+      "duration": 5.166688
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 32000,
+      "channels": 2,
+      "duration": 5.166688
+    },
+    "blackdetect": [],
+    "astats": [
+      "[Parsed_astats_0 @ 000001bba1b209c0] RMS level dB: -14.009946",
+      "[Parsed_astats_0 @ 000001bba1b209c0] Channel: 2",
+      "[Parsed_astats_0 @ 000001bba1b209c0] Peak level dB: -2.062355",
+      "[Parsed_astats_0 @ 000001bba1b209c0] RMS level dB: -14.049912",
+      "[Parsed_astats_0 @ 000001bba1b209c0] Peak level dB: -1.989725",
+      "[Parsed_astats_0 @ 000001bba1b209c0] RMS level dB: -14.029883"
+    ]
+  },
+  "1080p_upscaled_2step_warm": {
+    "bytes": 7466795,
+    "sha256": "4A09AF2781A66B69E32B68D7A60B74CDC6968178ABFA76B162E5DD2DF54BBB71",
+    "video": {
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "fps": "24/1",
+      "frames": 124,
+      "duration": 5.166688
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 32000,
+      "channels": 2,
+      "duration": 5.166688
+    },
+    "blackdetect": [],
+    "astats": [
+      "[Parsed_astats_0 @ 0000026a893d0980] RMS level dB: -15.306724",
+      "[Parsed_astats_0 @ 0000026a893d0980] Channel: 2",
+      "[Parsed_astats_0 @ 0000026a893d0980] Peak level dB: -0.829130",
+      "[Parsed_astats_0 @ 0000026a893d0980] RMS level dB: -14.762487",
+      "[Parsed_astats_0 @ 0000026a893d0980] Peak level dB: -0.829130",
+      "[Parsed_astats_0 @ 0000026a893d0980] RMS level dB: -15.026086"
+    ]
+  },
+  "1080p_upscaled_4step_warm": {
+    "bytes": 7338682,
+    "sha256": "64A2C1F1FAB9EDBBE7D179696107B4A9E2E05DE17F3CC05308F8F5C6D9E2941E",
+    "video": {
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "fps": "24/1",
+      "frames": 124,
+      "duration": 5.166688
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 32000,
+      "channels": 2,
+      "duration": 5.166688
+    },
+    "blackdetect": [],
+    "astats": [
+      "[Parsed_astats_0 @ 000001ee56bc0a80] RMS level dB: -14.178990",
+      "[Parsed_astats_0 @ 000001ee56bc0a80] Channel: 2",
+      "[Parsed_astats_0 @ 000001ee56bc0a80] Peak level dB: -1.851790",
+      "[Parsed_astats_0 @ 000001ee56bc0a80] RMS level dB: -13.915835",
+      "[Parsed_astats_0 @ 000001ee56bc0a80] Peak level dB: -1.825226",
+      "[Parsed_astats_0 @ 000001ee56bc0a80] RMS level dB: -14.045420"
+    ]
+  }
+}

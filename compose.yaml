@@ -134,3 +134,47 @@ services:
     volumes:
       - ./models:/opt/ComfyUI/models
     entrypoint: ["/usr/local/bin/download-h3-model"]
+
+  h3-pih3-4090:
+    build:
+      context: .
+      dockerfile: docker/pih3-4090.Dockerfile
+    image: local/minimax-h3-comfyui:v0.46.0-pih3
+    container_name: minimax-h3-pih3-4090
+    profiles: ["pih3-4090"]
+    restart: unless-stopped
+    shm_size: 16gb
+    ports:
+      - "8195:8188"
+    environment:
+      <<: *environment
+      NVIDIA_VISIBLE_DEVICES: ${GPU_4090_UUID:-GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa}
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,video
+      CUDA_VISIBLE_DEVICES: ${GPU_4090_UUID:-GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["${GPU_4090_UUID:-GPU-f877fbc1-9f24-bd97-3359-dd358eaa2caa}"]
+              capabilities: [gpu]
+    volumes:
+      - ./models:/opt/ComfyUI/models:ro
+      - ./workflows:/opt/ComfyUI/workflows:ro
+      - ./experiments:/opt/ComfyUI/experiments:ro
+      - ./runtime/pih3-4090/input:/opt/ComfyUI/input
+      - ./runtime/pih3-4090/output:/opt/ComfyUI/output
+      - ./runtime/pih3-4090/user:/opt/ComfyUI/user
+    command:
+      - --listen
+      - 0.0.0.0
+      - --port
+      - "8188"
+      - --preview-method
+      - none
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8188/system_stats > /dev/null || exit 1"]
+      interval: 30s
+      timeout: 10s
+      start_period: 30s
+      retries: 5

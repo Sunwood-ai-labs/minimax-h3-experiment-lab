@@ -1,0 +1,262 @@
+{
+  "768p_5s_2step_sol_warmup": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_5s_2step_sol_warmup_00001_.mp4",
+    "size_mb": 3.83,
+    "duration_s": 5.167,
+    "video": {
+      "codec": "h264",
+      "width": 1344,
+      "height": 768,
+      "nb_frames": 124,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -15.764207,
+      "peak_db_overall": -0.305086
+    },
+    "blackdetect_count": 0
+  },
+  "768p_5s_2step_sol_warm": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_5s_2step_sol_warm_00001_.mp4",
+    "size_mb": 3.53,
+    "duration_s": 5.167,
+    "video": {
+      "codec": "h264",
+      "width": 1344,
+      "height": 768,
+      "nb_frames": 124,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -14.960948,
+      "peak_db_overall": -0.371424
+    },
+    "blackdetect_count": 0
+  },
+  "768p_8s_2step_sol": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_8s_2step_sol_00001_.mp4",
+    "size_mb": 6.02,
+    "duration_s": 8.0,
+    "video": {
+      "codec": "h264",
+      "width": 1344,
+      "height": 768,
+      "nb_frames": 192,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -13.995662,
+      "peak_db_overall": -0.629714
+    },
+    "blackdetect_count": 0
+  },
+  "768p_8s_2step_spark": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_8s_2step_spark_00001_.mp4",
+    "size_mb": 6.5,
+    "duration_s": 8.0,
+    "video": {
+      "codec": "h264",
+      "width": 1344,
+      "height": 768,
+      "nb_frames": 192,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -14.003922,
+      "peak_db_overall": -1.18666
+    },
+    "blackdetect_count": 0
+  },
+  "768p_10s_2step_sol": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_10s_2step_sol_00001_.mp4",
+    "size_mb": 8.18,
+    "duration_s": 10.125,
+    "video": {
+      "codec": "h264",
+      "width": 1344,
+      "height": 768,
+      "nb_frames": 243,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -14.005007,
+      "peak_db_overall": -0.333402
+    },
+    "blackdetect_count": 0
+  },
+  "768p_10s_2step_spark": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_10s_2step_spark_00001_.mp4",
+    "size_mb": 8.41,
+    "duration_s": 10.125,
+    "video": {
+      "codec": "h264",
+      "width": 1344,
+      "height": 768,
+      "nb_frames": 243,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -14.004691,
+      "peak_db_overall": -1.41189
+    },
+    "blackdetect_count": 0
+  },
+  "768p_10s_4step_sol": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_10s_4step_sol_00001_.mp4",
+    "size_mb": 7.85,
+    "duration_s": 10.125,
+    "video": {
+      "codec": "h264",
+      "width": 1344,
+      "height": 768,
+      "nb_frames": 243,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -14.014538,
+      "peak_db_overall": -2.082783
+    },
+    "blackdetect_count": 0
+  },
+  "768p_10s_4step_spark": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\768p_10s_4step_spark_00001_.mp4",
+    "size_mb": 7.64,
+    "duration_s": 10.125,
+    "video": {
+      "codec": "h264",
+      "width": 1344,
+      "height": 768,
+      "nb_frames": 243,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -14.004704,
+      "peak_db_overall": -2.20769
+    },
+    "blackdetect_count": 0
+  },
+  "480p_30s_2step_sol": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\480p_30s_2step_sol_00001_.mp4",
+    "size_mb": 8.3,
+    "duration_s": 29.958,
+    "video": {
+      "codec": "h264",
+      "width": 864,
+      "height": 480,
+      "nb_frames": 719,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -13.783167,
+      "peak_db_overall": -2.416512
+    },
+    "blackdetect_count": 0
+  },
+  "480p_30s_2step_spark": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\480p_30s_2step_spark_00001_.mp4",
+    "size_mb": 8.77,
+    "duration_s": 29.958,
+    "video": {
+      "codec": "h264",
+      "width": 864,
+      "height": 480,
+      "nb_frames": 719,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -13.983973,
+      "peak_db_overall": -2.930332
+    },
+    "blackdetect_count": 0
+  },
+  "fl2va_768p_5s_2step_sol": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\fl2va_768p_5s_2step_sol_00001_.mp4",
+    "size_mb": 6.14,
+    "duration_s": 5.167,
+    "video": {
+      "codec": "h264",
+      "width": 1344,
+      "height": 768,
+      "nb_frames": 124,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -14.114977,
+      "peak_db_overall": -0.923333
+    },
+    "blackdetect_count": 0
+  },
+  "fl2va_768p_5s_4step_sol": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\fl2va_768p_5s_4step_sol_00001_.mp4",
+    "size_mb": 4.88,
+    "duration_s": 5.167,
+    "video": {
+      "codec": "h264",
+      "width": 1344,
+      "height": 768,
+      "nb_frames": 124,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -14.014699,
+      "peak_db_overall": -2.921836
+    },
+    "blackdetect_count": 0
+  },
+  "fl2va_768p_5s_4step_spark": {
+    "file": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\fl2va_768p_5s_4step_spark_00001_.mp4",
+    "size_mb": 5.87,
+    "duration_s": 5.167,
+    "video": {
+      "codec": "h264",
+      "width": 1344,
+      "height": 768,
+      "nb_frames": 124,
+      "r_frame_rate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": "32000",
+      "channels": 2,
+      "rms_db_overall": -14.005456,
+      "peak_db_overall": -3.364511
+    },
+    "blackdetect_count": 0
+  }
+}

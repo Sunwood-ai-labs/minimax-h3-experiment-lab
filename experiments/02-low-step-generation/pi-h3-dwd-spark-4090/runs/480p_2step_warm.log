@@ -1,0 +1,19 @@
+
+[32m[INFO][0m [32mPrompt executed in 00:24:23[0m
+[32m[INFO][0m got prompt
+[32m[INFO][0m Model MiniMaxH3DWD prepared for dynamic VRAM loading. 612MB Staged. 0 patches attached. Force pre-loaded 18 weights: 74 KB.
+[32m[INFO][0m Model MiniMaxH3 prepared for dynamic VRAM loading. 19995MB Staged. 210 patches attached. Force pre-loaded 210 weights: 1175 KB.
+
+  0%|          | 0/2 [00:00<?, ?it/s]
+  0%|          | 0/2 [00:00<?, ?it/s,   Model Initializing ...  ][32m[INFO][0m [Spark-H3] active on SM89 (15570 packed tokens, 14985 sparse-video tokens)
+[32m[INFO][0m [Spark-H3] execution summary: evaluations=1 warmup_evaluations=0 counts={'reblock_plan_calls': 50, 'comfy_kitchen_calls': 50, 'sparse:spark_comfy_native': 50} unexpected_fallbacks=[]
+
+  0%|          | 0/2 [00:03<?, ?it/s,  Model Initialization complete!  ]
+ 50%|█████     | 1/2 [00:03<00:03,  3.92s/it,  Model Initialization complete!  ][32m[INFO][0m [Spark-H3] execution summary: evaluations=2 warmup_evaluations=0 counts={'reblock_plan_calls': 100, 'comfy_kitchen_calls': 100, 'sparse:spark_comfy_native': 100} unexpected_fallbacks=[]
+
+ 50%|█████     | 1/2 [00:23<00:03,  3.92s/it]                                   
+100%|██████████| 2/2 [00:23<00:00, 11.73s/it]
+100%|██████████| 2/2 [00:23<00:00, 11.73s/it]
+[32m[INFO][0m Comfy model compiler graph breaks: 5, rogues: 4
+[32m[INFO][0m Model MiniMaxH3AudioVAE prepared for dynamic VRAM loading. 576MB Staged. 0 patches attached. Force pre-loaded 401 weights: 539 KB.
+[32m[INFO][0m [32mPrompt executed in 19.73 seconds[0m

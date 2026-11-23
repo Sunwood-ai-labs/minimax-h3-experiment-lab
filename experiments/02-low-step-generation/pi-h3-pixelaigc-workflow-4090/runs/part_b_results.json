@@ -1,0 +1,210 @@
+{
+  "started_at": "2026-11-23T09:51:19.034242+00:00",
+  "system_stats": {
+    "system": {
+      "os": "linux",
+      "ram_total": 116045914112,
+      "ram_free": 84266795008,
+      "comfyui_version": "0.46.0",
+      "required_frontend_version": "1.59.6",
+      "installed_templates_version": "0.11.111",
+      "required_templates_version": "0.11.111",
+      "comfy_package_versions": [
+        {
+          "name": "comfyui-frontend-package",
+          "installed": "1.59.6",
+          "required": "1.59.6"
+        },
+        {
+          "name": "comfyui-workflow-templates",
+          "installed": "0.11.111",
+          "required": "0.11.111"
+        },
+        {
+          "name": "comfyui-embedded-docs",
+          "installed": "0.5.17",
+          "required": "0.5.17"
+        },
+        {
+          "name": "comfy-aimdo",
+          "installed": "0.6.0",
+          "required": "0.6.0"
+        },
+        {
+          "name": "comfy-kitchen",
+          "installed": "0.2.41",
+          "required": "0.2.41"
+        }
+      ],
+      "python_version": "3.12.3 (main, Mar  3 2026, 12:15:18) [GCC 13.3.0]",
+      "pytorch_version": "2.11.0+cu130",
+      "embedded_python": false,
+      "deploy_environment": "local-git",
+      "argv": [
+        "/opt/ComfyUI/main.py",
+        "--listen",
+        "0.0.0.0",
+        "--port",
+        "8188",
+        "--disable-pinned-memory",
+        "--preview-method",
+        "none"
+      ]
+    },
+    "devices": [
+      {
+        "name": "cuda:0 NVIDIA GeForce RTX 4090 : cudaMallocAsync",
+        "type": "cuda",
+        "index": 0,
+        "vram_total": 25756696576,
+        "vram_free": 15233506356,
+        "torch_vram_total": 134217728,
+        "torch_vram_free": 50125876
+      },
+      {
+        "name": "cuda:1 NVIDIA GeForce RTX 3060 : cudaMallocAsync",
+        "type": "cuda",
+        "index": 1,
+        "vram_total": 12884377600,
+        "vram_free": 11789139968,
+        "torch_vram_total": 0,
+        "torch_vram_free": 0
+      }
+    ]
+  },
+  "runs": [
+    {
+      "run_id": "fl2va_768p_5s_2step_sol",
+      "spec": {
+        "run_id": "fl2va_768p_5s_2step_sol",
+        "width": 1344,
+        "height": 768,
+        "length": 124,
+        "steps": 2,
+        "attn": "sol",
+        "seed": 42,
+        "prefix": "video/pi-h3-sequel/fl2va_768p_5s_2step_sol",
+        "first_frame": "fl2va_first_night_rain.png",
+        "last_frame": "fl2va_last_morning_sun.png"
+      },
+      "prompt_id": "808cc9ed-9fa1-45f6-8fb3-d6381ad56607",
+      "status": "success",
+      "wall_s": 143.623,
+      "comfy_execution_s": 143.16,
+      "comfy_logged_s": 143.17,
+      "cached_nodes_count": 7,
+      "execution_error": null,
+      "gpu": {
+        "sample_count": 251,
+        "peak_vram_mib": 22493.0,
+        "min_vram_mib": 9519.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 27.8,
+        "peak_power_w": 420.09,
+        "avg_power_w": 84.02,
+        "peak_temp_c": 71.0
+      },
+      "outputs": [
+        {
+          "node_id": "17",
+          "media_key": "images",
+          "filename": "fl2va_768p_5s_2step_sol_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "host_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\fl2va_768p_5s_2step_sol_00001_.mp4",
+          "size_bytes": 6436769,
+          "sha256": "35562C60360DE13FEC30297CF062EDA2BDB54F2154EFA4816620F8BE91039409"
+        }
+      ]
+    },
+    {
+      "run_id": "fl2va_768p_5s_4step_sol",
+      "spec": {
+        "run_id": "fl2va_768p_5s_4step_sol",
+        "width": 1344,
+        "height": 768,
+        "length": 124,
+        "steps": 4,
+        "attn": "sol",
+        "seed": 42,
+        "prefix": "video/pi-h3-sequel/fl2va_768p_5s_4step_sol",
+        "first_frame": "fl2va_first_night_rain.png",
+        "last_frame": "fl2va_last_morning_sun.png"
+      },
+      "prompt_id": "b662f50a-a838-4b26-8af1-67748ccf4bea",
+      "status": "success",
+      "wall_s": 72.799,
+      "comfy_execution_s": 72.522,
+      "comfy_logged_s": 72.52,
+      "cached_nodes_count": 11,
+      "execution_error": null,
+      "gpu": {
+        "sample_count": 126,
+        "peak_vram_mib": 22501.0,
+        "min_vram_mib": 16757.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 57.0,
+        "peak_power_w": 417.84,
+        "avg_power_w": 210.95,
+        "peak_temp_c": 78.0
+      },
+      "outputs": [
+        {
+          "node_id": "17",
+          "media_key": "images",
+          "filename": "fl2va_768p_5s_4step_sol_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "host_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\fl2va_768p_5s_4step_sol_00001_.mp4",
+          "size_bytes": 5113462,
+          "sha256": "71DB50A4E53F5209EA172B7D56BD8012026846B116E72C723E58612F08335F39"
+        }
+      ]
+    },
+    {
+      "run_id": "fl2va_768p_5s_4step_spark",
+      "spec": {
+        "run_id": "fl2va_768p_5s_4step_spark",
+        "width": 1344,
+        "height": 768,
+        "length": 124,
+        "steps": 4,
+        "attn": "spark",
+        "seed": 42,
+        "prefix": "video/pi-h3-sequel/fl2va_768p_5s_4step_spark",
+        "first_frame": "fl2va_first_night_rain.png",
+        "last_frame": "fl2va_last_morning_sun.png"
+      },
+      "prompt_id": "656bdae2-e183-4d73-b87b-e8b2368bd846",
+      "status": "success",
+      "wall_s": 55.096,
+      "comfy_execution_s": 54.648,
+      "comfy_logged_s": 54.65,
+      "cached_nodes_count": 12,
+      "execution_error": null,
+      "gpu": {
+        "sample_count": 96,
+        "peak_vram_mib": 22293.0,
+        "min_vram_mib": 14973.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 72.3,
+        "peak_power_w": 415.49,
+        "avg_power_w": 269.97,
+        "peak_temp_c": 79.0
+      },
+      "outputs": [
+        {
+          "node_id": "17",
+          "media_key": "images",
+          "filename": "fl2va_768p_5s_4step_spark_00001_.mp4",
+          "subfolder": "video/pi-h3-sequel",
+          "host_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-sequel\\fl2va_768p_5s_4step_spark_00001_.mp4",
+          "size_bytes": 6155081,
+          "sha256": "F238123EADC583BFCB5CA90C35185D6B7992FC2114095E71F6F1EB162F4C46FB"
+        }
+      ]
+    }
+  ],
+  "updated_at": "2026-11-23T09:55:50.857691+00:00"
+}

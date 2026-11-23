@@ -1,0 +1,156 @@
+
+[32m[INFO][0m [32mPrompt executed in 39.91 seconds[0m
+[32m[INFO][0m got prompt
+[32m[INFO][0m Model MiniMaxH3TEModel_ prepared for dynamic VRAM loading. 14956MB Staged. 0 patches attached. Force pre-loaded 410 weights: 4572 KB.
+[32m[INFO][0m [Spark-H3] installed ComfyUI-native producer on 50 H3 blocks (profile speed, mode full, sparse scope target-video, producer chunk 8192, chunk path drop_k, tail dense, anchor float32, approximation query, midpoint legacy, reblock q_from_k, Top-K 20%, warmup 0%, dense backend inherit, dense blocks none, KJ low-VRAM off)
+[32m[INFO][0m Requested to load MiniMaxH3DWD
+[32m[INFO][0m Requested to load MiniMaxH3
+[32m[INFO][0m 0 models unloaded.
+[32m[INFO][0m Model MiniMaxH3DWD prepared for dynamic VRAM loading. 612MB Staged. 0 patches attached. Force pre-loaded 18 weights: 74 KB.
+[32m[INFO][0m Model MiniMaxH3 prepared for dynamic VRAM loading. 19995MB Staged. 210 patches attached. Force pre-loaded 210 weights: 1175 KB.
+
+  0%|          | 0/2 [00:00<?, ?it/s]
+  0%|          | 0/2 [00:00<?, ?it/s,   Model Initializing ...  ]
+  0%|          | 0/2 [00:00<?, ?it/s,   Model Initializing ...  ]
+[32m[INFO][0m Comfy model compiler graph breaks: 0, rogues: 10
+[1m[31m[ERROR][0m !!! Exception during processing !!! Spark chunked requires a rebuilt comfy-kitchen CUDA extension
+[1m[31m[ERROR][0m Traceback (most recent call last):
+  File "/opt/ComfyUI/execution.py", line 568, in execute
+    output_data, output_ui, has_subgraph, has_pending_tasks = await get_output_data(prompt_id, unique_id, obj, input_data_all, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/execution.py", line 353, in get_output_data
+    return_values = await _async_map_node_over_list(prompt_id, unique_id, obj, input_data_all, obj.FUNCTION, allow_interrupt=True, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/execution.py", line 327, in _async_map_node_over_list
+    await process_inputs(input_dict, i)
+  File "/opt/ComfyUI/execution.py", line 315, in process_inputs
+    result = f(**inputs)
+             ^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy_api/internal/__init__.py", line 149, in wrapped_func
+    return method(locked_class, **inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy_api/latest/_io.py", line 2219, in EXECUTE_NORMALIZED
+    to_return = cls.execute(*args, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy_extras/nodes_custom_sampler.py", line 1055, in execute
+    samples = guider.sample(noise.generate_noise(latent), latent_image, sampler, sigmas, denoise_mask=noise_mask, callback=callback, disable_pbar=disable_pbar, seed=noise.seed)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/samplers.py", line 1336, in sample
+    output = executor.execute(noise, latent_image, sampler, sigmas, denoise_mask, callback, disable_pbar, seed, latent_shapes=latent_shapes)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/patcher_extension.py", line 114, in execute
+    return self.wrappers[self.idx](self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/custom_nodes/ComfyUI-piFlow/modules/architectures/dwd_head.py", line 70, in dwd_outer_sample_wrapper
+    output = executor(noise, latent_image, sampler, sigmas, *args, latent_shapes=latent_shapes, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/patcher_extension.py", line 106, in __call__
+    return new_executor.execute(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/patcher_extension.py", line 113, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/samplers.py", line 1263, in outer_sample
+    output = self.inner_sample(noise, latent_image, device, sampler, sigmas, denoise_mask, callback, disable_pbar, seed, latent_shapes=latent_shapes)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/samplers.py", line 1238, in inner_sample
+    samples = executor.execute(self, sigmas, extra_args, callback, noise, latent_image, denoise_mask, disable_pbar)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/patcher_extension.py", line 113, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/samplers.py", line 1005, in sample
+    samples = self.sampler_function(model_k, noise, sigmas, extra_args=extra_args, callback=k_callback, disable=disable_pbar, **self.extra_options)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/k_diffusion/sampling.py", line 205, in sample_euler
+    denoised = model(x, sigma_hat * s_in, **extra_args)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/samplers.py", line 640, in __call__
+    out = self.inner_model(x, sigma, model_options=model_options, seed=seed)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/samplers.py", line 1208, in __call__
+    return self.outer_predict_noise(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/samplers.py", line 1215, in outer_predict_noise
+    ).execute(x, timestep, model_options, seed)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/patcher_extension.py", line 113, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/samplers.py", line 1218, in predict_noise
+    return sampling_function(self.inner_model, x, timestep, self.conds.get("negative", None), self.conds.get("positive", None), self.cfg, model_options=model_options, seed=seed)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/samplers.py", line 620, in sampling_function
+    out = calc_cond_batch(model, conds, x, timestep, model_options)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/samplers.py", line 211, in calc_cond_batch
+    return _calc_cond_batch_outer(model, conds, x_in, timestep, model_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/samplers.py", line 219, in _calc_cond_batch_outer
+    return executor.execute(model, conds, x_in, timestep, model_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/patcher_extension.py", line 113, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/samplers.py", line 335, in _calc_cond_batch
+    output = model.apply_model(input_x, timestep_, **c).chunk(batch_chunks)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/model_base.py", line 217, in apply_model
+    return comfy.patcher_extension.WrapperExecutor.new_class_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/patcher_extension.py", line 113, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/model_base.py", line 261, in _apply_model
+    model_output = self.diffusion_model(xc, t, context=context, control=control, transformer_options=transformer_options, **extra_conds)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/ldm/minimax/model.py", line 690, in forward
+    graph_out = comfy.patcher_extension.WrapperExecutor.new_class_executor(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/patcher_extension.py", line 113, in execute
+    return self.original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/ldm/minimax/model.py", line 803, in _forward
+    h = self._run_blocks(h, t_emb, mod_segments, layout, transformer_options)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/custom_nodes/ComfyUI-piFlow/modules/architectures/minimax_h3_dwd.py", line 77, in run_blocks_and_decode
+    h = run_blocks(h, t_emb, mod_segments, layout, transformer_options)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/ldm/minimax/model.py", line 664, in _run_blocks
+    h = blocks_replace[("double_block", i)](
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/custom_nodes/ComfyUI-Spark-H3/comfyui_nodes.py", line 1036, in block_patch
+    result = extra["original_block"]({**args, "attention": attention})
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/ldm/minimax/model.py", line 662, in block_wrap
+    return {"img": block(args["img"], args["t_emb"], args["mod_segments"], args["rope_freqs"],
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/comfy/ldm/minimax/model.py", line 319, in forward
+    x = _mod_gate(x, gate_msa, attention(h, rope_freqs=rope_freqs, transformer_options=transformer_options), mod_segments)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/custom_nodes/ComfyUI-Spark-H3/comfyui_nodes.py", line 994, in attention
+    return _native_spark_attention(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/custom_nodes/ComfyUI-Spark-H3/comfyui_nodes.py", line 801, in _native_spark_attention
+    output = native_split_attention(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ComfyUI/custom_nodes/ComfyUI-Spark-H3/comfyui_spark_split.py", line 355, in native_split_attention
+    raise RuntimeError('Spark chunked requires a rebuilt comfy-kitchen CUDA extension')
+RuntimeError: Spark chunked requires a rebuilt comfy-kitchen CUDA extension
+
+[32m[INFO][0m [32mPrompt executed in 24.28 seconds[0m

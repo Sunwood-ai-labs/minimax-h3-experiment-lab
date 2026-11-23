@@ -1,0 +1,104 @@
+{
+  "schema": "minimax-h3-video-contact-sheet/v1",
+  "generatedAt": "2026-11-23T08:48:25.396829+00:00",
+  "sources": [
+    {
+      "row": 1,
+      "path": "runtime/pih3-4090/output/video/pi-h3-4090/480p_2step_warm_00001_.mp4",
+      "bytes": 1869689,
+      "sha256": "C78882739A8CDAEBCE73C48D9BC2E8FE4D69E85694C0416D57619A291C4805CB",
+      "width": 864,
+      "height": 480,
+      "durationSeconds": 5.166688,
+      "fps": "24/1",
+      "frames": 124,
+      "sampleTimesSeconds": [
+        0.323,
+        0.969,
+        1.615,
+        2.26,
+        2.906,
+        3.552,
+        4.198,
+        4.844
+      ]
+    },
+    {
+      "row": 2,
+      "path": "runtime/pih3-4090/output/video/pi-h3-4090/480p_4step_warm_00001_.mp4",
+      "bytes": 1756070,
+      "sha256": "9A754A132EE41B163628309A6168EFEA0E1C452A671FD820B691CF6E12D6A79A",
+      "width": 864,
+      "height": 480,
+      "durationSeconds": 5.166688,
+      "fps": "24/1",
+      "frames": 124,
+      "sampleTimesSeconds": [
+        0.323,
+        0.969,
+        1.615,
+        2.26,
+        2.906,
+        3.552,
+        4.198,
+        4.844
+      ]
+    },
+    {
+      "row": 3,
+      "path": "runtime/pih3-4090/output/video/pi-h3-4090/768p_2step_warm_00001_.mp4",
+      "bytes": 4250435,
+      "sha256": "6D9916C4FE359EA51F09C13CE31C3EA116623CF201089139378F817AB13E747C",
+      "width": 1344,
+      "height": 768,
+      "durationSeconds": 5.166688,
+      "fps": "24/1",
+      "frames": 124,
+      "sampleTimesSeconds": [
+        0.323,
+        0.969,
+        1.615,
+        2.26,
+        2.906,
+        3.552,
+        4.198,
+        4.844
+      ]
+    },
+    {
+      "row": 4,
+      "path": "runtime/pih3-4090/output/video/pi-h3-4090/768p_4step_warm_00001_.mp4",
+      "bytes": 4192629,
+      "sha256": "8151413A6D436EC5AAC073FD3E047B6A90873B49E182A4F3BB461BF32FEDADD4",
+      "width": 1344,
+      "height": 768,
+      "durationSeconds": 5.166688,
+      "fps": "24/1",
+      "frames": 124,
+      "sampleTimesSeconds": [
+        0.323,
+        0.969,
+        1.615,
+        2.26,
+        2.906,
+        3.552,
+        4.198,
+        4.844
+      ]
+    }
+  ],
+  "sampling": {
+    "frameCountPerSource": 8,
+    "columns": 4,
+    "rowsPerSource": 2,
+    "tileWidth": 320,
+    "tileHeight": 180,
+    "order": "Each source occupies one row block; frames advance left-to-right, then top-to-bottom."
+  },
+  "output": {
+    "path": "experiments/02-low-step-generation/pi-h3-dwd-spark-4090/previews/contact-sheet.jpg",
+    "bytes": 495578,
+    "sha256": "B93CD6B75E3A0DBFEE861D394CA1ABFBF1D0D333904B69CAFD5608EC43810953",
+    "format": "jpg"
+  }
+}

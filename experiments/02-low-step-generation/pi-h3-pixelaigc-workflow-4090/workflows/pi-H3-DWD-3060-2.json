@@ -1,0 +1,2668 @@
+{
+  "id": "84380c73-7c74-4e01-944e-cbb4c2e6cd35",
+  "revision": 0,
+  "last_node_id": 71,
+  "last_link_id": 146,
+  "nodes": [
+    {
+      "id": 15,
+      "type": "SaveVideo",
+      "pos": [
+        1340,
+        460
+      ],
+      "size": [
+        480,
+        740
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 141
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/pi-H3-DWD",
+        "auto",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "video/pi-H3-DWD",
+        "format": "auto",
+        "format.codec": "auto",
+        "codec": "auto"
+      }
+    },
+    {
+      "id": 21,
+      "type": "LoadImage",
+      "pos": [
+        550,
+        460
+      ],
+      "size": [
+        230,
+        320
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            139
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "First frame",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pi-H3-DWD_00006__frame.jpg",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "pi-H3-DWD_00006__frame.jpg",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 22,
+      "type": "LoadImage",
+      "pos": [
+        550,
+        850
+      ],
+      "size": [
+        230,
+        350
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            140
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "Last frame",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pi-H3-DWD_00006__frame (1).jpg",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "pi-H3-DWD_00006__frame (1).jpg",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 33,
+      "type": "MarkdownNote",
+      "pos": [
+        -550,
+        460
+      ],
+      "size": [
+        600,
+        1300
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Model links",
+      "properties": {},
+      "widgets_values": [
+        "## pi-H3 FL2VA\n\nThis is an FL2VA (first-last-frame to video and audio) workflow. It generates a video with synchronized audio from a text prompt, optionally conditioned on a first frame, a last frame, or both.\n\n## Model links\n\n**Base model**\n\n- Download [minimax_h3_fl2va_pruned_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors) and save it to\n<br>`models/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors`\n\n**pi-H3 adapters**\n\n- Download [pi_h3_2step_dwd_adapter_int8_convrot.safetensors](https://huggingface.co/Lakonik/pi-H3/resolve/main/pi_h3_2step_dwd_adapter_int8_convrot.safetensors) and save it to \n<br>`models/loras/pi_h3_2step_dwd_adapter_int8_convrot.safetensors`\n\n  Alternative full-precision version: [pi_h3_2step_dwd_adapter/diffusion_pytorch_model.safetensors](https://huggingface.co/Lakonik/pi-H3/resolve/main/pi_h3_2step_dwd_adapter/diffusion_pytorch_model.safetensors), saved to `models/loras/pi_h3_2step_dwd_adapter.safetensors`\n\n- Download [pi_h3_4step_dwd_adapter_int8_convrot.safetensors](https://huggingface.co/Lakonik/pi-H3/resolve/main/pi_h3_4step_dwd_adapter_int8_convrot.safetensors) and save it to \n<br>`models/loras/pi_h3_4step_dwd_adapter_int8_convrot.safetensors`\n\n  Alternative full-precision version: [pi_h3_4step_dwd_adapter/diffusion_pytorch_model.safetensors](https://huggingface.co/Lakonik/pi-H3/resolve/main/pi_h3_4step_dwd_adapter/diffusion_pytorch_model.safetensors), saved to `models/loras/pi_h3_4step_dwd_adapter.safetensors`\n\n**Text encoder**\n\n- Download [qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors) and save it to\n<br>`models/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors`\n\n**VAE**\n\n- Download [minimax_h3_video_vae_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_int8_convrot.safetensors) and save it to\n<br>`models/vae/minimax_h3_video_vae_int8_convrot.safetensors`\n\n  The video VAE only encodes the first and last frames, and decodes the video in the workflow without DWD.\n\n- Download [minimax_h3_audio_vae_fp32.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors) and save it to\n<br>`models/vae/minimax_h3_audio_vae_fp32.safetensors`\n\n**Model Storage Location**\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 diffusion_models/\n│   │   └── minimax_h3_fl2va_pruned_int8_convrot.safetensors\n│   ├── 📂 loras/\n│   │   ├── pi_h3_2step_dwd_adapter_int8_convrot.safetensors\n│   │   └── pi_h3_4step_dwd_adapter_int8_convrot.safetensors\n│   ├── 📂 vae/\n│   │   ├── minimax_h3_video_vae_int8_convrot.safetensors\n│   │   └── minimax_h3_audio_vae_fp32.safetensors\n│   └── 📂 text_encoders/\n│       └── qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\n```\n\n## Sampler steps\n\n`steps` on `pi-H3 Adapter (2 or 4 steps)` selects the adapter and its recommended `max_raw_t` (0.93 for 2 steps, 0.96 for 4 steps). `final_step_size_scale` is 0.6. `ModelSamplingMiniMaxH3` sets the video and audio shifts (12 and 3 by default).\n\n## Sparse attention\n\n`Model Sparse Attention` (Sol) speeds up sampling. Bypass it to use dense attention.\n\n"
+      ],
+      "widgets_values_named": {
+        "text": "## pi-H3 FL2VA\n\nThis is an FL2VA (first-last-frame to video and audio) workflow. It generates a video with synchronized audio from a text prompt, optionally conditioned on a first frame, a last frame, or both.\n\n## Model links\n\n**Base model**\n\n- Download [minimax_h3_fl2va_pruned_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors) and save it to\n<br>`models/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors`\n\n**pi-H3 adapters**\n\n- Download [pi_h3_2step_dwd_adapter_int8_convrot.safetensors](https://huggingface.co/Lakonik/pi-H3/resolve/main/pi_h3_2step_dwd_adapter_int8_convrot.safetensors) and save it to \n<br>`models/loras/pi_h3_2step_dwd_adapter_int8_convrot.safetensors`\n\n  Alternative full-precision version: [pi_h3_2step_dwd_adapter/diffusion_pytorch_model.safetensors](https://huggingface.co/Lakonik/pi-H3/resolve/main/pi_h3_2step_dwd_adapter/diffusion_pytorch_model.safetensors), saved to `models/loras/pi_h3_2step_dwd_adapter.safetensors`\n\n- Download [pi_h3_4step_dwd_adapter_int8_convrot.safetensors](https://huggingface.co/Lakonik/pi-H3/resolve/main/pi_h3_4step_dwd_adapter_int8_convrot.safetensors) and save it to \n<br>`models/loras/pi_h3_4step_dwd_adapter_int8_convrot.safetensors`\n\n  Alternative full-precision version: [pi_h3_4step_dwd_adapter/diffusion_pytorch_model.safetensors](https://huggingface.co/Lakonik/pi-H3/resolve/main/pi_h3_4step_dwd_adapter/diffusion_pytorch_model.safetensors), saved to `models/loras/pi_h3_4step_dwd_adapter.safetensors`\n\n**Text encoder**\n\n- Download [qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors) and save it to\n<br>`models/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors`\n\n**VAE**\n\n- Download [minimax_h3_video_vae_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_int8_convrot.safetensors) and save it to\n<br>`models/vae/minimax_h3_video_vae_int8_convrot.safetensors`\n\n  The video VAE only encodes the first and last frames, and decodes the video in the workflow without DWD.\n\n- Download [minimax_h3_audio_vae_fp32.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors) and save it to\n<br>`models/vae/minimax_h3_audio_vae_fp32.safetensors`\n\n**Model Storage Location**\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 diffusion_models/\n│   │   └── minimax_h3_fl2va_pruned_int8_convrot.safetensors\n│   ├── 📂 loras/\n│   │   ├── pi_h3_2step_dwd_adapter_int8_convrot.safetensors\n│   │   └── pi_h3_4step_dwd_adapter_int8_convrot.safetensors\n│   ├── 📂 vae/\n│   │   ├── minimax_h3_video_vae_int8_convrot.safetensors\n│   │   └── minimax_h3_audio_vae_fp32.safetensors\n│   └── 📂 text_encoders/\n│       └── qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\n```\n\n## Sampler steps\n\n`steps` on `pi-H3 Adapter (2 or 4 steps)` selects the adapter and its recommended `max_raw_t` (0.93 for 2 steps, 0.96 for 4 steps). `final_step_size_scale` is 0.6. `ModelSamplingMiniMaxH3` sets the video and audio shifts (12 and 3 by default).\n\n## Sparse attention\n\n`Model Sparse Attention` (Sol) speeds up sampling. Bypass it to use dense attention.\n\n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 70,
+      "type": "MarkdownNote",
+      "pos": [
+        100,
+        460
+      ],
+      "size": [
+        420,
+        400
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "About Us",
+      "properties": {},
+      "widgets_values": [
+        "# 关于这个工作流\n3060 12G 实测 pi-H3：768P 8 秒 4 步 404 秒 / 2 步 262 秒，480P 2 步可直出 30 秒。\nWindows 请走 Sol-Attn + DWD 路线，Spark-Attn 节点在 Windows 上会报红，不要用。\n\n## 关于作者 PixelAIGC\nAI 视频创作者，长期做 H3 本地部署与长片生产。\n- 我的 X：[ @PixelAigc ](https://x.com/PixelAigc)\n- H3 工作流仓库：[ ComfyUI-MiniMax-H3-Workflow ](https://github.com/pixelaigc/ComfyUI-MiniMax-H3-Workflow)\n- H3 Studio：[ ComfyUI-MiniMax-H3-Studio ](https://github.com/pixelaigc/ComfyUI-MiniMax-H3-Studio)\n- 合作联系：ai@pixelaigc.cc\n"
+      ],
+      "widgets_values_named": {
+        "text": "# 关于这个工作流\n3060 12G 实测 pi-H3：768P 8 秒 4 步 404 秒 / 2 步 262 秒，480P 2 步可直出 30 秒。\nWindows 请走 Sol-Attn + DWD 路线，Spark-Attn 节点在 Windows 上会报红，不要用。\n\n## 关于作者 PixelAIGC\nAI 视频创作者，长期做 H3 本地部署与长片生产。\n- 我的 X：[ @PixelAigc ](https://x.com/PixelAigc)\n- H3 工作流仓库：[ ComfyUI-MiniMax-H3-Workflow ](https://github.com/pixelaigc/ComfyUI-MiniMax-H3-Workflow)\n- H3 Studio：[ ComfyUI-MiniMax-H3-Studio ](https://github.com/pixelaigc/ComfyUI-MiniMax-H3-Studio)\n- 合作联系：ai@pixelaigc.cc\n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 71,
+      "type": "60a64bd3-61b7-4f30-b79a-5b07fc659d4e",
+      "pos": [
+        820,
+        460
+      ],
+      "size": [
+        490,
+        740
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 139
+        },
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 140
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            141
+          ]
+        }
+      ],
+      "properties": {
+        "previewExposures": []
+      },
+      "widgets_values": [
+        2,
+        "16:9 (Widescreen)",
+        0.97,
+        10,
+        "# MiniMax H3 提示词｜10秒，《大明宫词》太平公主&薛绍，正反打特写，唐古装历史剧，16:9，24fps，2K，无字幕无水印，口型对齐\noutput_spec：10秒，16:9，24fps，2K，李少红《大明宫词》质感，烛火侧逆光，低饱和唐宫色调，细微胶片颗粒，特写正反打，第一帧是太平脸部特写，面部稳定，音色区分明显，太平声线哀婉，薛绍沉静冷硬\nintegrated_multimodal_description：唐代婚房，红纱幔帐，烛火摇曳，光影浮动。太平公主身着唐婚服，眼含悲戚；薛绍素色圆领袍，神色疏离压抑。隐忍悲剧氛围。\n\n[Shot1] 00:00-00:03｜特写｜太平公主，固定机位，烛火扫过脸颊\n太平：你爱过我吗？（1）\n\n[Shot2] 00:03-00:06｜特写｜薛绍，硬切正反打，目光沉敛\n薛绍：我不能。（2）\n\n[Shot3] 00:06-00:10｜特写｜太平，睫毛颤抖，眼底泛起泪光\n太平：那我这一场欢喜，算什么？（3）\n\noverall_soundscape：烛火噼啪声，纱幔轻响，空间悠长混响\nnon_diegetic_music：《长相守》极简旋律，低沉哀伤，对白时压低音量\n"
+      ],
+      "widgets_values_named": {
+        "steps": 2,
+        "aspect_ratio": "16:9 (Widescreen)",
+        "megapixels": 0.97,
+        "seconds": 10,
+        "prompt": "# MiniMax H3 提示词｜10秒，《大明宫词》太平公主&薛绍，正反打特写，唐古装历史剧，16:9，24fps，2K，无字幕无水印，口型对齐\noutput_spec：10秒，16:9，24fps，2K，李少红《大明宫词》质感，烛火侧逆光，低饱和唐宫色调，细微胶片颗粒，特写正反打，第一帧是太平脸部特写，面部稳定，音色区分明显，太平声线哀婉，薛绍沉静冷硬\nintegrated_multimodal_description：唐代婚房，红纱幔帐，烛火摇曳，光影浮动。太平公主身着唐婚服，眼含悲戚；薛绍素色圆领袍，神色疏离压抑。隐忍悲剧氛围。\n\n[Shot1] 00:00-00:03｜特写｜太平公主，固定机位，烛火扫过脸颊\n太平：你爱过我吗？（1）\n\n[Shot2] 00:03-00:06｜特写｜薛绍，硬切正反打，目光沉敛\n薛绍：我不能。（2）\n\n[Shot3] 00:06-00:10｜特写｜太平，睫毛颤抖，眼底泛起泪光\n太平：那我这一场欢喜，算什么？（3）\n\noverall_soundscape：烛火噼啪声，纱幔轻响，空间悠长混响\nnon_diegetic_music：《长相守》极简旋律，低沉哀伤，对白时压低音量\n"
+      }
+    }
+  ],
+  "links": [
+    [
+      141,
+      71,
+      0,
+      15,
+      0,
+      "VIDEO"
+    ],
+    [
+      139,
+      21,
+      0,
+      71,
+      0,
+      "IMAGE"
+    ],
+    [
+      140,
+      22,
+      0,
+      71,
+      1,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "definitions": {
+    "subgraphs": [
+      {
+        "id": "356a2ff0-98d5-4fa9-9bbd-452cccf6966f",
+        "version": 1,
+        "state": {
+          "lastGroupId": 15,
+          "lastNodeId": 71,
+          "lastLinkId": 146,
+          "lastRerouteId": 0
+        },
+        "revision": 0,
+        "config": {},
+        "name": "pi-H3 Adapter",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            -158,
+            324,
+            132.626953125,
+            128
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            1300,
+            304,
+            128,
+            108
+          ]
+        },
+        "inputs": [
+          {
+            "id": "d52733e2-7307-4848-9bc1-edd76cc707b8",
+            "name": "model",
+            "type": "MODEL",
+            "linkIds": [
+              1,
+              33
+            ],
+            "localized_name": "model",
+            "pos": [
+              -49.373046875,
+              348
+            ]
+          },
+          {
+            "id": "81c97db4-92f6-427a-9bb5-db34e3a442bb",
+            "name": "steps",
+            "type": "INT",
+            "linkIds": [
+              46
+            ],
+            "pos": [
+              -49.373046875,
+              368
+            ]
+          },
+          {
+            "id": "58ecdcd5-06af-4ca2-912c-2c60ae266bcf",
+            "name": "2-step adapter",
+            "type": "COMBO",
+            "linkIds": [
+              47
+            ],
+            "pos": [
+              -49.373046875,
+              388
+            ]
+          },
+          {
+            "id": "50f10d64-a0e9-4d82-ad1d-0a6fba648624",
+            "name": "4-step adapter",
+            "type": "COMBO",
+            "linkIds": [
+              48
+            ],
+            "pos": [
+              -49.373046875,
+              408
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "id": "2e5486c0-35fc-4606-936b-533f2a6c0a78",
+            "name": "INT",
+            "type": "INT",
+            "linkIds": [
+              40
+            ],
+            "localized_name": "INT",
+            "label": "steps",
+            "pos": [
+              1324,
+              328
+            ]
+          },
+          {
+            "id": "08b25231-24df-4cd0-a94a-663209cea5c6",
+            "name": "FLOAT",
+            "type": "FLOAT",
+            "linkIds": [
+              41
+            ],
+            "localized_name": "FLOAT",
+            "label": "max_raw_t",
+            "pos": [
+              1324,
+              348
+            ]
+          },
+          {
+            "id": "6635e991-4bb5-43d0-89b5-d56f02dfeda4",
+            "name": "output",
+            "type": "MODEL",
+            "linkIds": [
+              36
+            ],
+            "localized_name": "output",
+            "label": "model",
+            "pos": [
+              1324,
+              368
+            ]
+          }
+        ],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 36,
+            "type": "PrimitiveInt",
+            "pos": [
+              970,
+              30
+            ],
+            "size": [
+              270,
+              90
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "数值",
+                "name": "value",
+                "type": "INT",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 46
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "整数",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  37,
+                  38,
+                  40
+                ]
+              }
+            ],
+            "title": "Steps (2 or 4)",
+            "properties": {
+              "Node name for S&R": "PrimitiveInt"
+            },
+            "widgets_values": [
+              2,
+              "fixed"
+            ],
+            "widgets_values_named": {
+              "value": 2,
+              "control_after_generate": "fixed"
+            }
+          },
+          {
+            "id": 37,
+            "type": "ComfyMathExpression",
+            "pos": [
+              970,
+              180
+            ],
+            "size": [
+              270,
+              150
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "a",
+                "name": "values.a",
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": 37
+              },
+              {
+                "localized_name": "b",
+                "name": "values.b",
+                "shape": 7,
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "浮点",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "整数",
+                "name": "INT",
+                "type": "INT",
+                "links": null
+              },
+              {
+                "localized_name": "布尔值",
+                "name": "BOOL",
+                "type": "BOOLEAN",
+                "links": [
+                  39
+                ]
+              }
+            ],
+            "title": "4-step adapter?",
+            "properties": {
+              "Node name for S&R": "ComfyMathExpression"
+            },
+            "widgets_values": [
+              "a > 2"
+            ],
+            "widgets_values_named": {
+              "expression": "a > 2"
+            }
+          },
+          {
+            "id": 38,
+            "type": "ComfyMathExpression",
+            "pos": [
+              970,
+              400
+            ],
+            "size": [
+              270,
+              150
+            ],
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "a",
+                "name": "values.a",
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": 38
+              },
+              {
+                "localized_name": "b",
+                "name": "values.b",
+                "shape": 7,
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "浮点",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": [
+                  41
+                ]
+              },
+              {
+                "localized_name": "整数",
+                "name": "INT",
+                "type": "INT",
+                "links": null
+              },
+              {
+                "localized_name": "布尔值",
+                "name": "BOOL",
+                "type": "BOOLEAN",
+                "links": null
+              }
+            ],
+            "title": "max_raw_t",
+            "properties": {
+              "Node name for S&R": "ComfyMathExpression"
+            },
+            "widgets_values": [
+              "0.96 if a > 2 else 0.93"
+            ],
+            "widgets_values_named": {
+              "expression": "0.96 if a > 2 else 0.93"
+            }
+          },
+          {
+            "id": 2,
+            "type": "Load LakonLab Adapter",
+            "pos": [
+              30,
+              330
+            ],
+            "size": [
+              270,
+              90
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 1
+              },
+              {
+                "localized_name": "adapter_name",
+                "name": "adapter_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "adapter_name"
+                },
+                "link": 47
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "模型",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  34
+                ]
+              }
+            ],
+            "title": "Load 2-step adapter",
+            "properties": {
+              "Node name for S&R": "Load LakonLab Adapter"
+            },
+            "widgets_values": [
+              "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+              1
+            ],
+            "widgets_values_named": {
+              "adapter_name": "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+              "adapter_strength": 1
+            }
+          },
+          {
+            "id": 34,
+            "type": "Load LakonLab Adapter",
+            "pos": [
+              30,
+              490
+            ],
+            "size": [
+              270,
+              90
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 33
+              },
+              {
+                "localized_name": "adapter_name",
+                "name": "adapter_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "adapter_name"
+                },
+                "link": 48
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "模型",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  35
+                ]
+              }
+            ],
+            "title": "Load 4-step adapter",
+            "properties": {
+              "Node name for S&R": "Load LakonLab Adapter"
+            },
+            "widgets_values": [
+              "pi_h3_4step_dwd_adapter_int8_convrot.safetensors",
+              1
+            ],
+            "widgets_values_named": {
+              "adapter_name": "pi_h3_4step_dwd_adapter_int8_convrot.safetensors",
+              "adapter_strength": 1
+            }
+          },
+          {
+            "id": 35,
+            "type": "ComfySwitchNode",
+            "pos": [
+              30,
+              640
+            ],
+            "size": [
+              270,
+              80
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "为假时",
+                "name": "on_false",
+                "shape": 7,
+                "type": "MODEL",
+                "link": 34
+              },
+              {
+                "localized_name": "为真时",
+                "name": "on_true",
+                "shape": 7,
+                "type": "MODEL",
+                "link": 35
+              },
+              {
+                "localized_name": "切换",
+                "name": "switch",
+                "type": "BOOLEAN",
+                "widget": {
+                  "name": "switch"
+                },
+                "link": 39
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "输出",
+                "name": "output",
+                "type": "MODEL",
+                "links": [
+                  36
+                ]
+              }
+            ],
+            "title": "Adapter for the steps",
+            "properties": {
+              "Node name for S&R": "ComfySwitchNode"
+            },
+            "widgets_values": [
+              false
+            ],
+            "widgets_values_named": {
+              "switch": false
+            }
+          }
+        ],
+        "groups": [],
+        "links": [
+          {
+            "id": 34,
+            "origin_id": 2,
+            "origin_slot": 0,
+            "target_id": 35,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 35,
+            "origin_id": 34,
+            "origin_slot": 0,
+            "target_id": 35,
+            "target_slot": 1,
+            "type": "MODEL"
+          },
+          {
+            "id": 39,
+            "origin_id": 37,
+            "origin_slot": 2,
+            "target_id": 35,
+            "target_slot": 2,
+            "type": "BOOLEAN"
+          },
+          {
+            "id": 1,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 2,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 33,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 34,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 40,
+            "origin_id": 36,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 41,
+            "origin_id": 38,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 1,
+            "type": "FLOAT"
+          },
+          {
+            "id": 36,
+            "origin_id": 35,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 2,
+            "type": "MODEL"
+          },
+          {
+            "id": 46,
+            "origin_id": -10,
+            "origin_slot": 1,
+            "target_id": 36,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 47,
+            "origin_id": -10,
+            "origin_slot": 2,
+            "target_id": 2,
+            "target_slot": 1,
+            "type": "COMBO"
+          },
+          {
+            "id": 48,
+            "origin_id": -10,
+            "origin_slot": 3,
+            "target_id": 34,
+            "target_slot": 1,
+            "type": "COMBO"
+          },
+          {
+            "id": 37,
+            "origin_id": 36,
+            "origin_slot": 0,
+            "target_id": 37,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 38,
+            "origin_id": 36,
+            "origin_slot": 0,
+            "target_id": 38,
+            "target_slot": 0,
+            "type": "INT"
+          }
+        ],
+        "extra": {
+          "pixaromaGroups": []
+        }
+      },
+      {
+        "id": "a74d60af-3935-41b1-a4bc-a21f1fa87ceb",
+        "version": 1,
+        "state": {
+          "lastGroupId": 15,
+          "lastNodeId": 71,
+          "lastLinkId": 146,
+          "lastRerouteId": 0
+        },
+        "revision": 0,
+        "config": {},
+        "name": "Frame Count",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            282,
+            375,
+            128,
+            68
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            930,
+            365,
+            128,
+            68
+          ]
+        },
+        "inputs": [
+          {
+            "id": "d0484a8e-11dc-4ba1-8a63-cfa9900f9865",
+            "name": "seconds",
+            "type": "FLOAT",
+            "linkIds": [
+              50
+            ],
+            "pos": [
+              386,
+              399
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "id": "6ce08b9d-e5b9-4bb7-8e98-355cbdcb21a2",
+            "name": "INT",
+            "type": "INT",
+            "linkIds": [
+              6
+            ],
+            "localized_name": "INT",
+            "label": "length",
+            "pos": [
+              954,
+              389
+            ]
+          }
+        ],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 31,
+            "type": "PrimitiveFloat",
+            "pos": [
+              470,
+              250
+            ],
+            "size": [
+              270,
+              60
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "值",
+                "name": "value",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 50
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "浮点",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": [
+                  32
+                ]
+              }
+            ],
+            "title": "Duration (seconds)",
+            "properties": {
+              "Node name for S&R": "PrimitiveFloat"
+            },
+            "widgets_values": [
+              5
+            ],
+            "widgets_values_named": {
+              "value": 5
+            }
+          },
+          {
+            "id": 32,
+            "type": "ComfyMathExpression",
+            "pos": [
+              470,
+              380
+            ],
+            "size": [
+              400,
+              200
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "a",
+                "name": "values.a",
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": 32
+              },
+              {
+                "localized_name": "b",
+                "name": "values.b",
+                "shape": 7,
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "浮点",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "整数",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  6
+                ]
+              },
+              {
+                "localized_name": "布尔值",
+                "name": "BOOL",
+                "type": "BOOLEAN",
+                "links": null
+              }
+            ],
+            "title": "Frame count",
+            "properties": {
+              "Node name for S&R": "ComfyMathExpression"
+            },
+            "widgets_values": [
+              "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17"
+            ],
+            "widgets_values_named": {
+              "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17"
+            }
+          }
+        ],
+        "groups": [],
+        "links": [
+          {
+            "id": 6,
+            "origin_id": 32,
+            "origin_slot": 1,
+            "target_id": -20,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 50,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 31,
+            "target_slot": 0,
+            "type": "FLOAT"
+          },
+          {
+            "id": 32,
+            "origin_id": 31,
+            "origin_slot": 0,
+            "target_id": 32,
+            "target_slot": 0,
+            "type": "FLOAT"
+          }
+        ],
+        "extra": {
+          "pixaromaGroups": []
+        }
+      },
+      {
+        "id": "60a64bd3-61b7-4f30-b79a-5b07fc659d4e",
+        "version": 1,
+        "state": {
+          "lastGroupId": 15,
+          "lastNodeId": 71,
+          "lastLinkId": 146,
+          "lastRerouteId": 0
+        },
+        "revision": 0,
+        "config": {},
+        "name": "New Subgraph",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            -218,
+            486,
+            128,
+            188
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            1850,
+            496,
+            128,
+            68
+          ]
+        },
+        "inputs": [
+          {
+            "id": "233252e7-e8f4-44b6-af0d-a57b21d10dc6",
+            "name": "steps",
+            "type": "INT",
+            "linkIds": [
+              142
+            ],
+            "pos": [
+              -114,
+              550
+            ]
+          },
+          {
+            "id": "a8e7e67b-b4e6-48a1-b515-01b2941d8dba",
+            "name": "aspect_ratio",
+            "type": "COMBO",
+            "linkIds": [
+              143
+            ],
+            "pos": [
+              -114,
+              570
+            ]
+          },
+          {
+            "id": "d6ec526a-e6d2-4c1f-a56c-d6f9dea204d1",
+            "name": "megapixels",
+            "type": "FLOAT",
+            "linkIds": [
+              144
+            ],
+            "pos": [
+              -114,
+              590
+            ]
+          },
+          {
+            "id": "fd51ffb4-5f27-4f49-8855-53875a07520c",
+            "name": "seconds",
+            "type": "FLOAT",
+            "linkIds": [
+              146
+            ],
+            "pos": [
+              -114,
+              630
+            ]
+          },
+          {
+            "id": "8ee3ecef-ec7e-489a-8077-2f27d229ceaf",
+            "name": "prompt",
+            "type": "STRING",
+            "linkIds": [
+              145
+            ],
+            "pos": [
+              -114,
+              610
+            ]
+          },
+          {
+            "id": "77734ca7-482b-4454-8ed9-af4ccb60464c",
+            "name": "image",
+            "type": "IMAGE",
+            "linkIds": [
+              26
+            ],
+            "localized_name": "图像",
+            "pos": [
+              -114,
+              510
+            ]
+          },
+          {
+            "id": "932cec9c-aa6a-4425-a4e0-4834c1f1be7f",
+            "name": "image_1",
+            "type": "IMAGE",
+            "linkIds": [
+              29
+            ],
+            "localized_name": "图像_1",
+            "pos": [
+              -114,
+              530
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "id": "2e5ddfd5-26f0-4ed6-bad8-2de71de6c61e",
+            "name": "VIDEO",
+            "type": "VIDEO",
+            "linkIds": [
+              96
+            ],
+            "localized_name": "视频",
+            "pos": [
+              1874,
+              520
+            ]
+          }
+        ],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 64,
+            "type": "UNETLoader",
+            "pos": [
+              -30,
+              50
+            ],
+            "size": [
+              370,
+              110
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "模型",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  131
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "UNETLoader"
+            },
+            "widgets_values": [
+              "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+              "default"
+            ],
+            "widgets_values_named": {
+              "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+              "weight_dtype": "default"
+            }
+          },
+          {
+            "id": 68,
+            "type": "LoraLoaderModelOnly",
+            "pos": [
+              -30,
+              200
+            ],
+            "size": [
+              370,
+              120
+            ],
+            "flags": {},
+            "order": 6,
+            "mode": 4,
+            "inputs": [
+              {
+                "localized_name": "模型",
+                "name": "model",
+                "type": "MODEL",
+                "link": 131
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "模型",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  132
+                ]
+              }
+            ],
+            "title": "Load LoRA (optional)",
+            "properties": {
+              "Node name for S&R": "LoraLoaderModelOnly"
+            },
+            "widgets_values": [
+              "your_h3_lora.safetensors",
+              1
+            ],
+            "widgets_values_named": {
+              "lora_name": "your_h3_lora.safetensors",
+              "strength_model": 1
+            }
+          },
+          {
+            "id": 69,
+            "type": "356a2ff0-98d5-4fa9-9bbd-452cccf6966f",
+            "pos": [
+              -30,
+              350
+            ],
+            "size": [
+              370,
+              210
+            ],
+            "flags": {},
+            "order": 20,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 132
+              },
+              {
+                "name": "steps",
+                "type": "INT",
+                "widget": {
+                  "name": "steps"
+                },
+                "link": 142
+              }
+            ],
+            "outputs": [
+              {
+                "label": "steps",
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  136
+                ]
+              },
+              {
+                "label": "max_raw_t",
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": [
+                  137
+                ]
+              },
+              {
+                "label": "model",
+                "localized_name": "output",
+                "name": "output",
+                "type": "MODEL",
+                "links": [
+                  138
+                ]
+              }
+            ],
+            "title": "pi-H3 Adapter (2 or 4 steps)",
+            "properties": {
+              "previewExposures": []
+            },
+            "widgets_values": [
+              2,
+              "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+              "pi_h3_4step_dwd_adapter_int8_convrot.safetensors"
+            ],
+            "widgets_values_named": {
+              "steps": 2,
+              "2-step adapter": "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+              "4-step adapter": "pi_h3_4step_dwd_adapter_int8_convrot.safetensors"
+            }
+          },
+          {
+            "id": 65,
+            "type": "CLIPLoader",
+            "pos": [
+              -30,
+              580
+            ],
+            "size": [
+              370,
+              140
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "CLIP",
+                "name": "CLIP",
+                "type": "CLIP",
+                "links": [
+                  133
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CLIPLoader"
+            },
+            "widgets_values": [
+              "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+              "minimax",
+              "default"
+            ],
+            "widgets_values_named": {
+              "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+              "type": "minimax",
+              "device": "default"
+            }
+          },
+          {
+            "id": 66,
+            "type": "VAELoader",
+            "pos": [
+              -30,
+              750
+            ],
+            "size": [
+              370,
+              90
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "VAE",
+                "name": "VAE",
+                "type": "VAE",
+                "links": [
+                  134
+                ]
+              }
+            ],
+            "title": "Load VAE (video)",
+            "properties": {
+              "Node name for S&R": "VAELoader"
+            },
+            "widgets_values": [
+              "minimax_h3_video_vae_int8_convrot.safetensors"
+            ],
+            "widgets_values_named": {
+              "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+            }
+          },
+          {
+            "id": 67,
+            "type": "VAELoader",
+            "pos": [
+              -30,
+              880
+            ],
+            "size": [
+              370,
+              90
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "VAE",
+                "name": "VAE",
+                "type": "VAE",
+                "links": [
+                  135
+                ]
+              }
+            ],
+            "title": "Load VAE (audio)",
+            "properties": {
+              "Node name for S&R": "VAELoader"
+            },
+            "widgets_values": [
+              "minimax_h3_audio_vae_fp32.safetensors"
+            ],
+            "widgets_values_named": {
+              "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+            }
+          },
+          {
+            "id": 23,
+            "type": "ImageScale",
+            "pos": [
+              440,
+              920
+            ],
+            "size": [
+              230,
+              170
+            ],
+            "flags": {},
+            "order": 12,
+            "mode": 4,
+            "inputs": [
+              {
+                "localized_name": "图像",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 26
+              },
+              {
+                "localized_name": "宽度",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 125
+              },
+              {
+                "localized_name": "高度",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 128
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "图像",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  7
+                ]
+              }
+            ],
+            "title": "Resize first frame",
+            "properties": {
+              "Node name for S&R": "ImageScale"
+            },
+            "widgets_values": [
+              "lanczos",
+              512,
+              512,
+              "center"
+            ],
+            "widgets_values_named": {
+              "upscale_method": "lanczos",
+              "width": 512,
+              "height": 512,
+              "crop": "center"
+            }
+          },
+          {
+            "id": 24,
+            "type": "ImageScale",
+            "pos": [
+              680,
+              920
+            ],
+            "size": [
+              230,
+              170
+            ],
+            "flags": {},
+            "order": 13,
+            "mode": 4,
+            "inputs": [
+              {
+                "localized_name": "图像",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 29
+              },
+              {
+                "localized_name": "宽度",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 126
+              },
+              {
+                "localized_name": "高度",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 129
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "图像",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  8
+                ]
+              }
+            ],
+            "title": "Resize last frame",
+            "properties": {
+              "Node name for S&R": "ImageScale"
+            },
+            "widgets_values": [
+              "lanczos",
+              512,
+              512,
+              "center"
+            ],
+            "widgets_values_named": {
+              "upscale_method": "lanczos",
+              "width": 512,
+              "height": 512,
+              "crop": "center"
+            }
+          },
+          {
+            "id": 9,
+            "type": "BasicGuider",
+            "pos": [
+              970,
+              1000
+            ],
+            "size": [
+              160,
+              50
+            ],
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "模型",
+                "name": "model",
+                "type": "MODEL",
+                "link": 10
+              },
+              {
+                "localized_name": "条件",
+                "name": "conditioning",
+                "type": "CONDITIONING",
+                "link": 11
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "引导器",
+                "name": "GUIDER",
+                "type": "GUIDER",
+                "links": [
+                  91
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "BasicGuider"
+            }
+          },
+          {
+            "id": 10,
+            "type": "RandomNoise",
+            "pos": [
+              970,
+              850
+            ],
+            "size": [
+              270,
+              90
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "噪波",
+                "name": "NOISE",
+                "type": "NOISE",
+                "links": [
+                  90
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "RandomNoise"
+            },
+            "widgets_values": [
+              857255628329722,
+              "randomize"
+            ],
+            "widgets_values_named": {
+              "noise_seed": 857255628329722,
+              "control_after_generate": "randomize"
+            }
+          },
+          {
+            "id": 7,
+            "type": "KSamplerSelect",
+            "pos": [
+              970,
+              720
+            ],
+            "size": [
+              270,
+              60
+            ],
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "采样器",
+                "name": "SAMPLER",
+                "type": "SAMPLER",
+                "links": [
+                  92
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "KSamplerSelect"
+            },
+            "widgets_values": [
+              "euler"
+            ],
+            "widgets_values_named": {
+              "sampler_name": "euler"
+            }
+          },
+          {
+            "id": 8,
+            "type": "pi-Flow Scheduler",
+            "pos": [
+              970,
+              520
+            ],
+            "size": [
+              290,
+              130
+            ],
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 9
+              },
+              {
+                "localized_name": "steps",
+                "name": "steps",
+                "type": "INT",
+                "widget": {
+                  "name": "steps"
+                },
+                "link": 136
+              },
+              {
+                "localized_name": "max_raw_t",
+                "name": "max_raw_t",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "max_raw_t"
+                },
+                "link": 137
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "Sigmas",
+                "name": "SIGMAS",
+                "type": "SIGMAS",
+                "links": [
+                  93
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "pi-Flow Scheduler"
+            },
+            "widgets_values": [
+              2,
+              0,
+              0.93,
+              0.6
+            ],
+            "widgets_values_named": {
+              "steps": 2,
+              "min_raw_t": 0,
+              "max_raw_t": 0.93,
+              "final_step_size_scale": 0.6
+            }
+          },
+          {
+            "id": 6,
+            "type": "MiniMaxH3ImageToVideo",
+            "pos": [
+              420,
+              370
+            ],
+            "size": [
+              470,
+              470
+            ],
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "clip",
+                "name": "clip",
+                "type": "CLIP",
+                "link": 133
+              },
+              {
+                "localized_name": "vae",
+                "name": "vae",
+                "type": "VAE",
+                "link": 134
+              },
+              {
+                "localized_name": "首帧",
+                "name": "first_frame",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": 7
+              },
+              {
+                "localized_name": "末帧",
+                "name": "last_frame",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": 8
+              },
+              {
+                "localized_name": "提示词",
+                "name": "prompt",
+                "type": "STRING",
+                "widget": {
+                  "name": "prompt"
+                },
+                "link": 145
+              },
+              {
+                "localized_name": "宽度",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 124
+              },
+              {
+                "localized_name": "高度",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 127
+              },
+              {
+                "localized_name": "长度",
+                "name": "length",
+                "type": "INT",
+                "widget": {
+                  "name": "length"
+                },
+                "link": 130
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "正向",
+                "name": "positive",
+                "type": "CONDITIONING",
+                "links": [
+                  11
+                ]
+              },
+              {
+                "localized_name": "Latent",
+                "name": "LATENT",
+                "type": "LATENT",
+                "links": [
+                  94
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "MiniMaxH3ImageToVideo"
+            },
+            "widgets_values": [
+              "# MiniMax H3 提示词｜10秒，《大明宫词》太平公主&薛绍，正反打特写，唐古装历史剧，16:9，24fps，2K，无字幕无水印，口型对齐\noutput_spec：10秒，16:9，24fps，2K，李少红《大明宫词》质感，烛火侧逆光，低饱和唐宫色调，细微胶片颗粒，特写正反打，第一帧是太平脸部特写，面部稳定，音色区分明显，太平声线哀婉，薛绍沉静冷硬\nintegrated_multimodal_description：唐代婚房，红纱幔帐，烛火摇曳，光影浮动。太平公主身着唐婚服，眼含悲戚；薛绍素色圆领袍，神色疏离压抑。隐忍悲剧氛围。\n\n[Shot1] 00:00-00:03｜特写｜太平公主，固定机位，烛火扫过脸颊\n太平：你爱过我吗？（1）\n\n[Shot2] 00:03-00:06｜特写｜薛绍，硬切正反打，目光沉敛\n薛绍：我不能。（2）\n\n[Shot3] 00:06-00:10｜特写｜太平，睫毛颤抖，眼底泛起泪光\n太平：那我这一场欢喜，算什么？（3）\n\noverall_soundscape：烛火噼啪声，纱幔轻响，空间悠长混响\nnon_diegetic_music：《长相守》极简旋律，低沉哀伤，对白时压低音量\n",
+              1344,
+              768,
+              124
+            ],
+            "widgets_values_named": {
+              "prompt": "# MiniMax H3 提示词｜10秒，《大明宫词》太平公主&薛绍，正反打特写，唐古装历史剧，16:9，24fps，2K，无字幕无水印，口型对齐\noutput_spec：10秒，16:9，24fps，2K，李少红《大明宫词》质感，烛火侧逆光，低饱和唐宫色调，细微胶片颗粒，特写正反打，第一帧是太平脸部特写，面部稳定，音色区分明显，太平声线哀婉，薛绍沉静冷硬\nintegrated_multimodal_description：唐代婚房，红纱幔帐，烛火摇曳，光影浮动。太平公主身着唐婚服，眼含悲戚；薛绍素色圆领袍，神色疏离压抑。隐忍悲剧氛围。\n\n[Shot1] 00:00-00:03｜特写｜太平公主，固定机位，烛火扫过脸颊\n太平：你爱过我吗？（1）\n\n[Shot2] 00:03-00:06｜特写｜薛绍，硬切正反打，目光沉敛\n薛绍：我不能。（2）\n\n[Shot3] 00:06-00:10｜特写｜太平，睫毛颤抖，眼底泛起泪光\n太平：那我这一场欢喜，算什么？（3）\n\noverall_soundscape：烛火噼啪声，纱幔轻响，空间悠长混响\nnon_diegetic_music：《长相守》极简旋律，低沉哀伤，对白时压低音量\n",
+              "width": 1344,
+              "height": 768,
+              "length": 124
+            }
+          },
+          {
+            "id": 62,
+            "type": "ResolutionSelector",
+            "pos": [
+              420,
+              40
+            ],
+            "size": [
+              230,
+              190
+            ],
+            "flags": {},
+            "order": 18,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "宽高比",
+                "name": "aspect_ratio",
+                "type": "COMBO",
+                "widget": {
+                  "name": "aspect_ratio"
+                },
+                "link": 143
+              },
+              {
+                "localized_name": "百万像素",
+                "name": "megapixels",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "megapixels"
+                },
+                "link": 144
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "宽度",
+                "name": "width",
+                "type": "INT",
+                "links": [
+                  124,
+                  125,
+                  126
+                ]
+              },
+              {
+                "localized_name": "高度",
+                "name": "height",
+                "type": "INT",
+                "links": [
+                  127,
+                  128,
+                  129
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "ResolutionSelector"
+            },
+            "widgets_values": [
+              "16:9 (Widescreen)",
+              0.97,
+              32
+            ],
+            "widgets_values_named": {
+              "aspect_ratio": "16:9 (Widescreen)",
+              "megapixels": 0.97,
+              "multiple": 32
+            }
+          },
+          {
+            "id": 63,
+            "type": "a74d60af-3935-41b1-a4bc-a21f1fa87ceb",
+            "pos": [
+              660,
+              50
+            ],
+            "size": [
+              230,
+              180
+            ],
+            "flags": {},
+            "order": 19,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "seconds",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "seconds"
+                },
+                "link": 146
+              }
+            ],
+            "outputs": [
+              {
+                "label": "length",
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  130
+                ]
+              }
+            ],
+            "title": "Duration",
+            "properties": {
+              "previewExposures": []
+            },
+            "widgets_values": [
+              10
+            ],
+            "widgets_values_named": {
+              "seconds": 10
+            }
+          },
+          {
+            "id": 19,
+            "type": "MiniMaxH3SigmaShift",
+            "pos": [
+              970,
+              50
+            ],
+            "size": [
+              280,
+              90
+            ],
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 138
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "模型",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  25
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "MiniMaxH3SigmaShift"
+            },
+            "widgets_values": [
+              11.99,
+              3
+            ],
+            "widgets_values_named": {
+              "shift_video": 11.99,
+              "shift_audio": 3
+            }
+          },
+          {
+            "id": 20,
+            "type": "BlockSparseAttention",
+            "pos": [
+              970,
+              200
+            ],
+            "size": [
+              270,
+              250
+            ],
+            "flags": {},
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 25
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "模型",
+                "name": "model",
+                "type": "MODEL",
+                "links": [
+                  9,
+                  10
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "BlockSparseAttention"
+            },
+            "widgets_values": [
+              "sol-attn",
+              1,
+              0,
+              1,
+              "0, 1",
+              12288,
+              256,
+              "exact_kv_and_rows",
+              false
+            ],
+            "widgets_values_named": {
+              "selection": "sol-attn",
+              "selection.tau": 1,
+              "start_percent": 0,
+              "end_percent": 1,
+              "dense_blocks": "0, 1",
+              "min_tokens": 12288,
+              "extra_tokens": 256,
+              "sink_conditioning": "exact_kv_and_rows",
+              "verbose": false
+            }
+          },
+          {
+            "id": 53,
+            "type": "SamplerCustomAdvanced",
+            "pos": [
+              1320,
+              0
+            ],
+            "size": [
+              470,
+              140
+            ],
+            "flags": {},
+            "order": 14,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "噪波",
+                "name": "noise",
+                "type": "NOISE",
+                "link": 90
+              },
+              {
+                "localized_name": "引导器",
+                "name": "guider",
+                "type": "GUIDER",
+                "link": 91
+              },
+              {
+                "localized_name": "采样器",
+                "name": "sampler",
+                "type": "SAMPLER",
+                "link": 92
+              },
+              {
+                "localized_name": "西格玛",
+                "name": "sigmas",
+                "type": "SIGMAS",
+                "link": 93
+              },
+              {
+                "localized_name": "Latent图像",
+                "name": "latent_image",
+                "type": "LATENT",
+                "link": 94
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "Latent",
+                "name": "output",
+                "type": "LATENT",
+                "links": [
+                  86,
+                  87
+                ]
+              },
+              {
+                "localized_name": "降噪Latent",
+                "name": "denoised_output",
+                "type": "LATENT",
+                "links": []
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "SamplerCustomAdvanced"
+            }
+          },
+          {
+            "id": 54,
+            "type": "DWD Decode",
+            "pos": [
+              1320,
+              190
+            ],
+            "size": [
+              230,
+              90
+            ],
+            "flags": {},
+            "order": 15,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "samples",
+                "name": "samples",
+                "type": "LATENT",
+                "link": 86
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "图像",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  88
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "DWD Decode"
+            }
+          },
+          {
+            "id": 55,
+            "type": "VAEDecodeAudio",
+            "pos": [
+              1560,
+              190
+            ],
+            "size": [
+              230,
+              80
+            ],
+            "flags": {},
+            "order": 16,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "Latent",
+                "name": "samples",
+                "type": "LATENT",
+                "link": 87
+              },
+              {
+                "localized_name": "vae",
+                "name": "vae",
+                "type": "VAE",
+                "link": 135
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "音频",
+                "name": "AUDIO",
+                "type": "AUDIO",
+                "links": [
+                  89
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "VAEDecodeAudio"
+            }
+          },
+          {
+            "id": 56,
+            "type": "CreateVideo",
+            "pos": [
+              1330,
+              320
+            ],
+            "size": [
+              460,
+              220
+            ],
+            "flags": {},
+            "order": 17,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "图像",
+                "name": "images",
+                "type": "IMAGE",
+                "link": 88
+              },
+              {
+                "localized_name": "音频",
+                "name": "audio",
+                "shape": 7,
+                "type": "AUDIO",
+                "link": 89
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "视频",
+                "name": "VIDEO",
+                "type": "VIDEO",
+                "links": [
+                  96
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CreateVideo"
+            },
+            "widgets_values": [
+              24,
+              "auto",
+              "sRGB",
+              "auto",
+              "none"
+            ],
+            "widgets_values_named": {
+              "fps": 24,
+              "bit_depth": "auto",
+              "color_space": "sRGB",
+              "chroma_subsampling": "auto",
+              "codec": "none"
+            }
+          }
+        ],
+        "groups": [],
+        "links": [
+          {
+            "id": 131,
+            "origin_id": 64,
+            "origin_slot": 0,
+            "target_id": 68,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 132,
+            "origin_id": 68,
+            "origin_slot": 0,
+            "target_id": 69,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 10,
+            "origin_id": 20,
+            "origin_slot": 0,
+            "target_id": 9,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 11,
+            "origin_id": 6,
+            "origin_slot": 0,
+            "target_id": 9,
+            "target_slot": 1,
+            "type": "CONDITIONING"
+          },
+          {
+            "id": 9,
+            "origin_id": 20,
+            "origin_slot": 0,
+            "target_id": 8,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 136,
+            "origin_id": 69,
+            "origin_slot": 0,
+            "target_id": 8,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 133,
+            "origin_id": 65,
+            "origin_slot": 0,
+            "target_id": 6,
+            "target_slot": 0,
+            "type": "CLIP"
+          },
+          {
+            "id": 134,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 6,
+            "target_slot": 1,
+            "type": "VAE"
+          },
+          {
+            "id": 7,
+            "origin_id": 23,
+            "origin_slot": 0,
+            "target_id": 6,
+            "target_slot": 2,
+            "type": "IMAGE"
+          },
+          {
+            "id": 8,
+            "origin_id": 24,
+            "origin_slot": 0,
+            "target_id": 6,
+            "target_slot": 3,
+            "type": "IMAGE"
+          },
+          {
+            "id": 124,
+            "origin_id": 62,
+            "origin_slot": 0,
+            "target_id": 6,
+            "target_slot": 5,
+            "type": "INT"
+          },
+          {
+            "id": 127,
+            "origin_id": 62,
+            "origin_slot": 1,
+            "target_id": 6,
+            "target_slot": 6,
+            "type": "INT"
+          },
+          {
+            "id": 130,
+            "origin_id": 63,
+            "origin_slot": 0,
+            "target_id": 6,
+            "target_slot": 7,
+            "type": "INT"
+          },
+          {
+            "id": 138,
+            "origin_id": 69,
+            "origin_slot": 2,
+            "target_id": 19,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 90,
+            "origin_id": 10,
+            "origin_slot": 0,
+            "target_id": 53,
+            "target_slot": 0,
+            "type": "NOISE"
+          },
+          {
+            "id": 91,
+            "origin_id": 9,
+            "origin_slot": 0,
+            "target_id": 53,
+            "target_slot": 1,
+            "type": "GUIDER"
+          },
+          {
+            "id": 92,
+            "origin_id": 7,
+            "origin_slot": 0,
+            "target_id": 53,
+            "target_slot": 2,
+            "type": "SAMPLER"
+          },
+          {
+            "id": 93,
+            "origin_id": 8,
+            "origin_slot": 0,
+            "target_id": 53,
+            "target_slot": 3,
+            "type": "SIGMAS"
+          },
+          {
+            "id": 94,
+            "origin_id": 6,
+            "origin_slot": 1,
+            "target_id": 53,
+            "target_slot": 4,
+            "type": "LATENT"
+          },
+          {
+            "id": 86,
+            "origin_id": 53,
+            "origin_slot": 0,
+            "target_id": 54,
+            "target_slot": 0,
+            "type": "LATENT"
+          },
+          {
+            "id": 87,
+            "origin_id": 53,
+            "origin_slot": 0,
+            "target_id": 55,
+            "target_slot": 0,
+            "type": "LATENT"
+          },
+          {
+            "id": 135,
+            "origin_id": 67,
+            "origin_slot": 0,
+            "target_id": 55,
+            "target_slot": 1,
+            "type": "VAE"
+          },
+          {
+            "id": 88,
+            "origin_id": 54,
+            "origin_slot": 0,
+            "target_id": 56,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 89,
+            "origin_id": 55,
+            "origin_slot": 0,
+            "target_id": 56,
+            "target_slot": 1,
+            "type": "AUDIO"
+          },
+          {
+            "id": 96,
+            "origin_id": 56,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 0,
+            "type": "VIDEO"
+          },
+          {
+            "id": 142,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 69,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 143,
+            "origin_id": -10,
+            "origin_slot": 1,
+            "target_id": 62,
+            "target_slot": 0,
+            "type": "COMBO"
+          },
+          {
+            "id": 144,
+            "origin_id": -10,
+            "origin_slot": 2,
+            "target_id": 62,
+            "target_slot": 1,
+            "type": "FLOAT"
+          },
+          {
+            "id": 146,
+            "origin_id": -10,
+            "origin_slot": 3,
+            "target_id": 63,
+            "target_slot": 0,
+            "type": "FLOAT"
+          },
+          {
+            "id": 145,
+            "origin_id": -10,
+            "origin_slot": 4,
+            "target_id": 6,
+            "target_slot": 4,
+            "type": "STRING"
+          },
+          {
+            "id": 26,
+            "origin_id": -10,
+            "origin_slot": 5,
+            "target_id": 23,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 29,
+            "origin_id": -10,
+            "origin_slot": 6,
+            "target_id": 24,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 25,
+            "origin_id": 19,
+            "origin_slot": 0,
+            "target_id": 20,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 125,
+            "origin_id": 62,
+            "origin_slot": 0,
+            "target_id": 23,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 128,
+            "origin_id": 62,
+            "origin_slot": 1,
+            "target_id": 23,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 126,
+            "origin_id": 62,
+            "origin_slot": 0,
+            "target_id": 24,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 129,
+            "origin_id": 62,
+            "origin_slot": 1,
+            "target_id": 24,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 137,
+            "origin_id": 69,
+            "origin_slot": 1,
+            "target_id": 8,
+            "target_slot": 2,
+            "type": "FLOAT"
+          }
+        ],
+        "extra": {
+          "pixaromaGroups": []
+        }
+      }
+    ]
+  },
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8769226950000096,
+      "offset": [
+        0.7248673133457166,
+        -287.9077794049006
+      ]
+    },
+    "linearData": {
+      "inputs": [
+        [
+          "eca529f4-14ee-4ad0-95c1-25234d894b7d:6:prompt",
+          "prompt"
+        ],
+        [
+          "eca529f4-14ee-4ad0-95c1-25234d894b7d:39:steps",
+          "steps"
+        ],
+        [
+          "eca529f4-14ee-4ad0-95c1-25234d894b7d:30:aspect_ratio",
+          "aspect_ratio"
+        ],
+        [
+          "eca529f4-14ee-4ad0-95c1-25234d894b7d:30:megapixels",
+          "megapixels"
+        ],
+        [
+          "eca529f4-14ee-4ad0-95c1-25234d894b7d:40:seconds",
+          "seconds"
+        ]
+      ],
+      "outputs": [
+        "15"
+      ]
+    },
+    "frontendVersion": "1.58.5",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "extensions": {
+    "seed_widgets": {}
+  },
+  "version": 0.4,
+  "seed_widgets": {}
+}

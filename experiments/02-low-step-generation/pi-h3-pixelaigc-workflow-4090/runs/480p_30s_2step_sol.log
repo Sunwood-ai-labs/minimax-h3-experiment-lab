@@ -1,0 +1,19 @@
+
+[32m[INFO][0m got prompt
+[32m[INFO][0m Model MiniMaxH3TEModel_ prepared for dynamic VRAM loading. 14956MB Staged. 0 patches attached. Force pre-loaded 410 weights: 4572 KB.
+[32m[INFO][0m Requested to load MiniMaxH3DWD
+[32m[INFO][0m Requested to load MiniMaxH3
+[32m[INFO][0m 0 models unloaded.
+[32m[INFO][0m Model MiniMaxH3DWD prepared for dynamic VRAM loading. 612MB Staged. 0 patches attached. Force pre-loaded 18 weights: 74 KB.
+[32m[INFO][0m Model MiniMaxH3 prepared for dynamic VRAM loading. 19995MB Staged. 210 patches attached. Force pre-loaded 210 weights: 1175 KB.
+
+  0%|          | 0/2 [00:00<?, ?it/s]
+  0%|          | 0/2 [00:00<?, ?it/s,   Model Initializing ...  ]
+  0%|          | 0/2 [00:40<?, ?it/s,  Model Initialization complete!  ]
+ 50%|█████     | 1/2 [00:40<00:40, 40.47s/it,  Model Initialization complete!  ]
+ 50%|█████     | 1/2 [08:39<00:40, 40.47s/it]                                   
+100%|██████████| 2/2 [08:39<00:00, 259.78s/it]
+100%|██████████| 2/2 [08:39<00:00, 259.78s/it]
+[32m[INFO][0m Comfy model compiler graph breaks: 7, rogues: 0
+[32m[INFO][0m Model MiniMaxH3AudioVAE prepared for dynamic VRAM loading. 576MB Staged. 0 patches attached. Force pre-loaded 401 weights: 539 KB.
+[32m[INFO][0m [32mPrompt executed in 336.83 seconds[0m

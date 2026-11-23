@@ -1,0 +1,480 @@
+{
+  "started_at": "2026-11-23T05:49:02.269380+00:00",
+  "system_stats": {
+    "system": {
+      "os": "linux",
+      "ram_total": 116045914112,
+      "ram_free": 100753096704,
+      "comfyui_version": "0.46.0",
+      "required_frontend_version": "1.59.6",
+      "installed_templates_version": "0.11.111",
+      "required_templates_version": "0.11.111",
+      "comfy_package_versions": [
+        {
+          "name": "comfyui-frontend-package",
+          "installed": "1.59.6",
+          "required": "1.59.6"
+        },
+        {
+          "name": "comfyui-workflow-templates",
+          "installed": "0.11.111",
+          "required": "0.11.111"
+        },
+        {
+          "name": "comfyui-embedded-docs",
+          "installed": "0.5.17",
+          "required": "0.5.17"
+        },
+        {
+          "name": "comfy-aimdo",
+          "installed": "0.6.0",
+          "required": "0.6.0"
+        },
+        {
+          "name": "comfy-kitchen",
+          "installed": "0.2.41",
+          "required": "0.2.41"
+        }
+      ],
+      "python_version": "3.12.3 (main, Mar  3 2026, 12:15:18) [GCC 13.3.0]",
+      "pytorch_version": "2.11.0+cu130",
+      "embedded_python": false,
+      "deploy_environment": "local-git",
+      "argv": [
+        "/opt/ComfyUI/main.py",
+        "--listen",
+        "0.0.0.0",
+        "--port",
+        "8188",
+        "--disable-pinned-memory",
+        "--preview-method",
+        "none"
+      ]
+    },
+    "devices": [
+      {
+        "name": "cuda:0 NVIDIA GeForce RTX 4090 : cudaMallocAsync",
+        "type": "cuda",
+        "index": 0,
+        "vram_total": 25756696576,
+        "vram_free": 24104665088,
+        "torch_vram_total": 0,
+        "torch_vram_free": 0
+      },
+      {
+        "name": "cuda:1 NVIDIA GeForce RTX 3060 : cudaMallocAsync",
+        "type": "cuda",
+        "index": 1,
+        "vram_total": 12884377600,
+        "vram_free": 11789139968,
+        "torch_vram_total": 0,
+        "torch_vram_free": 0
+      }
+    ]
+  },
+  "runs": [
+    {
+      "run_id": "480p_2step_cold",
+      "workflow_file": "pih3_dwd_spark_sm89_480p_2step_api.json",
+      "workflow_sha256": "404DB25900F0BDC935A209BC56228227F52D2B5852E49D5223FA1E1C8B70EE22",
+      "prompt_id": "a86adae0-8eca-48da-84b4-f194fef325bf",
+      "seed": 100,
+      "width": 864,
+      "height": 480,
+      "length": 124,
+      "steps": 2,
+      "max_raw_t": 0.93,
+      "adapter": "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 1463.342,
+      "comfy_execution_s": 1463.079,
+      "comfy_logged_s": null,
+      "cached_nodes": [],
+      "gpu": {
+        "sample_count": 2577,
+        "peak_vram_mib": 23868.0,
+        "min_vram_mib": 2504.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 5.5,
+        "peak_power_w": 296.15,
+        "avg_power_w": 13.15,
+        "peak_temp_c": 62.0
+      },
+      "outputs": [
+        {
+          "filename": "480p_2step_cold_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/480p_2step_cold_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\480p_2step_cold_00001_.mp4",
+          "exists": true,
+          "bytes": 1613233,
+          "sha256": "16828BF5A45F728590D492A67A4EB269D85FEBA639909C690919651BB5514BF9"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "480p_2step_warm",
+      "workflow_file": "pih3_dwd_spark_sm89_480p_2step_api.json",
+      "workflow_sha256": "404DB25900F0BDC935A209BC56228227F52D2B5852E49D5223FA1E1C8B70EE22",
+      "prompt_id": "e496c909-80e5-4291-a861-f1d0556443da",
+      "seed": 42,
+      "width": 864,
+      "height": 480,
+      "length": 124,
+      "steps": 2,
+      "max_raw_t": 0.93,
+      "adapter": "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 20.208,
+      "comfy_execution_s": 19.729,
+      "comfy_logged_s": 19.73,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "gpu": {
+        "sample_count": 36,
+        "peak_vram_mib": 23096.0,
+        "min_vram_mib": 19656.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 90.0,
+        "avg_gpu_util_pct": 43.8,
+        "peak_power_w": 303.24,
+        "avg_power_w": 133.42,
+        "peak_temp_c": 62.0
+      },
+      "outputs": [
+        {
+          "filename": "480p_2step_warm_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/480p_2step_warm_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\480p_2step_warm_00001_.mp4",
+          "exists": true,
+          "bytes": 1869689,
+          "sha256": "C78882739A8CDAEBCE73C48D9BC2E8FE4D69E85694C0416D57619A291C4805CB"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "768p_2step_warmup",
+      "workflow_file": "pih3_dwd_spark_sm89_768p_2step_api.json",
+      "workflow_sha256": "1523EAAA4071BC55FC207111FFCED509A7BE4C58D8760962C5E08B9B5E26126D",
+      "prompt_id": "55740a01-8c68-4875-ad2b-30efcdc7b59f",
+      "seed": 41,
+      "width": 1344,
+      "height": 768,
+      "length": 124,
+      "steps": 2,
+      "max_raw_t": 0.93,
+      "adapter": "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 72.792,
+      "comfy_execution_s": 72.526,
+      "comfy_logged_s": 72.53,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "7",
+        "8",
+        "9",
+        "11"
+      ],
+      "gpu": {
+        "sample_count": 128,
+        "peak_vram_mib": 23592.0,
+        "min_vram_mib": 13064.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 38.8,
+        "peak_power_w": 404.45,
+        "avg_power_w": 114.28,
+        "peak_temp_c": 71.0
+      },
+      "outputs": [
+        {
+          "filename": "768p_2step_warmup_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/768p_2step_warmup_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\768p_2step_warmup_00001_.mp4",
+          "exists": true,
+          "bytes": 3951875,
+          "sha256": "99BD883BFE2D404BA91E13CA957761ABD1C8737A995EBB1D0AED228E1C0B57E8"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "768p_2step_warm",
+      "workflow_file": "pih3_dwd_spark_sm89_768p_2step_api.json",
+      "workflow_sha256": "1523EAAA4071BC55FC207111FFCED509A7BE4C58D8760962C5E08B9B5E26126D",
+      "prompt_id": "03075409-fad6-4398-b066-1f5a7d4d224d",
+      "seed": 42,
+      "width": 1344,
+      "height": 768,
+      "length": 124,
+      "steps": 2,
+      "max_raw_t": 0.93,
+      "adapter": "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 32.603,
+      "comfy_execution_s": 32.324,
+      "comfy_logged_s": 32.33,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "gpu": {
+        "sample_count": 57,
+        "peak_vram_mib": 24007.0,
+        "min_vram_mib": 16056.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 99.0,
+        "avg_gpu_util_pct": 54.9,
+        "peak_power_w": 403.73,
+        "avg_power_w": 197.74,
+        "peak_temp_c": 74.0
+      },
+      "outputs": [
+        {
+          "filename": "768p_2step_warm_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/768p_2step_warm_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\768p_2step_warm_00001_.mp4",
+          "exists": true,
+          "bytes": 4250435,
+          "sha256": "6D9916C4FE359EA51F09C13CE31C3EA116623CF201089139378F817AB13E747C"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "480p_4step_cold",
+      "workflow_file": "pih3_dwd_spark_sm89_480p_4step_api.json",
+      "workflow_sha256": "DA7D34756E69C243261C394BDC825CBFADC96F8315780EA4C525169228D0FA9A",
+      "prompt_id": "2249c437-5a14-4a67-ab46-8bcb5954bffb",
+      "seed": 100,
+      "width": 864,
+      "height": 480,
+      "length": 124,
+      "steps": 4,
+      "max_raw_t": 0.96,
+      "adapter": "pi_h3_4step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 76.729,
+      "comfy_execution_s": 76.216,
+      "comfy_logged_s": 76.22,
+      "cached_nodes": [
+        "1",
+        "3",
+        "4",
+        "5",
+        "11"
+      ],
+      "gpu": {
+        "sample_count": 135,
+        "peak_vram_mib": 23731.0,
+        "min_vram_mib": 12855.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 91.0,
+        "avg_gpu_util_pct": 35.4,
+        "peak_power_w": 293.34,
+        "avg_power_w": 99.09,
+        "peak_temp_c": 67.0
+      },
+      "outputs": [
+        {
+          "filename": "480p_4step_cold_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/480p_4step_cold_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\480p_4step_cold_00001_.mp4",
+          "exists": true,
+          "bytes": 1639501,
+          "sha256": "9419EE6285FC95C7E2DFB1403787898D65884D07E8C3D8CA691023DD6D561435"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "480p_4step_warm",
+      "workflow_file": "pih3_dwd_spark_sm89_480p_4step_api.json",
+      "workflow_sha256": "DA7D34756E69C243261C394BDC825CBFADC96F8315780EA4C525169228D0FA9A",
+      "prompt_id": "44ed74e7-409b-4091-bd32-b806b0b79090",
+      "seed": 42,
+      "width": 864,
+      "height": 480,
+      "length": 124,
+      "steps": 4,
+      "max_raw_t": 0.96,
+      "adapter": "pi_h3_4step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 28.883,
+      "comfy_execution_s": 28.367,
+      "comfy_logged_s": 28.37,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "gpu": {
+        "sample_count": 51,
+        "peak_vram_mib": 22979.0,
+        "min_vram_mib": 19443.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 93.0,
+        "avg_gpu_util_pct": 50.3,
+        "peak_power_w": 295.39,
+        "avg_power_w": 167.28,
+        "peak_temp_c": 69.0
+      },
+      "outputs": [
+        {
+          "filename": "480p_4step_warm_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/480p_4step_warm_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\480p_4step_warm_00001_.mp4",
+          "exists": true,
+          "bytes": 1756070,
+          "sha256": "9A754A132EE41B163628309A6168EFEA0E1C452A671FD820B691CF6E12D6A79A"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "768p_4step_warmup",
+      "workflow_file": "pih3_dwd_spark_sm89_768p_4step_api.json",
+      "workflow_sha256": "0F098CF88E5064BB1423D2342EDB0459DADC89DCD85601F5CCCDA8306E1744A6",
+      "prompt_id": "d36fd9fa-5172-45cf-ade1-c2efb5adce80",
+      "seed": 41,
+      "width": 1344,
+      "height": 768,
+      "length": 124,
+      "steps": 4,
+      "max_raw_t": 0.96,
+      "adapter": "pi_h3_4step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 83.848,
+      "comfy_execution_s": 83.495,
+      "comfy_logged_s": 83.5,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "7",
+        "8",
+        "9",
+        "11"
+      ],
+      "gpu": {
+        "sample_count": 147,
+        "peak_vram_mib": 23411.0,
+        "min_vram_mib": 12915.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 51.2,
+        "peak_power_w": 409.12,
+        "avg_power_w": 167.34,
+        "peak_temp_c": 78.0
+      },
+      "outputs": [
+        {
+          "filename": "768p_4step_warmup_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/768p_4step_warmup_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\768p_4step_warmup_00001_.mp4",
+          "exists": true,
+          "bytes": 3625099,
+          "sha256": "34CCF2E9999FC46F8C58712F8A417950A23CE73A6623B5E82B75953B1D560937"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "768p_4step_warm",
+      "workflow_file": "pih3_dwd_spark_sm89_768p_4step_api.json",
+      "workflow_sha256": "0F098CF88E5064BB1423D2342EDB0459DADC89DCD85601F5CCCDA8306E1744A6",
+      "prompt_id": "8d588427-3ca4-4240-8a7b-e8945fcea0cf",
+      "seed": 42,
+      "width": 1344,
+      "height": 768,
+      "length": 124,
+      "steps": 4,
+      "max_raw_t": 0.96,
+      "adapter": "pi_h3_4step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 49.692,
+      "comfy_execution_s": 49.39,
+      "comfy_logged_s": 49.39,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "gpu": {
+        "sample_count": 87,
+        "peak_vram_mib": 23811.0,
+        "min_vram_mib": 15859.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 67.4,
+        "peak_power_w": 407.62,
+        "avg_power_w": 245.61,
+        "peak_temp_c": 79.0
+      },
+      "outputs": [
+        {
+          "filename": "768p_4step_warm_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/768p_4step_warm_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\768p_4step_warm_00001_.mp4",
+          "exists": true,
+          "bytes": 4192629,
+          "sha256": "8151413A6D436EC5AAC073FD3E047B6A90873B49E182A4F3BB461BF32FEDADD4"
+        }
+      ],
+      "execution_error": null
+    }
+  ],
+  "finished_at": "2026-11-23T06:19:31.396381+00:00"
+}
