@@ -50,6 +50,27 @@
         "audio-vae-fp32",
         "turbo-ckpt850"
       ]
+    },
+    "experimental-turbo-v5": {
+      "description": "Separate experimental profile for larryvrh's unpromoted v5 step-600 Turbo LoRA. It keeps the tested pruned-int8 FL2VA base and official VAEs unchanged.",
+      "files": [
+        "fl2va-pruned-int8",
+        "text-nvfp4",
+        "video-vae-fp16",
+        "audio-vae-fp32",
+        "turbo-v5-experimental"
+      ]
+    },
+    "fl2va-pih3": {
+      "description": "Pruned-int8 FL2VA profile with INT8 ConvRot video VAE and Lakonik pi-H3 1.0 2-step & 4-step DWD adapters used by the RTX 4090 pi-H3 experiments.",
+      "files": [
+        "fl2va-pruned-int8",
+        "text-nvfp4",
+        "video-vae-int8",
+        "audio-vae-fp32",
+        "pih3-2step-dwd-int8",
+        "pih3-4step-dwd-int8"
+      ]
     }
   },
   "files": [
@@ -132,6 +153,46 @@
       "sourcePath": "minimax_h3_turbo_4step_ema_ckpt850.safetensors",
       "bytes": 779849816,
       "sha256": "5A6EEBA171CF183020A4AD48774BB2968F29F8168AFD6EC17A04987F3528B4EA"
+    },
+    {
+      "id": "turbo-v5-experimental",
+      "filename": "experimental_v5_step_600.bin",
+      "target": "loras/experimental_v5_step_600.bin",
+      "repository": "larryvrh/MiniMax-H3-Turbo-Lora",
+      "revision": "43a74557ac3f6539db8e0f2a959d03feb7a81480",
+      "sourcePath": "experimental_v5_step_600.bin",
+      "bytes": 10918430752,
+      "sha256": "A57E51BCE769D8D3934C0E90926E18F84FA915DD08F9981864D8BAFCEB4A3551"
+    },
+    {
+      "id": "video-vae-int8",
+      "filename": "minimax_h3_video_vae_int8_convrot.safetensors",
+      "target": "vae/minimax_h3_video_vae_int8_convrot.safetensors",
+      "repository": "Comfy-Org/MiniMax-H3",
+      "revision": "93acf8c91365d40dc32a3abd19af06df6b6f7c65",
+      "sourcePath": "vae/minimax_h3_video_vae_int8_convrot.safetensors",
+      "bytes": 3171670912,
+      "sha256": "9BB2D96F218C76BABD85E0611B85CA8FB330A90546C01A0005E8A58A59593410"
+    },
+    {
+      "id": "pih3-2step-dwd-int8",
+      "filename": "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+      "target": "loras/pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+      "repository": "Lakonik/pi-H3",
+      "revision": "4a864589b0fac3d14768f932c930c4dcf1a17b56",
+      "sourcePath": "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+      "bytes": 2192176240,
+      "sha256": "EF98527409EEE4EAEC8183265F4EE22D265680524237FAE7149DBC203E11E739"
+    },
+    {
+      "id": "pih3-4step-dwd-int8",
+      "filename": "pi_h3_4step_dwd_adapter_int8_convrot.safetensors",
+      "target": "loras/pi_h3_4step_dwd_adapter_int8_convrot.safetensors",
+      "repository": "Lakonik/pi-H3",
+      "revision": "4a864589b0fac3d14768f932c930c4dcf1a17b56",
+      "sourcePath": "pi_h3_4step_dwd_adapter_int8_convrot.safetensors",
+      "bytes": 2192176240,
+      "sha256": "A2FA1CAAE2CD4A12F85CC3ECCD2A360FE9DABF430623D47DECA619605E96EE6D"
     }
   ]
 }

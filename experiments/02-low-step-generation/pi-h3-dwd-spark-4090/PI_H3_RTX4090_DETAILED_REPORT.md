@@ -49,7 +49,7 @@ MiniMax H3 の動画・音声同時生成を 2〜4 ステップに高速化す�
 | **主計算GPU (`cuda:0`)** | NVIDIA GeForce RTX 4090 (24,564 MiB VRAM / SM 8.9 / `cudaMallocAsync`) |
 | **補助GPU (`cuda:1`)** | NVIDIA GeForce RTX 3060 (12,288 MiB VRAM / 本実験では未使用) |
 | **ホストRAM (WSL2割当)** | 116,045,914,112 bytes (~108.1 GiB) |
-| **Dockerイメージ** | `local/minimax-h3-comfyui:v0.46.0-pih3` ([pih3-4090.Dockerfile](file:///D:/Prj/minimax-h3-compose/docker/pih3-4090.Dockerfile)) |
+| **Dockerイメージ** | `local/minimax-h3-comfyui:v0.46.0-pih3` ([pih3-4090.Dockerfile](../../../docker/pih3-4090.Dockerfile)) |
 | **ベースイメージ** | `pytorch/pytorch:2.11.0-cuda13.0-cudnn9-runtime` |
 | **Python / PyTorch / CUDA** | Python `3.12.3` / PyTorch `2.11.0+cu130` / CUDA `13.0` |
 | **ComfyUI** | `v0.46.0` (Port `8195 -> 8188`, `--disable-pinned-memory --preview-method none`) |
@@ -121,7 +121,7 @@ flowchart LR
 
 ### 4.2 Suite 1: 480p & 768p × 2-step / 4-step (Runs 1–8)
 
-データソース: [benchmark_results.json](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/runs/benchmark_results.json)
+データソース: [benchmark_results.json](./runs/benchmark_results.json)
 
 | # | Run ID | 解像度 | Steps | Seed | Cached Nodes | ComfyUI時間 (s) | Wall時間 (s) | Peak VRAM (MiB) | Avg/Peak GPU Util (%) | Avg/Peak Power (W) | Peak Temp (°C) |
 | :-: | :--- | :---: | :-: | :-: | :-: | --: | --: | --: | :---: | :---: | :-: |
@@ -136,7 +136,7 @@ flowchart LR
 
 ### 4.3 Suite 2: 720p & 1080p × 2-step / 4-step (Runs 9–17)
 
-データソース: [benchmark_720p_1080p_results.json](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/runs/benchmark_720p_1080p_results.json)
+データソース: [benchmark_720p_1080p_results.json](./runs/benchmark_720p_1080p_results.json)
 
 | # | Run ID | DiT → 出力解像度 | Steps | Seed | Cached Nodes | ComfyUI時間 (s) | Wall時間 (s) | Peak VRAM (MiB) | Avg/Peak GPU Util (%) | Avg/Peak Power (W) | Peak Temp (°C) | ステータス |
 | :-: | :--- | :---: | :-: | :-: | :-: | --: | --: | --: | :---: | :---: | :-: | :---: |
@@ -173,7 +173,7 @@ flowchart LR
 
 全ウォーム出力 MP4 に対して `ffprobe`、`blackdetect`、`signalstats`、`astats` を実行し、黒画面・無音・フレーム欠落・音割れがないことを定量的に確認しました。
 
-データソース: [media_qa.json](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/runs/media_qa.json) / [media_qa_720p_1080p.json](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/runs/media_qa_720p_1080p.json)
+データソース: [media_qa.json](./runs/media_qa.json) / [media_qa_720p_1080p.json](./runs/media_qa_720p_1080p.json)
 
 ### 5.1 ストリーム仕様 & 音声統計 (`astats`)
 
@@ -244,13 +244,13 @@ flowchart LR
 
 ### 7.2 ワークフロー・スクリプト・ログ
 
-- **Dockerfile**: [pih3-4090.Dockerfile](file:///D:/Prj/minimax-h3-compose/docker/pih3-4090.Dockerfile)
+- **Dockerfile**: [pih3-4090.Dockerfile](../../../docker/pih3-4090.Dockerfile)
 - **ワークフロー JSON**:
-  - Suite 1: [480p 2-step](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/workflows/pih3_dwd_spark_sm89_480p_2step_api.json) / [480p 4-step](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/workflows/pih3_dwd_spark_sm89_480p_4step_api.json) / [768p 2-step](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/workflows/pih3_dwd_spark_sm89_768p_2step_api.json) / [768p 4-step](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/workflows/pih3_dwd_spark_sm89_768p_4step_api.json)
-  - Suite 2: [720p 2-step](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/workflows/pih3_dwd_spark_sm89_720p_2step_api.json) / [720p 4-step](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/workflows/pih3_dwd_spark_sm89_720p_4step_api.json) / [1080p Upscaled 2-step](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/workflows/pih3_dwd_spark_sm89_1080p_upscaled_2step_api.json) / [1080p Upscaled 4-step](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/workflows/pih3_dwd_spark_sm89_1080p_upscaled_4step_api.json) / [1080p Native 2-step](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/workflows/pih3_dwd_spark_sm89_1080p_native_2step_api.json)
+  - Suite 1: [480p 2-step](./workflows/pih3_dwd_spark_sm89_480p_2step_api.json) / [480p 4-step](./workflows/pih3_dwd_spark_sm89_480p_4step_api.json) / [768p 2-step](./workflows/pih3_dwd_spark_sm89_768p_2step_api.json) / [768p 4-step](./workflows/pih3_dwd_spark_sm89_768p_4step_api.json)
+  - Suite 2: [720p 2-step](./workflows/pih3_dwd_spark_sm89_720p_2step_api.json) / [720p 4-step](./workflows/pih3_dwd_spark_sm89_720p_4step_api.json) / [1080p Upscaled 2-step](./workflows/pih3_dwd_spark_sm89_1080p_upscaled_2step_api.json) / [1080p Upscaled 4-step](./workflows/pih3_dwd_spark_sm89_1080p_upscaled_4step_api.json) / [1080p Native 2-step](./workflows/pih3_dwd_spark_sm89_1080p_native_2step_api.json)
 - **ベンチマーク / 検証スクリプト**:
-  - [run_pih3_4090_benchmark.py](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/scripts/run_pih3_4090_benchmark.py) / [verify_media.py](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/scripts/verify_media.py)
-  - [run_pih3_720p_1080p.py](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/scripts/run_pih3_720p_1080p.py) / [verify_720p_1080p.py](file:///D:/Prj/minimax-h3-compose/experiments/02-low-step-generation/pi-h3-dwd-spark-4090/scripts/verify_720p_1080p.py)
+  - [run_pih3_4090_benchmark.py](./scripts/run_pih3_4090_benchmark.py) / [verify_media.py](./scripts/verify_media.py)
+  - [run_pih3_720p_1080p.py](./scripts/run_pih3_720p_1080p.py) / [verify_720p_1080p.py](./scripts/verify_720p_1080p.py)
 
 ---
 

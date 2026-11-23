@@ -4,7 +4,7 @@
   "category": "02-low-step-generation",
   "status": "verified",
   "hypothesis": "On RTX 4090 (SM89, 24GB VRAM), pi-H3 1.0 (DWD + INT8 ConvRot + Spark-Attn SM89) can generate 5s 768p video with synchronized stereo audio in <=35s when warm (matching or beating the official RTX 3090 gpu-unlock 34.6s figure), and 4-step mode improves detail over 2-step within ~50s.",
-  "purpose": "Benchmark and visually/audibly compare pi-H3 DWD + Spark-Attn SM89 on RTX 4090 across 480p and 768p at 2 steps vs 4 steps.",
+  "purpose": "Benchmark and visually/audibly compare pi-H3 DWD + Spark-Attn SM89 on RTX 4090 across 480p, 720p, 768p, and 1080p (upscaled & native) at 2 steps vs 4 steps.",
   "scope": "ComfyUI v0.46.0 + ComfyUI-piFlow v1.4.2 + Spark-H3 v0.2.0 SM89 inside Docker on Windows 11 WSL2 with RTX 4090.",
   "sources": [
     {
@@ -443,6 +443,574 @@
         }
       ],
       "execution_error": null
+    },
+    {
+      "run_id": "720p_4step_warmup",
+      "workflow_file": "pih3_dwd_spark_sm89_720p_4step_api.json",
+      "workflow_sha256": "6C40FE172B4A9321A7ADEF42145C12CA595C2C39B77A5C9BB5B2CAF3C334250F",
+      "prompt_id": "7e8c2c92-6996-4ee7-8bab-c5c7d6571251",
+      "seed": 41,
+      "gen_width": 1280,
+      "gen_height": 736,
+      "out_width": 1280,
+      "out_height": 720,
+      "chunk_path": "none",
+      "steps": 4,
+      "max_raw_t": 0.96,
+      "adapter": "pi_h3_4step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 300.659,
+      "comfy_execution_s": 299.547,
+      "comfy_logged_s": 299.57,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "7",
+        "8",
+        "9",
+        "11"
+      ],
+      "gpu": {
+        "sample_count": 526,
+        "peak_vram_mib": 23503.0,
+        "min_vram_mib": 13007.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 16.8,
+        "peak_power_w": 400.54,
+        "avg_power_w": 46.14,
+        "peak_temp_c": 68.0
+      },
+      "outputs": [
+        {
+          "filename": "720p_4step_warmup_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/720p_4step_warmup_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\720p_4step_warmup_00001_.mp4",
+          "exists": true,
+          "bytes": 3370515,
+          "sha256": "C94451CA98BD33A39D955B3508889E87B002600A008BB2E31E92D62A7988D763"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "720p_4step_warm",
+      "workflow_file": "pih3_dwd_spark_sm89_720p_4step_api.json",
+      "workflow_sha256": "6C40FE172B4A9321A7ADEF42145C12CA595C2C39B77A5C9BB5B2CAF3C334250F",
+      "prompt_id": "76580f49-b4a9-4451-bd57-0d77959f548b",
+      "seed": 42,
+      "gen_width": 1280,
+      "gen_height": 736,
+      "out_width": 1280,
+      "out_height": 720,
+      "chunk_path": "none",
+      "steps": 4,
+      "max_raw_t": 0.96,
+      "adapter": "pi_h3_4step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 49.998,
+      "comfy_execution_s": 49.715,
+      "comfy_logged_s": 49.72,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "gpu": {
+        "sample_count": 87,
+        "peak_vram_mib": 23969.0,
+        "min_vram_mib": 16257.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 99.0,
+        "avg_gpu_util_pct": 61.2,
+        "peak_power_w": 401.05,
+        "avg_power_w": 223.3,
+        "peak_temp_c": 73.0
+      },
+      "outputs": [
+        {
+          "filename": "720p_4step_warm_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/720p_4step_warm_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\720p_4step_warm_00001_.mp4",
+          "exists": true,
+          "bytes": 3648082,
+          "sha256": "DBC4415079F9E1986A2B49631BE25B134631736D7EE3FAF45701B183094EFF8C"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "1080p_upscaled_4step_warmup",
+      "workflow_file": "pih3_dwd_spark_sm89_1080p_upscaled_4step_api.json",
+      "workflow_sha256": "4F0E9D1E2C93FAAB41036D77DB59F724EB0BB9218AE50904ABFD79875C6DF922",
+      "prompt_id": "2fd08d6d-7b0f-4fa7-b80c-aa3ca248e7d7",
+      "seed": 41,
+      "gen_width": 1344,
+      "gen_height": 768,
+      "out_width": 1920,
+      "out_height": 1080,
+      "chunk_path": "none",
+      "steps": 4,
+      "max_raw_t": 0.96,
+      "adapter": "pi_h3_4step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 99.46,
+      "comfy_execution_s": 99.085,
+      "comfy_logged_s": 99.09,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "7",
+        "8",
+        "9",
+        "11"
+      ],
+      "gpu": {
+        "sample_count": 173,
+        "peak_vram_mib": 23357.0,
+        "min_vram_mib": 12829.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 41.9,
+        "peak_power_w": 405.87,
+        "avg_power_w": 141.03,
+        "peak_temp_c": 74.0
+      },
+      "outputs": [
+        {
+          "filename": "1080p_upscaled_4step_warmup_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/1080p_upscaled_4step_warmup_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\1080p_upscaled_4step_warmup_00001_.mp4",
+          "exists": true,
+          "bytes": 6404076,
+          "sha256": "1855EBB8E174C386DEB6536D8F1EDAABC85F2A18899AC757EF4E76DB1576A000"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "1080p_upscaled_4step_warm",
+      "workflow_file": "pih3_dwd_spark_sm89_1080p_upscaled_4step_api.json",
+      "workflow_sha256": "4F0E9D1E2C93FAAB41036D77DB59F724EB0BB9218AE50904ABFD79875C6DF922",
+      "prompt_id": "2ab0a28b-7bd3-4bcf-8713-a06a4adbf85f",
+      "seed": 42,
+      "gen_width": 1344,
+      "gen_height": 768,
+      "out_width": 1920,
+      "out_height": 1080,
+      "chunk_path": "none",
+      "steps": 4,
+      "max_raw_t": 0.96,
+      "adapter": "pi_h3_4step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 62.873,
+      "comfy_execution_s": 62.503,
+      "comfy_logged_s": 62.51,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "gpu": {
+        "sample_count": 108,
+        "peak_vram_mib": 23405.0,
+        "min_vram_mib": 15773.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 49.3,
+        "peak_power_w": 405.11,
+        "avg_power_w": 194.98,
+        "peak_temp_c": 74.0
+      },
+      "outputs": [
+        {
+          "filename": "1080p_upscaled_4step_warm_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/1080p_upscaled_4step_warm_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\1080p_upscaled_4step_warm_00001_.mp4",
+          "exists": true,
+          "bytes": 7338682,
+          "sha256": "64A2C1F1FAB9EDBBE7D179696107B4A9E2E05DE17F3CC05308F8F5C6D9E2941E"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "720p_2step_warmup",
+      "workflow_file": "pih3_dwd_spark_sm89_720p_2step_api.json",
+      "workflow_sha256": "623F89F5D44BFA3FDBE817BFA3D24564F3054B9AADAE3F8198A66CC910AB3FEE",
+      "prompt_id": "d5dde883-c1f3-475b-9a1d-cedf9cc92b56",
+      "seed": 41,
+      "gen_width": 1280,
+      "gen_height": 736,
+      "out_width": 1280,
+      "out_height": 720,
+      "chunk_path": "none",
+      "steps": 2,
+      "max_raw_t": 0.93,
+      "adapter": "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 443.943,
+      "comfy_execution_s": 443.67,
+      "comfy_logged_s": 443.69,
+      "cached_nodes": [
+        "1",
+        "3",
+        "4",
+        "5",
+        "11"
+      ],
+      "gpu": {
+        "sample_count": 778,
+        "peak_vram_mib": 23357.0,
+        "min_vram_mib": 12829.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 10.8,
+        "peak_power_w": 390.5,
+        "avg_power_w": 38.34,
+        "peak_temp_c": 64.0
+      },
+      "outputs": [
+        {
+          "filename": "720p_2step_warmup_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/720p_2step_warmup_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\720p_2step_warmup_00001_.mp4",
+          "exists": true,
+          "bytes": 3975306,
+          "sha256": "4F8D38A546E95B8A5DBC98B834C0E5DC6356FC68EE7F9C0ED21306A494186036"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "720p_2step_warm",
+      "workflow_file": "pih3_dwd_spark_sm89_720p_2step_api.json",
+      "workflow_sha256": "623F89F5D44BFA3FDBE817BFA3D24564F3054B9AADAE3F8198A66CC910AB3FEE",
+      "prompt_id": "cc254549-bf48-45bd-a713-88a31fa34db2",
+      "seed": 42,
+      "gen_width": 1280,
+      "gen_height": 736,
+      "out_width": 1280,
+      "out_height": 720,
+      "chunk_path": "none",
+      "steps": 2,
+      "max_raw_t": 0.93,
+      "adapter": "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 33.126,
+      "comfy_execution_s": 32.876,
+      "comfy_logged_s": 32.88,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "gpu": {
+        "sample_count": 57,
+        "peak_vram_mib": 24029.0,
+        "min_vram_mib": 16157.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 99.0,
+        "avg_gpu_util_pct": 51.6,
+        "peak_power_w": 394.91,
+        "avg_power_w": 174.16,
+        "peak_temp_c": 68.0
+      },
+      "outputs": [
+        {
+          "filename": "720p_2step_warm_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/720p_2step_warm_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\720p_2step_warm_00001_.mp4",
+          "exists": true,
+          "bytes": 3669723,
+          "sha256": "9A11E553758FAA3EE0A69CCD9F2BEADE8D81CB5ACF96188F4E07FA8A6815A1F6"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "1080p_upscaled_2step_warmup",
+      "workflow_file": "pih3_dwd_spark_sm89_1080p_upscaled_2step_api.json",
+      "workflow_sha256": "F6435256C6D11CBBDE35C0E8B6336B83F836BA8302E9CABEA547D8DA3D02DA3B",
+      "prompt_id": "2a2dcc92-cfcf-4f52-923b-e8b5c05422fa",
+      "seed": 41,
+      "gen_width": 1344,
+      "gen_height": 768,
+      "out_width": 1920,
+      "out_height": 1080,
+      "chunk_path": "none",
+      "steps": 2,
+      "max_raw_t": 0.93,
+      "adapter": "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 72.741,
+      "comfy_execution_s": 72.446,
+      "comfy_logged_s": 72.45,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "7",
+        "8",
+        "9",
+        "11"
+      ],
+      "gpu": {
+        "sample_count": 127,
+        "peak_vram_mib": 23389.0,
+        "min_vram_mib": 12829.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 99.0,
+        "avg_gpu_util_pct": 36.4,
+        "peak_power_w": 398.65,
+        "avg_power_w": 113.98,
+        "peak_temp_c": 67.0
+      },
+      "outputs": [
+        {
+          "filename": "1080p_upscaled_2step_warmup_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/1080p_upscaled_2step_warmup_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\1080p_upscaled_2step_warmup_00001_.mp4",
+          "exists": true,
+          "bytes": 6901525,
+          "sha256": "C382C01D636D498807B1FA5A3821D90DCC2DB0E8F37D28ADEA1FFD42BE10603D"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "1080p_upscaled_2step_warm",
+      "workflow_file": "pih3_dwd_spark_sm89_1080p_upscaled_2step_api.json",
+      "workflow_sha256": "F6435256C6D11CBBDE35C0E8B6336B83F836BA8302E9CABEA547D8DA3D02DA3B",
+      "prompt_id": "fda3dce5-2924-4d12-ba6d-78eeba0a0bdc",
+      "seed": 42,
+      "gen_width": 1344,
+      "gen_height": 768,
+      "out_width": 1920,
+      "out_height": 1080,
+      "chunk_path": "none",
+      "steps": 2,
+      "max_raw_t": 0.93,
+      "adapter": "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+      "status": "success",
+      "runner_wall_s": 40.195,
+      "comfy_execution_s": 39.905,
+      "comfy_logged_s": 39.91,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "gpu": {
+        "sample_count": 70,
+        "peak_vram_mib": 23949.0,
+        "min_vram_mib": 15805.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 100.0,
+        "avg_gpu_util_pct": 42.7,
+        "peak_power_w": 404.27,
+        "avg_power_w": 159.21,
+        "peak_temp_c": 72.0
+      },
+      "outputs": [
+        {
+          "filename": "1080p_upscaled_2step_warm_00001_.mp4",
+          "subfolder": "video/pi-h3-4090",
+          "relative_path": "video/pi-h3-4090/1080p_upscaled_2step_warm_00001_.mp4",
+          "local_path": "D:\\Prj\\minimax-h3-compose\\runtime\\pih3-4090\\output\\video\\pi-h3-4090\\1080p_upscaled_2step_warm_00001_.mp4",
+          "exists": true,
+          "bytes": 7466795,
+          "sha256": "4A09AF2781A66B69E32B68D7A60B74CDC6968178ABFA76B162E5DD2DF54BBB71"
+        }
+      ],
+      "execution_error": null
+    },
+    {
+      "run_id": "1080p_native_2step",
+      "workflow_file": "pih3_dwd_spark_sm89_1080p_native_2step_api.json",
+      "workflow_sha256": "8981D741E2815376A9EF1B5A3C19DD940F67C7B380D3596CB5A39BA0F69E82CC",
+      "prompt_id": "af6abcfa-ada5-43af-834d-74eea3660be5",
+      "seed": 42,
+      "gen_width": 1920,
+      "gen_height": 1088,
+      "out_width": 1920,
+      "out_height": 1080,
+      "chunk_path": "drop_k",
+      "steps": 2,
+      "max_raw_t": 0.93,
+      "adapter": "pi_h3_2step_dwd_adapter_int8_convrot.safetensors",
+      "status": "error",
+      "runner_wall_s": 24.722,
+      "comfy_execution_s": 24.275,
+      "comfy_logged_s": 24.28,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "7",
+        "11",
+        "12"
+      ],
+      "gpu": {
+        "sample_count": 44,
+        "peak_vram_mib": 23389.0,
+        "min_vram_mib": 12829.0,
+        "vram_total_mib": 24564.0,
+        "peak_gpu_util_pct": 76.0,
+        "avg_gpu_util_pct": 26.6,
+        "peak_power_w": 61.67,
+        "avg_power_w": 43.61,
+        "peak_temp_c": 46.0
+      },
+      "outputs": [],
+      "execution_error": {
+        "prompt_id": "af6abcfa-ada5-43af-834d-74eea3660be5",
+        "node_id": "13",
+        "node_type": "SamplerCustomAdvanced",
+        "executed": [
+          "8",
+          "6",
+          "10",
+          "9"
+        ],
+        "exception_message": "Spark chunked requires a rebuilt comfy-kitchen CUDA extension\n",
+        "exception_type": "RuntimeError",
+        "traceback": [
+          "  File \"/opt/ComfyUI/execution.py\", line 568, in execute\n    output_data, output_ui, has_subgraph, has_pending_tasks = await get_output_data(prompt_id, unique_id, obj, input_data_all, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)\n                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/execution.py\", line 353, in get_output_data\n    return_values = await _async_map_node_over_list(prompt_id, unique_id, obj, input_data_all, obj.FUNCTION, allow_interrupt=True, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/execution.py\", line 327, in _async_map_node_over_list\n    await process_inputs(input_dict, i)\n",
+          "  File \"/opt/ComfyUI/execution.py\", line 315, in process_inputs\n    result = f(**inputs)\n             ^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy_api/internal/__init__.py\", line 149, in wrapped_func\n    return method(locked_class, **inputs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy_api/latest/_io.py\", line 2219, in EXECUTE_NORMALIZED\n    to_return = cls.execute(*args, **kwargs)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy_extras/nodes_custom_sampler.py\", line 1055, in execute\n    samples = guider.sample(noise.generate_noise(latent), latent_image, sampler, sigmas, denoise_mask=noise_mask, callback=callback, disable_pbar=disable_pbar, seed=noise.seed)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1336, in sample\n    output = executor.execute(noise, latent_image, sampler, sigmas, denoise_mask, callback, disable_pbar, seed, latent_shapes=latent_shapes)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 114, in execute\n    return self.wrappers[self.idx](self, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/custom_nodes/ComfyUI-piFlow/modules/architectures/dwd_head.py\", line 70, in dwd_outer_sample_wrapper\n    output = executor(noise, latent_image, sampler, sigmas, *args, latent_shapes=latent_shapes, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 106, in __call__\n    return new_executor.execute(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1263, in outer_sample\n    output = self.inner_sample(noise, latent_image, device, sampler, sigmas, denoise_mask, callback, disable_pbar, seed, latent_shapes=latent_shapes)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1238, in inner_sample\n    samples = executor.execute(self, sigmas, extra_args, callback, noise, latent_image, denoise_mask, disable_pbar)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1005, in sample\n    samples = self.sampler_function(model_k, noise, sigmas, extra_args=extra_args, callback=k_callback, disable=disable_pbar, **self.extra_options)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/k_diffusion/sampling.py\", line 205, in sample_euler\n    denoised = model(x, sigma_hat * s_in, **extra_args)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/samplers.py\", line 640, in __call__\n    out = self.inner_model(x, sigma, model_options=model_options, seed=seed)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1208, in __call__\n    return self.outer_predict_noise(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1215, in outer_predict_noise\n    ).execute(x, timestep, model_options, seed)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/samplers.py\", line 1218, in predict_noise\n    return sampling_function(self.inner_model, x, timestep, self.conds.get(\"negative\", None), self.conds.get(\"positive\", None), self.cfg, model_options=model_options, seed=seed)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/samplers.py\", line 620, in sampling_function\n    out = calc_cond_batch(model, conds, x, timestep, model_options)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/samplers.py\", line 211, in calc_cond_batch\n    return _calc_cond_batch_outer(model, conds, x_in, timestep, model_options)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/samplers.py\", line 219, in _calc_cond_batch_outer\n    return executor.execute(model, conds, x_in, timestep, model_options)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/samplers.py\", line 335, in _calc_cond_batch\n    output = model.apply_model(input_x, timestep_, **c).chunk(batch_chunks)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/model_base.py\", line 217, in apply_model\n    return comfy.patcher_extension.WrapperExecutor.new_class_executor(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/model_base.py\", line 261, in _apply_model\n    model_output = self.diffusion_model(xc, t, context=context, control=control, transformer_options=transformer_options, **extra_conds)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/ldm/minimax/model.py\", line 690, in forward\n    graph_out = comfy.patcher_extension.WrapperExecutor.new_class_executor(\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/patcher_extension.py\", line 113, in execute\n    return self.original(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/ldm/minimax/model.py\", line 803, in _forward\n    h = self._run_blocks(h, t_emb, mod_segments, layout, transformer_options)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/custom_nodes/ComfyUI-piFlow/modules/architectures/minimax_h3_dwd.py\", line 77, in run_blocks_and_decode\n    h = run_blocks(h, t_emb, mod_segments, layout, transformer_options)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/ldm/minimax/model.py\", line 664, in _run_blocks\n    h = blocks_replace[(\"double_block\", i)](\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/custom_nodes/ComfyUI-Spark-H3/comfyui_nodes.py\", line 1036, in block_patch\n    result = extra[\"original_block\"]({**args, \"attention\": attention})\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/ldm/minimax/model.py\", line 662, in block_wrap\n    return {\"img\": block(args[\"img\"], args[\"t_emb\"], args[\"mod_segments\"], args[\"rope_freqs\"],\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/comfy/ldm/minimax/model.py\", line 319, in forward\n    x = _mod_gate(x, gate_msa, attention(h, rope_freqs=rope_freqs, transformer_options=transformer_options), mod_segments)\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/custom_nodes/ComfyUI-Spark-H3/comfyui_nodes.py\", line 994, in attention\n    return _native_spark_attention(\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/custom_nodes/ComfyUI-Spark-H3/comfyui_nodes.py\", line 801, in _native_spark_attention\n    output = native_split_attention(\n             ^^^^^^^^^^^^^^^^^^^^^^^\n",
+          "  File \"/opt/ComfyUI/custom_nodes/ComfyUI-Spark-H3/comfyui_spark_split.py\", line 355, in native_split_attention\n    raise RuntimeError('Spark chunked requires a rebuilt comfy-kitchen CUDA extension')\n"
+        ],
+        "current_inputs": {
+          "noise": [
+            "</opt/ComfyUI/comfy_extras/nodes_custom_sampler.Noise_RandomNoise object at 0x7f44a4ee0ce0>"
+          ],
+          "guider": [
+            "</opt/ComfyUI/comfy_extras/nodes_custom_sampler.Guider_Basic object at 0x7f43c8126e40>"
+          ],
+          "sampler": [
+            "<comfy.samplers.KSAMPLER object at 0x7f44a50bad50>"
+          ],
+          "sigmas": [
+            "tensor([0.9938, 0.8653, 0.0000])"
+          ],
+          "latent_image": [
+            "{'samples': NestedTensor([tensor([[[[[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          ...,\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]]],\n\n\n         [[[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          ...,\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]]],\n\n\n         [[[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          ...,\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]]],\n\n\n         ...,\n\n\n         [[[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          ...,\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]]],\n\n\n         [[[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          ...,\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]]],\n\n\n         [[[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          ...,\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]],\n\n          [[0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           ...,\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.],\n           [0., 0., 0.,  ..., 0., 0., 0.]]]]]), tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.]],\n\n         [[0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.]],\n\n         [[0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.]],\n\n         ...,\n\n         [[0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.]],\n\n         [[0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.]],\n\n         [[0., 0., 0.,  ..., 0., 0., 0.],\n          [0., 0., 0.,  ..., 0., 0., 0.]]]])])}"
+          ]
+        },
+        "current_outputs": [
+          "11",
+          "13",
+          "7",
+          "2",
+          "1",
+          "16",
+          "18",
+          "9",
+          "14",
+          "5",
+          "8",
+          "15",
+          "12",
+          "17",
+          "3",
+          "4",
+          "6",
+          "10"
+        ],
+        "timestamp": 1795425271289
+      }
     }
   ],
   "mediaQa": {
@@ -1130,7 +1698,9 @@
   "previews": {
     "contactSheet": "previews/contact-sheet.jpg",
     "manifest": "previews/contact-sheet.json",
-    "comparison768p": "previews/compare_768p_2step_vs_4step.jpg"
+    "comparison768p": "previews/compare_768p_2step_vs_4step.jpg",
+    "contactSheet720p1080p": "previews/contact-sheet-720p-1080p.jpg",
+    "comparison720pVs1080p4step": "previews/compare_720p_vs_1080p_4step.jpg"
   },
   "publicEvidence": {
     "tile": "previews/contact-sheet.jpg",
@@ -1143,9 +1713,131 @@
     "status": "not_posted",
     "videoTweets": []
   },
-  "conclusion": "All 8 runs succeeded on RTX 4090 with zero Spark-H3 dense fallbacks. Warm end-to-end generation (models loaded + prompt encoded, including DWD Decode, Audio VAE Decode, and MP4 save) took 19.729s (480p 2-step), 28.367s (480p 4-step), 32.324s (768p 2-step), and 49.390s (768p 4-step).",
+  "conclusion": "16 of 17 runs succeeded on RTX 4090 with zero Spark-H3 dense fallbacks. Warm end-to-end generation (models loaded + prompt encoded, including DWD Decode, Audio VAE Decode, and MP4 save) took 19.729s (480p 2-step), 28.367s (480p 4-step), 32.876s (720p 2-step), 49.715s (720p 4-step), 32.324s (768p 2-step, beating official RTX 3090 gpu-unlock 34.6s), 49.390s (768p 4-step), 39.905s (1080p upscaled 2-step), and 62.503s (1080p upscaled 4-step). Native 1920x1088 with chunk_path=drop_k failed because spark_h3_kitchen 0.2.37 lacks the split-attention CUDA extension.",
   "limitations": [
     "Very first cold start over WSL2 9p mount (/mnt -> D:\\Prj\\minimax-h3-compose\\models) plus initial Triton/torch compile took 1463.079s.",
     "Audio quality was verified quantitatively via ffprobe (AAC 32kHz stereo) and ffmpeg astats (RMS -13.9 to -15.0 dB), not listened to by human ears."
-  ]
+  ],
+  "workflows": [
+    "workflows/pih3_dwd_spark_sm89_1080p_native_2step_api.json",
+    "workflows/pih3_dwd_spark_sm89_1080p_native_4step_api.json",
+    "workflows/pih3_dwd_spark_sm89_1080p_upscaled_2step_api.json",
+    "workflows/pih3_dwd_spark_sm89_1080p_upscaled_4step_api.json",
+    "workflows/pih3_dwd_spark_sm89_480p_2step_api.json",
+    "workflows/pih3_dwd_spark_sm89_480p_4step_api.json",
+    "workflows/pih3_dwd_spark_sm89_720p_2step_api.json",
+    "workflows/pih3_dwd_spark_sm89_720p_4step_api.json",
+    "workflows/pih3_dwd_spark_sm89_768p_2step_api.json",
+    "workflows/pih3_dwd_spark_sm89_768p_4step_api.json"
+  ],
+  "mediaQa720p1080p": {
+    "720p_2step_warm": {
+      "bytes": 3669723,
+      "sha256": "9A11E553758FAA3EE0A69CCD9F2BEADE8D81CB5ACF96188F4E07FA8A6815A1F6",
+      "video": {
+        "codec": "h264",
+        "width": 1280,
+        "height": 720,
+        "fps": "24/1",
+        "frames": 124,
+        "duration": 5.166688
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": 32000,
+        "channels": 2,
+        "duration": 5.166688
+      },
+      "blackdetect": [],
+      "astats": [
+        "[Parsed_astats_0 @ 000002c77b033b00] RMS level dB: -15.008809",
+        "[Parsed_astats_0 @ 000002c77b033b00] Channel: 2",
+        "[Parsed_astats_0 @ 000002c77b033b00] Peak level dB: -1.250049",
+        "[Parsed_astats_0 @ 000002c77b033b00] RMS level dB: -15.015628",
+        "[Parsed_astats_0 @ 000002c77b033b00] Peak level dB: -0.835945",
+        "[Parsed_astats_0 @ 000002c77b033b00] RMS level dB: -15.012217"
+      ]
+    },
+    "720p_4step_warm": {
+      "bytes": 3648082,
+      "sha256": "DBC4415079F9E1986A2B49631BE25B134631736D7EE3FAF45701B183094EFF8C",
+      "video": {
+        "codec": "h264",
+        "width": 1280,
+        "height": 720,
+        "fps": "24/1",
+        "frames": 124,
+        "duration": 5.166688
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": 32000,
+        "channels": 2,
+        "duration": 5.166688
+      },
+      "blackdetect": [],
+      "astats": [
+        "[Parsed_astats_0 @ 000001bba1b209c0] RMS level dB: -14.009946",
+        "[Parsed_astats_0 @ 000001bba1b209c0] Channel: 2",
+        "[Parsed_astats_0 @ 000001bba1b209c0] Peak level dB: -2.062355",
+        "[Parsed_astats_0 @ 000001bba1b209c0] RMS level dB: -14.049912",
+        "[Parsed_astats_0 @ 000001bba1b209c0] Peak level dB: -1.989725",
+        "[Parsed_astats_0 @ 000001bba1b209c0] RMS level dB: -14.029883"
+      ]
+    },
+    "1080p_upscaled_2step_warm": {
+      "bytes": 7466795,
+      "sha256": "4A09AF2781A66B69E32B68D7A60B74CDC6968178ABFA76B162E5DD2DF54BBB71",
+      "video": {
+        "codec": "h264",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 124,
+        "duration": 5.166688
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": 32000,
+        "channels": 2,
+        "duration": 5.166688
+      },
+      "blackdetect": [],
+      "astats": [
+        "[Parsed_astats_0 @ 0000026a893d0980] RMS level dB: -15.306724",
+        "[Parsed_astats_0 @ 0000026a893d0980] Channel: 2",
+        "[Parsed_astats_0 @ 0000026a893d0980] Peak level dB: -0.829130",
+        "[Parsed_astats_0 @ 0000026a893d0980] RMS level dB: -14.762487",
+        "[Parsed_astats_0 @ 0000026a893d0980] Peak level dB: -0.829130",
+        "[Parsed_astats_0 @ 0000026a893d0980] RMS level dB: -15.026086"
+      ]
+    },
+    "1080p_upscaled_4step_warm": {
+      "bytes": 7338682,
+      "sha256": "64A2C1F1FAB9EDBBE7D179696107B4A9E2E05DE17F3CC05308F8F5C6D9E2941E",
+      "video": {
+        "codec": "h264",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 124,
+        "duration": 5.166688
+      },
+      "audio": {
+        "codec": "aac",
+        "sample_rate": 32000,
+        "channels": 2,
+        "duration": 5.166688
+      },
+      "blackdetect": [],
+      "astats": [
+        "[Parsed_astats_0 @ 000001ee56bc0a80] RMS level dB: -14.178990",
+        "[Parsed_astats_0 @ 000001ee56bc0a80] Channel: 2",
+        "[Parsed_astats_0 @ 000001ee56bc0a80] Peak level dB: -1.851790",
+        "[Parsed_astats_0 @ 000001ee56bc0a80] RMS level dB: -13.915835",
+        "[Parsed_astats_0 @ 000001ee56bc0a80] Peak level dB: -1.825226",
+        "[Parsed_astats_0 @ 000001ee56bc0a80] RMS level dB: -14.045420"
+      ]
+    }
+  }
 }

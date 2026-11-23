@@ -10,6 +10,8 @@ lightx2v_repo="${H3_LIGHTX2V_REPO:-Kijai/MiniMax-H3_comfy}"
 lightx2v_ref="${H3_LIGHTX2V_REF:-37ae5cbe1d6f2243484812fc511f9fa427b12a30}"
 turbo_repo="${H3_TURBO_MODEL_REPO:-larryvrh/MiniMax-H3-Turbo-Lora}"
 turbo_ref="${H3_TURBO_MODEL_REF:-43a74557ac3f6539db8e0f2a959d03feb7a81480}"
+pih3_repo="${H3_PIH3_MODEL_REPO:-Lakonik/pi-H3}"
+pih3_ref="${H3_PIH3_MODEL_REF:-4a864589b0fac3d14768f932c930c4dcf1a17b56}"
 models_root="/opt/ComfyUI/models"
 
 specs=()
@@ -111,8 +113,61 @@ case "$profile" in
       "779849816" "5A6EEBA171CF183020A4AD48774BB2968F29F8168AFD6EC17A04987F3528B4EA" \
       "$models_root/loras"
     ;;
+  experimental-turbo-v5)
+    add_spec \
+      "fl2va-pruned-int8" "$official_repo" "$official_ref" \
+      "diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors" \
+      "diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors" \
+      "20970379616" "E889202C41DAFB67B10D67B97F0D8541508036A6090AF23425A5C2615D03C47A" \
+      "$models_root"
+    add_official_common
+    add_spec \
+      "turbo-v5-experimental" "$turbo_repo" "$turbo_ref" \
+      "experimental_v5_step_600.bin" \
+      "loras/experimental_v5_step_600.bin" \
+      "10918430752" "A57E51BCE769D8D3934C0E90926E18F84FA915DD08F9981864D8BAFCEB4A3551" \
+      "$models_root/loras"
+    ;;
+  fl2va-pih3)
+    add_spec \
+      "fl2va-pruned-int8" "$official_repo" "$official_ref" \
+      "diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors" \
+      "diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors" \
+      "20970379616" "E889202C41DAFB67B10D67B97F0D8541508036A6090AF23425A5C2615D03C47A" \
+      "$models_root"
+    add_spec \
+      "text-nvfp4" "$official_repo" "$official_ref" \
+      "text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors" \
+      "text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors" \
+      "15687142551" "35A88D51044231FE332301D7A62AA81E3F2CBA62FEBEB446E2C1E3E0EF76F2C6" \
+      "$models_root"
+    add_spec \
+      "video-vae-int8" "$official_repo" "$official_ref" \
+      "vae/minimax_h3_video_vae_int8_convrot.safetensors" \
+      "vae/minimax_h3_video_vae_int8_convrot.safetensors" \
+      "3171670912" "9BB2D96F218C76BABD85E0611B85CA8FB330A90546C01A0005E8A58A59593410" \
+      "$models_root"
+    add_spec \
+      "audio-vae-fp32" "$official_repo" "$official_ref" \
+      "vae/minimax_h3_audio_vae_fp32.safetensors" \
+      "vae/minimax_h3_audio_vae_fp32.safetensors" \
+      "605254808" "8E505D95DD1561D47ABD43D4238FD40D9BB1AE9E147ED0A4CBA778D76AE4DB48" \
+      "$models_root"
+    add_spec \
+      "pih3-2step-dwd-int8" "$pih3_repo" "$pih3_ref" \
+      "pi_h3_2step_dwd_adapter_int8_convrot.safetensors" \
+      "loras/pi_h3_2step_dwd_adapter_int8_convrot.safetensors" \
+      "2192176240" "EF98527409EEE4EAEC8183265F4EE22D265680524237FAE7149DBC203E11E739" \
+      "$models_root/loras"
+    add_spec \
+      "pih3-4step-dwd-int8" "$pih3_repo" "$pih3_ref" \
+      "pi_h3_4step_dwd_adapter_int8_convrot.safetensors" \
+      "loras/pi_h3_4step_dwd_adapter_int8_convrot.safetensors" \
+      "2192176240" "A2FA1CAAE2CD4A12F85CC3ECCD2A360FE9DABF430623D47DECA619605E96EE6D" \
+      "$models_root/loras"
+    ;;
   *)
-    echo "H3_PROFILE must be fl2va, ref2va, fl2va-lightx2v, ref2va-lightx2v, or legacy-turbo; got: $profile" >&2
+    echo "H3_PROFILE must be fl2va, ref2va, fl2va-lightx2v, ref2va-lightx2v, legacy-turbo, experimental-turbo-v5, or fl2va-pih3; got: $profile" >&2
     exit 2
     ;;
 esac
